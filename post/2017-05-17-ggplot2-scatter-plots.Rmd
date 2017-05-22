@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Scatter Plots'
+date: '2016-03-09'
+slug: ggplot2-scatter-plots
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

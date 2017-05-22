@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsquared Academy Blog</title>
+    <link>/index.xml</link>
+    <description>Recent content on Rsquared Academy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 17 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>forcats: Working with factor data in R</title>
+      <link>/post/forcats-working-with-factor-data-in-r/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/forcats-working-with-factor-data-in-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Tidying data with tidyr</title>
+      <link>/post/tidying-data-with-tidyr/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidying-data-with-tidyr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Why you should know the Normal distribution?</title>
+      <link>/post/why-you-should-know-the-normal-distribution/</link>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-know-the-normal-distribution/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Why you should purrr?</title>
+      <link>/post/why-you-should-purrr/</link>
+      <pubDate>Wed, 03 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-purrr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to tibbles</title>
+      <link>/post/introduction-to-tibbles/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-tibbles/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Getting started with tidyverse</title>
+      <link>/post/getting-started-with-tidyverse/</link>
+      <pubDate>Thu, 06 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-started-with-tidyverse/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Working with strings in R using stringr</title>
+      <link>/post/working-with-strings-in-r-using-stringr/</link>
+      <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/working-with-strings-in-r-using-stringr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>How to work with dates in R</title>
+      <link>/post/how-to-work-with-dates-in-r/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-work-with-dates-in-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the 5th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate dataframes using the &lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn to work with date/time data in R using &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt;, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: methods&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
+## 
+##     date&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;Use &lt;code&gt;origin&lt;/code&gt; to get the origin for the &lt;code&gt;Date&lt;/code&gt; and other date/time objects in R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lubridate::origin&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18 15:36:54 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as &lt;em&gt;arrival&lt;/em&gt; and &lt;em&gt;departure&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Manipulation in R with dplyr</title>
+      <link>/post/data-manipulation-in-r-with-dplyr/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-manipulation-in-r-with-dplyr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Quick Guide: R &amp; SQLite</title>
+      <link>/post/quick-guide-r-sqlite/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quick-guide-r-sqlite/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>RMySQL for Beginners</title>
+      <link>/post/rmysql-for-beginners/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rmysql-for-beginners/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;objectives&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Objectives&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and load RMySQL package&lt;/li&gt;
+&lt;li&gt;Connect to a MySQL database from R&lt;/li&gt;
+&lt;li&gt;Display database information&lt;/li&gt;
+&lt;li&gt;List tables in the database&lt;/li&gt;
+&lt;li&gt;Create new table&lt;/li&gt;
+&lt;li&gt;Import data into R for analysis&lt;/li&gt;
+&lt;li&gt;Export data from R into MySQL&lt;/li&gt;
+&lt;li&gt;Remove tables and disconnect&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis. If you are using R for statistical analysis and a relational database for storing the data, you need to interact with the database in order to access the data sets.&lt;/p&gt;
+&lt;p&gt;One way to accomplish the above task is to export the data from the database in some file format and import the same into R. Similarly, if you have some data as a dataframe in R and want to store it in a database, you will need to export the data from R and import it into the database. This method can be very cumbersome and frustrating.&lt;/p&gt;
+&lt;p&gt;The RMySQL package was created to help R users to easily access a MySQL database from R. In order to take advantage of the features available in the package, you need the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Access to a MySQL database&lt;/li&gt;
+&lt;li&gt;Knowledge of basic SQL commmands&lt;/li&gt;
+&lt;li&gt;Latest verison of R (verison 3.3.3)&lt;/li&gt;
+&lt;li&gt;Latest version of RStudio (version 1.0.136)&lt;/li&gt;
+&lt;li&gt;RMySQL package (version 0.10.11)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/RMySQL/index.html&#34;&gt;RMySQL&lt;/a&gt; package allows you to access MySQL database form R. It was created by &lt;a href=&#34;http://biostat.mc.vanderbilt.edu/wiki/Main/JeffreyHorner&#34;&gt;Jeffrey Horner&lt;/a&gt; but is currently maintained by &lt;a href=&#34;https://github.com/jeroen&#34;&gt;Jeroen Ooms&lt;/a&gt;. The latest version of the pacakge is 0.10.11. You can install and load the package using the following commands:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install the package
+install.packages(&amp;#39;RMySQL&amp;#39;)
+
+# load the package
+library(RMySQL)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;connect-to-database&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Connect to Database&lt;/h3&gt;
+&lt;p&gt;We can establish a connection to a MySQL database using the &lt;code&gt;dbConnect()&lt;/code&gt; function. In order to connect to the database, we need to specify the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MySQL connection&lt;/li&gt;
+&lt;li&gt;database name&lt;/li&gt;
+&lt;li&gt;username&lt;/li&gt;
+&lt;li&gt;password&lt;/li&gt;
+&lt;li&gt;host details&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;con &amp;lt;- dbConnect(MySQL(), user = &amp;#39;root&amp;#39;, password = &amp;#39;password&amp;#39;,
+                 host = &amp;#39;localhost&amp;#39;, dbname = &amp;#39;dbname&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;connection-summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Connection Summary&lt;/h3&gt;
+&lt;p&gt;We can get a summary or metadata of the connection using &lt;code&gt;summary()&lt;/code&gt; function. We need to specify the name of the MySQL connection object for which we are seeking metadata. Let us look at the metadata of the MySQL connection object we just created:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(con)
+# &amp;lt;MySQLConnection:0,0&amp;gt;
+#    User: root
+#    Host: localhost
+#    Dbname: world
+#    Connection type: localhost via TCP/IP&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;database-info&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Database Info&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;dbGetInfo()&lt;/code&gt; function can be used to access information about the database to which we have established a connection. Among other things, it will return the following information about host, server and connection:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbGetInfo(con)
+# $host
+# [1]&amp;quot;localhost&amp;quot;
+# 
+# $user
+# [1]&amp;quot;root&amp;quot;
+# 
+# $dbname
+# [1]&amp;quot;world&amp;quot;
+# 
+# $conType
+# [1]&amp;quot;localhost via TCP/IP&amp;quot;
+# 
+# $serveVersion
+# [1]&amp;quot;5.7.9-log&amp;quot;
+# 
+# $protocolVersion
+# [1]10
+# 
+# $threadId
+# [1]7
+# 
+# $rsld
+# list()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;list-tables&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;List Tables&lt;/h3&gt;
+&lt;p&gt;Once we have successfully established a connection to a MySQL database, we can use the &lt;code&gt;dbListTables()&lt;/code&gt; function to assess the list of tables that are present in that particular database. We need to specify the name of the MySQL connection object for which we are seeking the list of tables.&lt;/p&gt;
+&lt;p&gt;Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of tables in the database
+dbListTables(con)
+# [1] &amp;quot;city&amp;quot;  &amp;quot;country&amp;quot; &amp;quot;countrylanguage&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, there are four tables in the database to which we established the connection through RMySQL package. In the &lt;code&gt;dbListTables()&lt;/code&gt; function, we have not specified the name of the database but the name of the MySQL connection object we created when we connected to the database.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;list-fields&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;List Fields&lt;/h3&gt;
+&lt;p&gt;To get a list of fields or columns in a particular table in the database, we can use the &lt;code&gt;dbListFields()&lt;/code&gt; function. We need to specify the name of the MySQL connection object as well as the table name. If the table exists in the database, the names of the fields will be returned.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of fields in table city
+dbListFields(con, &amp;quot;city&amp;quot;)
+# [1] &amp;quot;ID&amp;quot;          &amp;quot;Name&amp;quot;          &amp;quot;CountryCode&amp;quot;  &amp;quot;District&amp;quot; 
+# [5]&amp;quot;Population&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The name of the table must be enclosed in single/double quotes and the name of the fields is returned as a character vector.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;testing-data-types&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Testing Data Types&lt;/h3&gt;
+&lt;p&gt;To test the SQL data type of an object, we can use the &lt;code&gt;dbDataType()&lt;/code&gt; function. We need to specify the driver details as well as the object to test the SQL data type.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# data type
+dbDataType(RMySQL::MySQL(), &amp;quot;a&amp;quot;)
+# [1] &amp;quot;text&amp;quot;
+
+dbDataType(RMySQL::MySQL(), 1:5)
+# [1] &amp;quot;bigint&amp;quot;
+
+dbDataType(RMySQL::MySQL(), 1.5)
+# [1] &amp;quot;double&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;querying-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Querying Data&lt;/h3&gt;
+&lt;p&gt;There are three different methods of querying data from a database:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;import the complete table using &lt;code&gt;dbReadTable()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;send query and retrieve results usinf &lt;code&gt;dbGetQuery()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;submit query using &lt;code&gt;dbSendQuery()&lt;/code&gt; and fetch results using &lt;code&gt;dbFetch()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us explore each of the above methods one by one.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;import-table&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Import Table&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;dbReadTable()&lt;/code&gt; can be used to extract an entire table from a MySQL database. We can use this method only if the table is not very big. We need to specify the name of the MySQL connection object and the table. The name of the table must be enclosed in single/double quotes.&lt;/p&gt;
+&lt;p&gt;In the below example, we read the entire table named &lt;strong&gt;trial&lt;/strong&gt; from the database:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbReadTable(con, &amp;quot;trial&amp;quot;)
+#     x y
+# 1   1 a 
+# 2   2 b
+# 3   3 c
+# 4   4 d
+# 5   5 e
+# 6   6 f
+# 7   7 g
+# 8   8 h
+# 9   9 i
+# 10 10 j&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A complete guide to importing data into R</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Descriptive Statistics.. What?</title>
+      <link>/post/descriptive-statistics-what/</link>
+      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/descriptive-statistics-what/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub: GitHub Pages</title>
+      <link>/post/github-pages/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github-pages/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Git Command Line</title>
+      <link>/post/git-command-line/</link>
+      <pubDate>Wed, 07 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/git-command-line/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

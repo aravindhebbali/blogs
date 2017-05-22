@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>Data Visualization With R - Introduction &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Data Visualization With R - Introduction</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Aug 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This is the first post of the series <strong>Data Visualization With R</strong>. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using <a href="http://ggplot2.tidyverse.org/index.html">ggplot2</a> shortly.</p>
+<div id="what-is-data-visualization" class="section level3">
+<h3>What is data visualization?</h3>
+<p>In simple words, data visualization is the representation of data in graphical format.</p>
+<div class="figure">
+<img src="data-viz.png" alt="data-viz" />
+<p class="caption">data-viz</p>
+</div>
+</div>
+<div id="why-visualize-data" class="section level3">
+<h3>Why visualize data?</h3>
+<ul>
+<li>Explore: Visualization helps in exploring and explaining patterns and trends</li>
+<li>Detect: Patterns or anomalies in data can be detected by looking at graphs</li>
+<li>Make sense: Possible to make sense of large amount of data efficiently and in time</li>
+<li>Communicate: Easy to communicate and share the insights from data</li>
+</ul>
+<p>Compare the below output and the boxplot and you will agree that</p>
+<p><strong>A picture is worth a thousand words</strong></p>
+<pre class="r"><code>by(mtcars$mpg, mtcars$cyl, summary)</code></pre>
+<pre><code>## mtcars$cyl: 4
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   21.40   22.80   26.00   26.66   30.40   33.90 
+## -------------------------------------------------------- 
+## mtcars$cyl: 6
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   17.80   18.65   19.70   19.74   21.00   21.40 
+## -------------------------------------------------------- 
+## mtcars$cyl: 8
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   10.40   14.40   15.20   15.10   16.25   19.20</code></pre>
+<div class="figure">
+<img src="pic1000.jpeg" alt="pic1000" />
+<p class="caption">pic1000</p>
+</div>
+</div>
+<div id="r-graphics-system" class="section level3">
+<h3>R Graphics System</h3>
+<p>R has 3 main packages for data visualization:</p>
+<div id="graphics" class="section level4">
+<h4>Graphics</h4>
+<p>It is part of base R and is the fundamental package for visualizing data. It has a lot of good features and we can create all the basic plots using it.</p>
+</div>
+<div id="ggplot2" class="section level4">
+<h4>ggplot2</h4>
+<p><a href="http://ggplot2.tidyverse.org/index.html">ggplot2</a>, created by Hadley Wickham, is based on the Grammar of Graphics written by Leland Wilkinson. It has a structured approach to data visualization and builds upon the features available in the Graphics and Lattice packages.</p>
+</div>
+<div id="lattice" class="section level4">
+<h4>Lattice</h4>
+<p>The <a href="https://CRAN.R-project.org/package=lattice">lattice</a> package is inspired by Trellis Graphics and created by <a href="http://www.isid.ac.in/~deepayan/">Deepayan Sarkar</a>. It is a very powerful data visualization system with an emphasis on multivariate data.</p>
+</div>
+</div>
+</div>
+<div id="plot-basics" class="section level2">
+<h2>Plot Basics</h2>
+<p>The <code>plot()</code> function is the fundamental tool to build plots in the <strong>Graphics</strong> package. It is a generic function and creates appropriate plot based on the input received from the user. In this post, we will explore the <code>plot()</code> function using differnt types of data and observe the corresponding plots created. We will use the <code>mtcars</code> data set throughout this section.</p>
+<p>Use the <code>help()</code> function to learn more about the <code>plot()</code> function and the <code>mtcars</code> data set.</p>
+<pre class="r"><code>help(plot)
+help(mtcars)</code></pre>
+<div id="mtcars" class="section level3">
+<h3>mtcars</h3>
+<p>Let us take a quick look at the <code>mtcars</code> data set before we build the plots:</p>
+<pre class="r"><code># overview
+head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre class="r"><code># variable info
+str(mtcars)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<p>Now that we have some idea about the data set, let us explore the <code>plot()</code> function. We will use the following different data inputs and observe the kind of plots that are generated:</p>
+<ul>
+<li>Case 1: 1 continuous variable</li>
+<li>Case 2: 1 categorical variable</li>
+<li>Case 3: 2 continuous variables</li>
+<li>Case 4: 2 categorical variables</li>
+<li>Case 5: 1 continuous and 1 categorical variable</li>
+<li>Case 6: 1 categorical and 1 continuous variable</li>
+</ul>
+<p><em>Case 5 and 6 might look similar but the difference lies in the variables being assigned to the X and Y axes.</em></p>
+</div>
+<div id="case-1-one-continuous-variable" class="section level3">
+<h3>Case 1: One continuous variable</h3>
+<p>We will us the variable <code>mpg</code> (Miles per Gallon).</p>
+<pre class="r"><code>plot(mtcars$mpg)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The <code>plot()</code> function creates a <strong>Scatter Plot</strong> when a single continuous variable is used as the input. We cannot infer much from this plot. Let us plot a categorical variable and see what happens.</p>
+</div>
+<div id="case-2-one-categorical-variable" class="section level3">
+<h3>Case 2: One categorical variable</h3>
+<p>Let us use the <code>cyl</code> (number of cylinders) variable for this case but before we create the plot, the variable must be converted to type <code>factor</code> using the <code>as.factor()</code> function:</p>
+<pre class="r"><code>plot(as.factor(mtcars$cyl))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The <code>plot()</code> function creates a <strong>Bar Plot</strong> when the input is a factor/categorical variable.</p>
+</div>
+<div id="case-3-two-continuous-variables" class="section level3">
+<h3>Case 3: Two continuous variables</h3>
+<p>So far we have used only 1 variable as the input for the <code>plot()</code> function but from now on we will use 2 variables. In this case, let us look at the relationship between <code>disp</code> (displacement) and <code>mpg</code> (mileage) of the cars. <code>disp</code> is represented by the X axis and <code>mpg</code> by the Y axis.</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The <strong>Scatter Plot</strong> created represents the relationship between <code>disp</code> and <code>mpg</code>.</p>
+</div>
+<div id="case-4-two-categorical-variables" class="section level3">
+<h3>Case 4: Two categorical variables</h3>
+<p>In this case, we will use <code>am</code> (transmission type) and <code>cyl</code> (number of cylinders). <code>am</code> will be represented by the X axis and <code>cyl</code> by the Y axis.</p>
+<pre class="r"><code>plot(as.factor(mtcars$am), as.factor(mtcars$cyl))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>A <strong>stacked bar plot</strong> is created when the inputs to the <code>plot()</code> function are factor/categorical. In the next 2 cases, we will use a combination of both continuous and categorical variables.</p>
+</div>
+<div id="case-5-continuouscategorical-variable" class="section level3">
+<h3>Case 5: Continuous/Categorical variable</h3>
+<p>In this case, we will use 1 continuous and 1 categorical variable. Let us use <code>mpg</code> and <code>cyl</code>. <code>mpg</code> will be represented on the X axis and <code>cyl</code> on the Y axis.</p>
+<pre class="r"><code>plot(mtcars$mpg, mtcars$cyl)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>A <strong>scatter plot</strong> is created but we cannot infer much from this type of plot.</p>
+</div>
+<div id="case-6-categoricalcontinuous-variable" class="section level3">
+<h3>Case 6: Categorical/Continuous variable</h3>
+<p>In this case, we will use 1 categorical and 1 continuous variable. Let us use <code>cyl</code> and <code>mpg</code>. <code>cyl</code> will be represented on the X axis and <code>mpg</code> on the Y axis.</p>
+<pre class="r"><code>plot(as.factor(mtcars$cyl), mtcars$mpg)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot6-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>A <strong>box plot</strong> is generated and we can examine the distribution of <code>mpg</code> for the different levels of <code>cyl</code>.</p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In this first post, we have explored the <code>plot()</code> function to understand the different types of plots it can create based on the input types. Before we begin to build different plots such as bar plots, box plots, scatter plots or line plots, we will quickly learn how to add title and labels to a plot. In the next post, we will learn the following:</p>
+<ul>
+<li>Title &amp; subtitle</li>
+<li>Axis labels &amp; range</li>
+<li>Color, font style and size</li>
+</ul>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/apply-family-functions/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/apply-family-functions/">apply family of functions</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/data-visualization-with-r-title-and-axis-labels/">Data Visualization With R - Title and Axis Labels</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/data-visualization-with-r-title-and-axis-labels/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

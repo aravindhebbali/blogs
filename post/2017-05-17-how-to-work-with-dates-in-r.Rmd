@@ -1,0 +1,39 @@
+---
+title: How to work with dates in R
+date: '2017-03-09'
+slug: how-to-work-with-dates-in-r
+topics:
+  - data-wrangling
+tags:
+  - lubridate
+draft: yes
+---
+
+## Introduction
+
+This is the 5th post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/), we learnt to manipulate dataframes using the [dplyr](https://CRAN.R-project.org/package=dplyr) package. In this post, we will learn to work with date/time data in R using [lubridate]( https://CRAN.R-project.org/package=lubridate), an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
+
+```{r install-lubridate, echo=FALSE}
+library(lubridate)
+```
+
+### Quick Overview
+
+Use `origin` to get the origin for the `Date` and other date/time objects in R.
+
+```{r origin}
+lubridate::origin
+```
+
+There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:
+
+```{r today}
+now()
+today()
+am(now())  
+pm(now())
+```
+
+In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as *arrival* and *departure*.
+
+

@@ -1,0 +1,11 @@
+---
+title: Vectors
+date: '2015-02-20'
+slug: introduction-to-vectors
+topics:
+  - r-introduction
+tags:
+  - vectors
+draft: yes
+---
+

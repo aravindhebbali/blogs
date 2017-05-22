@@ -1,0 +1,13 @@
+---
+title: 'RStudio 2 GitHub: Git Project Workflow'
+date: '2016-11-10'
+slug: git-project-workflow
+topics:
+  - git and github
+tags:
+  - git
+  - github
+  - version control
+draft: yes
+---
+

@@ -1,0 +1,13 @@
+---
+title: Data Visualization with R - Histogram
+date: '2015-11-06'
+slug: data-visualization-with-r-histogram
+topics:
+  - data-visualization
+tags:
+  - base
+  - visualization
+  - histogram
+draft: yes
+---
+

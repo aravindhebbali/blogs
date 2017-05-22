@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Histogram'
+date: '2016-05-06'
+slug: ggplot2-histogram
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

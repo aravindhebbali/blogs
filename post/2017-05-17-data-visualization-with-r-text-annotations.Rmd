@@ -1,0 +1,14 @@
+---
+title: Data Visualization with R - Text Annotations
+date: '2015-12-08'
+slug: data-visualization-with-r-text-annotations
+topics:
+  - data-visualization
+tags:
+  - base
+  - visualization
+  - text
+  - annotations
+draft: yes
+---
+

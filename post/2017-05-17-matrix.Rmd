@@ -1,0 +1,11 @@
+---
+title: Matrix
+date: '2015-03-10'
+slug: introduction-to-matrix
+topics:
+  - r-introduction
+tags:
+  - matrix
+draft: yes
+---
+

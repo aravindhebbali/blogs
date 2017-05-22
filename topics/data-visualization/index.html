@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>Data Visualization &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Rsquared Academy Blog" href="../../topics/data-visualization/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="../../topics/data-visualization/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Data Visualization</h1>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-font-color-size/">Data Visualization with R - Font, Color &amp; Size</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>26 Dec 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-combining-plots/">Data Visualization with R - Combining Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>17 Dec 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/facets">facets</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-text-annotations/">Data Visualization with R - Text Annotations</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Dec 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/text">text</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/annotations">annotations</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-legends/">Data Visualization with R - Legends</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Nov 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/legend">legend</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-histogram/">Data Visualization with R - Histogram</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Nov 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/histogram">histogram</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-box-plots/">Data Visualization with R - Box Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>21 Oct 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/box-plot">box plot</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-bar-plots/">Data Visualization With R - Bar Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Oct 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/bar-plot">bar plot</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-line-graphs/">Data Visualization With R - Line Graphs</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Sep 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
+create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plotLine GraphTo build a line graph, we will learn a new argument in the plot() function called type.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-visualization-with-r-line-graphs/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-scatter-plots/">Data Visualization With R - Scatter Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>07 Sep 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-visualization-with-r-scatter-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-title-and-axis-labels/">Data Visualization With R - Title and Axis Labels</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Aug 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the second post of the series Data Visualization With R. In the previous post, we explored the plot() function and observed the different types of plots it generated. In this post, we will learn how to add:
+TitleSubtitleAxis Labelsto a plot and how to modify:
+Axis rangeIn the previous post, we created plots which did not have any title or labels.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-visualization-with-r-title-and-axis-labels/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-visualization-with-r-introduction/">Data Visualization With R - Introduction</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Aug 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the first post of the series Data Visualization With R. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using ggplot2 shortly.
+What is data visualization?In simple words, data visualization is the representation of data in graphical format.
+data-viz
+Why visualize data?Explore: Visualization helps in exploring and explaining patterns and trendsDetect: Patterns or anomalies in data can be detected by looking at graphsMake sense: Possible to make sense of large amount of data efficiently and in timeCommunicate: Easy to communicate and share the insights from dataCompare the below output and the boxplot and you will agree that
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-visualization-with-r-introduction/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+
+
+</body>
+</html>

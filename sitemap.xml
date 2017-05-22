@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/post/forcats-working-with-factor-data-in-r/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/tidying-data-with-tidyr/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/why-you-should-know-the-normal-distribution/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/why-you-should-purrr/</loc>
+    <lastmod>2017-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-tibbles/</loc>
+    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/getting-started-with-tidyverse/</loc>
+    <lastmod>2017-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/working-with-strings-in-r-using-stringr/</loc>
+    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-to-work-with-dates-in-r/</loc>
+    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-manipulation-in-r-with-dplyr/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/quick-guide-r-sqlite/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/rmysql-for-beginners/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/a-complete-guide-to-importing-data-into-r/</loc>
+    <lastmod>2017-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/descriptive-statistics-what/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/github-pages/</loc>
+    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/git-command-line/</loc>
+    <lastmod>2016-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/git-branch-workflow/</loc>
+    <lastmod>2016-11-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/git-project-workflow/</loc>
+    <lastmod>2016-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/configure-rstudio/</loc>
+    <lastmod>2016-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/quick-introduction-to-github/</loc>
+    <lastmod>2016-10-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/install-git/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-version-control/</loc>
+    <lastmod>2016-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/rmarkdown-tutorial-for-beginners/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-extensions/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-facets-combine-multiple-plots/</loc>
+    <lastmod>2016-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-themes/</loc>
+    <lastmod>2016-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-text-annotations/</loc>
+    <lastmod>2016-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-statistical-plots/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/subscribe/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/start-here/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-histogram/</loc>
+    <lastmod>2016-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-box-plots/</loc>
+    <lastmod>2016-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-bar-plots/</loc>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-line-graphs/</loc>
+    <lastmod>2016-03-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-scatter-plots/</loc>
+    <lastmod>2016-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-introduction-to-aesthetics/</loc>
+    <lastmod>2016-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-quick-tour/</loc>
+    <lastmod>2016-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ggplot2-introduction-to-geoms/</loc>
+    <lastmod>2016-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-ggplot2/</loc>
+    <lastmod>2016-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-font-color-size/</loc>
+    <lastmod>2015-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-combining-plots/</loc>
+    <lastmod>2015-12-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-text-annotations/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-legends/</loc>
+    <lastmod>2015-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-histogram/</loc>
+    <lastmod>2015-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-box-plots/</loc>
+    <lastmod>2015-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-bar-plots/</loc>
+    <lastmod>2015-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-line-graphs/</loc>
+    <lastmod>2015-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-scatter-plots/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-title-and-axis-labels/</loc>
+    <lastmod>2015-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-visualization-with-r-introduction/</loc>
+    <lastmod>2015-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/apply-family-functions/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/functions/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/loops/</loc>
+    <lastmod>2015-06-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/control-flow/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/beginners-guide-to-r-package-ecosystem/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/getting-help-in-r/</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-dataframes/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-factors/</loc>
+    <lastmod>2015-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-lists/</loc>
+    <lastmod>2015-03-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-matrix/</loc>
+    <lastmod>2015-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-vectors/</loc>
+    <lastmod>2015-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-types-in-r/</loc>
+    <lastmod>2015-02-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-rstudio/</loc>
+    <lastmod>2015-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-r/</loc>
+    <lastmod>2015-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/annotations/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/apply/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/bar-plot/</loc>
+    <lastmod>2015-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/base/</loc>
+    <lastmod>2015-12-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/box-plot/</loc>
+    <lastmod>2015-10-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/control-flow/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dapply/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/data/</loc>
+    <lastmod>2017-01-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/data-visualization/</loc>
+    <lastmod>2015-12-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/data-wrangling/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/database/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dataframe/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/descriptive/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/descriptr/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/distribution/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dplyr/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/facets/</loc>
+    <lastmod>2015-12-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/factors/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/forcats/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/functions/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/ggplot2/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/git/</loc>
+    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/git-and-github/</loc>
+    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/github/</loc>
+    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/help/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/histogram/</loc>
+    <lastmod>2015-11-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/import/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/intro/</loc>
+    <lastmod>2015-01-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/knitr/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lapply/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/legend/</loc>
+    <lastmod>2015-11-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lists/</loc>
+    <lastmod>2015-03-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/loops/</loc>
+    <lastmod>2015-06-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lubridate/</loc>
+    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mapply/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/markdown/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/matrix/</loc>
+    <lastmod>2015-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mysql/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/normal/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/packages/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/purrr/</loc>
+    <lastmod>2017-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/r-introduction/</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/r-programming/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rmarkdown/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/rmarkdown/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rmysql/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rsqlite/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2016-09-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sapply/</loc>
+    <lastmod>2015-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sqlite/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/statistical-distributions/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/statistics/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/statistics/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/stringr/</loc>
+    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/strings/</loc>
+    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/text/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tibble/</loc>
+    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyr/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2017-04-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/vectors/</loc>
+    <lastmod>2015-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/version-control/</loc>
+    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/visualization/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

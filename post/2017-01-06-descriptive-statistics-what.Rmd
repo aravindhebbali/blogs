@@ -1,0 +1,13 @@
+---
+title: Descriptive Statistics.. What?
+date: '2017-01-06'
+slug: descriptive-statistics-what
+topics:
+  - statistics
+tags:
+  - statistics
+  - descriptive
+  - descriptr
+draft: yes
+---
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lubridate on Rsquared Academy Blog</title>
+    <link>/tags/lubridate/index.xml</link>
+    <description>Recent content in Lubridate on Rsquared Academy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
+    <atom:link href="/tags/lubridate/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to work with dates in R</title>
+      <link>/post/how-to-work-with-dates-in-r/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-work-with-dates-in-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the 5th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate dataframes using the &lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn to work with date/time data in R using &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt;, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: methods&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
+## 
+##     date&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;Use &lt;code&gt;origin&lt;/code&gt; to get the origin for the &lt;code&gt;Date&lt;/code&gt; and other date/time objects in R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lubridate::origin&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18 15:36:54 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as &lt;em&gt;arrival&lt;/em&gt; and &lt;em&gt;departure&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

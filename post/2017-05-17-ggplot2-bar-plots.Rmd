@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Bar Plots'
+date: '2016-04-07'
+slug: ggplot2-bar-plots
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

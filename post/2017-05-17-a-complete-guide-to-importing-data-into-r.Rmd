@@ -1,0 +1,12 @@
+---
+title: A complete guide to importing data into R
+date: '2017-01-08'
+slug: a-complete-guide-to-importing-data-into-r
+topics:
+  - data-wrangling
+tags:
+  - import
+  - data
+draft: yes
+---
+

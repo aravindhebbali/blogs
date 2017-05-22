@@ -1,0 +1,12 @@
+---
+title: 'forcats: Working with factor data in R'
+date: '2017-05-17'
+slug: forcats-working-with-factor-data-in-r
+categories:
+  - data-wrangling
+tags:
+  - factors
+  - forcats
+draft: yes
+---
+

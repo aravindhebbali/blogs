@@ -1,0 +1,12 @@
+---
+title: Data Visualization with R - Font, Color & Size
+date: '2015-12-26'
+slug: data-visualization-with-r-font-color-size
+topics:
+  - data-visualization
+tags:
+  - base
+  - visualization
+draft: yes
+---
+

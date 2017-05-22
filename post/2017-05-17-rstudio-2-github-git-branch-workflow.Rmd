@@ -1,0 +1,13 @@
+---
+title: 'RStudio 2 GitHub: Git Branch Workflow'
+date: '2016-11-24'
+slug: git-branch-workflow
+topics:
+  - git and github
+tags:
+  - git
+  - github
+  - version control
+draft: yes
+---
+

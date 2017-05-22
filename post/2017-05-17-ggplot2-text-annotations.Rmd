@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Text Annotations'
+date: '2016-06-10'
+slug: ggplot2-text-annotations
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

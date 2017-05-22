@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Introduction to geoms'
+date: '2016-02-05'
+slug: ggplot2-introduction-to-geoms
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

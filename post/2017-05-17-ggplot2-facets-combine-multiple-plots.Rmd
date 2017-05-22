@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Facets (Combine multiple plots)'
+date: '2016-07-08'
+slug: ggplot2-facets-combine-multiple-plots
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

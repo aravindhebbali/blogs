@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Statistical Plots'
+date: '2016-05-23'
+slug: ggplot2-statistical-plots
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

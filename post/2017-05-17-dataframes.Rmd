@@ -1,0 +1,11 @@
+---
+title: Dataframes
+date: '2015-04-23'
+slug: introduction-to-dataframes
+topics:
+  - r-introduction
+tags:
+  - dataframe
+draft: yes
+---
+

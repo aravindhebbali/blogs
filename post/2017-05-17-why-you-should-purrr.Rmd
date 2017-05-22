@@ -1,0 +1,11 @@
+---
+title: Why you should purrr?
+date: '2017-05-03'
+slug: why-you-should-purrr
+topics:
+  - data-wrangling
+tags:
+  - purrr
+draft: yes
+---
+

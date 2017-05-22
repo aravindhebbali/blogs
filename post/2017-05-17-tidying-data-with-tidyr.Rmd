@@ -1,0 +1,11 @@
+---
+title: Tidying data with tidyr
+date: '2017-05-15'
+slug: tidying-data-with-tidyr
+topics:
+  - data-wrangling
+tags:
+  - tidyr
+draft: yes
+---
+

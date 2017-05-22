@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>RMySQL for Beginners &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>RMySQL for Beginners</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Jan 2017, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/mysql">mysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/rmysql">rmysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/database">database</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<div id="objectives" class="section level3">
+<h3>Objectives</h3>
+<ul>
+<li>Install and load RMySQL package</li>
+<li>Connect to a MySQL database from R</li>
+<li>Display database information</li>
+<li>List tables in the database</li>
+<li>Create new table</li>
+<li>Import data into R for analysis</li>
+<li>Export data from R into MySQL</li>
+<li>Remove tables and disconnect</li>
+</ul>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>In real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis. If you are using R for statistical analysis and a relational database for storing the data, you need to interact with the database in order to access the data sets.</p>
+<p>One way to accomplish the above task is to export the data from the database in some file format and import the same into R. Similarly, if you have some data as a dataframe in R and want to store it in a database, you will need to export the data from R and import it into the database. This method can be very cumbersome and frustrating.</p>
+<p>The RMySQL package was created to help R users to easily access a MySQL database from R. In order to take advantage of the features available in the package, you need the following:</p>
+<ul>
+<li>Access to a MySQL database</li>
+<li>Knowledge of basic SQL commmands</li>
+<li>Latest verison of R (verison 3.3.3)</li>
+<li>Latest version of RStudio (version 1.0.136)</li>
+<li>RMySQL package (version 0.10.11)</li>
+</ul>
+</div>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
+<p><a href="https://cran.r-project.org/web/packages/RMySQL/index.html">RMySQL</a> package allows you to access MySQL database form R. It was created by <a href="http://biostat.mc.vanderbilt.edu/wiki/Main/JeffreyHorner">Jeffrey Horner</a> but is currently maintained by <a href="https://github.com/jeroen">Jeroen Ooms</a>. The latest version of the pacakge is 0.10.11. You can install and load the package using the following commands:</p>
+<pre class="r"><code># install the package
+install.packages(&#39;RMySQL&#39;)
+
+# load the package
+library(RMySQL)</code></pre>
+</div>
+<div id="connect-to-database" class="section level3">
+<h3>Connect to Database</h3>
+<p>We can establish a connection to a MySQL database using the <code>dbConnect()</code> function. In order to connect to the database, we need to specify the following:</p>
+<ul>
+<li>MySQL connection</li>
+<li>database name</li>
+<li>username</li>
+<li>password</li>
+<li>host details</li>
+</ul>
+<p>Below is an example:</p>
+<pre class="r"><code>con &lt;- dbConnect(MySQL(), user = &#39;root&#39;, password = &#39;password&#39;,
+                 host = &#39;localhost&#39;, dbname = &#39;dbname&#39;)</code></pre>
+</div>
+<div id="connection-summary" class="section level3">
+<h3>Connection Summary</h3>
+<p>We can get a summary or metadata of the connection using <code>summary()</code> function. We need to specify the name of the MySQL connection object for which we are seeking metadata. Let us look at the metadata of the MySQL connection object we just created:</p>
+<pre class="r"><code>summary(con)
+# &lt;MySQLConnection:0,0&gt;
+#    User: root
+#    Host: localhost
+#    Dbname: world
+#    Connection type: localhost via TCP/IP</code></pre>
+</div>
+<div id="database-info" class="section level3">
+<h3>Database Info</h3>
+<p>The <code>dbGetInfo()</code> function can be used to access information about the database to which we have established a connection. Among other things, it will return the following information about host, server and connection:</p>
+<pre class="r"><code>dbGetInfo(con)
+# $host
+# [1]&quot;localhost&quot;
+# 
+# $user
+# [1]&quot;root&quot;
+# 
+# $dbname
+# [1]&quot;world&quot;
+# 
+# $conType
+# [1]&quot;localhost via TCP/IP&quot;
+# 
+# $serveVersion
+# [1]&quot;5.7.9-log&quot;
+# 
+# $protocolVersion
+# [1]10
+# 
+# $threadId
+# [1]7
+# 
+# $rsld
+# list()</code></pre>
+</div>
+<div id="list-tables" class="section level3">
+<h3>List Tables</h3>
+<p>Once we have successfully established a connection to a MySQL database, we can use the <code>dbListTables()</code> function to assess the list of tables that are present in that particular database. We need to specify the name of the MySQL connection object for which we are seeking the list of tables.</p>
+<p>Below is an example:</p>
+<pre class="r"><code># list of tables in the database
+dbListTables(con)
+# [1] &quot;city&quot;  &quot;country&quot; &quot;countrylanguage&quot; &quot;mtcars&quot;</code></pre>
+<p>As you can see, there are four tables in the database to which we established the connection through RMySQL package. In the <code>dbListTables()</code> function, we have not specified the name of the database but the name of the MySQL connection object we created when we connected to the database.</p>
+</div>
+<div id="list-fields" class="section level3">
+<h3>List Fields</h3>
+<p>To get a list of fields or columns in a particular table in the database, we can use the <code>dbListFields()</code> function. We need to specify the name of the MySQL connection object as well as the table name. If the table exists in the database, the names of the fields will be returned.</p>
+<pre class="r"><code># list of fields in table city
+dbListFields(con, &quot;city&quot;)
+# [1] &quot;ID&quot;          &quot;Name&quot;          &quot;CountryCode&quot;  &quot;District&quot; 
+# [5]&quot;Population&quot; </code></pre>
+<p>The name of the table must be enclosed in single/double quotes and the name of the fields is returned as a character vector.</p>
+</div>
+<div id="testing-data-types" class="section level3">
+<h3>Testing Data Types</h3>
+<p>To test the SQL data type of an object, we can use the <code>dbDataType()</code> function. We need to specify the driver details as well as the object to test the SQL data type.</p>
+<pre class="r"><code># data type
+dbDataType(RMySQL::MySQL(), &quot;a&quot;)
+# [1] &quot;text&quot;
+
+dbDataType(RMySQL::MySQL(), 1:5)
+# [1] &quot;bigint&quot;
+
+dbDataType(RMySQL::MySQL(), 1.5)
+# [1] &quot;double&quot;</code></pre>
+</div>
+<div id="querying-data" class="section level3">
+<h3>Querying Data</h3>
+<p>There are three different methods of querying data from a database:</p>
+<ul>
+<li>import the complete table using <code>dbReadTable()</code></li>
+<li>send query and retrieve results usinf <code>dbGetQuery()</code></li>
+<li>submit query using <code>dbSendQuery()</code> and fetch results using <code>dbFetch()</code></li>
+</ul>
+<p>Let us explore each of the above methods one by one.</p>
+</div>
+<div id="import-table" class="section level3">
+<h3>Import Table</h3>
+<p>The <code>dbReadTable()</code> can be used to extract an entire table from a MySQL database. We can use this method only if the table is not very big. We need to specify the name of the MySQL connection object and the table. The name of the table must be enclosed in single/double quotes.</p>
+<p>In the below example, we read the entire table named <strong>trial</strong> from the database:</p>
+<pre class="r"><code>dbReadTable(con, &quot;trial&quot;)
+#     x y
+# 1   1 a 
+# 2   2 b
+# 3   3 c
+# 4   4 d
+# 5   5 e
+# 6   6 f
+# 7   7 g
+# 8   8 h
+# 9   9 i
+# 10 10 j</code></pre>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/a-complete-guide-to-importing-data-into-r/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/a-complete-guide-to-importing-data-into-r/">A complete guide to importing data into R</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/quick-guide-r-sqlite/">Quick Guide: R &amp; SQLite</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/quick-guide-r-sqlite/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

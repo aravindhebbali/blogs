@@ -1,0 +1,11 @@
+---
+title: Introduction to RStudio
+date: '2015-01-25'
+slug: introduction-to-rstudio
+topics:
+  - r-introduction
+tags:
+  - rstudio
+draft: yes
+---
+

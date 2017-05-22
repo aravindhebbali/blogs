@@ -1,0 +1,13 @@
+---
+title: Data Visualization with R - Combining Plots
+date: '2015-12-17'
+slug: data-visualization-with-r-combining-plots
+topics:
+  - data-visualization
+tags:
+  - base
+  - visualization
+  - facets
+draft: yes
+---
+

@@ -1,0 +1,13 @@
+---
+title: Data Visualization with R - Legends
+date: '2015-11-25'
+slug: data-visualization-with-r-legends
+topics:
+  - data-visualization
+tags:
+  - base
+  - visualization
+  - legend
+draft: yes
+---
+

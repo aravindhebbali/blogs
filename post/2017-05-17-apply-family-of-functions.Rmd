@@ -1,0 +1,15 @@
+---
+title: apply family of functions
+date: '2015-07-20'
+slug: apply-family-functions
+topics:
+  - r-programming
+tags:
+  - apply
+  - lapply
+  - sapply
+  - mapply
+  - dapply
+draft: yes
+---
+

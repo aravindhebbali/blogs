@@ -1,0 +1,12 @@
+---
+title: Data Visualization With R - Bar Plots
+date: '2015-10-05'
+slug: data-visualization-with-r-bar-plots
+topics:
+  - data-visualization
+tags:
+  - bar plot
+  - visualization
+draft: yes
+---
+

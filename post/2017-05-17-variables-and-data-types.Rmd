@@ -1,0 +1,12 @@
+---
+title: Variables and Data Types
+date: '2017-05-17'
+slug: variables-and-data-types
+topics:
+  - r-introduction
+tags:
+  - intro
+  - data
+draft: yes
+---
+

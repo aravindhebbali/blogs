@@ -1,0 +1,11 @@
+---
+title: Data Types in R
+date: '2015-02-07'
+slug: data-types-in-r
+topics:
+  - R Programming
+tags:
+  - data
+draft: yes
+---
+

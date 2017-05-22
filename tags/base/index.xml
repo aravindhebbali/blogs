@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Base on Rsquared Academy Blog</title>
+    <link>/tags/base/index.xml</link>
+    <description>Recent content in Base on Rsquared Academy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
+    <atom:link href="/tags/base/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Data Visualization with R - Font, Color &amp; Size</title>
+      <link>/post/data-visualization-with-r-font-color-size/</link>
+      <pubDate>Sat, 26 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-font-color-size/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Combining Plots</title>
+      <link>/post/data-visualization-with-r-combining-plots/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-combining-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Text Annotations</title>
+      <link>/post/data-visualization-with-r-text-annotations/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-text-annotations/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Legends</title>
+      <link>/post/data-visualization-with-r-legends/</link>
+      <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-legends/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Histogram</title>
+      <link>/post/data-visualization-with-r-histogram/</link>
+      <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-histogram/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Box Plots</title>
+      <link>/post/data-visualization-with-r-box-plots/</link>
+      <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-box-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Line Graphs</title>
+      <link>/post/data-visualization-with-r-line-graphs/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-line-graphs/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This is the fourth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-scatter-plots/&#34;&gt;post&lt;/a&gt;, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create line plots&lt;/li&gt;
+&lt;li&gt;add color to lines&lt;/li&gt;
+&lt;li&gt;modify line type/style&lt;/li&gt;
+&lt;li&gt;modify line width&lt;/li&gt;
+&lt;li&gt;add points to the lines&lt;/li&gt;
+&lt;li&gt;modify axis range&lt;/li&gt;
+&lt;li&gt;add additional lines to the plot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;line-graph&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Line Graph&lt;/h4&gt;
+&lt;p&gt;To build a line graph, we will learn a new argument in the &lt;code&gt;plot()&lt;/code&gt; function called &lt;code&gt;type&lt;/code&gt;. It allows us to specify the symbol that must be used to represent the data. Let us begin by building a simple line graph. We will use the &lt;code&gt;AirPassengers&lt;/code&gt; data set in this post. Before we begin to build the plot, let us take a quick look at the data in order to understand what we are plotting.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(AirPassengers)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 112 118 132 129 121 135&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In order to build a line plot, we will set the &lt;code&gt;type&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function to &lt;strong&gt;l&lt;/strong&gt; (line). There are other values which &lt;code&gt;type&lt;/code&gt; takes but we will explore them later.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- head(AirPassengers)
+plot(data, type = &amp;#39;l&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you do not like plain lines, you can represent the data using lines interspersed with points by setting the &lt;code&gt;type&lt;/code&gt; argument to &lt;strong&gt;b&lt;/strong&gt; (both lines and points).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;b&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Another option is to have the points and lines overplotted. It can be achieved by setting the &lt;code&gt;type&lt;/code&gt; argument to &lt;strong&gt;o&lt;/strong&gt; (overplotted).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;o&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can also create lines without points but with breaks instead by setting the &lt;code&gt;type&lt;/code&gt; argument to &lt;strong&gt;c&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;c&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Color&lt;/h4&gt;
+&lt;p&gt;So now we know how to build a simple line graph. Let us now make this plot more elegant by modifying its appearance. Let us begin by adding some color to the line using the &lt;code&gt;col&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;l&amp;#39;, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you have points along with the line, they will have the same color as well.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;b&amp;#39;, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-type&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Line Type&lt;/h4&gt;
+&lt;p&gt;The line type can be modified using the &lt;code&gt;lty&lt;/code&gt; argument. It takes values from 1 to 6 and the default value is 1. Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;l&amp;#39;, lty = 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line9-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1:solid&lt;/li&gt;
+&lt;li&gt;2:dashed&lt;/li&gt;
+&lt;li&gt;3:dotted&lt;/li&gt;
+&lt;li&gt;4:dotdash&lt;/li&gt;
+&lt;li&gt;5:longdash&lt;/li&gt;
+&lt;li&gt;6:twodash&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us look at all the line types in the below example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/lin7-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Instead of specifying the numbers 1:6, you can use their description as well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/lin8-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-width&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Line Width&lt;/h4&gt;
+&lt;p&gt;The width of the lines can be modified using the &lt;code&gt;lwd&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. The default value for width is 1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;l&amp;#39;, lwd = 2.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line10-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the below example, we look at the width of the lines relative to the default value.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/lin11-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;enhance-points&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Enhance Points&lt;/h4&gt;
+&lt;p&gt;We can enhance the points in the line plot in the same way as we enhanced the points in the scatter plot in this previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-scatter-plots/&#34;&gt;post&lt;/a&gt;. Let us look at an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;b&amp;#39;, pch = 23, col = &amp;#39;red&amp;#39;, cex = 1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line12-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We have used the &lt;code&gt;pch&lt;/code&gt;, &lt;code&gt;col&lt;/code&gt; and &lt;code&gt;cex&lt;/code&gt; arguments to modify the shape, color and size of the points. One drawback of the above method is that the color of the line and the points will be the same. What if we want them to have different colors? The solution is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;build the line graph using the &lt;code&gt;plot()&lt;/code&gt; function&lt;/li&gt;
+&lt;li&gt;add the points to the above plot using the &lt;code&gt;points()&lt;/code&gt; function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next example, let us first build the line plot, add points using the &lt;code&gt;points()&lt;/code&gt; function and then specify separate colors to the line and the points.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data, type = &amp;#39;l&amp;#39;, col = &amp;#39;red&amp;#39;)
+points(data, pch = 23, col = &amp;#39;blue&amp;#39;, bg = &amp;#39;green&amp;#39;, cex = 1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line13-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-lines&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Additional Lines&lt;/h4&gt;
+&lt;p&gt;If you want to compare variables, you would want to add additional lines to the line graph. In R, this can be achieved using the &lt;code&gt;lines()&lt;/code&gt; function. First we create the line plot using the base variable and then we can add as many lines as we want using the &lt;code&gt;lines()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before you add additional lines, it is important to ensure that the range of both the axis are modified to accommodate the data of the additional lines. If we do not modify the axis range, some of the lines will be outside the plot.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let us now create a line plot and add an additional line using the &lt;code&gt;lines()&lt;/code&gt; function.We will use some dummy data for this example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data1 &amp;lt;- c(7.2, 7.6, 6.8, 6.5, 7)
+data2 &amp;lt;- c(6.8, 7.2, 7.8, 7, 6.2)
+plot(data1, type = &amp;quot;b&amp;quot;, col = &amp;quot;blue&amp;quot;)
+lines(data2, type = &amp;quot;b&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line14-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As you can see the second line is outside the plot. Let us recreate the plot but this time we will modify the range of the axis to accommodate the second line (data2).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data1, type = &amp;quot;b&amp;quot;, col = &amp;quot;blue&amp;quot;, ylim = c(5, 9))
+lines(data2, type = &amp;quot;b&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line15-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally let us enhance the plot by adding a title and modifying the axis labels which we learnt in this first &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/&#34;&gt;post&lt;/a&gt; of the series.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(data1, type = &amp;quot;b&amp;quot;, col = &amp;quot;blue&amp;quot;, 
+     ylim = c(5, 9), main = &amp;#39;Line Graph&amp;#39;,
+     xlab = &amp;#39;Index&amp;#39;, ylab = &amp;#39;Data&amp;#39;)
+lines(data2, type = &amp;quot;b&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line16-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;In this post, we learnt how to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create line plots&lt;/li&gt;
+&lt;li&gt;modify appearance of the line&lt;/li&gt;
+&lt;li&gt;add points to the line plot&lt;/li&gt;
+&lt;li&gt;add additional lines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next post, we will learn how to build bar plots which are used to visualize a single categorical data or the relationship between two categorical variables.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Scatter Plots</title>
+      <link>/post/data-visualization-with-r-scatter-plots/</link>
+      <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-scatter-plots/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the third post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/&#34;&gt;post&lt;/a&gt;, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/&#34;&gt;post&lt;/a&gt;, using the &lt;code&gt;plot()&lt;/code&gt; function. We will continue with the same plot and learn how to enhance a scatter plot by&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;adding color to the points&lt;/li&gt;
+&lt;li&gt;modify shape of the points&lt;/li&gt;
+&lt;li&gt;modify size of the points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;basic-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Basic Plot&lt;/h3&gt;
+&lt;p&gt;Let us recreate the plot that we had created in the first post by using the &lt;code&gt;mtcars&lt;/code&gt; data set. We will use the &lt;code&gt;disp&lt;/code&gt; (displacement) and &lt;code&gt;mpg&lt;/code&gt; (miles per gallon) variables. &lt;code&gt;disp&lt;/code&gt; will be on the X axis and &lt;code&gt;mpg&lt;/code&gt; will be on the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We have created a very basic plot and any one looking at it for the first time will get confused with the axis labels &lt;code&gt;mtcars$disp&lt;/code&gt; and &lt;code&gt;mtcars$mpg&lt;/code&gt;. Let us put into practice what we learnt in the second &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/&#34;&gt;post&lt;/a&gt; and add a title to the plot, and make the axis labels more meaningful.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg,
+     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
+     xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now the plot clearly communicates that it represents the relationship between the displacement and mileage of cars. Now the color of the points in the plot is black by default. Some of us may agree that black is beautiful but not all of us will like it. As a first step in enhancing the way our plot looks, let us change the shape of the points.&lt;/p&gt;
+&lt;div id=&#34;shape&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Shape&lt;/h4&gt;
+&lt;p&gt;The shape of the point can be specified using the &lt;code&gt;pch&lt;/code&gt; argument. It will take values between &lt;strong&gt;0&lt;/strong&gt; and &lt;strong&gt;25&lt;/strong&gt;. Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# point shape
+plot(mtcars$disp, mtcars$mpg, pch = 6)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-shape-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Let us check out a few of the other shapes:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can specify the shape based on a third (categorical variable as well). In the below plot, the shape is based on the levels of the categorical variable &lt;code&gt;cyl&lt;/code&gt; (number of cylinders) from the &lt;code&gt;mtcars&lt;/code&gt; data set:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# shape  based on number of levels of a third variable
+plot(mtcars$disp, mtcars$mpg, pch = nlevels(factor(mtcars$cyl)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# shape based on a third categorical variable
+plot(mtcars$disp, mtcars$mpg, pch = unclass(mtcars$cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;size&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Size&lt;/h4&gt;
+&lt;p&gt;The size of the points in the scatter plot can be specified using the &lt;code&gt;cex&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. The default value for &lt;code&gt;cex&lt;/code&gt; is 1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# point size
+plot(mtcars$disp, mtcars$mpg, cex = 1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-size-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The below plots show the size of the points for values relative to 1.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-cex-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Color&lt;/h4&gt;
+&lt;p&gt;We can specify a border color for the points using the &lt;code&gt;col&lt;/code&gt; argument and a background color using the &lt;code&gt;bg&lt;/code&gt; argument. The background color can be specified only for points whose &lt;code&gt;pch&lt;/code&gt; argument takes values between &lt;strong&gt;21&lt;/strong&gt; and &lt;strong&gt;25&lt;/strong&gt;. Let us look at some examples to understand this distinction between border and background color.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# shape between 0 and 21
+plot(mtcars$disp, mtcars$mpg, pch = 5, col = &amp;#39;blue&amp;#39;, bg = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can observe that although we have specified a background color using the &lt;code&gt;bg&lt;/code&gt; argument, we do not see the red background color as the value specified for the &lt;code&gt;pch&lt;/code&gt; (shape) argument is not between 21 and 25. In the next example, we will use a value between 21 and 25 so that the &lt;code&gt;pch&lt;/code&gt; argument is effective.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# shape between 0 and 21
+plot(mtcars$disp, mtcars$mpg, pch = 24, col = &amp;#39;red&amp;#39;, bg = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The color of the points can be specified using (levels) of a categorical variable as well. In the next example, we will use the &lt;code&gt;cyl&lt;/code&gt; variable to specify the color of the points.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# color based on a third variable
+plot(mtcars$disp, mtcars$mpg, pch = 5, col = factor(mtcars$cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Since &lt;code&gt;cyl&lt;/code&gt; is a categorical variable with 3 levels, we can see that the points now have 3 different colors. The above method is useful when you want to segregate the points in a scatter plot based on a third variable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;In this post, we learned how to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create scatter plots&lt;/li&gt;
+&lt;li&gt;add color to the points&lt;/li&gt;
+&lt;li&gt;modify shape of the points&lt;/li&gt;
+&lt;li&gt;modify size of the points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In certain cases we might want to fit a regression line or add horizontal/vertical lines to the scatter plots. We will learn to do that in the next post, where we build line plots.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Title and Axis Labels</title>
+      <link>/post/data-visualization-with-r-title-and-axis-labels/</link>
+      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-title-and-axis-labels/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the second post of the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/&#34;&gt;post&lt;/a&gt;, we explored the &lt;code&gt;plot()&lt;/code&gt; function and observed the different types of plots it generated. In this post, we will learn how to add:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Title&lt;/li&gt;
+&lt;li&gt;Subtitle&lt;/li&gt;
+&lt;li&gt;Axis Labels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;to a plot and how to modify:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Axis range&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/&#34;&gt;post&lt;/a&gt;, we created plots which did not have any title or labels. Such plots are of no use to any one as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The &lt;code&gt;title&lt;/code&gt; and &lt;code&gt;labels&lt;/code&gt; play an important part in making the plot holistic. There are two ways to add them to a plot:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use the relevant arguments within the &lt;code&gt;plot()&lt;/code&gt; function&lt;/li&gt;
+&lt;li&gt;use the &lt;code&gt;title()&lt;/code&gt; function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We will explore both the above methods one by one, and you can choose the method most convenient to you. Let us begin with the &lt;code&gt;plot()&lt;/code&gt; function:&lt;/p&gt;
+&lt;div id=&#34;syntax&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Syntax&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Feature&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Argument&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Value&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Title&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;main&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;“Scatter Plot”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Subtitle&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sub&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;“Displacement vs Miles Per Gallon”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;X Axis Label&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;xlab&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;“Displacement”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Y Axis Label&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ylab&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;“Miles Per Gallon”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;title&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Title&lt;/h4&gt;
+&lt;p&gt;You can add a title to the plot using the &lt;code&gt;main&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. Ensure that the title is enclosed in single/double quotes as it is a string. Let us create a scatter plot of &lt;code&gt;disp&lt;/code&gt; and &lt;code&gt;mpg&lt;/code&gt; from &lt;code&gt;mtcars&lt;/code&gt; data set, and add a title to it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
+     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subtitle&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Subtitle&lt;/h4&gt;
+&lt;p&gt;You can add a subtitle to the plot using the &lt;code&gt;sub&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. Let us add a subtitle to the plot we created in the previous example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
+     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
+     sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/subtitle-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;axis-labels&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Axis Labels&lt;/h4&gt;
+&lt;p&gt;In the plots created in the previous examples, the axis labels appear as &lt;code&gt;mtcars$mpg&lt;/code&gt; and &lt;code&gt;mtcars$disp&lt;/code&gt;. It is not the best way to name the axis and it will make more sense to use names that describe the data. Let us modify the axis labels using the &lt;code&gt;xlab&lt;/code&gt; and &lt;code&gt;ylab&lt;/code&gt; arguments in the &lt;code&gt;plot()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
+     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
+     sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
+     xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axis-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;title-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;title()&lt;/h4&gt;
+&lt;p&gt;We can add title, subtitle and axis labels using the &lt;code&gt;title()&lt;/code&gt; function as well. Let us recreate the plots from the previous examples but this time we will use the &lt;code&gt;title()&lt;/code&gt; instead of the &lt;code&gt;plot()&lt;/code&gt; function. We will continue to use the &lt;code&gt;plot()&lt;/code&gt; function to create the plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create scatter plot
+plot(mtcars$disp, mtcars$mpg) 
+
+# add title, subtitle and axis labels
+title(main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
+      sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
+      xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Do you notice that the axis labels are overwritten? This happens because the &lt;code&gt;plot()&lt;/code&gt; function adds the default labels and we add a new set of labels without modifying the existing ones. The solution is to instruct the &lt;code&gt;plot()&lt;/code&gt; function not to add any labels to the X and Y axis. This can be achieved using the &lt;code&gt;ann&lt;/code&gt; (annotate) argument in the &lt;code&gt;plot()&lt;/code&gt; function and set it to &lt;code&gt;FALSE&lt;/code&gt;. Let us try it:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create scatter plot
+plot(mtcars$disp, mtcars$mpg, ann = FALSE) 
+
+# add title, subtitle and axis labels
+title(main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
+      sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
+      xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The axis labels are legible and not overwritten. You can use either the &lt;code&gt;plot()&lt;/code&gt; function or the &lt;code&gt;title()&lt;/code&gt; function to add title, subtitle and axis labels but ensure that in case you use the &lt;code&gt;title()&lt;/code&gt; function, set &lt;code&gt;ann&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt; in the &lt;code&gt;plot()&lt;/code&gt; function.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;axis-range&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Axis Range&lt;/h3&gt;
+&lt;p&gt;In certain cases, you would want to modify the range of the axis of the plots. By default, the &lt;code&gt;plot()&lt;/code&gt; function will take into account the &lt;code&gt;min&lt;/code&gt; and &lt;code&gt;max&lt;/code&gt; values of the variable(s) and set the range for the axis. We can modify the range by using the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments in the &lt;code&gt;plot()&lt;/code&gt; function. Both the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments take 2 values as inputes. The first value is the minimum value for the axis and the second value is the maximum value for the axis. The &lt;code&gt;plot()&lt;/code&gt; function will return an error if we do not specify two values for both &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments. Let us recreate the plot from the previous examples but change the range of both the X and Y axis:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
+     xlim = c(0, 600), ylim = c(0, 50))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axisrange-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Keep in mind that the axis ranges cannot be modified using the &lt;code&gt;title()&lt;/code&gt; function.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learned how to add title, subtitle and axis labels to a plot using the &lt;code&gt;plot()&lt;/code&gt; and &lt;code&gt;title()&lt;/code&gt; function. We also learned how to modify the range of the X and Y axis using the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments within the &lt;code&gt;plot()&lt;/code&gt; function. In the next post, we will learn to create the &lt;strong&gt;scatter plot&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Introduction</title>
+      <link>/post/data-visualization-with-r-introduction/</link>
+      <pubDate>Wed, 05 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-introduction/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the first post of the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using &lt;a href=&#34;http://ggplot2.tidyverse.org/index.html&#34;&gt;ggplot2&lt;/a&gt; shortly.&lt;/p&gt;
+&lt;div id=&#34;what-is-data-visualization&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What is data visualization?&lt;/h3&gt;
+&lt;p&gt;In simple words, data visualization is the representation of data in graphical format.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;data-viz.png&#34; alt=&#34;data-viz&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;data-viz&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-visualize-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why visualize data?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Explore: Visualization helps in exploring and explaining patterns and trends&lt;/li&gt;
+&lt;li&gt;Detect: Patterns or anomalies in data can be detected by looking at graphs&lt;/li&gt;
+&lt;li&gt;Make sense: Possible to make sense of large amount of data efficiently and in time&lt;/li&gt;
+&lt;li&gt;Communicate: Easy to communicate and share the insights from data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Compare the below output and the boxplot and you will agree that&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A picture is worth a thousand words&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;by(mtcars$mpg, mtcars$cyl, summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## mtcars$cyl: 4
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   21.40   22.80   26.00   26.66   30.40   33.90 
+## -------------------------------------------------------- 
+## mtcars$cyl: 6
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   17.80   18.65   19.70   19.74   21.00   21.40 
+## -------------------------------------------------------- 
+## mtcars$cyl: 8
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   10.40   14.40   15.20   15.10   16.25   19.20&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pic1000.jpeg&#34; alt=&#34;pic1000&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;pic1000&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-graphics-system&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;R Graphics System&lt;/h3&gt;
+&lt;p&gt;R has 3 main packages for data visualization:&lt;/p&gt;
+&lt;div id=&#34;graphics&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Graphics&lt;/h4&gt;
+&lt;p&gt;It is part of base R and is the fundamental package for visualizing data. It has a lot of good features and we can create all the basic plots using it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ggplot2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;ggplot2&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;http://ggplot2.tidyverse.org/index.html&#34;&gt;ggplot2&lt;/a&gt;, created by Hadley Wickham, is based on the Grammar of Graphics written by Leland Wilkinson. It has a structured approach to data visualization and builds upon the features available in the Graphics and Lattice packages.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lattice&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Lattice&lt;/h4&gt;
+&lt;p&gt;The &lt;a href=&#34;https://CRAN.R-project.org/package=lattice&#34;&gt;lattice&lt;/a&gt; package is inspired by Trellis Graphics and created by &lt;a href=&#34;http://www.isid.ac.in/~deepayan/&#34;&gt;Deepayan Sarkar&lt;/a&gt;. It is a very powerful data visualization system with an emphasis on multivariate data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plot-basics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plot Basics&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;plot()&lt;/code&gt; function is the fundamental tool to build plots in the &lt;strong&gt;Graphics&lt;/strong&gt; package. It is a generic function and creates appropriate plot based on the input received from the user. In this post, we will explore the &lt;code&gt;plot()&lt;/code&gt; function using differnt types of data and observe the corresponding plots created. We will use the &lt;code&gt;mtcars&lt;/code&gt; data set throughout this section.&lt;/p&gt;
+&lt;p&gt;Use the &lt;code&gt;help()&lt;/code&gt; function to learn more about the &lt;code&gt;plot()&lt;/code&gt; function and the &lt;code&gt;mtcars&lt;/code&gt; data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(plot)
+help(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;mtcars&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;mtcars&lt;/h3&gt;
+&lt;p&gt;Let us take a quick look at the &lt;code&gt;mtcars&lt;/code&gt; data set before we build the plots:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# overview
+head(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# variable info
+str(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have some idea about the data set, let us explore the &lt;code&gt;plot()&lt;/code&gt; function. We will use the following different data inputs and observe the kind of plots that are generated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Case 1: 1 continuous variable&lt;/li&gt;
+&lt;li&gt;Case 2: 1 categorical variable&lt;/li&gt;
+&lt;li&gt;Case 3: 2 continuous variables&lt;/li&gt;
+&lt;li&gt;Case 4: 2 categorical variables&lt;/li&gt;
+&lt;li&gt;Case 5: 1 continuous and 1 categorical variable&lt;/li&gt;
+&lt;li&gt;Case 6: 1 categorical and 1 continuous variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Case 5 and 6 might look similar but the difference lies in the variables being assigned to the X and Y axes.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-1-one-continuous-variable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 1: One continuous variable&lt;/h3&gt;
+&lt;p&gt;We will us the variable &lt;code&gt;mpg&lt;/code&gt; (Miles per Gallon).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;plot()&lt;/code&gt; function creates a &lt;strong&gt;Scatter Plot&lt;/strong&gt; when a single continuous variable is used as the input. We cannot infer much from this plot. Let us plot a categorical variable and see what happens.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-2-one-categorical-variable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 2: One categorical variable&lt;/h3&gt;
+&lt;p&gt;Let us use the &lt;code&gt;cyl&lt;/code&gt; (number of cylinders) variable for this case but before we create the plot, the variable must be converted to type &lt;code&gt;factor&lt;/code&gt; using the &lt;code&gt;as.factor()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.factor(mtcars$cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;plot()&lt;/code&gt; function creates a &lt;strong&gt;Bar Plot&lt;/strong&gt; when the input is a factor/categorical variable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-3-two-continuous-variables&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 3: Two continuous variables&lt;/h3&gt;
+&lt;p&gt;So far we have used only 1 variable as the input for the &lt;code&gt;plot()&lt;/code&gt; function but from now on we will use 2 variables. In this case, let us look at the relationship between &lt;code&gt;disp&lt;/code&gt; (displacement) and &lt;code&gt;mpg&lt;/code&gt; (mileage) of the cars. &lt;code&gt;disp&lt;/code&gt; is represented by the X axis and &lt;code&gt;mpg&lt;/code&gt; by the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Scatter Plot&lt;/strong&gt; created represents the relationship between &lt;code&gt;disp&lt;/code&gt; and &lt;code&gt;mpg&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-4-two-categorical-variables&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 4: Two categorical variables&lt;/h3&gt;
+&lt;p&gt;In this case, we will use &lt;code&gt;am&lt;/code&gt; (transmission type) and &lt;code&gt;cyl&lt;/code&gt; (number of cylinders). &lt;code&gt;am&lt;/code&gt; will be represented by the X axis and &lt;code&gt;cyl&lt;/code&gt; by the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.factor(mtcars$am), as.factor(mtcars$cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;stacked bar plot&lt;/strong&gt; is created when the inputs to the &lt;code&gt;plot()&lt;/code&gt; function are factor/categorical. In the next 2 cases, we will use a combination of both continuous and categorical variables.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-5-continuouscategorical-variable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 5: Continuous/Categorical variable&lt;/h3&gt;
+&lt;p&gt;In this case, we will use 1 continuous and 1 categorical variable. Let us use &lt;code&gt;mpg&lt;/code&gt; and &lt;code&gt;cyl&lt;/code&gt;. &lt;code&gt;mpg&lt;/code&gt; will be represented on the X axis and &lt;code&gt;cyl&lt;/code&gt; on the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$mpg, mtcars$cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;scatter plot&lt;/strong&gt; is created but we cannot infer much from this type of plot.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-6-categoricalcontinuous-variable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case 6: Categorical/Continuous variable&lt;/h3&gt;
+&lt;p&gt;In this case, we will use 1 categorical and 1 continuous variable. Let us use &lt;code&gt;cyl&lt;/code&gt; and &lt;code&gt;mpg&lt;/code&gt;. &lt;code&gt;cyl&lt;/code&gt; will be represented on the X axis and &lt;code&gt;mpg&lt;/code&gt; on the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.factor(mtcars$cyl), mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;box plot&lt;/strong&gt; is generated and we can examine the distribution of &lt;code&gt;mpg&lt;/code&gt; for the different levels of &lt;code&gt;cyl&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this first post, we have explored the &lt;code&gt;plot()&lt;/code&gt; function to understand the different types of plots it can create based on the input types. Before we begin to build different plots such as bar plots, box plots, scatter plots or line plots, we will quickly learn how to add title and labels to a plot. In the next post, we will learn the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Title &amp;amp; subtitle&lt;/li&gt;
+&lt;li&gt;Axis labels &amp;amp; range&lt;/li&gt;
+&lt;li&gt;Color, font style and size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

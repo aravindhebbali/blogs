@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rmarkdown on Rsquared Academy Blog</title>
+    <link>/topics/rmarkdown/index.xml</link>
+    <description>Recent content in Rmarkdown on Rsquared Academy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
+    <atom:link href="/topics/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R Markdown for Beginners</title>
+      <link>/post/rmarkdown-tutorial-for-beginners/</link>
+      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rmarkdown-tutorial-for-beginners/</guid>
+      <description>&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;banner.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;what-is-markdown&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;What is Markdown?&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Markdown is a text to HTML conversion tool for web writers. Markdown allows you to write using an easy to read, easy to write plain text format, then convert it to structurally valid XHTML or (HTML).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;John Gruber, creator of Markdown&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Markdown is a simple formatting syntax that makes authoring web contents easy. It is a software tool that converts plain text formatting to HTML and is written in the &lt;strong&gt;Perl&lt;/strong&gt; language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-is-r-markdown&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;What is R Markdown?&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;R Markdown combines the core syntax of markdown with embedded R code chunks to create dynamic documents. It enables easy creation of dynamic documents, reports and presentations which are fully reproducible.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With R Markdown, we can combine R code, plots and text to create beautiful reports and presentations. The reports can be generated in multiple formats such as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PDF&lt;/li&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;MS WORD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The best part about R Markdown is when you have to make some changes to the code or the underlying data and recreate the entire document. You can make the necessary changes and R Markdown will recreate the document with just a single click.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;set-up&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Set Up&lt;/h4&gt;
+&lt;p&gt;Install and load the latest version of the &lt;code&gt;rmarkdown&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install packages
+install.packages(&amp;#39;rmarkdown&amp;#39;)
+install.packages((&amp;#39;knitr&amp;#39;))
+
+# load the packages
+library(rmarkdown)
+library(knitr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rstudio-settings&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;RStudio Settings&lt;/h4&gt;
+&lt;p&gt;Go to Tools &amp;gt; Global Options &amp;gt; Sweave&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;sweave.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;Ensure that&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;pdfLatex or XeLateX is selected in the option &lt;strong&gt;Typeset Latex into PDF using:&lt;/strong&gt; as this will be crucial while generating PDF documents and presentations.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sumatra is selected in the option &lt;strong&gt;PDF Preview after compile using:&lt;/strong&gt; section (it will be used for previewing all the PDF documents generated.)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;markdown-syntax&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Markdown Syntax&lt;/h4&gt;
+&lt;div id=&#34;headers&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Headers&lt;/h5&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;headers.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;format-text&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Format Text&lt;/h5&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;format.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;images&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Images&lt;/h5&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;image.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lists&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Lists&lt;/h5&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;lists.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+---
+title: Lists
+date: '2015-03-22'
+slug: introduction-to-lists
+topics:
+  - r-introduction
+tags:
+  - lists
+draft: yes
+---
+

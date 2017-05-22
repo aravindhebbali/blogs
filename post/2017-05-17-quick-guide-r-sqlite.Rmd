@@ -1,0 +1,14 @@
+---
+title: 'Quick Guide: R & SQLite'
+date: '2017-02-05'
+slug: quick-guide-r-sqlite
+topics:
+  - data-wrangling
+tags:
+  - sqlite
+  - rsqlite
+  - database
+  - import
+draft: yes
+---
+

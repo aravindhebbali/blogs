@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>Data Visualization With R - Title and Axis Labels &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Data Visualization With R - Title and Axis Labels</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Aug 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This is the second post of the series <strong>Data Visualization With R</strong>. In the previous <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/">post</a>, we explored the <code>plot()</code> function and observed the different types of plots it generated. In this post, we will learn how to add:</p>
+<ul>
+<li>Title</li>
+<li>Subtitle</li>
+<li>Axis Labels</li>
+</ul>
+<p>to a plot and how to modify:</p>
+<ul>
+<li>Axis range</li>
+</ul>
+<p>In the previous <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/">post</a>, we created plots which did not have any title or labels. Such plots are of no use to any one as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The <code>title</code> and <code>labels</code> play an important part in making the plot holistic. There are two ways to add them to a plot:</p>
+<ul>
+<li>use the relevant arguments within the <code>plot()</code> function</li>
+<li>use the <code>title()</code> function</li>
+</ul>
+<p>We will explore both the above methods one by one, and you can choose the method most convenient to you. Let us begin with the <code>plot()</code> function:</p>
+<div id="syntax" class="section level4">
+<h4>Syntax</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Feature</th>
+<th align="left">Argument</th>
+<th align="left">Value</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Title</td>
+<td align="left">main</td>
+<td align="left">string</td>
+<td align="left">“Scatter Plot”</td>
+</tr>
+<tr class="even">
+<td align="left">Subtitle</td>
+<td align="left">sub</td>
+<td align="left">string</td>
+<td align="left">“Displacement vs Miles Per Gallon”</td>
+</tr>
+<tr class="odd">
+<td align="left">X Axis Label</td>
+<td align="left">xlab</td>
+<td align="left">string</td>
+<td align="left">“Displacement”</td>
+</tr>
+<tr class="even">
+<td align="left">Y Axis Label</td>
+<td align="left">ylab</td>
+<td align="left">string</td>
+<td align="left">“Miles Per Gallon”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="title" class="section level4">
+<h4>Title</h4>
+<p>You can add a title to the plot using the <code>main</code> argument in the <code>plot()</code> function. Ensure that the title is enclosed in single/double quotes as it is a string. Let us create a scatter plot of <code>disp</code> and <code>mpg</code> from <code>mtcars</code> data set, and add a title to it.</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
+     main = &#39;Displacement vs Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="subtitle" class="section level4">
+<h4>Subtitle</h4>
+<p>You can add a subtitle to the plot using the <code>sub</code> argument in the <code>plot()</code> function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. Let us add a subtitle to the plot we created in the previous example:</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
+     main = &#39;Displacement vs Miles Per Gallon&#39;,
+     sub = &#39;Mileage is inversely related to Displacement&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/subtitle-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="axis-labels" class="section level4">
+<h4>Axis Labels</h4>
+<p>In the plots created in the previous examples, the axis labels appear as <code>mtcars$mpg</code> and <code>mtcars$disp</code>. It is not the best way to name the axis and it will make more sense to use names that describe the data. Let us modify the axis labels using the <code>xlab</code> and <code>ylab</code> arguments in the <code>plot()</code> function:</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
+     main = &#39;Displacement vs Miles Per Gallon&#39;,
+     sub = &#39;Mileage is inversely related to Displacement&#39;,
+     xlab = &#39;Displacement&#39;, ylab = &#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axis-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="title-1" class="section level4">
+<h4>title()</h4>
+<p>We can add title, subtitle and axis labels using the <code>title()</code> function as well. Let us recreate the plots from the previous examples but this time we will use the <code>title()</code> instead of the <code>plot()</code> function. We will continue to use the <code>plot()</code> function to create the plot.</p>
+<pre class="r"><code># create scatter plot
+plot(mtcars$disp, mtcars$mpg) 
+
+# add title, subtitle and axis labels
+title(main = &#39;Displacement vs Miles Per Gallon&#39;,
+      sub = &#39;Mileage is inversely related to Displacement&#39;,
+      xlab = &#39;Displacement&#39;, ylab = &#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Do you notice that the axis labels are overwritten? This happens because the <code>plot()</code> function adds the default labels and we add a new set of labels without modifying the existing ones. The solution is to instruct the <code>plot()</code> function not to add any labels to the X and Y axis. This can be achieved using the <code>ann</code> (annotate) argument in the <code>plot()</code> function and set it to <code>FALSE</code>. Let us try it:</p>
+<pre class="r"><code># create scatter plot
+plot(mtcars$disp, mtcars$mpg, ann = FALSE) 
+
+# add title, subtitle and axis labels
+title(main = &#39;Displacement vs Miles Per Gallon&#39;,
+      sub = &#39;Mileage is inversely related to Displacement&#39;,
+      xlab = &#39;Displacement&#39;, ylab = &#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The axis labels are legible and not overwritten. You can use either the <code>plot()</code> function or the <code>title()</code> function to add title, subtitle and axis labels but ensure that in case you use the <code>title()</code> function, set <code>ann</code> argument to <code>FALSE</code> in the <code>plot()</code> function.</p>
+</div>
+<div id="axis-range" class="section level3">
+<h3>Axis Range</h3>
+<p>In certain cases, you would want to modify the range of the axis of the plots. By default, the <code>plot()</code> function will take into account the <code>min</code> and <code>max</code> values of the variable(s) and set the range for the axis. We can modify the range by using the <code>xlim</code> and <code>ylim</code> arguments in the <code>plot()</code> function. Both the <code>xlim</code> and <code>ylim</code> arguments take 2 values as inputes. The first value is the minimum value for the axis and the second value is the maximum value for the axis. The <code>plot()</code> function will return an error if we do not specify two values for both <code>xlim</code> and <code>ylim</code> arguments. Let us recreate the plot from the previous examples but change the range of both the X and Y axis:</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
+     xlim = c(0, 600), ylim = c(0, 50))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axisrange-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Keep in mind that the axis ranges cannot be modified using the <code>title()</code> function.</p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In this post, we learned how to add title, subtitle and axis labels to a plot using the <code>plot()</code> and <code>title()</code> function. We also learned how to modify the range of the X and Y axis using the <code>xlim</code> and <code>ylim</code> arguments within the <code>plot()</code> function. In the next post, we will learn to create the <strong>scatter plot</strong>.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/data-visualization-with-r-introduction/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/data-visualization-with-r-introduction/">Data Visualization With R - Introduction</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/data-visualization-with-r-scatter-plots/">Data Visualization With R - Scatter Plots</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/data-visualization-with-r-scatter-plots/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+---
+title: 'RStudio 2 GitHub: GitHub Pages'
+date: '2016-12-19'
+slug: github-pages
+topics:
+  - git and github
+tags:
+  - git
+  - github
+  - version control
+draft: yes
+---
+

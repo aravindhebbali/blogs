@@ -1,0 +1,13 @@
+---
+title: Install Git
+date: '2016-09-20'
+slug: install-git
+topics:
+  - git and github
+tags:
+  - git
+  - github
+  - version control
+draft: yes
+---
+

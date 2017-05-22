@@ -1,0 +1,11 @@
+---
+title: Getting Help In R
+date: '2015-05-13'
+slug: getting-help-in-r
+topics:
+  - r-introduction
+tags:
+  - help
+draft: yes
+---
+

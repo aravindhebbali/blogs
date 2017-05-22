@@ -1,0 +1,11 @@
+---
+title: Introduction to tibbles
+date: '2017-04-22'
+slug: introduction-to-tibbles
+topics:
+  - data-wrangling
+tags:
+  - tibble
+draft: yes
+---
+

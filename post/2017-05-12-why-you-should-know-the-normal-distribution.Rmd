@@ -1,0 +1,12 @@
+---
+title: Why you should know the Normal distribution?
+date: '2017-05-12'
+slug: why-you-should-know-the-normal-distribution
+topics:
+  - statistical distributions
+tags:
+  - normal
+  - distribution
+draft: yes
+---
+

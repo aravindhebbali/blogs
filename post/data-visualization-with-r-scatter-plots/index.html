@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>Data Visualization With R - Scatter Plots &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/rsquaredacademy/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Data Visualization With R - Scatter Plots</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>07 Sep 2015, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This is the third post in the series <strong>Data Visualization With R</strong>. In the previous <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/">post</a>, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/">post</a>, using the <code>plot()</code> function. We will continue with the same plot and learn how to enhance a scatter plot by</p>
+<ul>
+<li>adding color to the points</li>
+<li>modify shape of the points</li>
+<li>modify size of the points</li>
+</ul>
+<div id="basic-plot" class="section level3">
+<h3>Basic Plot</h3>
+<p>Let us recreate the plot that we had created in the first post by using the <code>mtcars</code> data set. We will use the <code>disp</code> (displacement) and <code>mpg</code> (miles per gallon) variables. <code>disp</code> will be on the X axis and <code>mpg</code> will be on the Y axis.</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>We have created a very basic plot and any one looking at it for the first time will get confused with the axis labels <code>mtcars$disp</code> and <code>mtcars$mpg</code>. Let us put into practice what we learnt in the second <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/">post</a> and add a title to the plot, and make the axis labels more meaningful.</p>
+<pre class="r"><code>plot(mtcars$disp, mtcars$mpg,
+     main = &#39;Displacement vs Miles Per Gallon&#39;,
+     xlab = &#39;Displacement&#39;, ylab = &#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Now the plot clearly communicates that it represents the relationship between the displacement and mileage of cars. Now the color of the points in the plot is black by default. Some of us may agree that black is beautiful but not all of us will like it. As a first step in enhancing the way our plot looks, let us change the shape of the points.</p>
+<div id="shape" class="section level4">
+<h4>Shape</h4>
+<p>The shape of the point can be specified using the <code>pch</code> argument. It will take values between <strong>0</strong> and <strong>25</strong>. Below is an example:</p>
+<pre class="r"><code># point shape
+plot(mtcars$disp, mtcars$mpg, pch = 6)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-shape-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Let us check out a few of the other shapes:</p>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>We can specify the shape based on a third (categorical variable as well). In the below plot, the shape is based on the levels of the categorical variable <code>cyl</code> (number of cylinders) from the <code>mtcars</code> data set:</p>
+<pre class="r"><code># shape  based on number of levels of a third variable
+plot(mtcars$disp, mtcars$mpg, pch = nlevels(factor(mtcars$cyl)))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># shape based on a third categorical variable
+plot(mtcars$disp, mtcars$mpg, pch = unclass(mtcars$cyl))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-pch3-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="size" class="section level4">
+<h4>Size</h4>
+<p>The size of the points in the scatter plot can be specified using the <code>cex</code> argument in the <code>plot()</code> function. The default value for <code>cex</code> is 1.</p>
+<pre class="r"><code># point size
+plot(mtcars$disp, mtcars$mpg, cex = 1.5)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-size-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The below plots show the size of the points for values relative to 1.</p>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/scatter-cex-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="color" class="section level4">
+<h4>Color</h4>
+<p>We can specify a border color for the points using the <code>col</code> argument and a background color using the <code>bg</code> argument. The background color can be specified only for points whose <code>pch</code> argument takes values between <strong>21</strong> and <strong>25</strong>. Let us look at some examples to understand this distinction between border and background color.</p>
+<pre class="r"><code># shape between 0 and 21
+plot(mtcars$disp, mtcars$mpg, pch = 5, col = &#39;blue&#39;, bg = &#39;red&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>You can observe that although we have specified a background color using the <code>bg</code> argument, we do not see the red background color as the value specified for the <code>pch</code> (shape) argument is not between 21 and 25. In the next example, we will use a value between 21 and 25 so that the <code>pch</code> argument is effective.</p>
+<pre class="r"><code># shape between 0 and 21
+plot(mtcars$disp, mtcars$mpg, pch = 24, col = &#39;red&#39;, bg = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The color of the points can be specified using (levels) of a categorical variable as well. In the next example, we will use the <code>cyl</code> variable to specify the color of the points.</p>
+<pre class="r"><code># color based on a third variable
+plot(mtcars$disp, mtcars$mpg, pch = 5, col = factor(mtcars$cyl))</code></pre>
+<p><img src="../../post/2017-05-15-data-visualization-with-r-scatter-plots_files/figure-html/col3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Since <code>cyl</code> is a categorical variable with 3 levels, we can see that the points now have 3 different colors. The above method is useful when you want to segregate the points in a scatter plot based on a third variable.</p>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>In this post, we learned how to</p>
+<ul>
+<li>create scatter plots</li>
+<li>add color to the points</li>
+<li>modify shape of the points</li>
+<li>modify size of the points</li>
+</ul>
+<p>In certain cases we might want to fit a regression line or add horizontal/vertical lines to the scatter plots. We will learn to do that in the next post, where we build line plots.</p>
+</div>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/data-visualization-with-r-title-and-axis-labels/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/data-visualization-with-r-title-and-axis-labels/">Data Visualization With R - Title and Axis Labels</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/data-visualization-with-r-line-graphs/">Data Visualization With R - Line Graphs</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/data-visualization-with-r-line-graphs/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+---
+title: Factors
+date: '2015-04-11'
+slug: introduction-to-factors
+topics:
+  - r-introduction
+tags:
+  - factors
+draft: yes
+---
+

@@ -1,0 +1,13 @@
+---
+title: Data Visualization with R - Box Plots
+date: '2015-10-21'
+slug: data-visualization-with-r-box-plots
+topics:
+  - data-visualization
+tags:
+  - visualization
+  - box plot
+  - base
+draft: yes
+---
+

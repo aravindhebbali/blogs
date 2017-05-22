@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggplot2 on Rsquared Academy Blog</title>
+    <link>/topics/ggplot2/index.xml</link>
+    <description>Recent content in Ggplot2 on Rsquared Academy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
+    <atom:link href="/topics/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ggplot2: Extensions</title>
+      <link>/post/ggplot2-extensions/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-extensions/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Facets (Combine multiple plots)</title>
+      <link>/post/ggplot2-facets-combine-multiple-plots/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-facets-combine-multiple-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Themes</title>
+      <link>/post/ggplot2-themes/</link>
+      <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-themes/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Text Annotations</title>
+      <link>/post/ggplot2-text-annotations/</link>
+      <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-text-annotations/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Statistical Plots</title>
+      <link>/post/ggplot2-statistical-plots/</link>
+      <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-statistical-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Histogram</title>
+      <link>/post/ggplot2-histogram/</link>
+      <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-histogram/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Box Plots</title>
+      <link>/post/ggplot2-box-plots/</link>
+      <pubDate>Thu, 21 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-box-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Bar Plots</title>
+      <link>/post/ggplot2-bar-plots/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-bar-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Line Graphs</title>
+      <link>/post/ggplot2-line-graphs/</link>
+      <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-line-graphs/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Scatter Plots</title>
+      <link>/post/ggplot2-scatter-plots/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-scatter-plots/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to aesthetics</title>
+      <link>/post/ggplot2-introduction-to-aesthetics/</link>
+      <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-aesthetics/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Quick Tour</title>
+      <link>/post/ggplot2-quick-tour/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-quick-tour/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to geoms</title>
+      <link>/post/ggplot2-introduction-to-geoms/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-geoms/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to ggplot2</title>
+      <link>/post/introduction-to-ggplot2/</link>
+      <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-ggplot2/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://ggplot2.tidyverse.org/index.html&#34;&gt;ggplot2&lt;/a&gt; is an alternative (and awesome) to base R for data visualization. It is based on &lt;a href=&#34;http://www.springer.com/in/book/9780387245447&#34;&gt;The Grammar of Graphics&lt;/a&gt;. In this post, we will understand the philosophy behind &lt;strong&gt;ggplot2&lt;/strong&gt; and learn to build some of the most frequently used plots for visualizing data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grammar-of-graphics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grammar of Graphics&lt;/h2&gt;
+&lt;p&gt;It is a formal system for building plots. The core idea is that any plot can be uniquely described as a combination of&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a dataset&lt;/li&gt;
+&lt;li&gt;a geom&lt;/li&gt;
+&lt;li&gt;a set of mappings&lt;/li&gt;
+&lt;li&gt;a statistic&lt;/li&gt;
+&lt;li&gt;a position adjustment&lt;/li&gt;
+&lt;li&gt;a coordinate system&lt;/li&gt;
+&lt;li&gt;a faceting scheme&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us build a bar plot from scratch using the &lt;code&gt;mtcars&lt;/code&gt; data. We will build the plot incrementally and understand the above components.&lt;/p&gt;
+&lt;div id=&#34;step-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;The first step in any data visualization exercise is to identify the data set. In &lt;code&gt;ggplot2&lt;/code&gt;, we can specify the data set using &lt;code&gt;ggplot&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot2::ggplot(data = mtcars) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-12-introduction-to-ggplot2_files/figure-html/gg1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you compare with the &lt;code&gt;barplot()&lt;/code&gt; function from &lt;code&gt;base&lt;/code&gt;, you can observe that instead of specifying the variable we are using the whole data set. And most importantly, the &lt;code&gt;ggplot()&lt;/code&gt; function does not generate any plots. It just identifies the data that will be used by the other components.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Once you have identified the data set, we need to specify how the data must be visualized. We will do this using &lt;code&gt;geoms&lt;/code&gt;. It basically indicate the geometric shapes that must be used to display the data. In our case, we are building bar plot and hence we want the data to be displayed as &lt;code&gt;bars&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;There are several &lt;code&gt;geoms&lt;/code&gt; and we will explore them one by one. For the time time being, let us use &lt;code&gt;geom_bar()&lt;/code&gt; and map the &lt;code&gt;x&lt;/code&gt; axis to a variable using &lt;code&gt;mapping&lt;/code&gt;. We will use the &lt;code&gt;cyl&lt;/code&gt; variable from &lt;code&gt;mtcars&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot2::ggplot(data = mtcars) +
+  geom_bar(
+    mapping = aes(x = cyl)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-12-introduction-to-ggplot2_files/figure-html/gg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

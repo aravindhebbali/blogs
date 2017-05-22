@@ -1,0 +1,12 @@
+---
+title: 'ggplot2: Quick Tour'
+date: '2016-02-19'
+slug: ggplot2-quick-tour
+topics:
+  - ggplot2
+tags:
+  - ggplot2
+  - visualization
+draft: yes
+---
+

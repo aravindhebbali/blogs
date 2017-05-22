@@ -142,9 +142,9 @@
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18 15:36:54 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-22 15:22:25 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-18&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-22&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;

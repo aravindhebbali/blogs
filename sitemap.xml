@@ -442,13 +442,13 @@
   </url>
   
   <url>
-    <loc>/topics/ggplot2/</loc>
+    <loc>/tags/ggplot2/</loc>
     <lastmod>2016-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ggplot2/</loc>
+    <loc>/topics/ggplot2/</loc>
     <lastmod>2016-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -592,13 +592,13 @@
   </url>
   
   <url>
-    <loc>/topics/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2016-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/topics/rmarkdown/</loc>
     <lastmod>2016-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -646,13 +646,13 @@
   </url>
   
   <url>
-    <loc>/topics/statistics/</loc>
+    <loc>/tags/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
+    <loc>/topics/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

@@ -35,7 +35,16 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;p&gt;This is the tenth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;par()&lt;/code&gt; function can be used to set graphical parameters regarding plot layout using the &lt;code&gt;mfcol&lt;/code&gt; and &lt;code&gt;mfrow&lt;/code&gt; arguments&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;layout()&lt;/code&gt; function serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns in which the plots are arranged&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us explore the &lt;code&gt;par()&lt;/code&gt; function first.&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -483,15 +492,135 @@ legend(x = 2012, y = 0, legend = c(&amp;#39;india&amp;#39;, &amp;#39;china&amp;#
       <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-box-plots/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;&#34;&gt;post&lt;/a&gt;, we learnt how to build bar plots. In this post, we will learn about box plots.&lt;/p&gt;
+      <description>&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;&#34;&gt;post&lt;/a&gt;, we learnt how to build bar plots. In this post, we will learn about box plots.&lt;/p&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Box plot (also known as box and whisker plots) is a exploratory graphic&lt;/p&gt;
+&lt;p&gt;The box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions. It shows the shape, central tendancy and variability of the data.&lt;/p&gt;
+&lt;div id=&#34;structure&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Structure&lt;/h4&gt;
+&lt;p&gt;A boxplot splits the data set into quartiles. The body of the boxplot consists of a “box” (hence, the name), which goes from the first quartile (Q1) to the third quartile (Q3). Within the box, a vertical line is drawn at the Q2, the median of the data set. Two horizontal lines, called whiskers, extend from the front and back of the box. The front whisker goes from Q1 to the smallest non-outlier in the data set, and the back whisker goes from Q3 to the largest non-outlier. If the data set includes one or more outliers, they are plotted separately as points on the chart.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;univariate-box-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Univariate Box Plot&lt;/h3&gt;
+&lt;div id=&#34;basic-plot&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Basic Plot&lt;/h4&gt;
+&lt;p&gt;Let us begin by creating a basic box plot. We will use the &lt;code&gt;boxplot()&lt;/code&gt; function and specify the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;horizontal-box-plot&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Horizontal Box Plot&lt;/h4&gt;
+&lt;p&gt;Use the &lt;code&gt;horizontal&lt;/code&gt; argument in the &lt;code&gt;boxplot()&lt;/code&gt; function to create a horizontal box plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, horizontal = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Color&lt;/h4&gt;
+&lt;p&gt;Let us add some color to the boxplot. Use the &lt;code&gt;col&lt;/code&gt; argument to specify a color for the plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;border-color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Border Color&lt;/h4&gt;
+&lt;p&gt;We can specify a separate color for the border of the box in the boxplot. To modify the border color, use the &lt;code&gt;border&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, border = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;range&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Range&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;range&lt;/code&gt; argument determines how far the plot whiskers extend out from the box. If range is positive, the whiskers extend to the most extreme data point which is no more than range times the interquartile range from the box. A value of zero causes the whiskers to extend to the data extremes.&lt;/p&gt;
+&lt;p&gt;Let us set the value of &lt;code&gt;range&lt;/code&gt; to 0 and observe the plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, range = 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the below plot, we set the value of &lt;code&gt;range&lt;/code&gt; to 1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, range = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Let us observe how the plot appears as we change the value of &lt;code&gt;range&lt;/code&gt; from 0 to 1.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box7-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Outline&lt;/h4&gt;
+&lt;p&gt;The outliers in the plot are not drawn if the &lt;code&gt;outline&lt;/code&gt; argument is set to &lt;code&gt;FALSE&lt;/code&gt;. The default value is &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg, range = 1, outline = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box8-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The below plot displays how the plot changes with the values set for &lt;code&gt;outline&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box9-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;varwidth&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Varwidth&lt;/h4&gt;
+&lt;p&gt;If the &lt;code&gt;varwidth&lt;/code&gt; argument is set to &lt;code&gt;TRUE&lt;/code&gt;, the boxes are drawn with widths proportional to the square-roots of the number of observations in the groups.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box10-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bivariatemultivariate-box-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bivariate/Multivariate Box Plot&lt;/h3&gt;
+&lt;p&gt;As we said in the introduction, box plots can be used to compare distributions of several variables. Let us use the &lt;code&gt;mtcars&lt;/code&gt; data set and compare the distribution of Miles Per Gallon (&lt;code&gt;mpg&lt;/code&gt;) for automobiles with different number of cylinders (&lt;code&gt;cyl&lt;/code&gt;). We will do this by specifying a formula as shown in the below example.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg ~ mtcars$cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box11-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We use the formula when we are comparing the distribution of a continuous variable across different levels of a categorical variable. If we want to compare the distributions without using a categorical variable, we need to specify the variable separately in the &lt;code&gt;boxplot()&lt;/code&gt; function. Below is an illustration of this method. We will split the &lt;code&gt;mpg&lt;/code&gt; data using the &lt;code&gt;split()&lt;/code&gt; function and plot them separately. The &lt;code&gt;split()&lt;/code&gt; function splits a continuous variable based on the levels of a categorical variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mpg_split &amp;lt;- split(mtcars$mpg, mtcars$cyl)
+mpg_split&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $`4`
+##  [1] 22.8 24.4 22.8 32.4 30.4 33.9 21.5 27.3 26.0 30.4 21.4
+## 
+## $`6`
+## [1] 21.0 21.0 21.4 18.1 19.2 17.8 19.7
+## 
+## $`8`
+##  [1] 18.7 14.3 16.4 17.3 15.2 10.4 10.4 14.7 15.5 15.2 13.3 19.2 15.8 15.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mpg_4 &amp;lt;- mpg_split$`4`
+mpg_6 &amp;lt;- mpg_split$`6`
+mpg_8 &amp;lt;- mpg_split$`8`
+boxplot(mpg_4, mpg_6, mpg_8)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box13-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The same plot can be created in two ways. If you are comparing the distribution of a continuous variable for the different levels of a categorical variable, use the formula. If you are comparing distribution of independent variables, specify all the variablels in the &lt;code&gt;boxplot()&lt;/code&gt; function.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Color&lt;/h3&gt;
+&lt;p&gt;Let us add some color to the plot. We can specify as many colors as the boxes or we can specify the same color for all of them. Below are two examples where we specify the same color in the first one and different colors in the second one.&lt;/p&gt;
+&lt;div id=&#34;single-color&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Single Color&lt;/h5&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg ~ mtcars$cyl, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box14-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;different-colors&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Different Colors&lt;/h5&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg ~ mtcars$cyl, 
+        col = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box15-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-medians&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Compare Medians&lt;/h3&gt;
+&lt;p&gt;If we want to test whether the medians of the different groups differ, we can use the &lt;code&gt;notch&lt;/code&gt; argument and set it to &lt;code&gt;TRUE&lt;/code&gt;. A notch is drawn in each side of the boxes and if the notches of the plots do not overlap, it is strong evidence that the medians differ.&lt;/p&gt;
+&lt;p&gt;We will use a different data set for this example. Download the &lt;code&gt;hsb2&lt;/code&gt; data from UCLA website and compare the distribution of reading score (&lt;code&gt;read&lt;/code&gt;) for males and females (&lt;code&gt;female&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hsb &amp;lt;- read.table(&amp;#39;https://stats.idre.ucla.edu/wp-content/uploads/2016/02/hsb2-2.csv&amp;#39;, header=T, sep=&amp;quot;,&amp;quot;)
+boxplot(hsb$read ~ hsb$female, notch = TRUE, 
+        col = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box16-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Since the notches overlap, there is no strong evidence that the medians differ.&lt;/p&gt;
+&lt;p&gt;We will end this post by adding a title and axis labels to the box plot. If you do not know how to add title and axis labels to a plot, please refer to this &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-title-and-axis-labels/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mtcars$mpg ~ mtcars$cyl, range = 1, outline = TRUE, 
+        horizontal = TRUE, col = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;),
+        main = &amp;#39;Miles Per Gallon by Cylinders&amp;#39;, 
+        ylab = &amp;#39;Number of Cylinders&amp;#39;, xlab = &amp;#39;Miles Per Gallon&amp;#39;,
+        names = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box17-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;In this post, we learnt how to create box plots. Specifically, we learnt to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create univariate/multivariate box plots&lt;/li&gt;
+&lt;li&gt;interpret box plots&lt;/li&gt;
+&lt;li&gt;create horizontal box plots&lt;/li&gt;
+&lt;li&gt;detect outliers&lt;/li&gt;
+&lt;li&gt;modify box color&lt;/li&gt;
+&lt;li&gt;use formula to compare distributions of different variables&lt;/li&gt;
+&lt;li&gt;use notches to compare medians&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next post, we will learn about histograms.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

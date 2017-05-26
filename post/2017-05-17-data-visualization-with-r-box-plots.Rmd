@@ -11,3 +11,8 @@ tags:
 draft: yes
 ---
 
+This is the sixth post in the series **Data Visualization With R**. In the previous [post](), we learnt how to build bar plots. In this post, we will learn about box plots.
+
+## Introduction
+
+Box plot (also known as box and whisker plots) is a exploratory graphic 

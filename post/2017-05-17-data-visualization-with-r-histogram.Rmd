@@ -111,6 +111,7 @@ If you observe the Y axis, it does not represent frequency any more. Instead, it
 #### Frequency Density
 
 Frequency Density =  Relative Frequency / Class Width
+
 Relative Frequency = Frequency / Total Observations
 
 ```{r hist8}
@@ -219,6 +220,14 @@ Specify the label values in a character vector.
 hist(mtcars$mpg, labels = c("6", "12", "8", "2", "4"))
 ```
 
+Before we end this post, let us add a title and axis labels to the histogram. If you do not know how to add title and axis labels, refer to this [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-title-and-axis-labels/).
+
+```{r hist19}
+hist(mtcars$mpg, labels = TRUE, prob = TRUE,
+     ylim = c(0, 0.1), xlab = 'Miles Per Gallon',
+     main = 'Distribution of Miles Per Gallon',
+     col = rainbow(5))
+```
 
 ### Summary
 

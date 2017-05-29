@@ -81,7 +81,8 @@ h$equidist&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;frequency-density&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Frequency Density&lt;/h4&gt;
-&lt;p&gt;Frequency Density = Relative Frequency / Class Width Relative Frequency = Frequency / Total Observations&lt;/p&gt;
+&lt;p&gt;Frequency Density = Relative Frequency / Class Width&lt;/p&gt;
+&lt;p&gt;Relative Frequency = Frequency / Total Observations&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;h &amp;lt;- hist(mtcars$mpg, breaks = c(10, 18, 24, 30, 35))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frequency &amp;lt;- h$counts
@@ -150,6 +151,12 @@ d&lt;/code&gt;&lt;/pre&gt;
 &lt;h5&gt;Method 2&lt;/h5&gt;
 &lt;p&gt;Specify the label values in a character vector.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist18-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Before we end this post, let us add a title and axis labels to the histogram. If you do not know how to add title and axis labels, refer to this &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-title-and-axis-labels/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mtcars$mpg, labels = TRUE, prob = TRUE,
+     ylim = c(0, 0.1), xlab = &amp;#39;Miles Per Gallon&amp;#39;,
+     main = &amp;#39;Distribution of Miles Per Gallon&amp;#39;,
+     col = rainbow(5))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

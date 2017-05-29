@@ -15,12 +15,156 @@
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-histogram/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;p&gt;This is the seventh post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;A histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;center (location) of the data&lt;/li&gt;
+&lt;li&gt;spread (dispersion) of the data&lt;/li&gt;
+&lt;li&gt;skewness&lt;/li&gt;
+&lt;li&gt;outliers&lt;/li&gt;
+&lt;li&gt;presence of multiple modes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To construct a histogram, the data is split into intervals called bins. The intervals may or may not be equal sized. For each bin, the number of data points that fall into it are counted (frequency). The Y axis of the histogram represents the frequency and the X axis represents the variable.&lt;/p&gt;
+&lt;div id=&#34;distributions&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Distributions&lt;/h4&gt;
+&lt;p&gt;Before we learn how to create histograms, let us see how normal and skewed distributions look when represented by a histogram.&lt;/p&gt;
+&lt;div id=&#34;normal-distribution&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Normal Distribution&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;skewed-distributions&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Skewed Distributions&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist2-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Basics&lt;/h3&gt;
+&lt;p&gt;Histograms are created using the &lt;code&gt;hist()&lt;/code&gt; function in R. The minimum input required to create a bare bones histogram is a continuous variable. Below is an example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist3-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;hist()&lt;/code&gt; functions returns details of the histogram which can be accessed by assigning the histogram to a variable. Let us assign the above histogram to a variable &lt;code&gt;h&lt;/code&gt; and use the &lt;code&gt;$&lt;/code&gt; symbol to access the details stored in the variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# store the results of hist function
+h &amp;lt;- hist(mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# display number of breaks
+h$breaks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10 15 20 25 30 35&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# frequency of the intervals
+h$counts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  6 12  8  2  4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# frequency density
+h$density&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0375 0.0750 0.0500 0.0125 0.0250&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mid points of the intervals
+h$mids&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12.5 17.5 22.5 27.5 32.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# varible name
+h$xname&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;mtcars$mpg&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# whether intervals are of equal size
+h$equidist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;bins&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Bins&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;hist()&lt;/code&gt; function creates equidistant intervals by default. We can specify the number of bins using the &lt;code&gt;breaks&lt;/code&gt; argument.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The below plot displays histograms with different number of bins:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist6-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;intervals&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Intervals&lt;/h4&gt;
+&lt;p&gt;If we want to create histograms with specific intervals, the &lt;code&gt;breaks&lt;/code&gt; argument can be supplied with the intervals.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist7-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you observe the Y axis, it does not represent frequency any more. Instead, it represents the frequency density. What is frequency density?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;frequency-density&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Frequency Density&lt;/h4&gt;
+&lt;p&gt;Frequency Density = Relative Frequency / Class Width Relative Frequency = Frequency / Total Observations&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;h &amp;lt;- hist(mtcars$mpg, breaks = c(10, 18, 24, 30, 35))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frequency &amp;lt;- h$counts
+class_width &amp;lt;- c(8, 6, 6, 5)
+rel_freq &amp;lt;- frequency / length(mtcars$mpg)
+freq_density &amp;lt;- rel_freq / class_width
+d &amp;lt;- data.frame(frequency = frequency, class_width = class_width, relative_frequency = rel_freq, frequency_density = freq_density)
+d&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   frequency class_width relative_frequency frequency_density
+## 1        13           8            0.40625        0.05078125
+## 2        12           6            0.37500        0.06250000
+## 3         3           6            0.09375        0.01562500
+## 4         4           5            0.12500        0.02500000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When multiplied by the class width, the product will always sum upto 1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(d$frequency_density * d$class_width)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will learn more about frequency density in a bit. Before we end this section, we need to learn about one more way to specify the intervals of the histogram, algorithms. The &lt;code&gt;hist()&lt;/code&gt; function allows us to specify the following algorithms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sturges (default)&lt;/li&gt;
+&lt;li&gt;Scott&lt;/li&gt;
+&lt;li&gt;Freedman-Diaconis (FD)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the below plot, we examine how th algorithms work:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist10-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;frequency-distribution-ii&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Frequency Distribution II&lt;/h4&gt;
+&lt;p&gt;Let us come back to frequency density. If you want the Y axis of the histogram to represent frequency density instead of counts, set the &lt;code&gt;freq&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist11-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The same result can be achieved by using the &lt;code&gt;probability&lt;/code&gt; argument as well. It takes only logical values as inputs and the default is &lt;code&gt;FALSE&lt;/code&gt;. If set to &lt;code&gt;TRUE&lt;/code&gt;, the Y axis will represent the frequency density instead of counts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist12-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Color&lt;/h4&gt;
+&lt;p&gt;To add colors to the bars of the histogram, use the &lt;code&gt;col&lt;/code&gt; argument. If the number of colors specified is less than the number of bars, the colors are recycled. Below are a few examples:&lt;/p&gt;
+&lt;div id=&#34;single-color&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Single Color&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist13-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;different-colors&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Different Colors&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist14-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;recycled-colors&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Recycled Colors&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist15-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;border-color&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Border Color&lt;/h4&gt;
+&lt;p&gt;Colors can be specified for the borders of the histogrambars using the &lt;code&gt;border&lt;/code&gt; argument.&lt;/p&gt;
+&lt;div id=&#34;different-colors-1&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Different Colors&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist16-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;labels&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Labels&lt;/h4&gt;
+&lt;p&gt;In certain cases, we might want to add the frequency counts on the histogram bars. It is easier for the user to know the frequencies of each bin when they are present on top of the bars. Let us add the frequency counts on top of the bars using the &lt;code&gt;labels&lt;/code&gt; argument. We can either set it to &lt;code&gt;TRUE&lt;/code&gt; or a character vector containing the label values. Let us look at both the methods.&lt;/p&gt;
+&lt;div id=&#34;method-1&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Method 1&lt;/h5&gt;
+&lt;p&gt;Set &lt;code&gt;labels&lt;/code&gt; to &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist17-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;method-2&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Method 2&lt;/h5&gt;
+&lt;p&gt;Specify the label values in a character vector.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist18-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;In this post, we learnt how to construct and use histograms to examine the underlying distribution of a continuous variable. Specifically, we learnt how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create a bare bones histogram&lt;/li&gt;
+&lt;li&gt;specify the number of bins/intervals&lt;/li&gt;
+&lt;li&gt;represent frequency density on the Y axis&lt;/li&gt;
+&lt;li&gt;add colors to the bars and the border&lt;/li&gt;
+&lt;li&gt;add labels to the bars&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next post, we will learn to add legend to plots.&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

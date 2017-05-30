@@ -9,3 +9,137 @@ tags:
 draft: yes
 ---
 
+### Introduction
+
+tibbles are a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the [tidyverse](http://tidyverse.org/). In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn
+
+- how to create tibbles
+- how to convert other objects to tibbles
+- compare tibbles with data frames
+- to manipulate tibbles
+
+
+### Creating tibbles
+
+In this first section, we will create tibbles using the `tibble()` function and compare tibbles to data frames. 
+
+#### tibble never changes input's type
+
+In the `data.frame()` function, any column with `character` data is converted to `factors` unless you set `stringsAsFactors` argument to `FALSE`. tibble takes care of this by never changing any input's type. As you can observe in the below example, tibbles do not convert `characters` to `factors`. 
+
+```{r tibble1, echo=FALSE}
+library(tibble)
+library(dplyr)
+```
+
+```{r tibble2}
+tibble(x = letters,
+       y = 1:26,
+       z = sample(100, 26))
+```
+
+#### tibble never adjusts variable names
+
+If there is more than one word in a variable name, `data.frame()` will add a `.` and join them but tibble never adjusts variable names. Below is an example:
+
+```{r tibble3}
+names(data.frame(`order value` = 10))
+names(tibble(`order value` = 10))
+```
+
+#### tibble never prints all the rows
+
+tibble only shows the first ten rows and all the columns that fit on one screen. Below the column names, it prints the column type as well. Let us look at an example:
+
+```{r tibble4}
+x <- 1:100
+y <- letters[1]
+z <- sample(c(TRUE, FALSE), 100, replace = TRUE)
+tibble(x, y, z)
+```
+
+#### tibble never recycles vectors of length greater than 1
+
+tibble will never recycle a vector of length greater than 1. If you observe the previous example, we could have used all the letters instead of just the first letter but tibble will return an error if the vectors are of length greater than 1.
+
+
+### Creating tibbles II
+
+In the previous section, we created tibbles using the `tibble()` function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the `as_tibble()` function:
+
+- data.frame
+- list
+- matrix
+- table
+- tbl_df
+
+#### DataFrames
+
+```{r tibble5}
+as_tibble(iris)
+```
+
+#### Lists
+
+```{r tibble6}
+l <- list(x = 1:32, y = sample(100, 32), z = replicate(32, letters, simplify = FALSE))
+as_tibble(l)
+```
+
+#### Matrix
+
+```{r tibble7}
+m <- matrix(sample(1000, 2600, replace = TRUE), ncol = 26)
+colnames(m) <- letters
+as_tibble(m)
+```
+
+#### Table
+
+```{r tibble8}
+k <- table(mtcars$cyl)
+as_tibble(k)
+```
+
+#### tbl_df
+
+```{r tibble9}
+k <- tbl_df(iris)
+as_tibble(k)
+```
+
+We can test if an object is a tibble using the `is_tibble()` function.
+
+```{r tibble 10}
+is_tibble(mtcars)
+is_tibble(as_tibble(mtcars))
+```
+
+#### Tribble
+
+Another way to create tibbles is using the `tribble()` function. tribble is short for transposed tibbles. It is customized for data entry in code. Column names start with `~` and values are separated by commas. Below is an example:
+
+```{r tibble11}
+tribble(
+  ~x, ~y, ~z,
+  #--|--|----
+  1, TRUE, 'a',
+  2, FALSE, 'b'
+)
+```
+
+#### Column Names
+
+Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks. Below is an example:
+
+```{r tibble12}
+tibble(
+  ` ` = 'space',
+  `2` = 'integer',
+  `:)` = 'smiley'
+)
+```
+
+### 
+
+

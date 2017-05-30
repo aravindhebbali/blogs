@@ -20,7 +20,37 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;What is tidy data? When each column in the data frame is a variable and each row represents an observation, we say the data is tidy.&lt;/p&gt;
+&lt;p&gt;Why tidy data?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;work with other packages in tidyverse&lt;/li&gt;
+&lt;li&gt;spend less time on data munging&lt;/li&gt;
+&lt;li&gt;spend more time mining and modeling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why tidyr?&lt;/p&gt;
+&lt;p&gt;Examples of messy data&lt;/p&gt;
+&lt;p&gt;Examples of tidy data&lt;/p&gt;
+&lt;p&gt;Case Study&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://tidyr.tidyverse.org/index.html&#34;&gt;tidyr&lt;/a&gt; provides useful functions to convert messy data into tidy data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;spread&lt;/code&gt;: convert columns to rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gather&lt;/code&gt;: combine multiple columns into a single column; column names become another column&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt;: split a character column into multiple columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt;: unite columns into a single column using a separator&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nest&lt;/code&gt;: nest data into multiple tibbles based on a factor variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;missing-values&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Missing Values&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;drop_na&lt;/code&gt;: drop rows with missing values&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fill&lt;/code&gt;: fill missing values using previous entry&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;full_seq&lt;/code&gt;: create full sequence vectors&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;replace_na&lt;/code&gt;: replace missing values with supplied values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -9,3 +9,40 @@ tags:
 draft: yes
 ---
 
+### Introduction
+
+What is tidy data? When each column in the data frame is a variable and each row represents an observation, we say the data is tidy. 
+
+Why tidy data? 
+
+- work with other packages in tidyverse
+- spend less time on data munging
+- spend more time mining and modeling
+
+Why tidyr?
+
+Examples of messy data
+
+Examples of tidy data
+
+Case Study
+
+
+
+[tidyr](http://tidyr.tidyverse.org/index.html) provides useful functions to convert messy data into tidy data.  
+
+- `spread`: convert columns to rows
+- `gather`: combine multiple columns into a single column; column names become another column 
+- `separate`: split a character column into multiple columns
+- `unite`: unite columns into a single column using a separator
+- `nest`: nest data into multiple tibbles based on a factor variable
+
+#### Missing Values
+
+- `drop_na`: drop rows with missing values
+- `fill`: fill missing values using previous entry
+- `full_seq`: create full sequence vectors
+- `replace_na`: replace missing values with supplied values
+
+
+

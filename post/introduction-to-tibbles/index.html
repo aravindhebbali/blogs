@@ -292,7 +292,219 @@
 
 <!-- BLOGDOWN-BODY-BEFORE -->
 <!-- /BLOGDOWN-BODY-BEFORE -->
-
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>tibbles are a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the <a href="http://tidyverse.org/">tidyverse</a>. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn</p>
+<ul>
+<li>how to create tibbles</li>
+<li>how to convert other objects to tibbles</li>
+<li>compare tibbles with data frames</li>
+<li>to manipulate tibbles</li>
+</ul>
+</div>
+<div id="creating-tibbles" class="section level3">
+<h3>Creating tibbles</h3>
+<p>In this first section, we will create tibbles using the <code>tibble()</code> function and compare tibbles to data frames.</p>
+<div id="tibble-never-changes-inputs-type" class="section level4">
+<h4>tibble never changes input’s type</h4>
+<p>In the <code>data.frame()</code> function, any column with <code>character</code> data is converted to <code>factors</code> unless you set <code>stringsAsFactors</code> argument to <code>FALSE</code>. tibble takes care of this by never changing any input’s type. As you can observe in the below example, tibbles do not convert <code>characters</code> to <code>factors</code>.</p>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>tibble(x = letters,
+       y = 1:26,
+       z = sample(100, 26))</code></pre>
+<pre><code>## # A tibble: 26 × 3
+##        x     y     z
+##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+## 1      a     1   100
+## 2      b     2    19
+## 3      c     3    93
+## 4      d     4    52
+## 5      e     5    66
+## 6      f     6    68
+## 7      g     7    58
+## 8      h     8     9
+## 9      i     9    99
+## 10     j    10    95
+## # ... with 16 more rows</code></pre>
+</div>
+<div id="tibble-never-adjusts-variable-names" class="section level4">
+<h4>tibble never adjusts variable names</h4>
+<p>If there is more than one word in a variable name, <code>data.frame()</code> will add a <code>.</code> and join them but tibble never adjusts variable names. Below is an example:</p>
+<pre class="r"><code>names(data.frame(`order value` = 10))</code></pre>
+<pre><code>## [1] &quot;order.value&quot;</code></pre>
+<pre class="r"><code>names(tibble(`order value` = 10))</code></pre>
+<pre><code>## [1] &quot;order value&quot;</code></pre>
+</div>
+<div id="tibble-never-prints-all-the-rows" class="section level4">
+<h4>tibble never prints all the rows</h4>
+<p>tibble only shows the first ten rows and all the columns that fit on one screen. Below the column names, it prints the column type as well. Let us look at an example:</p>
+<pre class="r"><code>x &lt;- 1:100
+y &lt;- letters[1]
+z &lt;- sample(c(TRUE, FALSE), 100, replace = TRUE)
+tibble(x, y, z)</code></pre>
+<pre><code>## # A tibble: 100 × 3
+##        x     y     z
+##    &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
+## 1      1     a  TRUE
+## 2      2     a  TRUE
+## 3      3     a  TRUE
+## 4      4     a  TRUE
+## 5      5     a FALSE
+## 6      6     a FALSE
+## 7      7     a FALSE
+## 8      8     a  TRUE
+## 9      9     a  TRUE
+## 10    10     a FALSE
+## # ... with 90 more rows</code></pre>
+</div>
+<div id="tibble-never-recycles-vectors-of-length-greater-than-1" class="section level4">
+<h4>tibble never recycles vectors of length greater than 1</h4>
+<p>tibble will never recycle a vector of length greater than 1. If you observe the previous example, we could have used all the letters instead of just the first letter but tibble will return an error if the vectors are of length greater than 1.</p>
+</div>
+</div>
+<div id="creating-tibbles-ii" class="section level3">
+<h3>Creating tibbles II</h3>
+<p>In the previous section, we created tibbles using the <code>tibble()</code> function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the <code>as_tibble()</code> function:</p>
+<ul>
+<li>data.frame</li>
+<li>list</li>
+<li>matrix</li>
+<li>table</li>
+<li>tbl_df</li>
+</ul>
+<div id="dataframes" class="section level4">
+<h4>DataFrames</h4>
+<pre class="r"><code>as_tibble(iris)</code></pre>
+<pre><code>## # A tibble: 150 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;  &lt;fctr&gt;
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+## # ... with 140 more rows</code></pre>
+</div>
+<div id="lists" class="section level4">
+<h4>Lists</h4>
+<pre class="r"><code>l &lt;- list(x = 1:32, y = sample(100, 32), z = replicate(32, letters, simplify = FALSE))
+as_tibble(l)</code></pre>
+<pre><code>## # A tibble: 32 × 3
+##        x     y          z
+##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
+## 1      1    52 &lt;chr [26]&gt;
+## 2      2    69 &lt;chr [26]&gt;
+## 3      3    14 &lt;chr [26]&gt;
+## 4      4    70 &lt;chr [26]&gt;
+## 5      5    51 &lt;chr [26]&gt;
+## 6      6    13 &lt;chr [26]&gt;
+## 7      7    78 &lt;chr [26]&gt;
+## 8      8    97 &lt;chr [26]&gt;
+## 9      9    60 &lt;chr [26]&gt;
+## 10    10    67 &lt;chr [26]&gt;
+## # ... with 22 more rows</code></pre>
+</div>
+<div id="matrix" class="section level4">
+<h4>Matrix</h4>
+<pre class="r"><code>m &lt;- matrix(sample(1000, 2600, replace = TRUE), ncol = 26)
+colnames(m) &lt;- letters
+as_tibble(m)</code></pre>
+<pre><code>## # A tibble: 100 × 26
+##        a     b     c     d     e     f     g     h     i     j     k     l
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1    738   270    58   204   876   106   659   830   968   206    81   181
+## 2    969   148   541   816   796   707   250   552   556   604   879   159
+## 3     88   663   488   371   532   216   956   345   147   634   191   270
+## 4    969   904   714   921   324   515   771   522   160   437   837   928
+## 5    401   465   567    63   120   111   833   479    44   593   662    93
+## 6    229   613   308   839   792   901   720   403   631   594   109   143
+## 7    605   249   137   845   147   270   570   845   281   371   630   394
+## 8    871   623   169   740   691   501   567   144   690   900   335    29
+## 9    784   490   936   140   828   988   916   912   642   910   460   423
+## 10   309   583   112   476   502   345   376   457    59   946   937   439
+## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
+## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
+## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;</code></pre>
+</div>
+<div id="table" class="section level4">
+<h4>Table</h4>
+<pre class="r"><code>k &lt;- table(mtcars$cyl)
+as_tibble(k)</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##    Var1     n
+##   &lt;chr&gt; &lt;int&gt;
+## 1     4    11
+## 2     6     7
+## 3     8    14</code></pre>
+</div>
+<div id="tbl_df" class="section level4">
+<h4>tbl_df</h4>
+<pre class="r"><code>k &lt;- tbl_df(iris)
+as_tibble(k)</code></pre>
+<pre><code>## # A tibble: 150 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;  &lt;fctr&gt;
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+## # ... with 140 more rows</code></pre>
+<p>We can test if an object is a tibble using the <code>is_tibble()</code> function.</p>
+<pre class="r"><code>is_tibble(mtcars)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is_tibble(as_tibble(mtcars))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="tribble" class="section level4">
+<h4>Tribble</h4>
+<p>Another way to create tibbles is using the <code>tribble()</code> function. tribble is short for transposed tibbles. It is customized for data entry in code. Column names start with <code>~</code> and values are separated by commas. Below is an example:</p>
+<pre class="r"><code>tribble(
+  ~x, ~y, ~z,
+  #--|--|----
+  1, TRUE, &#39;a&#39;,
+  2, FALSE, &#39;b&#39;
+)</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##       x     y     z
+##   &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;
+## 1     1  TRUE     a
+## 2     2 FALSE     b</code></pre>
+</div>
+<div id="column-names" class="section level4">
+<h4>Column Names</h4>
+<p>Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks. Below is an example:</p>
+<pre class="r"><code>tibble(
+  ` ` = &#39;space&#39;,
+  `2` = &#39;integer&#39;,
+  `:)` = &#39;smiley&#39;
+)</code></pre>
+<pre><code>## # A tibble: 1 × 3
+##     ` `     `2`   `:)`
+##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;
+## 1 space integer smiley</code></pre>
+</div>
+</div>
+<div id="section" class="section level3">
+<h3></h3>
+</div>
 
 
   
@@ -315,13 +527,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="../../post/why-you-should-purrr/">Why you should purrr?</a>
+      <a href="../../post/why-you-should-know-the-normal-distribution/">Why you should know the Normal distribution?</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="../../post/why-you-should-purrr/"><i class="fa fa-chevron-right"></i></a>
+    <a href="../../post/why-you-should-know-the-normal-distribution/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

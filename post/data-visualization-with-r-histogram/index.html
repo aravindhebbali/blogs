@@ -389,6 +389,7 @@ d</code></pre>
 <p>Let us come back to frequency density. If you want the Y axis of the histogram to represent frequency density instead of counts, set the <code>freq</code> argument to <code>FALSE</code>.</p>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist11-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>The same result can be achieved by using the <code>probability</code> argument as well. It takes only logical values as inputs and the default is <code>FALSE</code>. If set to <code>TRUE</code>, the Y axis will represent the frequency density instead of counts.</p>
+<pre class="r"><code>hist(mtcars$mpg, probability = TRUE)</code></pre>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist12-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="color" class="section level4">

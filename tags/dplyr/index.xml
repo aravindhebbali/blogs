@@ -20,7 +20,57 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;According to a &lt;a href=&#34;http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf&#34;&gt;survey&lt;/a&gt; by &lt;a href=&#34;https://www.crowdflower.com/&#34;&gt;CrowdFlower&lt;/a&gt;, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today’s post, we introduce you to &lt;a href=&#34;http://dplyr.tidyverse.org/&#34;&gt;dplyr&lt;/a&gt;, a grammar of data manipulation.&lt;/p&gt;
+&lt;div id=&#34;why-dplyr&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Why dplyr?&lt;/h4&gt;
+&lt;p&gt;dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc. In order to truly appreciate dplyr, we will compare it to the functions in base R.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Installation&lt;/h4&gt;
+&lt;p&gt;You can install a stable version of &lt;code&gt;dplyr&lt;/code&gt; from CRAN or the latest development version from GitHub.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install from cran
+install.packages(&amp;#39;dplyr&amp;#39;)
 
+# install from GitHub
+install.packages(&amp;#39;devtools&amp;#39;)
+devtools::install_github(&amp;#39;tidyverse/dplyr&amp;#39;)
+
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dplyr-verbs&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;dplyr Verbs&lt;/h4&gt;
+&lt;p&gt;dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: select columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filter rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: re-order or arrange rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: create new columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: reduce data to a single summary&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group_by&lt;/code&gt;: group operations (split-apply-combine)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us explore each of the above verbs one by one. &lt;code&gt;dplyr&lt;/code&gt; offers more functionality than the above listed verbs but we will explore them in a different post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-study&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Case Study&lt;/h4&gt;
+&lt;p&gt;We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt;. Below is the description of the data set:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id: row id&lt;/li&gt;
+&lt;li&gt;referrer: referrer website/search engine&lt;/li&gt;
+&lt;li&gt;os: operating system&lt;/li&gt;
+&lt;li&gt;browser: browser&lt;/li&gt;
+&lt;li&gt;device: device used to visit the website&lt;/li&gt;
+&lt;li&gt;n_pages: number of pages visited&lt;/li&gt;
+&lt;li&gt;duration: time spent on the website (in seconds)&lt;/li&gt;
+&lt;li&gt;repeat: frequency of visits&lt;/li&gt;
+&lt;li&gt;country: country of origin&lt;/li&gt;
+&lt;li&gt;purchase: whether visitor purchased&lt;/li&gt;
+&lt;li&gt;order_value: order value of visitor (in dollars)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We will use dplyr to answer a set of questions we have about the customers of the above e-commerce website.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

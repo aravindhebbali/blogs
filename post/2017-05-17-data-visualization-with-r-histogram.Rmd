@@ -164,7 +164,7 @@ for (i in values) {
 
 The same result can be achieved by using the `probability` argument as well. It takes only logical values as inputs and the default is `FALSE`. If set to `TRUE`, the Y axis will represent the frequency density instead of counts.
 
-```{r hist12, fig.align='center', fig.height=5, fig.width=5, echo=FALSE}
+```{r hist12, fig.align='center', fig.height=5, fig.width=5}
 hist(mtcars$mpg, probability = TRUE)
 ```
 

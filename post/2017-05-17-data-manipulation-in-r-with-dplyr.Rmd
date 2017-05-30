@@ -9,3 +9,57 @@ tags:
 draft: yes
 ---
 
+### Introduction
+
+According to  a [survey](http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf) by [CrowdFlower](https://www.crowdflower.com/), data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today's post, we introduce you to [dplyr](http://dplyr.tidyverse.org/), a grammar of data manipulation.
+
+#### Why dplyr?
+
+dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc. In order to truly appreciate dplyr, we will compare it to the functions in base R.
+
+#### Installation
+
+You can install a stable version of `dplyr` from CRAN or the latest development version from GitHub.
+
+```{r dplyr1, eval=FALSE}
+# install from cran
+install.packages('dplyr')
+
+# install from GitHub
+install.packages('devtools')
+devtools::install_github('tidyverse/dplyr')
+
+library(dplyr)
+```
+
+#### dplyr Verbs
+
+dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):
+
+- `select`: select columns
+- `filter`: filter rows
+- `arrange`: re-order or arrange rows
+- `mutate`: create new columns
+- `summarise`: reduce data to a single summary
+- `group_by`: group operations (split-apply-combine)
+
+Let us explore each of the above verbs one by one. `dplyr` offers more functionality than the above listed verbs but we will explore them in a different post.
+
+#### Case Study
+
+We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv). Below is the description of the data set:
+
+- id: row id
+- referrer: referrer website/search engine
+- os: operating system
+- browser: browser
+- device: device used to visit the website
+- n_pages: number of pages visited
+- duration: time spent on the website (in seconds)
+- repeat: frequency of visits
+- country: country of origin
+- purchase: whether visitor purchased
+- order_value: order value of visitor (in dollars)
+
+We will use dplyr to answer a set of questions we have about the customers of the above e-commerce website.
+

@@ -113,6 +113,7 @@ d&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let us come back to frequency density. If you want the Y axis of the histogram to represent frequency density instead of counts, set the &lt;code&gt;freq&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist11-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The same result can be achieved by using the &lt;code&gt;probability&lt;/code&gt; argument as well. It takes only logical values as inputs and the default is &lt;code&gt;FALSE&lt;/code&gt;. If set to &lt;code&gt;TRUE&lt;/code&gt;, the Y axis will represent the frequency density instead of counts.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mtcars$mpg, probability = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-histogram_files/figure-html/hist12-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;color&#34; class=&#34;section level4&#34;&gt;

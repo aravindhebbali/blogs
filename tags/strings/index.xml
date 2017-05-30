@@ -20,7 +20,20 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;p&gt;Functions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_count&lt;/code&gt;: count number of matches in string In cart, search for products with units &amp;gt; 1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_detect&lt;/code&gt;: detect if a pattern is present in string In cart, check if certain product has been purchased.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_match&lt;/code&gt;: use for landing pages&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_locate&lt;/code&gt;: locate special character to truncate&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_replace&lt;/code&gt;: replace set of products with category&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_split&lt;/code&gt;: split url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_subset&lt;/code&gt;: subset url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_trim&lt;/code&gt;: remove white space from url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_len&lt;/code&gt;: length of string; test input&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_trun&lt;/code&gt;: truncate url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_sub&lt;/code&gt;: extract and replace substrings&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

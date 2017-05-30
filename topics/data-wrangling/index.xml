@@ -20,22 +20,37 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Why you should purrr?</title>
-      <link>/post/why-you-should-purrr/</link>
-      <pubDate>Wed, 03 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/why-you-should-purrr/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;What is tidy data? When each column in the data frame is a variable and each row represents an observation, we say the data is tidy.&lt;/p&gt;
+&lt;p&gt;Why tidy data?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;work with other packages in tidyverse&lt;/li&gt;
+&lt;li&gt;spend less time on data munging&lt;/li&gt;
+&lt;li&gt;spend more time mining and modeling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why tidyr?&lt;/p&gt;
+&lt;p&gt;Examples of messy data&lt;/p&gt;
+&lt;p&gt;Examples of tidy data&lt;/p&gt;
+&lt;p&gt;Case Study&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://tidyr.tidyverse.org/index.html&#34;&gt;tidyr&lt;/a&gt; provides useful functions to convert messy data into tidy data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;spread&lt;/code&gt;: convert columns to rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gather&lt;/code&gt;: combine multiple columns into a single column; column names become another column&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt;: split a character column into multiple columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt;: unite columns into a single column using a separator&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nest&lt;/code&gt;: nest data into multiple tibbles based on a factor variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;missing-values&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Missing Values&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;drop_na&lt;/code&gt;: drop rows with missing values&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fill&lt;/code&gt;: fill missing values using previous entry&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;full_seq&lt;/code&gt;: create full sequence vectors&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;replace_na&lt;/code&gt;: replace missing values with supplied values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -50,7 +65,219 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;tibbles are a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the &lt;a href=&#34;http://tidyverse.org/&#34;&gt;tidyverse&lt;/a&gt;. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;how to create tibbles&lt;/li&gt;
+&lt;li&gt;how to convert other objects to tibbles&lt;/li&gt;
+&lt;li&gt;compare tibbles with data frames&lt;/li&gt;
+&lt;li&gt;to manipulate tibbles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-tibbles&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating tibbles&lt;/h3&gt;
+&lt;p&gt;In this first section, we will create tibbles using the &lt;code&gt;tibble()&lt;/code&gt; function and compare tibbles to data frames.&lt;/p&gt;
+&lt;div id=&#34;tibble-never-changes-inputs-type&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;tibble never changes input’s type&lt;/h4&gt;
+&lt;p&gt;In the &lt;code&gt;data.frame()&lt;/code&gt; function, any column with &lt;code&gt;character&lt;/code&gt; data is converted to &lt;code&gt;factors&lt;/code&gt; unless you set &lt;code&gt;stringsAsFactors&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt;. tibble takes care of this by never changing any input’s type. As you can observe in the below example, tibbles do not convert &lt;code&gt;characters&lt;/code&gt; to &lt;code&gt;factors&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tibble(x = letters,
+       y = 1:26,
+       z = sample(100, 26))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 26 × 3
+##        x     y     z
+##    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1      a     1   100
+## 2      b     2    19
+## 3      c     3    93
+## 4      d     4    52
+## 5      e     5    66
+## 6      f     6    68
+## 7      g     7    58
+## 8      h     8     9
+## 9      i     9    99
+## 10     j    10    95
+## # ... with 16 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tibble-never-adjusts-variable-names&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;tibble never adjusts variable names&lt;/h4&gt;
+&lt;p&gt;If there is more than one word in a variable name, &lt;code&gt;data.frame()&lt;/code&gt; will add a &lt;code&gt;.&lt;/code&gt; and join them but tibble never adjusts variable names. Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(data.frame(`order value` = 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;order.value&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(tibble(`order value` = 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;order value&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tibble-never-prints-all-the-rows&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;tibble never prints all the rows&lt;/h4&gt;
+&lt;p&gt;tibble only shows the first ten rows and all the columns that fit on one screen. Below the column names, it prints the column type as well. Let us look at an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 1:100
+y &amp;lt;- letters[1]
+z &amp;lt;- sample(c(TRUE, FALSE), 100, replace = TRUE)
+tibble(x, y, z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 100 × 3
+##        x     y     z
+##    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;lgl&amp;gt;
+## 1      1     a  TRUE
+## 2      2     a  TRUE
+## 3      3     a  TRUE
+## 4      4     a  TRUE
+## 5      5     a FALSE
+## 6      6     a FALSE
+## 7      7     a FALSE
+## 8      8     a  TRUE
+## 9      9     a  TRUE
+## 10    10     a FALSE
+## # ... with 90 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tibble-never-recycles-vectors-of-length-greater-than-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;tibble never recycles vectors of length greater than 1&lt;/h4&gt;
+&lt;p&gt;tibble will never recycle a vector of length greater than 1. If you observe the previous example, we could have used all the letters instead of just the first letter but tibble will return an error if the vectors are of length greater than 1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-tibbles-ii&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating tibbles II&lt;/h3&gt;
+&lt;p&gt;In the previous section, we created tibbles using the &lt;code&gt;tibble()&lt;/code&gt; function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the &lt;code&gt;as_tibble()&lt;/code&gt; function:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data.frame&lt;/li&gt;
+&lt;li&gt;list&lt;/li&gt;
+&lt;li&gt;matrix&lt;/li&gt;
+&lt;li&gt;table&lt;/li&gt;
+&lt;li&gt;tbl_df&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;dataframes&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;DataFrames&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;as_tibble(iris)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 150 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;  &amp;lt;fctr&amp;gt;
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+## # ... with 140 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lists&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Lists&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;l &amp;lt;- list(x = 1:32, y = sample(100, 32), z = replicate(32, letters, simplify = FALSE))
+as_tibble(l)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 3
+##        x     y          z
+##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;     &amp;lt;list&amp;gt;
+## 1      1    52 &amp;lt;chr [26]&amp;gt;
+## 2      2    69 &amp;lt;chr [26]&amp;gt;
+## 3      3    14 &amp;lt;chr [26]&amp;gt;
+## 4      4    70 &amp;lt;chr [26]&amp;gt;
+## 5      5    51 &amp;lt;chr [26]&amp;gt;
+## 6      6    13 &amp;lt;chr [26]&amp;gt;
+## 7      7    78 &amp;lt;chr [26]&amp;gt;
+## 8      8    97 &amp;lt;chr [26]&amp;gt;
+## 9      9    60 &amp;lt;chr [26]&amp;gt;
+## 10    10    67 &amp;lt;chr [26]&amp;gt;
+## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;matrix&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Matrix&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m &amp;lt;- matrix(sample(1000, 2600, replace = TRUE), ncol = 26)
+colnames(m) &amp;lt;- letters
+as_tibble(m)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 100 × 26
+##        a     b     c     d     e     f     g     h     i     j     k     l
+##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1    738   270    58   204   876   106   659   830   968   206    81   181
+## 2    969   148   541   816   796   707   250   552   556   604   879   159
+## 3     88   663   488   371   532   216   956   345   147   634   191   270
+## 4    969   904   714   921   324   515   771   522   160   437   837   928
+## 5    401   465   567    63   120   111   833   479    44   593   662    93
+## 6    229   613   308   839   792   901   720   403   631   594   109   143
+## 7    605   249   137   845   147   270   570   845   281   371   630   394
+## 8    871   623   169   740   691   501   567   144   690   900   335    29
+## 9    784   490   936   140   828   988   916   912   642   910   460   423
+## 10   309   583   112   476   502   345   376   457    59   946   937   439
+## # ... with 90 more rows, and 14 more variables: m &amp;lt;int&amp;gt;, n &amp;lt;int&amp;gt;, o &amp;lt;int&amp;gt;,
+## #   p &amp;lt;int&amp;gt;, q &amp;lt;int&amp;gt;, r &amp;lt;int&amp;gt;, s &amp;lt;int&amp;gt;, t &amp;lt;int&amp;gt;, u &amp;lt;int&amp;gt;, v &amp;lt;int&amp;gt;,
+## #   w &amp;lt;int&amp;gt;, x &amp;lt;int&amp;gt;, y &amp;lt;int&amp;gt;, z &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;table&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Table&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- table(mtcars$cyl)
+as_tibble(k)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 2
+##    Var1     n
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1     4    11
+## 2     6     7
+## 3     8    14&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tbl_df&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;tbl_df&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- tbl_df(iris)
+as_tibble(k)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 150 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;  &amp;lt;fctr&amp;gt;
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+## # ... with 140 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can test if an object is a tibble using the &lt;code&gt;is_tibble()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is_tibble(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is_tibble(as_tibble(mtcars))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tribble&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Tribble&lt;/h4&gt;
+&lt;p&gt;Another way to create tibbles is using the &lt;code&gt;tribble()&lt;/code&gt; function. tribble is short for transposed tibbles. It is customized for data entry in code. Column names start with &lt;code&gt;~&lt;/code&gt; and values are separated by commas. Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tribble(
+  ~x, ~y, ~z,
+  #--|--|----
+  1, TRUE, &amp;#39;a&amp;#39;,
+  2, FALSE, &amp;#39;b&amp;#39;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 × 3
+##       x     y     z
+##   &amp;lt;dbl&amp;gt; &amp;lt;lgl&amp;gt; &amp;lt;chr&amp;gt;
+## 1     1  TRUE     a
+## 2     2 FALSE     b&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;column-names&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Column Names&lt;/h4&gt;
+&lt;p&gt;Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks. Below is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tibble(
+  ` ` = &amp;#39;space&amp;#39;,
+  `2` = &amp;#39;integer&amp;#39;,
+  `:)` = &amp;#39;smiley&amp;#39;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 × 3
+##     ` `     `2`   `:)`
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;
+## 1 space integer smiley&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;/h3&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -80,7 +307,20 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;p&gt;Functions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_count&lt;/code&gt;: count number of matches in string In cart, search for products with units &amp;gt; 1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_detect&lt;/code&gt;: detect if a pattern is present in string In cart, check if certain product has been purchased.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_match&lt;/code&gt;: use for landing pages&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_locate&lt;/code&gt;: locate special character to truncate&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_replace&lt;/code&gt;: replace set of products with category&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_split&lt;/code&gt;: split url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_subset&lt;/code&gt;: subset url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_trim&lt;/code&gt;: remove white space from url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_len&lt;/code&gt;: length of string; test input&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_trun&lt;/code&gt;: truncate url&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str_sub&lt;/code&gt;: extract and replace substrings&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -111,9 +351,9 @@
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-22 15:22:25 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-30 12:20:04 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-22&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-05-30&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;
@@ -135,7 +375,57 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;According to a &lt;a href=&#34;http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf&#34;&gt;survey&lt;/a&gt; by &lt;a href=&#34;https://www.crowdflower.com/&#34;&gt;CrowdFlower&lt;/a&gt;, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today’s post, we introduce you to &lt;a href=&#34;http://dplyr.tidyverse.org/&#34;&gt;dplyr&lt;/a&gt;, a grammar of data manipulation.&lt;/p&gt;
+&lt;div id=&#34;why-dplyr&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Why dplyr?&lt;/h4&gt;
+&lt;p&gt;dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc. In order to truly appreciate dplyr, we will compare it to the functions in base R.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Installation&lt;/h4&gt;
+&lt;p&gt;You can install a stable version of &lt;code&gt;dplyr&lt;/code&gt; from CRAN or the latest development version from GitHub.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install from cran
+install.packages(&amp;#39;dplyr&amp;#39;)
 
+# install from GitHub
+install.packages(&amp;#39;devtools&amp;#39;)
+devtools::install_github(&amp;#39;tidyverse/dplyr&amp;#39;)
+
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dplyr-verbs&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;dplyr Verbs&lt;/h4&gt;
+&lt;p&gt;dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: select columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filter rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: re-order or arrange rows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: create new columns&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: reduce data to a single summary&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group_by&lt;/code&gt;: group operations (split-apply-combine)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us explore each of the above verbs one by one. &lt;code&gt;dplyr&lt;/code&gt; offers more functionality than the above listed verbs but we will explore them in a different post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-study&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Case Study&lt;/h4&gt;
+&lt;p&gt;We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt;. Below is the description of the data set:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id: row id&lt;/li&gt;
+&lt;li&gt;referrer: referrer website/search engine&lt;/li&gt;
+&lt;li&gt;os: operating system&lt;/li&gt;
+&lt;li&gt;browser: browser&lt;/li&gt;
+&lt;li&gt;device: device used to visit the website&lt;/li&gt;
+&lt;li&gt;n_pages: number of pages visited&lt;/li&gt;
+&lt;li&gt;duration: time spent on the website (in seconds)&lt;/li&gt;
+&lt;li&gt;repeat: frequency of visits&lt;/li&gt;
+&lt;li&gt;country: country of origin&lt;/li&gt;
+&lt;li&gt;purchase: whether visitor purchased&lt;/li&gt;
+&lt;li&gt;order_value: order value of visitor (in dollars)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We will use dplyr to answer a set of questions we have about the customers of the above e-commerce website.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -10,3 +10,28 @@ tags:
 draft: yes
 ---
 
+Functions
+
+- `str_count`: count number of matches in string
+In cart, search for products with units > 1
+
+- `str_detect`: detect if a pattern is present in string
+In cart, check if certain product has been purchased.
+
+- `str_match`: use for landing pages
+
+- `str_locate`: locate special character to truncate 
+
+- `str_replace`: replace set of products with category
+
+- `str_split`: split url
+
+- `str_subset`: subset url
+
+- `str_trim`: remove white space from url
+
+- `str_len`: length of string; test input
+
+- `str_trun`: truncate url
+
+- `str_sub`: extract and replace substrings

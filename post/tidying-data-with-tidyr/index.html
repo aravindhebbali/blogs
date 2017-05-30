@@ -292,7 +292,37 @@
 
 <!-- BLOGDOWN-BODY-BEFORE -->
 <!-- /BLOGDOWN-BODY-BEFORE -->
-
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>What is tidy data? When each column in the data frame is a variable and each row represents an observation, we say the data is tidy.</p>
+<p>Why tidy data?</p>
+<ul>
+<li>work with other packages in tidyverse</li>
+<li>spend less time on data munging</li>
+<li>spend more time mining and modeling</li>
+</ul>
+<p>Why tidyr?</p>
+<p>Examples of messy data</p>
+<p>Examples of tidy data</p>
+<p>Case Study</p>
+<p><a href="http://tidyr.tidyverse.org/index.html">tidyr</a> provides useful functions to convert messy data into tidy data.</p>
+<ul>
+<li><code>spread</code>: convert columns to rows</li>
+<li><code>gather</code>: combine multiple columns into a single column; column names become another column</li>
+<li><code>separate</code>: split a character column into multiple columns</li>
+<li><code>unite</code>: unite columns into a single column using a separator</li>
+<li><code>nest</code>: nest data into multiple tibbles based on a factor variable</li>
+</ul>
+<div id="missing-values" class="section level4">
+<h4>Missing Values</h4>
+<ul>
+<li><code>drop_na</code>: drop rows with missing values</li>
+<li><code>fill</code>: fill missing values using previous entry</li>
+<li><code>full_seq</code>: create full sequence vectors</li>
+<li><code>replace_na</code>: replace missing values with supplied values</li>
+</ul>
+</div>
+</div>
 
 
   

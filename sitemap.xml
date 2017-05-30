@@ -7,11 +7,6 @@
   </url>
   
   <url>
-    <loc>/post/tidying-data-with-tidyr/</loc>
-    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/why-you-should-know-the-normal-distribution/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
   </url>
@@ -372,7 +367,7 @@
   
   <url>
     <loc>/topics/data-wrangling/</loc>
-    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -437,13 +432,13 @@
   </url>
   
   <url>
-    <loc>/topics/ggplot2/</loc>
+    <loc>/tags/ggplot2/</loc>
     <lastmod>2016-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ggplot2/</loc>
+    <loc>/topics/ggplot2/</loc>
     <lastmod>2016-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -581,13 +576,13 @@
   </url>
   
   <url>
-    <loc>/topics/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2016-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/topics/rmarkdown/</loc>
     <lastmod>2016-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -635,13 +630,13 @@
   </url>
   
   <url>
-    <loc>/topics/statistics/</loc>
+    <loc>/tags/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
+    <loc>/topics/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -672,12 +667,6 @@
   <url>
     <loc>/tags/tibble/</loc>
     <lastmod>2017-04-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyr/</loc>
-    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,12 @@
+---
+title: Readable Code with Pipes
+date: '2017-02-14'
+slug: readable-code-with-pipes
+topics:
+  - data-wrangling
+tags:
+  - pipes
+  - magrittr
+draft: yes
+---
+

@@ -32,6 +32,11 @@ devtools::install_github('tidyverse/dplyr')
 library(dplyr)
 ```
 
+```{r packages, echo=FALSE}
+library(dplyr)
+```
+
+
 #### dplyr Verbs
 
 dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):
@@ -62,4 +67,10 @@ We will explore dummy data that we have created to resemble web logs of a ecomme
 - order_value: order value of visitor (in dollars)
 
 We will use dplyr to answer a set of questions we have about the customers of the above e-commerce website.
+
+### What is the relationship between device and conversion?
+
+```{r}
+
+```
 

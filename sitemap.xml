@@ -37,6 +37,11 @@
   </url>
   
   <url>
+    <loc>/post/readable-code-with-pipes/</loc>
+    <lastmod>2017-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/quick-guide-r-sqlite/</loc>
     <lastmod>2017-02-05T00:00:00+00:00</lastmod>
   </url>
@@ -522,6 +527,12 @@
   </url>
   
   <url>
+    <loc>/tags/magrittr/</loc>
+    <lastmod>2017-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/mapply/</loc>
     <lastmod>2015-07-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -554,6 +565,12 @@
   <url>
     <loc>/tags/packages/</loc>
     <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pipes/</loc>
+    <lastmod>2017-02-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

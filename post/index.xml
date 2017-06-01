@@ -379,6 +379,14 @@ install.packages(&amp;#39;devtools&amp;#39;)
 devtools::install_github(&amp;#39;tidyverse/dplyr&amp;#39;)
 
 library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dplyr-verbs&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;dplyr Verbs&lt;/h4&gt;
@@ -412,6 +420,24 @@ library(dplyr)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We will use dplyr to answer a set of questions we have about the customers of the above e-commerce website.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;what-is-the-relationship-between-device-and-conversion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What is the relationship between device and conversion?&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Readable Code with Pipes</title>
+      <link>/post/readable-code-with-pipes/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/readable-code-with-pipes/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
 </description>
     </item>
     
@@ -655,21 +681,6 @@ dbDataType(RMySQL::MySQL(), 1.5)
       <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/git-branch-workflow/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>RStudio 2 GitHub: Git Project Workflow</title>
-      <link>/post/git-project-workflow/</link>
-      <pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/post/git-project-workflow/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 

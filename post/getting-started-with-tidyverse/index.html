@@ -292,7 +292,38 @@
 
 <!-- BLOGDOWN-BODY-BEFORE -->
 <!-- /BLOGDOWN-BODY-BEFORE -->
-
+<p>This is the first post in the series <strong>Data Wrangling with R</strong>. In this series, we will look at the challenges faced when working with data of different types coming from different sources and explore tools available in R to overcome such challenges.</p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>The <a href="http://tidyverse.org/">tidyverse</a> is a collection of R packages that share a common underlying philosophy and are designed to work together. They share common data representations and API design.</p>
+<p>The core packages of tidyverse are:</p>
+<ul>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><a href="http://dplyr.tidyverse.org/">dplyr</a></li>
+<li><a href="http://tidyr.tidyverse.org/">tidyr</a></li>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://purrr.tidyverse.org/">purrr</a></li>
+<li><a href="http://tibble.tidyverse.org/">tibble</a></li>
+</ul>
+<p>Packages available for working with specific data types include:</p>
+<ul>
+<li><a href="https://github.com/tidyverse/hms">hms</a></li>
+<li><a href="http://stringr.tidyverse.org/">stringr</a></li>
+<li><a href="http://lubridate.tidyverse.org/">lubridate</a></li>
+<li><a href="http://forcats.tidyverse.org/">forcats</a></li>
+</ul>
+<p>The following packages make it easy to import data:</p>
+<ul>
+<li><a href="https://github.com/wesm/feather">feather</a></li>
+<li><a href="http://haven.tidyverse.org/">haven</a></li>
+<li><a href="http://readxl.tidyverse.org/">readxl</a></li>
+<li><a href="https://github.com/jeroen/jsonlite">jsonlite</a></li>
+<li><a href="https://github.com/r-lib/xml2">xml2</a></li>
+<li><a href="https://github.com/r-lib/httr">httr</a></li>
+<li><a href="https://github.com/hadley/rvest">rvest</a></li>
+</ul>
+<p>We will explore most of the above packages (except purrr, httr, rvest) using case studies and understand how using the tidyverse will streamline data analysis workflow by reducing the time spent on reshaping/restructuring data for different types of analysis. In the next post, we will learn about <a href="http://tibble.tidyverse.org/">tibbles</a>.</p>
+</div>
 
 
   
@@ -336,6 +367,17 @@
 </div>
 <script src="../../js/ui.js"></script>
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57270671-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 

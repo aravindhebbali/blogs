@@ -20,7 +20,38 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;p&gt;This is the first post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In this series, we will look at the challenges faced when working with data of different types coming from different sources and explore tools available in R to overcome such challenges.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;http://tidyverse.org/&#34;&gt;tidyverse&lt;/a&gt; is a collection of R packages that share a common underlying philosophy and are designed to work together. They share common data representations and API design.&lt;/p&gt;
+&lt;p&gt;The core packages of tidyverse are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ggplot2.tidyverse.org/&#34;&gt;ggplot2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dplyr.tidyverse.org/&#34;&gt;dplyr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tidyr.tidyverse.org/&#34;&gt;tidyr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://readr.tidyverse.org/&#34;&gt;readr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://purrr.tidyverse.org/&#34;&gt;purrr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tibble.tidyverse.org/&#34;&gt;tibble&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Packages available for working with specific data types include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tidyverse/hms&#34;&gt;hms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stringr.tidyverse.org/&#34;&gt;stringr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lubridate.tidyverse.org/&#34;&gt;lubridate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://forcats.tidyverse.org/&#34;&gt;forcats&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following packages make it easy to import data:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wesm/feather&#34;&gt;feather&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://haven.tidyverse.org/&#34;&gt;haven&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://readxl.tidyverse.org/&#34;&gt;readxl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jeroen/jsonlite&#34;&gt;jsonlite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/r-lib/xml2&#34;&gt;xml2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/r-lib/httr&#34;&gt;httr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hadley/rvest&#34;&gt;rvest&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We will explore most of the above packages (except purrr, httr, rvest) using case studies and understand how using the tidyverse will streamline data analysis workflow by reducing the time spent on reshaping/restructuring data for different types of analysis. In the next post, we will learn about &lt;a href=&#34;http://tibble.tidyverse.org/&#34;&gt;tibbles&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

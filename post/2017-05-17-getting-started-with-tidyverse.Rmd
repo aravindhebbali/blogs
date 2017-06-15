@@ -9,3 +9,43 @@ tags:
 draft: yes
 ---
 
+This is the first post in the series **Data Wrangling with R**. In this series, we will look at the 
+challenges faced when working with data of different types coming from different sources and explore 
+tools available in R to overcome such challenges. 
+
+## Introduction
+
+The [tidyverse](http://tidyverse.org/) is a collection of R packages that share a common
+underlying philosophy and are designed to work together. They share common data representations 
+and API design.
+
+The core packages of tidyverse are:
+
+- [ggplot2](http://ggplot2.tidyverse.org/)
+- [dplyr](http://dplyr.tidyverse.org/)
+- [tidyr](http://tidyr.tidyverse.org/)
+- [readr](http://readr.tidyverse.org/)
+- [purrr](http://purrr.tidyverse.org/)
+- [tibble](http://tibble.tidyverse.org/)
+
+Packages available for working with specific data types include:
+
+- [hms](https://github.com/tidyverse/hms)
+- [stringr](http://stringr.tidyverse.org/)
+- [lubridate](http://lubridate.tidyverse.org/)
+- [forcats](http://forcats.tidyverse.org/)
+
+The following packages make it easy to import data:
+
+- [feather](https://github.com/wesm/feather)
+- [haven](http://haven.tidyverse.org/)
+- [readxl](http://readxl.tidyverse.org/)
+- [jsonlite](https://github.com/jeroen/jsonlite)
+- [xml2](https://github.com/r-lib/xml2)
+- [httr](https://github.com/r-lib/httr)
+- [rvest](https://github.com/hadley/rvest)
+
+We will explore most of the above packages (except purrr, httr, rvest) using case studies 
+and understand how using the tidyverse will streamline data analysis workflow by reducing 
+the time spent on reshaping/restructuring data for different types of analysis. In the next 
+post, we will learn about [tibbles](http://tibble.tidyverse.org/).

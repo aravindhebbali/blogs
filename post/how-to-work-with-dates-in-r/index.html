@@ -306,17 +306,107 @@
 <p>Use <code>origin</code> to get the origin for the <code>Date</code> and other date/time objects in R.</p>
 <pre class="r"><code>lubridate::origin</code></pre>
 <pre><code>## [1] &quot;1970-01-01 UTC&quot;</code></pre>
-<p>There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:</p>
+<p>There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2017-05-30 12:20:04 IST&quot;</code></pre>
+<pre><code>## [1] &quot;2017-06-15 13:23:43 IST&quot;</code></pre>
 <pre class="r"><code>today()</code></pre>
-<pre><code>## [1] &quot;2017-05-30&quot;</code></pre>
+<pre><code>## [1] &quot;2017-06-15&quot;</code></pre>
 <pre class="r"><code>am(now())  </code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>pm(now())</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as <em>arrival</em> and <em>departure</em>.</p>
 </div>
+</div>
+<div id="add-hour-minute-and-seconds" class="section level1">
+<h1>add hour, minute and seconds</h1>
+<p>arrived &lt;- ymd_hms(‘2017-04-13 12:00:00’) departure &lt;- ymd_hms(‘2017-05-07 12:00:00’)</p>
+</div>
+<div id="specify-timezone" class="section level1">
+<h1>specify timezone</h1>
+<p>arrived &lt;- ymd_hms(‘2017-05-08 20:34:18’, tz = ‘UTC’) arrived</p>
+</div>
+<div id="duration" class="section level1">
+<h1>duration</h1>
+<p>dur &lt;- duration(hours = 10, minutes = 6) as.numeric(dur, “hours”) as.numeric(dur, “minutes”)</p>
+</div>
+<div id="day-light-savings-time" class="section level1">
+<h1>day light savings time</h1>
+<p>dst(arrived)</p>
+</div>
+<div id="number-of-days-in-a-month" class="section level1">
+<h1>number of days in a month</h1>
+<p>days_in_month(10)</p>
+</div>
+<div id="parse-dates-and-times" class="section level1">
+<h1>parse dates and times</h1>
+<p>ymd(20170508) mdy(‘05-08-2017’) dmy(‘08/05/2017’)</p>
+</div>
+<div id="set-and-extract-information-from-timezone" class="section level1">
+<h1>set and extract information from timezone</h1>
+<p>date(arrived) second(arrived) minute(arrived) hour(arrived) day(arrived) wday(arrived) yday(arrived) week(arrived) month(arrived) year(arrived)</p>
+</div>
+<div id="time-intervals" class="section level1">
+<h1>time intervals</h1>
+<p>stay &lt;- interval(arrived, departure) stay</p>
+<p>outing &lt;- interval(ymd(20170420), ymd(20170428)) outing</p>
+</div>
+<div id="do-stay-and-outing-overlap" class="section level1">
+<h1>do stay and outing overlap</h1>
+<p>int_overlaps(stay, outing) setdiff(outing, stay)</p>
+<p>int_start(stay) int_end(stay) int_flip(stay) int_shift(stay, by = duration(days = 2)) int_shift(stay, by = duration(hours = 2))</p>
+</div>
+<div id="arithmetic-with-datetimes" class="section level1">
+<h1>arithmetic with date/times</h1>
+<p>minutes(2) dminutes(2)</p>
+</div>
+<div id="check-if-a-year-is-leap-year" class="section level1">
+<h1>check if a year is leap year</h1>
+<p>leap_year(2017)</p>
+<p>ymd(20160131) + years(1) ymd(20160131) + dyears(1) # adds 365 days</p>
+</div>
+<div id="meeting" class="section level1">
+<h1>meeting</h1>
+<p>meeting &lt;- ymd_hms(“2016-07-01 09:00:00”) meetings &lt;- meeting + week(0:5)</p>
+</div>
+<div id="convert-stay-to-days-hours-seconds" class="section level1">
+<h1>convert stay to days, hours, seconds</h1>
+<p>stay / ddays(1) stay / ddays(2) stay / dhours() stay / dminutes() stay / dseconds() time_length(stay) stay %% months(1)</p>
+</div>
+<div id="convert-seconds-to-minutes" class="section level1">
+<h1>convert seconds to minutes</h1>
+<p>make_difftime(112, units = ‘minutes’) make_difftime(112, units = ‘hour’)</p>
+</div>
+<div id="how-long-was-my-stay" class="section level1">
+<h1>how long was my stay</h1>
+<p>as.period(stay %% months(1)) as.period(stay)</p>
+</div>
+<div id="use-lubridate-inside-functions" class="section level1">
+<h1>1. use lubridate inside functions</h1>
+</div>
+<div id="make_difftimedays-31" class="section level1">
+<h1>2. make_difftime(days = 31)</h1>
+</div>
+<div id="period" class="section level1">
+<h1>3. period</h1>
+</div>
+<div id="quarter" class="section level1">
+<h1>4. quarter</h1>
+</div>
+<div id="semester" class="section level1">
+<h1>5. semester</h1>
+</div>
+<div id="rollback" class="section level1">
+<h1>6. rollback</h1>
+</div>
+<div id="round-date-floor-date-ceiling-date" class="section level1">
+<h1>7. round date, floor date, ceiling date</h1>
+</div>
+<div id="link-to-lubridate-page-on-cran" class="section level1">
+<h1>link to lubridate page on CRAN</h1>
+</div>
+<div id="link-to-lubridate-paper" class="section level1">
+<h1>link to lubridate paper</h1>
 </div>
 
 
@@ -361,6 +451,17 @@
 </div>
 <script src="../../js/ui.js"></script>
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57270671-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 

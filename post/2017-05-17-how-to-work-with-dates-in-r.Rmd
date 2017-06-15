@@ -25,7 +25,7 @@ Use `origin` to get the origin for the `Date` and other date/time objects in R.
 lubridate::origin
 ```
 
-There are function to check current date, time, timezone and AM/PM. Let us take a quick look at these:
+There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:
 
 ```{r today}
 now()
@@ -37,3 +37,101 @@ pm(now())
 In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as *arrival* and *departure*.
 
 
+# add hour, minute and seconds
+arrived <- ymd_hms('2017-04-13 12:00:00')
+departure <- ymd_hms('2017-05-07 12:00:00')
+
+# specify timezone
+arrived <- ymd_hms('2017-05-08 20:34:18', tz = 'UTC')
+arrived
+
+
+# duration
+dur <- duration(hours = 10, minutes = 6)
+as.numeric(dur, "hours")
+as.numeric(dur, "minutes")
+
+# day light savings time
+dst(arrived)
+
+# number of days in a month
+days_in_month(10)
+
+# parse dates and times
+ymd(20170508)
+mdy('05-08-2017')
+dmy('08/05/2017')
+
+
+# set and extract information from timezone
+date(arrived)
+second(arrived)
+minute(arrived)
+hour(arrived)
+day(arrived)
+wday(arrived)
+yday(arrived)
+week(arrived)
+month(arrived)
+year(arrived)
+
+# time intervals
+stay <- interval(arrived, departure)
+stay
+
+outing <- interval(ymd(20170420), ymd(20170428))
+outing
+
+# do stay and outing overlap
+int_overlaps(stay, outing)
+setdiff(outing, stay)
+
+int_start(stay)
+int_end(stay)
+int_flip(stay)
+int_shift(stay, by = duration(days = 2))
+int_shift(stay, by = duration(hours = 2))
+
+# arithmetic with date/times
+minutes(2)
+dminutes(2)
+
+# check if a year is leap year
+leap_year(2017)
+
+ymd(20160131) + years(1)
+ymd(20160131) + dyears(1) # adds 365 days
+
+
+# meeting
+meeting <- ymd_hms("2016-07-01 09:00:00")
+meetings <- meeting + week(0:5)
+
+
+# convert stay to days, hours, seconds
+stay / ddays(1)
+stay / ddays(2)
+stay / dhours()
+stay / dminutes()
+stay / dseconds()
+time_length(stay)
+stay %% months(1)
+
+# convert seconds to minutes
+make_difftime(112, units = 'minutes')
+make_difftime(112, units = 'hour')
+
+# how long was my stay
+as.period(stay %% months(1))
+as.period(stay)
+
+
+# 1. use lubridate inside functions
+# 2. make_difftime(days = 31)
+# 3. period
+# 4. quarter
+# 5. semester
+# 6. rollback
+# 7. round date, floor date, ceiling date
+# link to lubridate page on CRAN
+# link to lubridate paper

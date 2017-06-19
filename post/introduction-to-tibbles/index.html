@@ -256,7 +256,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>22 Apr 2017, 00:00</time>
+    <time>22 Apr 2017</time>
   </div>
 
   
@@ -304,34 +304,26 @@
 </div>
 <div id="creating-tibbles" class="section level3">
 <h3>Creating tibbles</h3>
-<p>In this first section, we will create tibbles using the <code>tibble()</code> function and compare tibbles to data frames.</p>
+<p>In this first section, we will create tibbles using the <code>tibble()</code> function and compare them to data frames.</p>
 <div id="tibble-never-changes-inputs-type" class="section level4">
 <h4>tibble never changes input’s type</h4>
 <p>In the <code>data.frame()</code> function, any column with <code>character</code> data is converted to <code>factors</code> unless you set <code>stringsAsFactors</code> argument to <code>FALSE</code>. tibble takes care of this by never changing any input’s type. As you can observe in the below example, tibbles do not convert <code>characters</code> to <code>factors</code>.</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>tibble(x = letters,
        y = 1:26,
        z = sample(100, 26))</code></pre>
 <pre><code>## # A tibble: 26 × 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-## 1      a     1   100
-## 2      b     2    19
-## 3      c     3    93
-## 4      d     4    52
-## 5      e     5    66
-## 6      f     6    68
-## 7      g     7    58
-## 8      h     8     9
-## 9      i     9    99
-## 10     j    10    95
+## 1      a     1    60
+## 2      b     2     3
+## 3      c     3     8
+## 4      d     4    47
+## 5      e     5    28
+## 6      f     6    96
+## 7      g     7    30
+## 8      h     8     6
+## 9      i     9    84
+## 10     j    10    24
 ## # ... with 16 more rows</code></pre>
 </div>
 <div id="tibble-never-adjusts-variable-names" class="section level4">
@@ -353,14 +345,14 @@ tibble(x, y, z)</code></pre>
 ##        x     y     z
 ##    &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
 ## 1      1     a  TRUE
-## 2      2     a  TRUE
+## 2      2     a FALSE
 ## 3      3     a  TRUE
-## 4      4     a  TRUE
+## 4      4     a FALSE
 ## 5      5     a FALSE
-## 6      6     a FALSE
+## 6      6     a  TRUE
 ## 7      7     a FALSE
-## 8      8     a  TRUE
-## 9      9     a  TRUE
+## 8      8     a FALSE
+## 9      9     a FALSE
 ## 10    10     a FALSE
 ## # ... with 90 more rows</code></pre>
 </div>
@@ -404,16 +396,16 @@ as_tibble(l)</code></pre>
 <pre><code>## # A tibble: 32 × 3
 ##        x     y          z
 ##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
-## 1      1    52 &lt;chr [26]&gt;
-## 2      2    69 &lt;chr [26]&gt;
-## 3      3    14 &lt;chr [26]&gt;
-## 4      4    70 &lt;chr [26]&gt;
-## 5      5    51 &lt;chr [26]&gt;
-## 6      6    13 &lt;chr [26]&gt;
-## 7      7    78 &lt;chr [26]&gt;
-## 8      8    97 &lt;chr [26]&gt;
-## 9      9    60 &lt;chr [26]&gt;
-## 10    10    67 &lt;chr [26]&gt;
+## 1      1    50 &lt;chr [26]&gt;
+## 2      2    47 &lt;chr [26]&gt;
+## 3      3    81 &lt;chr [26]&gt;
+## 4      4    20 &lt;chr [26]&gt;
+## 5      5    75 &lt;chr [26]&gt;
+## 6      6     5 &lt;chr [26]&gt;
+## 7      7    34 &lt;chr [26]&gt;
+## 8      8    86 &lt;chr [26]&gt;
+## 9      9     4 &lt;chr [26]&gt;
+## 10    10    80 &lt;chr [26]&gt;
 ## # ... with 22 more rows</code></pre>
 </div>
 <div id="matrix" class="section level4">
@@ -424,16 +416,16 @@ as_tibble(m)</code></pre>
 <pre><code>## # A tibble: 100 × 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1    738   270    58   204   876   106   659   830   968   206    81   181
-## 2    969   148   541   816   796   707   250   552   556   604   879   159
-## 3     88   663   488   371   532   216   956   345   147   634   191   270
-## 4    969   904   714   921   324   515   771   522   160   437   837   928
-## 5    401   465   567    63   120   111   833   479    44   593   662    93
-## 6    229   613   308   839   792   901   720   403   631   594   109   143
-## 7    605   249   137   845   147   270   570   845   281   371   630   394
-## 8    871   623   169   740   691   501   567   144   690   900   335    29
-## 9    784   490   936   140   828   988   916   912   642   910   460   423
-## 10   309   583   112   476   502   345   376   457    59   946   937   439
+## 1    923   644   613    33   884   254    26   805   954    64   162   837
+## 2    734   105   631   345   180   937   923   197   750    41   434   232
+## 3    376   603    36    91   554   673   452   161   861   874   193   329
+## 4    801   191   855   694   741   160   885   913   247   856   882   861
+## 5    193   381   133     8   537   570    40   812    98   251   680    14
+## 6     85   155   327    29   502   429   942   658   297   159   620   374
+## 7    610   290    21   293    62   733   397   284   786    84   162   117
+## 8    335   912    67   337   207   450   352   856   637   757   512    29
+## 9    823   920   548   725   579   917   867   683   697   152    31   631
+## 10   493   146   293   808   489   191   599   155   359   735    11   533
 ## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
 ## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
 ## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;</code></pre>

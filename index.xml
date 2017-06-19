@@ -63,34 +63,26 @@
 &lt;/div&gt;
 &lt;div id=&#34;creating-tibbles&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Creating tibbles&lt;/h3&gt;
-&lt;p&gt;In this first section, we will create tibbles using the &lt;code&gt;tibble()&lt;/code&gt; function and compare tibbles to data frames.&lt;/p&gt;
+&lt;p&gt;In this first section, we will create tibbles using the &lt;code&gt;tibble()&lt;/code&gt; function and compare them to data frames.&lt;/p&gt;
 &lt;div id=&#34;tibble-never-changes-inputs-type&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;tibble never changes input’s type&lt;/h4&gt;
 &lt;p&gt;In the &lt;code&gt;data.frame()&lt;/code&gt; function, any column with &lt;code&gt;character&lt;/code&gt; data is converted to &lt;code&gt;factors&lt;/code&gt; unless you set &lt;code&gt;stringsAsFactors&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt;. tibble takes care of this by never changing any input’s type. As you can observe in the below example, tibbles do not convert &lt;code&gt;characters&lt;/code&gt; to &lt;code&gt;factors&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
-## 
-##     filter, lag&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
-## 
-##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tibble(x = letters,
        y = 1:26,
        z = sample(100, 26))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 26 × 3
 ##        x     y     z
 ##    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
-## 1      a     1   100
-## 2      b     2    19
-## 3      c     3    93
-## 4      d     4    52
-## 5      e     5    66
-## 6      f     6    68
-## 7      g     7    58
-## 8      h     8     9
-## 9      i     9    99
-## 10     j    10    95
+## 1      a     1    60
+## 2      b     2     3
+## 3      c     3     8
+## 4      d     4    47
+## 5      e     5    28
+## 6      f     6    96
+## 7      g     7    30
+## 8      h     8     6
+## 9      i     9    84
+## 10     j    10    24
 ## # ... with 16 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tibble-never-adjusts-variable-names&#34; class=&#34;section level4&#34;&gt;
@@ -112,14 +104,14 @@ tibble(x, y, z)&lt;/code&gt;&lt;/pre&gt;
 ##        x     y     z
 ##    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;lgl&amp;gt;
 ## 1      1     a  TRUE
-## 2      2     a  TRUE
+## 2      2     a FALSE
 ## 3      3     a  TRUE
-## 4      4     a  TRUE
+## 4      4     a FALSE
 ## 5      5     a FALSE
-## 6      6     a FALSE
+## 6      6     a  TRUE
 ## 7      7     a FALSE
-## 8      8     a  TRUE
-## 9      9     a  TRUE
+## 8      8     a FALSE
+## 9      9     a FALSE
 ## 10    10     a FALSE
 ## # ... with 90 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -163,16 +155,16 @@ as_tibble(l)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 3
 ##        x     y          z
 ##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;     &amp;lt;list&amp;gt;
-## 1      1    52 &amp;lt;chr [26]&amp;gt;
-## 2      2    69 &amp;lt;chr [26]&amp;gt;
-## 3      3    14 &amp;lt;chr [26]&amp;gt;
-## 4      4    70 &amp;lt;chr [26]&amp;gt;
-## 5      5    51 &amp;lt;chr [26]&amp;gt;
-## 6      6    13 &amp;lt;chr [26]&amp;gt;
-## 7      7    78 &amp;lt;chr [26]&amp;gt;
-## 8      8    97 &amp;lt;chr [26]&amp;gt;
-## 9      9    60 &amp;lt;chr [26]&amp;gt;
-## 10    10    67 &amp;lt;chr [26]&amp;gt;
+## 1      1    50 &amp;lt;chr [26]&amp;gt;
+## 2      2    47 &amp;lt;chr [26]&amp;gt;
+## 3      3    81 &amp;lt;chr [26]&amp;gt;
+## 4      4    20 &amp;lt;chr [26]&amp;gt;
+## 5      5    75 &amp;lt;chr [26]&amp;gt;
+## 6      6     5 &amp;lt;chr [26]&amp;gt;
+## 7      7    34 &amp;lt;chr [26]&amp;gt;
+## 8      8    86 &amp;lt;chr [26]&amp;gt;
+## 9      9     4 &amp;lt;chr [26]&amp;gt;
+## 10    10    80 &amp;lt;chr [26]&amp;gt;
 ## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;matrix&#34; class=&#34;section level4&#34;&gt;
@@ -183,16 +175,16 @@ as_tibble(m)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 100 × 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
-## 1    738   270    58   204   876   106   659   830   968   206    81   181
-## 2    969   148   541   816   796   707   250   552   556   604   879   159
-## 3     88   663   488   371   532   216   956   345   147   634   191   270
-## 4    969   904   714   921   324   515   771   522   160   437   837   928
-## 5    401   465   567    63   120   111   833   479    44   593   662    93
-## 6    229   613   308   839   792   901   720   403   631   594   109   143
-## 7    605   249   137   845   147   270   570   845   281   371   630   394
-## 8    871   623   169   740   691   501   567   144   690   900   335    29
-## 9    784   490   936   140   828   988   916   912   642   910   460   423
-## 10   309   583   112   476   502   345   376   457    59   946   937   439
+## 1    923   644   613    33   884   254    26   805   954    64   162   837
+## 2    734   105   631   345   180   937   923   197   750    41   434   232
+## 3    376   603    36    91   554   673   452   161   861   874   193   329
+## 4    801   191   855   694   741   160   885   913   247   856   882   861
+## 5    193   381   133     8   537   570    40   812    98   251   680    14
+## 6     85   155   327    29   502   429   942   658   297   159   620   374
+## 7    610   290    21   293    62   733   397   284   786    84   162   117
+## 8    335   912    67   337   207   450   352   856   637   757   512    29
+## 9    823   920   548   725   579   917   867   683   697   152    31   631
+## 10   493   146   293   808   489   191   599   155   359   735    11   533
 ## # ... with 90 more rows, and 14 more variables: m &amp;lt;int&amp;gt;, n &amp;lt;int&amp;gt;, o &amp;lt;int&amp;gt;,
 ## #   p &amp;lt;int&amp;gt;, q &amp;lt;int&amp;gt;, r &amp;lt;int&amp;gt;, s &amp;lt;int&amp;gt;, t &amp;lt;int&amp;gt;, u &amp;lt;int&amp;gt;, v &amp;lt;int&amp;gt;,
 ## #   w &amp;lt;int&amp;gt;, x &amp;lt;int&amp;gt;, y &amp;lt;int&amp;gt;, z &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;

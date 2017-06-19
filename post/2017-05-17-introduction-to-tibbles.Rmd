@@ -21,13 +21,13 @@ tibbles are a modern version of data frames that retain the good aspects (of dat
 
 ### Creating tibbles
 
-In this first section, we will create tibbles using the `tibble()` function and compare tibbles to data frames. 
+In this first section, we will create tibbles using the `tibble()` function and compare them to data frames. 
 
 #### tibble never changes input's type
 
 In the `data.frame()` function, any column with `character` data is converted to `factors` unless you set `stringsAsFactors` argument to `FALSE`. tibble takes care of this by never changing any input's type. As you can observe in the below example, tibbles do not convert `characters` to `factors`. 
 
-```{r tibble1, echo=FALSE}
+```{r tibble1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(tibble)
 library(dplyr)
 ```

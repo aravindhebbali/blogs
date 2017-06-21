@@ -1,7 +1,7 @@
 ---
-title: Data Manipulation in R with dplyr
+title: Data Manipulation in R with dplyr - Part 1
 date: '2017-02-18'
-slug: data-manipulation-in-r-with-dplyr
+slug: data-manipulation-in-r-with-dplyr-part-1
 topics:
   - data-wrangling
 tags:
@@ -9,15 +9,15 @@ tags:
 draft: yes
 ---
 
-### Introduction
+# Introduction
 
 According to  a [survey](http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf) by [CrowdFlower](https://www.crowdflower.com/), data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today's post, we introduce you to [dplyr](http://dplyr.tidyverse.org/), a grammar of data manipulation.
 
-#### Why dplyr?
+## Why dplyr?
 
 dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc. In order to truly appreciate dplyr, we will compare it to the functions in base R.
 
-#### Installation
+## Installation
 
 You can install a stable version of `dplyr` from CRAN or the latest development version from GitHub.
 
@@ -32,7 +32,7 @@ library(dplyr)
 ```
 
 
-#### dplyr Verbs
+## dplyr Verbs
 
 dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):
 
@@ -44,7 +44,7 @@ dplyr provides a set of verbs that help us solve the most common data manipulati
 
 Let us explore each of the above verbs one by one. `dplyr` offers more functionality than the above listed verbs but we will explore them in a different post.
 
-#### Case Study
+## Case Study
 
 We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv). Below is the description of the data set:
 
@@ -66,7 +66,7 @@ ecom <- readr::read_csv('J:/R/datasets/web.csv')
 
 We will use dplyr to answer a few questions we have about the above data.
 
-### Average Order Value
+## Average Order Value
 
 **What is the average order value by device types?**
 
@@ -99,7 +99,7 @@ We will map the dplyr verbs to the above steps.
 
 In order to compute the AOV, we must first separate the purchasers from non-purchasers. We will do this by filtering the data related to purchasers using the `filter()` function. It allows us to filter rows that meet a specific criteria/condition. The first argument is the name of the data frame and the rest of the arguments are expressions for filtering the data. Let us look at a few examples:
 
-##### Filter 
+### Filter 
 
 Select all visits from mobile
 
@@ -125,7 +125,7 @@ For our case study, we want all visits that converted.
 filter(ecom, purchase == "true")
 ```
 
-#### Step 2: Select relevant columns
+### Step 2: Select relevant columns
 
 After filtering the data, we need to select relevent variables to compute the AOV. Remember, we do not need all the columns in the data to compute a required metric (in our case, AOV). The `select()` function allows us to select a subset of columns. The first argument is the name of the data frame and the subsequent arguments specify the columns by name or position. Let us look at a few examples:
 
@@ -161,7 +161,7 @@ ecom2 <- select(ecom1, device, order_value, order_items)
 ecom2
 ```
 
-#### Step 3: Group data by devices
+### Step 3: Group data by devices
 
 Since we want to compute the AOV for each device, we need to compute the total order value and total order items for each device. To achieve this, we will group the selected variables by device type. Using the `group_by()` function, we will group our case study data by device types.
 The first argument is the name of the data frame and the second argument is the name of the column based on which the data will be split. Let us look at a few examples:
@@ -179,7 +179,7 @@ ecom3 <- group_by(ecom2, device)
 ecom3
 ```
 
-#### Step 4: Compute total order value and order items
+### Step 4: Compute total order value and order items
 
 The next step is to compute the total order value and total order items for each device. We will use them to then compute the average order value. Now we need to reduce the order value and order items data to a single summary. We can achieve this using the `summarise()` function. The first argument is the name of a data frame and the subsequent arguments are functions that can generate a summary. For example, we can use `min`, `max`, `sum`, `mean` etc.
 
@@ -201,7 +201,7 @@ ecom4 <- summarise_all(ecom3, funs(sum))
 ecom4
 ```
 
-#### Step 5: Compute AOV
+### Step 5: Compute AOV
 
 Now that we have the total order value and total order items for each device category, we can compute the AOV. We will create a new column to store the result. To create a new column, we will use the `mutate()` function. The first argument is the name of the data frame and the subsequent arguments are expressions for creating new columns based out of existing columns.
 
@@ -210,7 +210,7 @@ ecom5 <- mutate(ecom4, aov = order_value / order_items)
 ecom5
 ```
 
-#### Step 6: Select the relevant columns
+### Step 6: Select the relevant columns
 
 The last step is to select the relevant columns. We require the device type and the corresponding aov and hence we can get rid of other columns. Use the `select()` function to extract the relevant columns.
 
@@ -249,7 +249,7 @@ In the above code, we take the output from each step and use it as an input for 
 
 It is the same as the steps we wrote at the beginning of this post. Now you realize how powerful dplyr is along with the `%>%` operator. There are other functions in dplyr but we will cover them in another post. You are encouraged to use the above approach to answer the questions we have listed below.
 
-#### Practice Questions
+### Practice Questions
 
 - What is the average number of pages visited by purchasers and non-purchasers?
 
@@ -258,6 +258,6 @@ It is the same as the steps we wrote at the beginning of this post. Now you real
 - What is the average number of pages visited by purchasers and non-purchasers using mobile?
 
 
-#### Summary
+### Summary
 
 In this post, we learnt how to use dplyr to address some of the most common data manipulation challenges. In the next post, we will learn how to work with dates and time in R using the [lubridate](https://CRAN.R-project.org/package=lubridate) package.

@@ -1,0 +1,11 @@
+---
+title: Data Manipulation in R with dplyr - Part 3
+date: '2017-05-28'
+slug: data-manipulation-in-r-with-dplyr-part-3
+topics:
+  - data-wrangling
+tags:
+  - dplyr
+draft: yes
+---
+

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.19" />
+
+  <title>Data Manipulation in R with dplyr - Part 1 &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://rsquaredacademy.github.io/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://rsquaredlabs.com:3838/explorer/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://rsquaredacademy.github.io/pkgs/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Data Manipulation in R with dplyr - Part 1</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>18 Feb 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/dplyr">dplyr</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>According to a <a href="http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf">survey</a> by <a href="https://www.crowdflower.com/">CrowdFlower</a>, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today’s post, we introduce you to <a href="http://dplyr.tidyverse.org/">dplyr</a>, a grammar of data manipulation.</p>
+<div id="why-dplyr" class="section level2">
+<h2>Why dplyr?</h2>
+<p>dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc. In order to truly appreciate dplyr, we will compare it to the functions in base R.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You can install a stable version of <code>dplyr</code> from CRAN or the latest development version from GitHub.</p>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+</div>
+<div id="dplyr-verbs" class="section level2">
+<h2>dplyr Verbs</h2>
+<p>dplyr provides a set of verbs that help us solve the most common data manipulation challenges while working with tabular data (dataframes, tibbles):</p>
+<ul>
+<li><code>select</code>: returns subset of columns</li>
+<li><code>filter</code>: returns a subset of rows</li>
+<li><code>arrange</code>: re-order or arrange rows according to single/multiple variables</li>
+<li><code>mutate</code>: create new columns from existing columns</li>
+<li><code>summarise</code>: reduce data to a single summary</li>
+</ul>
+<p>Let us explore each of the above verbs one by one. <code>dplyr</code> offers more functionality than the above listed verbs but we will explore them in a different post.</p>
+</div>
+<div id="case-study" class="section level2">
+<h2>Case Study</h2>
+<p>We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a>. Below is the description of the data set:</p>
+<pre><code>## Parsed with column specification:
+## cols(
+##   id = col_integer(),
+##   referrer = col_character(),
+##   device = col_character(),
+##   bouncers = col_character(),
+##   n_visit = col_integer(),
+##   n_pages = col_double(),
+##   duration = col_integer(),
+##   country = col_character(),
+##   purchase = col_character(),
+##   order_items = col_double(),
+##   order_value = col_double()
+## )</code></pre>
+<ul>
+<li>id: row id</li>
+<li>referrer: referrer website/search engine</li>
+<li>os: operating system</li>
+<li>browser: browser</li>
+<li>device: device used to visit the website</li>
+<li>n_pages: number of pages visited</li>
+<li>duration: time spent on the website (in seconds)</li>
+<li>repeat: frequency of visits</li>
+<li>country: country of origin</li>
+<li>purchase: whether visitor purchased</li>
+<li>order_value: order value of visitor (in dollars)</li>
+</ul>
+<p>We will use dplyr to answer a few questions we have about the above data.</p>
+</div>
+<div id="average-order-value" class="section level2">
+<h2>Average Order Value</h2>
+<p><strong>What is the average order value by device types?</strong></p>
+<p>Average value of every order placed over a defined period of time. It is determined using sales per order and not sales per customer. Let us look at the steps to calculate AOV from the ecommerce data set.</p>
+<ul>
+<li>Step 1: Filter Purchasers</li>
+<li>Step 2: Select data related to AOV (order value, order items) and device</li>
+<li>Step 3: Group order value and order items by device</li>
+<li>Step 4: Compute total order value and order items for each device</li>
+<li>Step 5: Compute AOV for each device</li>
+<li>Step 6: Select device and AOV data</li>
+</ul>
+<p>Below is the code for computing AOV by device types:</p>
+<pre class="r"><code>ecom %&gt;%
+  filter(purchase == &#39;true&#39;) %&gt;%
+  select(device, order_value, order_items) %&gt;%
+  group_by(device) %&gt;%
+  summarise_all(funs(sum)) %&gt;%
+  mutate(
+    aov = order_value / order_items
+  ) %&gt;%
+  select(device, aov)</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   device      aov
+##    &lt;chr&gt;    &lt;dbl&gt;
+## 1 laptop 319.1292
+## 2 mobile 253.9381
+## 3 tablet 270.2320</code></pre>
+<p>We will map the dplyr verbs to the above steps.</p>
+<div id="step-1-filter-purchasers" class="section level3">
+<h3>Step 1: Filter Purchasers</h3>
+<p>In order to compute the AOV, we must first separate the purchasers from non-purchasers. We will do this by filtering the data related to purchasers using the <code>filter()</code> function. It allows us to filter rows that meet a specific criteria/condition. The first argument is the name of the data frame and the rest of the arguments are expressions for filtering the data. Let us look at a few examples:</p>
+</div>
+<div id="filter" class="section level3">
+<h3>Filter</h3>
+<p>Select all visits from mobile</p>
+<pre class="r"><code>filter(ecom, device == &quot;mobile&quot;)</code></pre>
+<pre><code>## # A tibble: 344 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
+##  1     5    yahoo mobile     true       9       1      899         Poland
+##  2     7    yahoo mobile     true      10       1      692     Bangladesh
+##  3     8   direct mobile     true      10       1      578      Indonesia
+##  4     9     bing mobile    false       3      19      794    Netherlands
+##  5    10   google mobile     true       6       1      762 Czech Republic
+##  6    13   direct mobile    false       9      14      386        Ireland
+##  7    15    yahoo mobile    false       7       1      447         France
+##  8    22   google mobile     true       5       1      188         Brazil
+##  9    23     bing mobile    false       0       7      608         Russia
+## 10    29   google mobile     true      10       1      164         Russia
+## # ... with 334 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p>Select all visits from mobile that converted</p>
+<pre class="r"><code>filter(ecom, device == &quot;mobile&quot;, purchase == &quot;true&quot;)</code></pre>
+<pre><code>## # A tibble: 90 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
+##  1    13   direct mobile    false       9      14      386        Ireland
+##  2    15    yahoo mobile    false       7       1      447         France
+##  3    23     bing mobile    false       0       7      608         Russia
+##  4    36     bing mobile    false       1       1      325        Ireland
+##  5    41     bing mobile    false       4      20      148 Czech Republic
+##  6    49   social mobile    false       1       2      397         France
+##  7    89   direct mobile    false       4       8      598        Ecuador
+##  8    92   google mobile    false       5       8      594      Indonesia
+##  9    98     bing mobile    false       3      18      410       Portugal
+## 10   102   google mobile    false       2       3      958        Bahamas
+## # ... with 80 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p>Select all visits from mobile that visited more than 5 pages</p>
+<pre class="r"><code>filter(ecom, device == &quot;mobile&quot;, n_pages &gt; 5)</code></pre>
+<pre><code>## # A tibble: 139 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
+##  1     9     bing mobile    false       3      19      794    Netherlands
+##  2    13   direct mobile    false       9      14      386        Ireland
+##  3    23     bing mobile    false       0       7      608         Russia
+##  4    30    yahoo mobile    false       8       9      868       Colombia
+##  5    41     bing mobile    false       4      20      148 Czech Republic
+##  6    42   direct mobile    false       1      13      882      Indonesia
+##  7    89   direct mobile    false       4       8      598        Ecuador
+##  8    92   google mobile    false       5       8      594      Indonesia
+##  9    98     bing mobile    false       3      18      410       Portugal
+## 10   112   social mobile    false      10      11      350      Argentina
+## # ... with 129 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p>For our case study, we want all visits that converted.</p>
+<pre class="r"><code>filter(ecom, purchase == &quot;true&quot;)</code></pre>
+<pre><code>## # A tibble: 254 x 11
+##       id referrer device bouncers n_visit n_pages duration     country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;       &lt;chr&gt;
+##  1     4     bing tablet    false       3      18      155       China
+##  2    13   direct mobile    false       9      14      386     Ireland
+##  3    14    yahoo tablet    false       5       8      260 Philippines
+##  4    15    yahoo mobile    false       7       1      447      France
+##  5    17     bing tablet    false       5      16       96        Peru
+##  6    19   social tablet    false       7      10      346    Colombia
+##  7    20   social tablet    false       2       1      412     Namibia
+##  8    23     bing mobile    false       0       7      608      Russia
+##  9    27   direct tablet    false       2      19      473       Japan
+## 10    34   social tablet    false       9      20      385   Indonesia
+## # ... with 244 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+</div>
+<div id="step-2-select-relevant-columns" class="section level3">
+<h3>Step 2: Select relevant columns</h3>
+<p>After filtering the data, we need to select relevent variables to compute the AOV. Remember, we do not need all the columns in the data to compute a required metric (in our case, AOV). The <code>select()</code> function allows us to select a subset of columns. The first argument is the name of the data frame and the subsequent arguments specify the columns by name or position. Let us look at a few examples:</p>
+<p>Select device and purchase columns</p>
+<pre class="r"><code>select(ecom, device, purchase)</code></pre>
+<pre><code>## # A tibble: 1,000 x 2
+##    device purchase
+##     &lt;chr&gt;    &lt;chr&gt;
+##  1 laptop    false
+##  2 tablet    false
+##  3 laptop    false
+##  4 tablet     true
+##  5 mobile    false
+##  6 laptop    false
+##  7 mobile    false
+##  8 mobile    false
+##  9 mobile    false
+## 10 mobile    false
+## # ... with 990 more rows</code></pre>
+<p>Select all columns from device to purchase</p>
+<pre class="r"><code>select(ecom, device:purchase)</code></pre>
+<pre><code>## # A tibble: 1,000 x 7
+##    device bouncers n_visit n_pages duration        country purchase
+##     &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;    &lt;chr&gt;
+##  1 laptop     true      10       1       27 Czech Republic    false
+##  2 tablet     true       9       1      899          Yemen    false
+##  3 laptop     true       0       1       72         Brazil    false
+##  4 tablet    false       3      18      155          China     true
+##  5 mobile     true       9       1      899         Poland    false
+##  6 laptop    false       5       5      573   South Africa    false
+##  7 mobile     true      10       1      692     Bangladesh    false
+##  8 mobile     true      10       1      578      Indonesia    false
+##  9 mobile    false       3      19      794    Netherlands    false
+## 10 mobile     true       6       1      762 Czech Republic    false
+## # ... with 990 more rows</code></pre>
+<p>Select all columns excluding id and country</p>
+<pre class="r"><code>select(ecom, -id, -country)</code></pre>
+<pre><code>## # A tibble: 1,000 x 9
+##    referrer device bouncers n_visit n_pages duration purchase order_items
+##       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;    &lt;chr&gt;       &lt;dbl&gt;
+##  1   google laptop     true      10       1       27    false           0
+##  2    yahoo tablet     true       9       1      899    false           0
+##  3   direct laptop     true       0       1       72    false           0
+##  4     bing tablet    false       3      18      155     true           6
+##  5    yahoo mobile     true       9       1      899    false           0
+##  6    yahoo laptop    false       5       5      573    false           0
+##  7    yahoo mobile     true      10       1      692    false           0
+##  8   direct mobile     true      10       1      578    false           0
+##  9     bing mobile    false       3      19      794    false           0
+## 10   google mobile     true       6       1      762    false           0
+## # ... with 990 more rows, and 1 more variables: order_value &lt;dbl&gt;</code></pre>
+<p>For our case study, we need to select the columns order value and order items to calculate the AOV. We also need to select the device column as we are computing the AOV for different devices.</p>
+<pre class="r"><code>select(ecom, device, order_value, order_items)</code></pre>
+<pre><code>## # A tibble: 1,000 x 3
+##    device order_value order_items
+##     &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1 laptop           0           0
+##  2 tablet           0           0
+##  3 laptop           0           0
+##  4 tablet         434           6
+##  5 mobile           0           0
+##  6 laptop           0           0
+##  7 mobile           0           0
+##  8 mobile           0           0
+##  9 mobile           0           0
+## 10 mobile           0           0
+## # ... with 990 more rows</code></pre>
+<p>But we want the above data only for purchasers. We will combine <code>filter()</code> and <code>select()</code> functions to extract data related to purchasers.</p>
+<pre class="r"><code>ecom1 &lt;- filter(ecom, purchase == &quot;true&quot;)
+ecom2 &lt;- select(ecom1, device, order_value, order_items)
+ecom2</code></pre>
+<pre><code>## # A tibble: 254 x 3
+##    device order_value order_items
+##     &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1 tablet         434           6
+##  2 mobile         651           3
+##  3 tablet         362           2
+##  4 mobile        2423           7
+##  5 tablet        1049           6
+##  6 tablet        1304           9
+##  7 tablet        2077           7
+##  8 mobile         237           4
+##  9 tablet         622           5
+## 10 tablet        1613           7
+## # ... with 244 more rows</code></pre>
+</div>
+<div id="step-3-group-data-by-devices" class="section level3">
+<h3>Step 3: Group data by devices</h3>
+<p>Since we want to compute the AOV for each device, we need to compute the total order value and total order items for each device. To achieve this, we will group the selected variables by device type. Using the <code>group_by()</code> function, we will group our case study data by device types. The first argument is the name of the data frame and the second argument is the name of the column based on which the data will be split. Let us look at a few examples:</p>
+<p>Group data by referrer type</p>
+<pre class="r"><code>group_by(ecom, referrer)</code></pre>
+<pre><code>## # A tibble: 1,000 x 11
+## # Groups:   referrer [5]
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1       27 Czech Republic
+##  2     2    yahoo tablet     true       9       1      899          Yemen
+##  3     3   direct laptop     true       0       1       72         Brazil
+##  4     4     bing tablet    false       3      18      155          China
+##  5     5    yahoo mobile     true       9       1      899         Poland
+##  6     6    yahoo laptop    false       5       5      573   South Africa
+##  7     7    yahoo mobile     true      10       1      692     Bangladesh
+##  8     8   direct mobile     true      10       1      578      Indonesia
+##  9     9     bing mobile    false       3      19      794    Netherlands
+## 10    10   google mobile     true       6       1      762 Czech Republic
+## # ... with 990 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p>In the second line in the above output, you can observe <code>Groups: referrer [5]</code>. The data is split into 5 groups as the referrer variable has 5 distinct values. For our case study, we need to group the data by device type.</p>
+<pre class="r"><code>ecom3 &lt;- group_by(ecom2, device)
+ecom3</code></pre>
+<pre><code>## # A tibble: 254 x 3
+## # Groups:   device [3]
+##    device order_value order_items
+##     &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1 tablet         434           6
+##  2 mobile         651           3
+##  3 tablet         362           2
+##  4 mobile        2423           7
+##  5 tablet        1049           6
+##  6 tablet        1304           9
+##  7 tablet        2077           7
+##  8 mobile         237           4
+##  9 tablet         622           5
+## 10 tablet        1613           7
+## # ... with 244 more rows</code></pre>
+</div>
+<div id="step-4-compute-total-order-value-and-order-items" class="section level3">
+<h3>Step 4: Compute total order value and order items</h3>
+<p>The next step is to compute the total order value and total order items for each device. We will use them to then compute the average order value. Now we need to reduce the order value and order items data to a single summary. We can achieve this using the <code>summarise()</code> function. The first argument is the name of a data frame and the subsequent arguments are functions that can generate a summary. For example, we can use <code>min</code>, <code>max</code>, <code>sum</code>, <code>mean</code> etc.</p>
+<p>For our case study, we need the totals of order value and order items. What function can we use to obtain them? The <code>sum()</code> function will generate the sum of the values and hence we will use it inside the <code>summarise()</code> function. Remember, we need to provide a name to the summary being generated.</p>
+<pre class="r"><code>ecom4 &lt;- summarise(ecom3, total_value = sum(order_value),
+          total_items = sum(order_items))
+ecom4</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   device total_value total_items
+##    &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1 laptop      143289         449
+## 2 mobile      127223         501
+## 3 tablet      116470         431</code></pre>
+<p>There you go, we have the total order value and total order items for each device type. Another way to achieve the above result is to use the <code>summarise_all()</code> function. How does that work? It generates the specified summary for all the columns in the data set except for the column based on which the data has been grouped. So we need to ensure that the data frame does not have any irrelevant columns.</p>
+<p>In our case study, we have split the data based on the device type and we have 2 other columns which are order value and order items. If we use <code>summarise_all()</code> function, it will generate the summary for the two columns based on the function specified. To specify the functions, we need to use another argument <code>funs</code> and it can take any number of valid functions.</p>
+<pre class="r"><code>ecom4 &lt;- summarise_all(ecom3, funs(sum))
+ecom4</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   device order_value order_items
+##    &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1 laptop      143289         449
+## 2 mobile      127223         501
+## 3 tablet      116470         431</code></pre>
+</div>
+<div id="step-5-compute-aov" class="section level3">
+<h3>Step 5: Compute AOV</h3>
+<p>Now that we have the total order value and total order items for each device category, we can compute the AOV. We will create a new column to store the result. To create a new column, we will use the <code>mutate()</code> function. The first argument is the name of the data frame and the subsequent arguments are expressions for creating new columns based out of existing columns.</p>
+<pre class="r"><code>ecom5 &lt;- mutate(ecom4, aov = order_value / order_items)
+ecom5</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   device order_value order_items      aov
+##    &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+## 1 laptop      143289         449 319.1292
+## 2 mobile      127223         501 253.9381
+## 3 tablet      116470         431 270.2320</code></pre>
+</div>
+<div id="step-6-select-the-relevant-columns" class="section level3">
+<h3>Step 6: Select the relevant columns</h3>
+<p>The last step is to select the relevant columns. We require the device type and the corresponding aov and hence we can get rid of other columns. Use the <code>select()</code> function to extract the relevant columns.</p>
+<pre class="r"><code>ecom6 &lt;- select(ecom5, device, aov)
+ecom6</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   device      aov
+##    &lt;chr&gt;    &lt;dbl&gt;
+## 1 laptop 319.1292
+## 2 mobile 253.9381
+## 3 tablet 270.2320</code></pre>
+<p>Let us combine all the code from the above steps:</p>
+<pre class="r"><code>ecom1 &lt;- filter(ecom, purchase == &quot;true&quot;)
+ecom2 &lt;- select(ecom1, device, order_value, order_items)
+ecom3 &lt;- group_by(ecom2, device)
+ecom4 &lt;- summarise_all(ecom3, funs(sum))
+ecom5 &lt;- mutate(ecom4, aov = order_value / order_items)
+ecom6 &lt;- select(ecom5, device, aov)
+ecom6</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   device      aov
+##    &lt;chr&gt;    &lt;dbl&gt;
+## 1 laptop 319.1292
+## 2 mobile 253.9381
+## 3 tablet 270.2320</code></pre>
+<p>If you observe, at each step we create a new variable(data frame) and then use it as an input in the next step i.e. the output from one function becomes the input for another function. Can we achieve the final outcome i.e. <code>ecom6</code> without creating the intermediate data frames (ecom1 - ecom5)? Yes, we can. We will use the <code>%&gt;%</code> operator to chain the above steps so that we can avoid creating the intermediate data frames. Let us see how to do that.</p>
+<pre class="r"><code>ecom %&gt;%
+  filter(purchase == &#39;true&#39;) %&gt;%
+  select(device, order_value, order_items) %&gt;%
+  group_by(device) %&gt;%
+  summarise_all(funs(sum)) %&gt;%
+  mutate(
+    aov = order_value / order_items
+  ) %&gt;%
+  select(device, aov)</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   device      aov
+##    &lt;chr&gt;    &lt;dbl&gt;
+## 1 laptop 319.1292
+## 2 mobile 253.9381
+## 3 tablet 270.2320</code></pre>
+<p>In the above code, we take the output from each step and use it as an input for the next step using the pipe <code>%&gt;%</code> operator. It reduces the intermediate data frames and makes the code readable. Take the <code>ecom</code> data frame <code>-&gt;</code> filter the purchasers <code>-&gt;</code> select device, order_value and order_items variables <code>-&gt;</code> group the resulting data frame by device type <code>-&gt;</code> compute the sum of all the variables in the grouped data frames <code>-&gt;</code> compute the average order value <code>-&gt;</code> select device type and aov</p>
+<p>It is the same as the steps we wrote at the beginning of this post. Now you realize how powerful dplyr is along with the <code>%&gt;%</code> operator. There are other functions in dplyr but we will cover them in another post. You are encouraged to use the above approach to answer the questions we have listed below.</p>
+</div>
+<div id="practice-questions" class="section level3">
+<h3>Practice Questions</h3>
+<ul>
+<li><p>What is the average number of pages visited by purchasers and non-purchasers?</p></li>
+<li><p>What is the average time on site for purchasers vs non-purchasers?</p></li>
+<li><p>What is the average number of pages visited by purchasers and non-purchasers using mobile?</p></li>
+</ul>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>In this post, we learnt how to use dplyr to address some of the most common data manipulation challenges. In the next post, we will learn how to work with dates and time in R using the <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a> package.</p>
+</div>
+</div>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/readable-code-with-pipes/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/readable-code-with-pipes/">Readable Code with Pipes</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/how-to-work-with-dates-in-r/">How to work with dates in R</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/how-to-work-with-dates-in-r/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57270671-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

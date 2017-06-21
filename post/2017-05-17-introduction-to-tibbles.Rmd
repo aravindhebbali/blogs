@@ -9,7 +9,7 @@ tags:
 draft: yes
 ---
 
-### Introduction
+# Introduction
 
 tibbles are a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the [tidyverse](http://tidyverse.org/). In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn
 
@@ -18,14 +18,11 @@ tibbles are a modern version of data frames that retain the good aspects (of dat
 - compare tibbles with data frames
 - to manipulate tibbles
 
+<br>
 
-### Creating tibbles
+## Creating tibbles
 
-In this first section, we will create tibbles using the `tibble()` function and compare them to data frames. 
-
-#### tibble never changes input's type
-
-In the `data.frame()` function, any column with `character` data is converted to `factors` unless you set `stringsAsFactors` argument to `FALSE`. tibble takes care of this by never changing any input's type. As you can observe in the below example, tibbles do not convert `characters` to `factors`. 
+In this first section, we will create tibbles using the `tibble()` function.
 
 ```{r tibble1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(tibble)
@@ -38,7 +35,25 @@ tibble(x = letters,
        z = sample(100, 26))
 ```
 
-#### tibble never adjusts variable names
+<br>
+
+## tibble features
+
+<br>
+
+### never changes input's type
+
+In the `data.frame()` function, any column with `character` data is converted to `factors` unless you set `stringsAsFactors` argument to `FALSE`. tibble takes care of this by never changing any input's type. As you can observe in the below example, tibbles do not convert `characters` to `factors`. 
+
+```{r tibble13}
+tibble(x = letters,
+       y = 1:26,
+       z = sample(100, 26))
+```
+
+<br>
+
+### never adjusts variable names
 
 If there is more than one word in a variable name, `data.frame()` will add a `.` and join them but tibble never adjusts variable names. Below is an example:
 
@@ -47,7 +62,9 @@ names(data.frame(`order value` = 10))
 names(tibble(`order value` = 10))
 ```
 
-#### tibble never prints all the rows
+<br>
+
+### never prints all rows 
 
 tibble only shows the first ten rows and all the columns that fit on one screen. Below the column names, it prints the column type as well. Let us look at an example:
 
@@ -58,35 +75,46 @@ z <- sample(c(TRUE, FALSE), 100, replace = TRUE)
 tibble(x, y, z)
 ```
 
-#### tibble never recycles vectors of length greater than 1
+<br>
+
+### never recycles vectors of length greater than 1
 
 tibble will never recycle a vector of length greater than 1. If you observe the previous example, we could have used all the letters instead of just the first letter but tibble will return an error if the vectors are of length greater than 1.
 
+<br>
 
-### Creating tibbles II
+## Creating tibbles II
 
-In the previous section, we created tibbles using the `tibble()` function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the `as_tibble()` function:
+In the previous section, we created tibbles using the `tibble()` function by directly inputting data as arguments. In this section, 
+we will convert the following objects to tibble using the `as_tibble()` function:
 
 - data.frame
 - list
 - matrix
 - table
 - tbl_df
+- atomic vectors
 
-#### DataFrames
+<br>
+
+### DataFrames
 
 ```{r tibble5}
 as_tibble(iris)
 ```
 
-#### Lists
+<br>
+
+### Lists
 
 ```{r tibble6}
 l <- list(x = 1:32, y = sample(100, 32), z = replicate(32, letters, simplify = FALSE))
 as_tibble(l)
 ```
 
-#### Matrix
+<br>
+
+### Matrix
 
 ```{r tibble7}
 m <- matrix(sample(1000, 2600, replace = TRUE), ncol = 26)
@@ -94,30 +122,59 @@ colnames(m) <- letters
 as_tibble(m)
 ```
 
-#### Table
+<br>
+
+### Table
 
 ```{r tibble8}
 k <- table(mtcars$cyl)
 as_tibble(k)
 ```
 
-#### tbl_df
+<br>
+
+### tbl_df
 
 ```{r tibble9}
 k <- tbl_df(iris)
 as_tibble(k)
 ```
 
+<br>
+
+### atomic vectors
+
+We can create tibbles from atomic vectors using the `enframe()` functions. Let us use the web traffic data 
+and create a tibble for the browsers.
+
+```{r tibble14}
+browsers <- c('chrome', 'safari', 'firefox', 'edge')
+enframe(browsers)
+```
+
+<br>
+
+```{r tibble15}
+browsers <- c(chrome = 40, firefox = 20, edge = 30, safari = 10)
+enframe(browsers)
+```
+
+<br>
+
 We can test if an object is a tibble using the `is_tibble()` function.
 
-```{r tibble 10}
+```{r tibble10}
 is_tibble(mtcars)
 is_tibble(as_tibble(mtcars))
 ```
 
-#### Tribble
+<br>
+
+## Tribble
 
 Another way to create tibbles is using the `tribble()` function. tribble is short for transposed tibbles. It is customized for data entry in code. Column names start with `~` and values are separated by commas. Below is an example:
+
+<br>
 
 ```{r tibble11}
 tribble(
@@ -128,7 +185,9 @@ tribble(
 )
 ```
 
-#### Column Names
+<br>
+
+## Column Names
 
 Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks. Below is an example:
 
@@ -140,6 +199,141 @@ tibble(
 )
 ```
 
-### 
+<br>
 
+## Compare tibbles
 
+We can compare tibbles using the `all_equal()` function from the [dplyr](http://dplyr.tidyverse.org/) package. We need to specify the 
+tibbles being compared. Let us look at an example from the web traffic data. We have the details of browsers used in 2 formats. We will 
+test if they are the same.
+
+<br>
+
+### Compare browser data
+
+```{r tibble16} 
+browsers1 <- enframe(c(chrome = 40, firefox = 20, edge = 30, safari = 10))
+browsers2 <- enframe(c(edge = 30, firefox = 20, safari = 10, chrome = 40))
+
+all_equal(browsers1, browsers2)
+```
+
+<br>
+
+### Compare browser data by ignoring order of rows
+
+The `all_equal()` function ignores the order of the rows while comparing the tibbles. Change this by 
+setting `ignore_row_order` to `TRUE`.
+
+```{r tibble17}
+all_equal(browsers1, browsers2, ignore_row_order = FALSE)
+```
+
+<br>
+
+### Compare browser data by ignoring order of columns
+
+```{r tibble18}
+traffic1 <- tibble(
+  browsers = c('chrome', 'firefox', 'edge', 'safari'),
+  visit = c(40, 20, 30, 10),
+  source = c('search', 'social', 'direct', 'affiliates'),
+  visits = c(35, 25, 10, 30)
+)
+
+traffic2 <- tibble(
+  source = c('search', 'social', 'direct', 'affiliates'),
+  visits = c(35, 25, 10, 30),
+  browsers = c('chrome', 'firefox', 'edge', 'safari'),
+  visit = c(40, 20, 30, 10)
+)
+
+all_equal(traffic1, traffic2)
+```
+
+<br>
+
+The order of the columns can be compared by setting `ignore_col_order` to `FALSE`.
+
+```{r tibble29}
+all_equal(traffic1, traffic2, ignore_col_order = FALSE)
+```
+
+<br>
+
+## Add rows/columns
+
+Let us go back to the web traffic data. 
+
+```{r tibble19}
+browsers <- enframe(c(chrome = 40, firefox = 20, edge = 30))
+browsers
+```
+
+We can add data for **Safari** browser to the above tibble using the `add_row()` function.
+
+```{r tibble20}
+add_row(browsers, name = 'safari', value = 10)
+```
+
+If we want to add the data at a particular row, we can specify the row number using the `.before` argument.
+Let us add the data for **Safari** in the second row instead of the last row.
+
+```{r tibble21}
+add_row(browsers, name = 'safari', value = 10, .before = 2)
+```
+
+Similarly, we can add a new column to the tibble using the `add_col()` function.
+
+```{r tibble22}
+browsers <- enframe(c(chrome = 40, firefox = 20, edge = 30, safari = 10))
+browsers
+add_column(browsers, visits = c(4000, 2000, 3000, 1000))
+```
+
+<br>
+
+## Rownames
+
+The [tibble](tibble.tidyverse.org) package provides a set of function to deal with rownames. Remember, `tibble` does
+not have `rownames` unlike `data.frame`. To check whether a data set has rownames, use the `has_rownames()` function.
+
+```{r tibble23}
+has_rownames(mtcars)
+```
+
+To remove rownames from a data set, use the `remove_rownames()` function:
+
+```{r tibble24}
+remove_rownames(mtcars)
+```
+
+To convert rownames to a column, use the `rownames_to_column()` function:
+
+```{r tibble25}
+head(rownames_to_column(mtcars))
+```
+
+To convert the first column in the data set to rownames, use the `column_to_rownames()` function:
+
+```{r tibble26}
+mtcars_tbl <- rownames_to_column(mtcars)
+column_to_rownames(mtcars_tbl)
+```
+
+<br>
+
+## Miscellaneous
+
+Use the `glimpse()` function to get an overview of the data.
+
+```{r tibble 27}
+glimpse(mtcars)
+```
+
+The `has_name()` function can be used to check if a tibble has a specific column.
+
+```{r tibble28}
+has_name(mtcars, 'cyl')
+has_name(mtcars, 'gears')
+```

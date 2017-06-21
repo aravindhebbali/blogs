@@ -292,8 +292,8 @@
 
 <!-- BLOGDOWN-BODY-BEFORE -->
 <!-- /BLOGDOWN-BODY-BEFORE -->
-<div id="introduction" class="section level3">
-<h3>Introduction</h3>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p>tibbles are a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the <a href="http://tidyverse.org/">tidyverse</a>. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn</p>
 <ul>
 <li>how to create tibbles</li>
@@ -301,68 +301,94 @@
 <li>compare tibbles with data frames</li>
 <li>to manipulate tibbles</li>
 </ul>
+<p><br></p>
+<div id="creating-tibbles" class="section level2">
+<h2>Creating tibbles</h2>
+<p>In this first section, we will create tibbles using the <code>tibble()</code> function.</p>
+<pre class="r"><code>tibble(x = letters,
+       y = 1:26,
+       z = sample(100, 26))</code></pre>
+<pre><code>## # A tibble: 26 x 3
+##        x     y     z
+##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+##  1     a     1    90
+##  2     b     2    68
+##  3     c     3    56
+##  4     d     4     9
+##  5     e     5     6
+##  6     f     6    66
+##  7     g     7   100
+##  8     h     8    61
+##  9     i     9    35
+## 10     j    10     4
+## # ... with 16 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="creating-tibbles" class="section level3">
-<h3>Creating tibbles</h3>
-<p>In this first section, we will create tibbles using the <code>tibble()</code> function and compare them to data frames.</p>
-<div id="tibble-never-changes-inputs-type" class="section level4">
-<h4>tibble never changes input’s type</h4>
+<div id="tibble-features" class="section level2">
+<h2>tibble features</h2>
+<p><br></p>
+<div id="never-changes-inputs-type" class="section level3">
+<h3>never changes input’s type</h3>
 <p>In the <code>data.frame()</code> function, any column with <code>character</code> data is converted to <code>factors</code> unless you set <code>stringsAsFactors</code> argument to <code>FALSE</code>. tibble takes care of this by never changing any input’s type. As you can observe in the below example, tibbles do not convert <code>characters</code> to <code>factors</code>.</p>
 <pre class="r"><code>tibble(x = letters,
        y = 1:26,
        z = sample(100, 26))</code></pre>
-<pre><code>## # A tibble: 26 × 3
+<pre><code>## # A tibble: 26 x 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-## 1      a     1    60
-## 2      b     2     3
-## 3      c     3     8
-## 4      d     4    47
-## 5      e     5    28
-## 6      f     6    96
-## 7      g     7    30
-## 8      h     8     6
-## 9      i     9    84
-## 10     j    10    24
+##  1     a     1    43
+##  2     b     2    61
+##  3     c     3     9
+##  4     d     4    94
+##  5     e     5    23
+##  6     f     6    35
+##  7     g     7    29
+##  8     h     8    36
+##  9     i     9    65
+## 10     j    10    38
 ## # ... with 16 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="tibble-never-adjusts-variable-names" class="section level4">
-<h4>tibble never adjusts variable names</h4>
+<div id="never-adjusts-variable-names" class="section level3">
+<h3>never adjusts variable names</h3>
 <p>If there is more than one word in a variable name, <code>data.frame()</code> will add a <code>.</code> and join them but tibble never adjusts variable names. Below is an example:</p>
 <pre class="r"><code>names(data.frame(`order value` = 10))</code></pre>
 <pre><code>## [1] &quot;order.value&quot;</code></pre>
 <pre class="r"><code>names(tibble(`order value` = 10))</code></pre>
 <pre><code>## [1] &quot;order value&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="tibble-never-prints-all-the-rows" class="section level4">
-<h4>tibble never prints all the rows</h4>
+<div id="never-prints-all-rows" class="section level3">
+<h3>never prints all rows</h3>
 <p>tibble only shows the first ten rows and all the columns that fit on one screen. Below the column names, it prints the column type as well. Let us look at an example:</p>
 <pre class="r"><code>x &lt;- 1:100
 y &lt;- letters[1]
 z &lt;- sample(c(TRUE, FALSE), 100, replace = TRUE)
 tibble(x, y, z)</code></pre>
-<pre><code>## # A tibble: 100 × 3
+<pre><code>## # A tibble: 100 x 3
 ##        x     y     z
 ##    &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
-## 1      1     a  TRUE
-## 2      2     a FALSE
-## 3      3     a  TRUE
-## 4      4     a FALSE
-## 5      5     a FALSE
-## 6      6     a  TRUE
-## 7      7     a FALSE
-## 8      8     a FALSE
-## 9      9     a FALSE
-## 10    10     a FALSE
+##  1     1     a FALSE
+##  2     2     a  TRUE
+##  3     3     a FALSE
+##  4     4     a FALSE
+##  5     5     a  TRUE
+##  6     6     a  TRUE
+##  7     7     a FALSE
+##  8     8     a FALSE
+##  9     9     a  TRUE
+## 10    10     a  TRUE
 ## # ... with 90 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="tibble-never-recycles-vectors-of-length-greater-than-1" class="section level4">
-<h4>tibble never recycles vectors of length greater than 1</h4>
+<div id="never-recycles-vectors-of-length-greater-than-1" class="section level3">
+<h3>never recycles vectors of length greater than 1</h3>
 <p>tibble will never recycle a vector of length greater than 1. If you observe the previous example, we could have used all the letters instead of just the first letter but tibble will return an error if the vectors are of length greater than 1.</p>
+<p><br></p>
 </div>
 </div>
-<div id="creating-tibbles-ii" class="section level3">
-<h3>Creating tibbles II</h3>
+<div id="creating-tibbles-ii" class="section level2">
+<h2>Creating tibbles II</h2>
 <p>In the previous section, we created tibbles using the <code>tibble()</code> function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the <code>as_tibble()</code> function:</p>
 <ul>
 <li>data.frame</li>
@@ -370,132 +396,369 @@ tibble(x, y, z)</code></pre>
 <li>matrix</li>
 <li>table</li>
 <li>tbl_df</li>
+<li>atomic vectors</li>
 </ul>
-<div id="dataframes" class="section level4">
-<h4>DataFrames</h4>
+<p><br></p>
+<div id="dataframes" class="section level3">
+<h3>DataFrames</h3>
 <pre class="r"><code>as_tibble(iris)</code></pre>
-<pre><code>## # A tibble: 150 × 5
+<pre><code>## # A tibble: 150 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;  &lt;fctr&gt;
-## 1           5.1         3.5          1.4         0.2  setosa
-## 2           4.9         3.0          1.4         0.2  setosa
-## 3           4.7         3.2          1.3         0.2  setosa
-## 4           4.6         3.1          1.5         0.2  setosa
-## 5           5.0         3.6          1.4         0.2  setosa
-## 6           5.4         3.9          1.7         0.4  setosa
-## 7           4.6         3.4          1.4         0.3  setosa
-## 8           5.0         3.4          1.5         0.2  setosa
-## 9           4.4         2.9          1.4         0.2  setosa
+##  1          5.1         3.5          1.4         0.2  setosa
+##  2          4.9         3.0          1.4         0.2  setosa
+##  3          4.7         3.2          1.3         0.2  setosa
+##  4          4.6         3.1          1.5         0.2  setosa
+##  5          5.0         3.6          1.4         0.2  setosa
+##  6          5.4         3.9          1.7         0.4  setosa
+##  7          4.6         3.4          1.4         0.3  setosa
+##  8          5.0         3.4          1.5         0.2  setosa
+##  9          4.4         2.9          1.4         0.2  setosa
 ## 10          4.9         3.1          1.5         0.1  setosa
 ## # ... with 140 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="lists" class="section level4">
-<h4>Lists</h4>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
 <pre class="r"><code>l &lt;- list(x = 1:32, y = sample(100, 32), z = replicate(32, letters, simplify = FALSE))
 as_tibble(l)</code></pre>
-<pre><code>## # A tibble: 32 × 3
+<pre><code>## # A tibble: 32 x 3
 ##        x     y          z
 ##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
-## 1      1    50 &lt;chr [26]&gt;
-## 2      2    47 &lt;chr [26]&gt;
-## 3      3    81 &lt;chr [26]&gt;
-## 4      4    20 &lt;chr [26]&gt;
-## 5      5    75 &lt;chr [26]&gt;
-## 6      6     5 &lt;chr [26]&gt;
-## 7      7    34 &lt;chr [26]&gt;
-## 8      8    86 &lt;chr [26]&gt;
-## 9      9     4 &lt;chr [26]&gt;
-## 10    10    80 &lt;chr [26]&gt;
+##  1     1    77 &lt;chr [26]&gt;
+##  2     2    58 &lt;chr [26]&gt;
+##  3     3    49 &lt;chr [26]&gt;
+##  4     4    14 &lt;chr [26]&gt;
+##  5     5    80 &lt;chr [26]&gt;
+##  6     6    50 &lt;chr [26]&gt;
+##  7     7    35 &lt;chr [26]&gt;
+##  8     8    94 &lt;chr [26]&gt;
+##  9     9    72 &lt;chr [26]&gt;
+## 10    10     5 &lt;chr [26]&gt;
 ## # ... with 22 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="matrix" class="section level4">
-<h4>Matrix</h4>
+<div id="matrix" class="section level3">
+<h3>Matrix</h3>
 <pre class="r"><code>m &lt;- matrix(sample(1000, 2600, replace = TRUE), ncol = 26)
 colnames(m) &lt;- letters
 as_tibble(m)</code></pre>
-<pre><code>## # A tibble: 100 × 26
+<pre><code>## # A tibble: 100 x 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1    923   644   613    33   884   254    26   805   954    64   162   837
-## 2    734   105   631   345   180   937   923   197   750    41   434   232
-## 3    376   603    36    91   554   673   452   161   861   874   193   329
-## 4    801   191   855   694   741   160   885   913   247   856   882   861
-## 5    193   381   133     8   537   570    40   812    98   251   680    14
-## 6     85   155   327    29   502   429   942   658   297   159   620   374
-## 7    610   290    21   293    62   733   397   284   786    84   162   117
-## 8    335   912    67   337   207   450   352   856   637   757   512    29
-## 9    823   920   548   725   579   917   867   683   697   152    31   631
-## 10   493   146   293   808   489   191   599   155   359   735    11   533
+##  1    81   434   176   625   955   471    72   966   173   879   828   829
+##  2   179    81   390   255    94   857   111   263   158   166   998   752
+##  3   650   296   922   869    63   952   830   279   139   221   838   968
+##  4   686   648   328    95   285   785   714    96   317   168   478   267
+##  5   791   455   198   626    39   687   691   602   294   324   379   851
+##  6   599   332   986   555    82   337   666   199   295   759   686    16
+##  7   128   145   975   976   666   510   756   597   730   899   143   797
+##  8   952   774   664   458   683   807   287   500   104   883   745   584
+##  9   709   116   508   701   472   995   794   657   403   443   243   551
+## 10   946   600   603   184   202   746   790   190   989   338   605   806
 ## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
 ## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
 ## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;</code></pre>
+<p><br></p>
 </div>
-<div id="table" class="section level4">
-<h4>Table</h4>
+<div id="table" class="section level3">
+<h3>Table</h3>
 <pre class="r"><code>k &lt;- table(mtcars$cyl)
 as_tibble(k)</code></pre>
-<pre><code>## # A tibble: 3 × 2
+<pre><code>## # A tibble: 3 x 2
 ##    Var1     n
 ##   &lt;chr&gt; &lt;int&gt;
 ## 1     4    11
 ## 2     6     7
 ## 3     8    14</code></pre>
+<p><br></p>
 </div>
-<div id="tbl_df" class="section level4">
-<h4>tbl_df</h4>
+<div id="tbl_df" class="section level3">
+<h3>tbl_df</h3>
 <pre class="r"><code>k &lt;- tbl_df(iris)
 as_tibble(k)</code></pre>
-<pre><code>## # A tibble: 150 × 5
+<pre><code>## # A tibble: 150 x 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;  &lt;fctr&gt;
-## 1           5.1         3.5          1.4         0.2  setosa
-## 2           4.9         3.0          1.4         0.2  setosa
-## 3           4.7         3.2          1.3         0.2  setosa
-## 4           4.6         3.1          1.5         0.2  setosa
-## 5           5.0         3.6          1.4         0.2  setosa
-## 6           5.4         3.9          1.7         0.4  setosa
-## 7           4.6         3.4          1.4         0.3  setosa
-## 8           5.0         3.4          1.5         0.2  setosa
-## 9           4.4         2.9          1.4         0.2  setosa
+##  1          5.1         3.5          1.4         0.2  setosa
+##  2          4.9         3.0          1.4         0.2  setosa
+##  3          4.7         3.2          1.3         0.2  setosa
+##  4          4.6         3.1          1.5         0.2  setosa
+##  5          5.0         3.6          1.4         0.2  setosa
+##  6          5.4         3.9          1.7         0.4  setosa
+##  7          4.6         3.4          1.4         0.3  setosa
+##  8          5.0         3.4          1.5         0.2  setosa
+##  9          4.4         2.9          1.4         0.2  setosa
 ## 10          4.9         3.1          1.5         0.1  setosa
 ## # ... with 140 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="atomic-vectors" class="section level3">
+<h3>atomic vectors</h3>
+<p>We can create tibbles from atomic vectors using the <code>enframe()</code> functions. Let us use the web traffic data and create a tibble for the browsers.</p>
+<pre class="r"><code>browsers &lt;- c(&#39;chrome&#39;, &#39;safari&#39;, &#39;firefox&#39;, &#39;edge&#39;)
+enframe(browsers)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##    name   value
+##   &lt;int&gt;   &lt;chr&gt;
+## 1     1  chrome
+## 2     2  safari
+## 3     3 firefox
+## 4     4    edge</code></pre>
+<p><br></p>
+<pre class="r"><code>browsers &lt;- c(chrome = 40, firefox = 20, edge = 30, safari = 10)
+enframe(browsers)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##      name value
+##     &lt;chr&gt; &lt;dbl&gt;
+## 1  chrome    40
+## 2 firefox    20
+## 3    edge    30
+## 4  safari    10</code></pre>
+<p><br></p>
 <p>We can test if an object is a tibble using the <code>is_tibble()</code> function.</p>
 <pre class="r"><code>is_tibble(mtcars)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>is_tibble(as_tibble(mtcars))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<p><br></p>
 </div>
-<div id="tribble" class="section level4">
-<h4>Tribble</h4>
+</div>
+<div id="tribble" class="section level2">
+<h2>Tribble</h2>
 <p>Another way to create tibbles is using the <code>tribble()</code> function. tribble is short for transposed tibbles. It is customized for data entry in code. Column names start with <code>~</code> and values are separated by commas. Below is an example:</p>
+<p><br></p>
 <pre class="r"><code>tribble(
   ~x, ~y, ~z,
   #--|--|----
   1, TRUE, &#39;a&#39;,
   2, FALSE, &#39;b&#39;
 )</code></pre>
-<pre><code>## # A tibble: 2 × 3
+<pre><code>## # A tibble: 2 x 3
 ##       x     y     z
 ##   &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;
 ## 1     1  TRUE     a
 ## 2     2 FALSE     b</code></pre>
+<p><br></p>
 </div>
-<div id="column-names" class="section level4">
-<h4>Column Names</h4>
+<div id="column-names" class="section level2">
+<h2>Column Names</h2>
 <p>Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks. Below is an example:</p>
 <pre class="r"><code>tibble(
   ` ` = &#39;space&#39;,
   `2` = &#39;integer&#39;,
   `:)` = &#39;smiley&#39;
 )</code></pre>
-<pre><code>## # A tibble: 1 × 3
+<pre><code>## # A tibble: 1 x 3
 ##     ` `     `2`   `:)`
 ##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;
 ## 1 space integer smiley</code></pre>
+<p><br></p>
+</div>
+<div id="compare-tibbles" class="section level2">
+<h2>Compare tibbles</h2>
+<p>We can compare tibbles using the <code>all_equal()</code> function from the <a href="http://dplyr.tidyverse.org/">dplyr</a> package. We need to specify the tibbles being compared. Let us look at an example from the web traffic data. We have the details of browsers used in 2 formats. We will test if they are the same.</p>
+<p><br></p>
+<div id="compare-browser-data" class="section level3">
+<h3>Compare browser data</h3>
+<pre class="r"><code>browsers1 &lt;- enframe(c(chrome = 40, firefox = 20, edge = 30, safari = 10))
+browsers2 &lt;- enframe(c(edge = 30, firefox = 20, safari = 10, chrome = 40))
+
+all_equal(browsers1, browsers2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p><br></p>
+</div>
+<div id="compare-browser-data-by-ignoring-order-of-rows" class="section level3">
+<h3>Compare browser data by ignoring order of rows</h3>
+<p>The <code>all_equal()</code> function ignores the order of the rows while comparing the tibbles. Change this by setting <code>ignore_row_order</code> to <code>TRUE</code>.</p>
+<pre class="r"><code>all_equal(browsers1, browsers2, ignore_row_order = FALSE)</code></pre>
+<pre><code>## [1] &quot;Same row values, but different order&quot;</code></pre>
+<p><br></p>
+</div>
+<div id="compare-browser-data-by-ignoring-order-of-columns" class="section level3">
+<h3>Compare browser data by ignoring order of columns</h3>
+<pre class="r"><code>traffic1 &lt;- tibble(
+  browsers = c(&#39;chrome&#39;, &#39;firefox&#39;, &#39;edge&#39;, &#39;safari&#39;),
+  visit = c(40, 20, 30, 10),
+  source = c(&#39;search&#39;, &#39;social&#39;, &#39;direct&#39;, &#39;affiliates&#39;),
+  visits = c(35, 25, 10, 30)
+)
+
+traffic2 &lt;- tibble(
+  source = c(&#39;search&#39;, &#39;social&#39;, &#39;direct&#39;, &#39;affiliates&#39;),
+  visits = c(35, 25, 10, 30),
+  browsers = c(&#39;chrome&#39;, &#39;firefox&#39;, &#39;edge&#39;, &#39;safari&#39;),
+  visit = c(40, 20, 30, 10)
+)
+
+all_equal(traffic1, traffic2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p><br></p>
+<p>The order of the columns can be compared by setting <code>ignore_col_order</code> to <code>FALSE</code>.</p>
+<pre class="r"><code>all_equal(traffic1, traffic2, ignore_col_order = FALSE)</code></pre>
+<pre><code>## [1] &quot;Same column names, but different order&quot;</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="section" class="section level3">
-<h3></h3>
+<div id="add-rowscolumns" class="section level2">
+<h2>Add rows/columns</h2>
+<p>Let us go back to the web traffic data.</p>
+<pre class="r"><code>browsers &lt;- enframe(c(chrome = 40, firefox = 20, edge = 30))
+browsers</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##      name value
+##     &lt;chr&gt; &lt;dbl&gt;
+## 1  chrome    40
+## 2 firefox    20
+## 3    edge    30</code></pre>
+<p>We can add data for <strong>Safari</strong> browser to the above tibble using the <code>add_row()</code> function.</p>
+<pre class="r"><code>add_row(browsers, name = &#39;safari&#39;, value = 10)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##      name value
+##     &lt;chr&gt; &lt;dbl&gt;
+## 1  chrome    40
+## 2 firefox    20
+## 3    edge    30
+## 4  safari    10</code></pre>
+<p>If we want to add the data at a particular row, we can specify the row number using the <code>.before</code> argument. Let us add the data for <strong>Safari</strong> in the second row instead of the last row.</p>
+<pre class="r"><code>add_row(browsers, name = &#39;safari&#39;, value = 10, .before = 2)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##      name value
+##     &lt;chr&gt; &lt;dbl&gt;
+## 1  chrome    40
+## 2  safari    10
+## 3 firefox    20
+## 4    edge    30</code></pre>
+<p>Similarly, we can add a new column to the tibble using the <code>add_col()</code> function.</p>
+<pre class="r"><code>browsers &lt;- enframe(c(chrome = 40, firefox = 20, edge = 30, safari = 10))
+browsers</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##      name value
+##     &lt;chr&gt; &lt;dbl&gt;
+## 1  chrome    40
+## 2 firefox    20
+## 3    edge    30
+## 4  safari    10</code></pre>
+<pre class="r"><code>add_column(browsers, visits = c(4000, 2000, 3000, 1000))</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##      name value visits
+##     &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1  chrome    40   4000
+## 2 firefox    20   2000
+## 3    edge    30   3000
+## 4  safari    10   1000</code></pre>
+<p><br></p>
+</div>
+<div id="rownames" class="section level2">
+<h2>Rownames</h2>
+<p>The <a href="tibble.tidyverse.org">tibble</a> package provides a set of function to deal with rownames. Remember, <code>tibble</code> does not have <code>rownames</code> unlike <code>data.frame</code>. To check whether a data set has rownames, use the <code>has_rownames()</code> function.</p>
+<pre class="r"><code>has_rownames(mtcars)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>To remove rownames from a data set, use the <code>remove_rownames()</code> function:</p>
+<pre class="r"><code>remove_rownames(mtcars)</code></pre>
+<pre><code>##     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## 2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## 3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## 4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## 5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## 6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## 7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## 8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## 9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## 10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## 11 17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## 12 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## 13 17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## 14 15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## 15 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## 16 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## 17 14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## 18 32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## 19 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## 20 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## 21 21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## 22 15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## 23 15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## 24 13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## 25 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## 26 27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## 27 26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## 28 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## 29 15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## 30 19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## 31 15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## 32 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>To convert rownames to a column, use the <code>rownames_to_column()</code> function:</p>
+<pre class="r"><code>head(rownames_to_column(mtcars))</code></pre>
+<pre><code>##             rowname  mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1         Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## 2     Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## 3        Datsun 710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## 4    Hornet 4 Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>To convert the first column in the data set to rownames, use the <code>column_to_rownames()</code> function:</p>
+<pre class="r"><code>mtcars_tbl &lt;- rownames_to_column(mtcars)
+column_to_rownames(mtcars_tbl)</code></pre>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p><br></p>
+</div>
+<div id="miscellaneous" class="section level2">
+<h2>Miscellaneous</h2>
+<p>Use the <code>glimpse()</code> function to get an overview of the data.</p>
+<pre class="r"><code>glimpse(mtcars)</code></pre>
+<pre><code>## Observations: 32
+## Variables: 11
+## $ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19....
+## $ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, ...
+## $ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 1...
+## $ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, ...
+## $ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.9...
+## $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3...
+## $ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 2...
+## $ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, ...
+## $ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, ...
+## $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, ...</code></pre>
+<p>The <code>has_name()</code> function can be used to check if a tibble has a specific column.</p>
+<pre class="r"><code>has_name(mtcars, &#39;cyl&#39;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>has_name(mtcars, &#39;gears&#39;)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
 </div>
 
 

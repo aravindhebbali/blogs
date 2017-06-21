@@ -46,11 +46,13 @@ Let us explore each of the above verbs one by one. `dplyr` offers more functiona
 
 ## Case Study
 
-We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv). Below is the description of the data set:
+We will explore dummy data that we have created to resemble web logs of a ecommerce company. You can download the data from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import it directly using `read_csv()` from the [readr](readr.tidyverse.org) package.
 
 ```{r import, echo=FALSE}
-ecom <- readr::read_csv('J:/R/datasets/web.csv')
+ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
 ```
+
+Below is the description of the data set:
 
 - id: row id
 - referrer: referrer website/search engine

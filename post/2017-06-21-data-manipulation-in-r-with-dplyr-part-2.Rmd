@@ -46,12 +46,16 @@ customer <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/d
 customer
 ```
 
+<br>
+
 ### inner join
 
 ```{r dplyr3}
 customer %>%
   inner_join(order)
 ```
+
+<br>
 
 ### left join
 
@@ -60,12 +64,16 @@ customer %>%
   left_join(order)
 ```
 
+<br>
+
 ### right join
 
 ```{r dplyr5}
 customer %>%
   right_join(order)
 ```
+
+<br>
 
 ### semi join
 
@@ -74,12 +82,16 @@ customer %>%
   semi_join(order)
 ```
 
+<br>
+
 ### anti join
 
 ```{r dplyr7}
 customer %>%
   anti_join(order)
 ```
+
+<br>
 
 ### full join
 

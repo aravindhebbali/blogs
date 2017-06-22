@@ -2108,12 +2108,121 @@ ecom6&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/readable-code-with-pipes/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The &lt;a href=&#34;https://CRAN.R-project.org/package=magrittr&#34;&gt;magrittr&lt;/a&gt; package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;especially useful when you have nested functions&lt;/li&gt;
+&lt;li&gt;similar in spirit to javascript’s method chaining&lt;/li&gt;
+&lt;li&gt;functions taking multiple arguments can be confusing and messy to read&lt;/li&gt;
+&lt;li&gt;with magrittr, you program from left to right&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;R being a functional language, code contains a lot of parentheses. Complex code results in nested functions making them hard to read and maintain.&lt;/p&gt;
+&lt;p&gt;If you are using tidyverse packages, magrittr will be automatically loaded. We will look at 3 different types of pipes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%&amp;gt;%&lt;/code&gt; : pipe operator - pipe a value forward into an expression or function call&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&amp;lt;&amp;gt;%&lt;/code&gt;: compound assignment pipe operator - result assigned to left hand side object instead of returning it&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;%$%&lt;/code&gt; : exposition pipe operator - expose names within left hand side objects to right hand side expressions&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;extract data from dataframes, list, matrix etc.: &lt;code&gt;extract2&lt;/code&gt;, &lt;code&gt;extract&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;arithmetic operations: &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;subtract&lt;/code&gt;, &lt;code&gt;multiply_by&lt;/code&gt;, &lt;code&gt;divide_by&lt;/code&gt;, &lt;code&gt;raise_to_power&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;logical operators: &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;equals&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us look at a few examples:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   id = col_integer(),
+##   referrer = col_character(),
+##   device = col_character(),
+##   bouncers = col_character(),
+##   n_visit = col_integer(),
+##   n_pages = col_double(),
+##   duration = col_integer(),
+##   country = col_character(),
+##   purchase = col_character(),
+##   order_items = col_double(),
+##   order_value = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(ecom, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     1   google laptop     true      10       1       27 Czech Republic
+##  2     2    yahoo tablet     true       9       1      899          Yemen
+##  3     3   direct laptop     true       0       1       72         Brazil
+##  4     4     bing tablet    false       3      18      155          China
+##  5     5    yahoo mobile     true       9       1      899         Poland
+##  6     6    yahoo laptop    false       5       5      573   South Africa
+##  7     7    yahoo mobile     true      10       1      692     Bangladesh
+##  8     8   direct mobile     true      10       1      578      Indonesia
+##  9     9     bing mobile    false       3      19      794    Netherlands
+## 10    10   google mobile     true       6       1      762 Czech Republic
+## # ... with 3 more variables: purchase &amp;lt;chr&amp;gt;, order_items &amp;lt;dbl&amp;gt;,
+## #   order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;% head(10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     1   google laptop     true      10       1       27 Czech Republic
+##  2     2    yahoo tablet     true       9       1      899          Yemen
+##  3     3   direct laptop     true       0       1       72         Brazil
+##  4     4     bing tablet    false       3      18      155          China
+##  5     5    yahoo mobile     true       9       1      899         Poland
+##  6     6    yahoo laptop    false       5       5      573   South Africa
+##  7     7    yahoo mobile     true      10       1      692     Bangladesh
+##  8     8   direct mobile     true      10       1      578      Indonesia
+##  9     9     bing mobile    false       3      19      794    Netherlands
+## 10    10   google mobile     true       6       1      762 Czech Republic
+## # ... with 3 more variables: purchase &amp;lt;chr&amp;gt;, order_items &amp;lt;dbl&amp;gt;,
+## #   order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- ecom$n_pages
+y &amp;lt;- sqrt(y)
 
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+y &amp;lt;- ecom %$% n_pages
+y %&amp;lt;&amp;gt;% sqrt()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
+  subset(purchase == &amp;#39;true&amp;#39;) %$% 
+  cor(n_pages, duration)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.121843&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
+  subset(purchase == &amp;#39;true&amp;#39;) %&amp;gt;%
+  extract(&amp;#39;referrer&amp;#39;) %&amp;gt;%
+  table() %&amp;gt;%
+  barplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./post/2017-02-14-readable-code-with-pipes_files/figure-html/mag4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %$%
+  lm(duration ~ n_pages) %&amp;gt;%
+  summary()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = duration ~ n_pages)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -506.30 -249.30    1.86  247.83  512.38 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  508.783     12.281  41.428   &amp;lt;2e-16 ***
+## n_pages       -1.480      1.405  -1.053    0.292    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 285.5 on 998 degrees of freedom
+## Multiple R-squared:  0.001111,   Adjusted R-squared:  0.0001099 
+## F-statistic:  1.11 on 1 and 998 DF,  p-value: 0.2924&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;email &amp;lt;- &amp;#39;jovialcann@anymail.com&amp;#39;
 
+toupper(strtrim(strsplit(email, &amp;#39;@&amp;#39;)[[1]][1], 6))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;JOVIAL&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;email %&amp;gt;%
+  strsplit(split = &amp;#39;@&amp;#39;) %&amp;gt;%
+  extract2(1) %&amp;gt;%
+  extract(1) %&amp;gt;%
+  strtrim(width = 6) %&amp;gt;%
+  toupper()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;JOVIAL&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will learn a better way of dealing with &lt;code&gt;lists&lt;/code&gt; while exploring the &lt;a href=&#34;purrr.tidyverse.org&#34;&gt;purrr&lt;/a&gt; package. The pipe operators work very well with the dplyr verbs we will explore in the next post.&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -13,8 +13,10 @@ draft: yes
 
 This is the 5th post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/), we learnt to manipulate dataframes using the [dplyr](https://CRAN.R-project.org/package=dplyr) package. In this post, we will learn to work with date/time data in R using [lubridate]( https://CRAN.R-project.org/package=lubridate), an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
 
-```{r install-lubridate, echo=FALSE}
+```{r lub1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(lubridate)
+library(dplyr)
+library(magrittr)
 ```
 
 ### Quick Overview
@@ -34,104 +36,169 @@ am(now())
 pm(now())
 ```
 
-In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as *arrival* and *departure*.
+We will use a case study to explore the lubridate package. The data set can be downloaded from here or directly 
+imported using the readr package.
+
+```{r import, echo=FALSE}
+transact <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/transact.csv')
+```
+
+The data set has 3 columns:
+
+- Invoice: invoice date 
+- Due: due date
+- Payment: payment date
+
+All the dates are in the format (yyyy-mm-dd). We will use the functions in the lubridate package to answer a few 
+questions we have about the transact data.
+
+- extract date, month and year from Due
+- compute the number of days to settle invoice
+- compute days over due
+- check if due year is a leap year
+- check when due day in february is 29, whether it is a leap year
+- how many invoices were settled within due date
+- how many invoices are due in each quarter
+- what is the average duration between invoice date and payment date
+
+```{r lub2}
+transact %>%
+  mutate(
+    due_day = day(Due),
+    due_month = month(Due),
+    due_year = year(Due)
+  )
+```
+
+```{r lub3}
+transact %>%
+  mutate(
+    days_to_pay = Payment - Invoice
+  )
+```
+
+```{r lub4}
+transact %>%
+  mutate(
+    delay = Payment - Due
+  )
+```
+
+```{r lub5}
+transact %>%
+  mutate(
+    due_year = year(Due),
+    is_leap = leap_year(due_year)
+  )
+```
+
+```{r lub6}
+transact %>%
+  mutate(
+    due_day = day(Due),
+    due_month = month(Due),
+    days_due_month = days_in_month(due_month),
+    due_year = year(Due),
+    is_leap = leap_year(due_year)
+  ) %>%
+  select(-(Invoice), -(Payment)) %>%
+  filter(due_month == 2)
+```
+
+```{r lub7}
+transact %>%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    due_next = Due + days(1),
+    due_pay_interval = interval(due_next, Payment),
+    overlaps = int_overlaps(inv_due_interval, due_pay_interval)
+  ) %>%
+  select(inv_due_interval, due_next, due_pay_interval, overlaps)
+
+# using int_shift
+transact %>%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    due_pay_interval = interval(Due, Payment),  
+    due_pay_next = int_shift(due_pay_interval, by = days(1)),
+    overlaps = int_overlaps(inv_due_interval, due_pay_next)
+  ) %>%
+  select(inv_due_interval, due_pay_next, overlaps)
+
+transact %>%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    overlaps = Payment %within% inv_due_interval
+  ) %>%
+  select(Due, Payment, overlaps)
+```
+
+```{r lub8}
+transact %>%
+  mutate(
+    Quarter = quarter(Due)
+  )
+
+transact %>%
+  mutate(
+    Quarter = quarter(Due, with_year = TRUE)
+  )
+```
+
+```{r lub9}
+transact %<>%
+  mutate(
+    days_to_pay = Payment - Invoice
+  )
+
+transact %>%
+  mutate(
+    dseconds = duration(as.numeric(days_to_pay), 'days')
+  )
+```
+
+```{r lub10}
+transact %<>%
+  mutate(
+    inv_pay_int = interval(Invoice, Payment)
+  )
+```
+
+```{r lub11}
+transact %>%
+  mutate(
+    inv_pay_days = inv_pay_int / ddays()
+  )
+
+transact %>%
+  mutate(
+    inv_pay_days = time_length(inv_pay_int, unit = "days")
+  )
+
+transact %>%
+  mutate(
+    inv_pay_days = as.period(inv_pay_int)
+  )
+```
 
 
-# add hour, minute and seconds
-arrived <- ymd_hms('2017-04-13 12:00:00')
-departure <- ymd_hms('2017-05-07 12:00:00')
-
-# specify timezone
-arrived <- ymd_hms('2017-05-08 20:34:18', tz = 'UTC')
-arrived
 
 
-# duration
-dur <- duration(hours = 10, minutes = 6)
-as.numeric(dur, "hours")
-as.numeric(dur, "minutes")
-
-# day light savings time
-dst(arrived)
-
-# number of days in a month
-days_in_month(10)
-
-# parse dates and times
-ymd(20170508)
-mdy('05-08-2017')
-dmy('08/05/2017')
 
 
-# set and extract information from timezone
-date(arrived)
-second(arrived)
-minute(arrived)
-hour(arrived)
-day(arrived)
-wday(arrived)
-yday(arrived)
-week(arrived)
-month(arrived)
-year(arrived)
-
-# time intervals
-stay <- interval(arrived, departure)
-stay
-
-outing <- interval(ymd(20170420), ymd(20170428))
-outing
-
-# do stay and outing overlap
-int_overlaps(stay, outing)
-setdiff(outing, stay)
-
-int_start(stay)
-int_end(stay)
-int_flip(stay)
-int_shift(stay, by = duration(days = 2))
-int_shift(stay, by = duration(hours = 2))
-
-# arithmetic with date/times
-minutes(2)
-dminutes(2)
-
-# check if a year is leap year
-leap_year(2017)
-
-ymd(20160131) + years(1)
-ymd(20160131) + dyears(1) # adds 365 days
 
 
-# meeting
-meeting <- ymd_hms("2016-07-01 09:00:00")
-meetings <- meeting + week(0:5)
 
 
-# convert stay to days, hours, seconds
-stay / ddays(1)
-stay / ddays(2)
-stay / dhours()
-stay / dminutes()
-stay / dseconds()
-time_length(stay)
-stay %% months(1)
-
-# convert seconds to minutes
-make_difftime(112, units = 'minutes')
-make_difftime(112, units = 'hour')
-
-# how long was my stay
-as.period(stay %% months(1))
-as.period(stay)
 
 
-# 1. use lubridate inside functions
-# 2. make_difftime(days = 31)
-# 3. period
-# 4. quarter
-# 5. semester
-# 6. rollback
-# 7. round date, floor date, ceiling date
-# link to lubridate page on CRAN
-# link to lubridate paper
+
+
+
+
+
+
+
+
+
+

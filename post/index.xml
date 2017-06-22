@@ -1584,12 +1584,6 @@ column_to_rownames(mtcars_tbl)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is the 5th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate dataframes using the &lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn to work with date/time data in R using &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt;, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Loading required package: methods&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
-## 
-##     date&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Quick Overview&lt;/h3&gt;
 &lt;p&gt;Use &lt;code&gt;origin&lt;/code&gt; to get the origin for the &lt;code&gt;Date&lt;/code&gt; and other date/time objects in R.&lt;/p&gt;
@@ -1597,105 +1591,323 @@ column_to_rownames(mtcars_tbl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-15 13:23:43 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-22 16:44:09 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-15&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-22&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In order to explore all the functionality provided by the lubridate package, we will look at a simple scenario. Let us say you are going on a vacation to Atlanta. You plan to reach there on 10th April 2017 and end your vacation on 18th April 2017. Let us save these dates as &lt;em&gt;arrival&lt;/em&gt; and &lt;em&gt;departure&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;We will use a case study to explore the lubridate package. The data set can be downloaded from here or directly imported using the readr package.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   Invoice = col_date(format = &amp;quot;&amp;quot;),
+##   Due = col_date(format = &amp;quot;&amp;quot;),
+##   Payment = col_date(format = &amp;quot;&amp;quot;)
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The data set has 3 columns:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Invoice: invoice date&lt;/li&gt;
+&lt;li&gt;Due: due date&lt;/li&gt;
+&lt;li&gt;Payment: payment date&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the dates are in the format (yyyy-mm-dd). We will use the functions in the lubridate package to answer a few questions we have about the transact data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;extract date, month and year from Due&lt;/li&gt;
+&lt;li&gt;compute the number of days to settle invoice&lt;/li&gt;
+&lt;li&gt;compute days over due&lt;/li&gt;
+&lt;li&gt;check if due year is a leap year&lt;/li&gt;
+&lt;li&gt;check when due day in february is 29, whether it is a leap year&lt;/li&gt;
+&lt;li&gt;how many invoices were settled within due date&lt;/li&gt;
+&lt;li&gt;how many invoices are due in each quarter&lt;/li&gt;
+&lt;li&gt;what is the average duration between invoice date and payment date&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    due_day = day(Due),
+    due_month = month(Due),
+    due_year = year(Due)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 6
+##       Invoice        Due    Payment due_day due_month due_year
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;   &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15       1         2     2013
+##  2 2013-01-26 2013-02-25 2013-03-03      25         2     2013
+##  3 2013-07-03 2013-08-02 2013-07-08       2         8     2013
+##  4 2013-02-10 2013-03-12 2013-03-17      12         3     2013
+##  5 2012-10-25 2012-11-24 2012-11-28      24        11     2012
+##  6 2012-01-27 2012-02-26 2012-02-22      26         2     2012
+##  7 2013-08-13 2013-09-12 2013-09-09      12         9     2013
+##  8 2012-12-16 2013-01-15 2013-01-12      15         1     2013
+##  9 2012-05-14 2012-06-13 2012-07-01      13         6     2012
+## 10 2013-07-01 2013-07-31 2013-07-26      31         7     2013
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    days_to_pay = Payment - Invoice
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 4
+##       Invoice        Due    Payment days_to_pay
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;      &amp;lt;time&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     13 days
+##  2 2013-01-26 2013-02-25 2013-03-03     36 days
+##  3 2013-07-03 2013-08-02 2013-07-08      5 days
+##  4 2013-02-10 2013-03-12 2013-03-17     35 days
+##  5 2012-10-25 2012-11-24 2012-11-28     34 days
+##  6 2012-01-27 2012-02-26 2012-02-22     26 days
+##  7 2013-08-13 2013-09-12 2013-09-09     27 days
+##  8 2012-12-16 2013-01-15 2013-01-12     27 days
+##  9 2012-05-14 2012-06-13 2012-07-01     48 days
+## 10 2013-07-01 2013-07-31 2013-07-26     25 days
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    delay = Payment - Due
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 4
+##       Invoice        Due    Payment    delay
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;   &amp;lt;time&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15 -17 days
+##  2 2013-01-26 2013-02-25 2013-03-03   6 days
+##  3 2013-07-03 2013-08-02 2013-07-08 -25 days
+##  4 2013-02-10 2013-03-12 2013-03-17   5 days
+##  5 2012-10-25 2012-11-24 2012-11-28   4 days
+##  6 2012-01-27 2012-02-26 2012-02-22  -4 days
+##  7 2013-08-13 2013-09-12 2013-09-09  -3 days
+##  8 2012-12-16 2013-01-15 2013-01-12  -3 days
+##  9 2012-05-14 2012-06-13 2012-07-01  18 days
+## 10 2013-07-01 2013-07-31 2013-07-26  -5 days
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    due_year = year(Due),
+    is_leap = leap_year(due_year)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 5
+##       Invoice        Due    Payment due_year is_leap
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    &amp;lt;dbl&amp;gt;   &amp;lt;lgl&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     2013   FALSE
+##  2 2013-01-26 2013-02-25 2013-03-03     2013   FALSE
+##  3 2013-07-03 2013-08-02 2013-07-08     2013   FALSE
+##  4 2013-02-10 2013-03-12 2013-03-17     2013   FALSE
+##  5 2012-10-25 2012-11-24 2012-11-28     2012    TRUE
+##  6 2012-01-27 2012-02-26 2012-02-22     2012    TRUE
+##  7 2013-08-13 2013-09-12 2013-09-09     2013   FALSE
+##  8 2012-12-16 2013-01-15 2013-01-12     2013   FALSE
+##  9 2012-05-14 2012-06-13 2012-07-01     2012    TRUE
+## 10 2013-07-01 2013-07-31 2013-07-26     2013   FALSE
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    due_day = day(Due),
+    due_month = month(Due),
+    days_due_month = days_in_month(due_month),
+    due_year = year(Due),
+    is_leap = leap_year(due_year)
+  ) %&amp;gt;%
+  select(-(Invoice), -(Payment)) %&amp;gt;%
+  filter(due_month == 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 187 x 6
+##           Due due_day due_month days_due_month due_year is_leap
+##        &amp;lt;date&amp;gt;   &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;          &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;   &amp;lt;lgl&amp;gt;
+##  1 2013-02-01       1         2             28     2013   FALSE
+##  2 2013-02-25      25         2             28     2013   FALSE
+##  3 2012-02-26      26         2             28     2012    TRUE
+##  4 2013-02-05       5         2             28     2013   FALSE
+##  5 2012-02-23      23         2             28     2012    TRUE
+##  6 2012-02-12      12         2             28     2012    TRUE
+##  7 2012-02-12      12         2             28     2012    TRUE
+##  8 2012-02-02       2         2             28     2012    TRUE
+##  9 2012-02-21      21         2             28     2012    TRUE
+## 10 2012-02-29      29         2             28     2012    TRUE
+## # ... with 177 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    due_next = Due + days(1),
+    due_pay_interval = interval(due_next, Payment),
+    overlaps = int_overlaps(inv_due_interval, due_pay_interval)
+  ) %&amp;gt;%
+  select(inv_due_interval, due_next, due_pay_interval, overlaps)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 4
+##                  inv_due_interval   due_next
+##                    &amp;lt;S4: Interval&amp;gt;     &amp;lt;date&amp;gt;
+##  1 2013-01-02 UTC--2013-02-01 UTC 2013-02-02
+##  2 2013-01-26 UTC--2013-02-25 UTC 2013-02-26
+##  3 2013-07-03 UTC--2013-08-02 UTC 2013-08-03
+##  4 2013-02-10 UTC--2013-03-12 UTC 2013-03-13
+##  5 2012-10-25 UTC--2012-11-24 UTC 2012-11-25
+##  6 2012-01-27 UTC--2012-02-26 UTC 2012-02-27
+##  7 2013-08-13 UTC--2013-09-12 UTC 2013-09-13
+##  8 2012-12-16 UTC--2013-01-15 UTC 2013-01-16
+##  9 2012-05-14 UTC--2012-06-13 UTC 2012-06-14
+## 10 2013-07-01 UTC--2013-07-31 UTC 2013-08-01
+## # ... with 2,456 more rows, and 2 more variables: due_pay_interval &amp;lt;S4:
+## #   Interval&amp;gt;, overlaps &amp;lt;lgl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# using int_shift
+transact %&amp;gt;%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    due_pay_interval = interval(Due, Payment),  
+    due_pay_next = int_shift(due_pay_interval, by = days(1)),
+    overlaps = int_overlaps(inv_due_interval, due_pay_next)
+  ) %&amp;gt;%
+  select(inv_due_interval, due_pay_next, overlaps)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 3
+##                  inv_due_interval                   due_pay_next overlaps
+##                    &amp;lt;S4: Interval&amp;gt;                 &amp;lt;S4: Interval&amp;gt;    &amp;lt;lgl&amp;gt;
+##  1 2013-01-02 UTC--2013-02-01 UTC 2013-02-02 UTC--2013-01-16 UTC     TRUE
+##  2 2013-01-26 UTC--2013-02-25 UTC 2013-02-26 UTC--2013-03-04 UTC    FALSE
+##  3 2013-07-03 UTC--2013-08-02 UTC 2013-08-03 UTC--2013-07-09 UTC     TRUE
+##  4 2013-02-10 UTC--2013-03-12 UTC 2013-03-13 UTC--2013-03-18 UTC    FALSE
+##  5 2012-10-25 UTC--2012-11-24 UTC 2012-11-25 UTC--2012-11-29 UTC    FALSE
+##  6 2012-01-27 UTC--2012-02-26 UTC 2012-02-27 UTC--2012-02-23 UTC     TRUE
+##  7 2013-08-13 UTC--2013-09-12 UTC 2013-09-13 UTC--2013-09-10 UTC     TRUE
+##  8 2012-12-16 UTC--2013-01-15 UTC 2013-01-16 UTC--2013-01-13 UTC     TRUE
+##  9 2012-05-14 UTC--2012-06-13 UTC 2012-06-14 UTC--2012-07-02 UTC    FALSE
+## 10 2013-07-01 UTC--2013-07-31 UTC 2013-08-01 UTC--2013-07-27 UTC     TRUE
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    inv_due_interval = interval(Invoice, Due),
+    overlaps = Payment %within% inv_due_interval
+  ) %&amp;gt;%
+  select(Due, Payment, overlaps)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 3
+##           Due    Payment overlaps
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;    &amp;lt;lgl&amp;gt;
+##  1 2013-02-01 2013-01-15     TRUE
+##  2 2013-02-25 2013-03-03    FALSE
+##  3 2013-08-02 2013-07-08     TRUE
+##  4 2013-03-12 2013-03-17    FALSE
+##  5 2012-11-24 2012-11-28    FALSE
+##  6 2012-02-26 2012-02-22     TRUE
+##  7 2013-09-12 2013-09-09     TRUE
+##  8 2013-01-15 2013-01-12     TRUE
+##  9 2012-06-13 2012-07-01    FALSE
+## 10 2013-07-31 2013-07-26     TRUE
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    Quarter = quarter(Due)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 4
+##       Invoice        Due    Payment Quarter
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;   &amp;lt;dbl&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15       1
+##  2 2013-01-26 2013-02-25 2013-03-03       1
+##  3 2013-07-03 2013-08-02 2013-07-08       3
+##  4 2013-02-10 2013-03-12 2013-03-17       1
+##  5 2012-10-25 2012-11-24 2012-11-28       4
+##  6 2012-01-27 2012-02-26 2012-02-22       1
+##  7 2013-08-13 2013-09-12 2013-09-09       3
+##  8 2012-12-16 2013-01-15 2013-01-12       1
+##  9 2012-05-14 2012-06-13 2012-07-01       2
+## 10 2013-07-01 2013-07-31 2013-07-26       3
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    Quarter = quarter(Due, with_year = TRUE)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 4
+##       Invoice        Due    Payment Quarter
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;   &amp;lt;dbl&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15  2013.1
+##  2 2013-01-26 2013-02-25 2013-03-03  2013.1
+##  3 2013-07-03 2013-08-02 2013-07-08  2013.3
+##  4 2013-02-10 2013-03-12 2013-03-17  2013.1
+##  5 2012-10-25 2012-11-24 2012-11-28  2012.4
+##  6 2012-01-27 2012-02-26 2012-02-22  2012.1
+##  7 2013-08-13 2013-09-12 2013-09-09  2013.3
+##  8 2012-12-16 2013-01-15 2013-01-12  2013.1
+##  9 2012-05-14 2012-06-13 2012-07-01  2012.2
+## 10 2013-07-01 2013-07-31 2013-07-26  2013.3
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;lt;&amp;gt;%
+  mutate(
+    days_to_pay = Payment - Invoice
+  )
+
+transact %&amp;gt;%
+  mutate(
+    dseconds = duration(as.numeric(days_to_pay), &amp;#39;days&amp;#39;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 5
+##       Invoice        Due    Payment days_to_pay            dseconds
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;      &amp;lt;time&amp;gt;      &amp;lt;S4: Duration&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     13 days 1123200s (~13 days)
+##  2 2013-01-26 2013-02-25 2013-03-03     36 days 3110400s (~36 days)
+##  3 2013-07-03 2013-08-02 2013-07-08      5 days   432000s (~5 days)
+##  4 2013-02-10 2013-03-12 2013-03-17     35 days 3024000s (~35 days)
+##  5 2012-10-25 2012-11-24 2012-11-28     34 days 2937600s (~34 days)
+##  6 2012-01-27 2012-02-26 2012-02-22     26 days 2246400s (~26 days)
+##  7 2013-08-13 2013-09-12 2013-09-09     27 days 2332800s (~27 days)
+##  8 2012-12-16 2013-01-15 2013-01-12     27 days 2332800s (~27 days)
+##  9 2012-05-14 2012-06-13 2012-07-01     48 days 4147200s (~48 days)
+## 10 2013-07-01 2013-07-31 2013-07-26     25 days 2160000s (~25 days)
+## # ... with 2,456 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;lt;&amp;gt;%
+  mutate(
+    inv_pay_int = interval(Invoice, Payment)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    inv_pay_days = inv_pay_int / ddays()
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 6
+##       Invoice        Due    Payment days_to_pay
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;      &amp;lt;time&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     13 days
+##  2 2013-01-26 2013-02-25 2013-03-03     36 days
+##  3 2013-07-03 2013-08-02 2013-07-08      5 days
+##  4 2013-02-10 2013-03-12 2013-03-17     35 days
+##  5 2012-10-25 2012-11-24 2012-11-28     34 days
+##  6 2012-01-27 2012-02-26 2012-02-22     26 days
+##  7 2013-08-13 2013-09-12 2013-09-09     27 days
+##  8 2012-12-16 2013-01-15 2013-01-12     27 days
+##  9 2012-05-14 2012-06-13 2012-07-01     48 days
+## 10 2013-07-01 2013-07-31 2013-07-26     25 days
+## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &amp;lt;S4:
+## #   Interval&amp;gt;, inv_pay_days &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    inv_pay_days = time_length(inv_pay_int, unit = &amp;quot;days&amp;quot;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 6
+##       Invoice        Due    Payment days_to_pay
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;      &amp;lt;time&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     13 days
+##  2 2013-01-26 2013-02-25 2013-03-03     36 days
+##  3 2013-07-03 2013-08-02 2013-07-08      5 days
+##  4 2013-02-10 2013-03-12 2013-03-17     35 days
+##  5 2012-10-25 2012-11-24 2012-11-28     34 days
+##  6 2012-01-27 2012-02-26 2012-02-22     26 days
+##  7 2013-08-13 2013-09-12 2013-09-09     27 days
+##  8 2012-12-16 2013-01-15 2013-01-12     27 days
+##  9 2012-05-14 2012-06-13 2012-07-01     48 days
+## 10 2013-07-01 2013-07-31 2013-07-26     25 days
+## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &amp;lt;S4:
+## #   Interval&amp;gt;, inv_pay_days &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;transact %&amp;gt;%
+  mutate(
+    inv_pay_days = as.period(inv_pay_int)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,466 x 6
+##       Invoice        Due    Payment days_to_pay
+##        &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;     &amp;lt;date&amp;gt;      &amp;lt;time&amp;gt;
+##  1 2013-01-02 2013-02-01 2013-01-15     13 days
+##  2 2013-01-26 2013-02-25 2013-03-03     36 days
+##  3 2013-07-03 2013-08-02 2013-07-08      5 days
+##  4 2013-02-10 2013-03-12 2013-03-17     35 days
+##  5 2012-10-25 2012-11-24 2012-11-28     34 days
+##  6 2012-01-27 2012-02-26 2012-02-22     26 days
+##  7 2013-08-13 2013-09-12 2013-09-09     27 days
+##  8 2012-12-16 2013-01-15 2013-01-12     27 days
+##  9 2012-05-14 2012-06-13 2012-07-01     48 days
+## 10 2013-07-01 2013-07-31 2013-07-26     25 days
+## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &amp;lt;S4:
+## #   Interval&amp;gt;, inv_pay_days &amp;lt;S4: Period&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;add-hour-minute-and-seconds&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;add hour, minute and seconds&lt;/h1&gt;
-&lt;p&gt;arrived &amp;lt;- ymd_hms(‘2017-04-13 12:00:00’) departure &amp;lt;- ymd_hms(‘2017-05-07 12:00:00’)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;specify-timezone&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;specify timezone&lt;/h1&gt;
-&lt;p&gt;arrived &amp;lt;- ymd_hms(‘2017-05-08 20:34:18’, tz = ‘UTC’) arrived&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;duration&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;duration&lt;/h1&gt;
-&lt;p&gt;dur &amp;lt;- duration(hours = 10, minutes = 6) as.numeric(dur, “hours”) as.numeric(dur, “minutes”)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;day-light-savings-time&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;day light savings time&lt;/h1&gt;
-&lt;p&gt;dst(arrived)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;number-of-days-in-a-month&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;number of days in a month&lt;/h1&gt;
-&lt;p&gt;days_in_month(10)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;parse-dates-and-times&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;parse dates and times&lt;/h1&gt;
-&lt;p&gt;ymd(20170508) mdy(‘05-08-2017’) dmy(‘08/05/2017’)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;set-and-extract-information-from-timezone&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;set and extract information from timezone&lt;/h1&gt;
-&lt;p&gt;date(arrived) second(arrived) minute(arrived) hour(arrived) day(arrived) wday(arrived) yday(arrived) week(arrived) month(arrived) year(arrived)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;time-intervals&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;time intervals&lt;/h1&gt;
-&lt;p&gt;stay &amp;lt;- interval(arrived, departure) stay&lt;/p&gt;
-&lt;p&gt;outing &amp;lt;- interval(ymd(20170420), ymd(20170428)) outing&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;do-stay-and-outing-overlap&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;do stay and outing overlap&lt;/h1&gt;
-&lt;p&gt;int_overlaps(stay, outing) setdiff(outing, stay)&lt;/p&gt;
-&lt;p&gt;int_start(stay) int_end(stay) int_flip(stay) int_shift(stay, by = duration(days = 2)) int_shift(stay, by = duration(hours = 2))&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;arithmetic-with-datetimes&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;arithmetic with date/times&lt;/h1&gt;
-&lt;p&gt;minutes(2) dminutes(2)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;check-if-a-year-is-leap-year&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;check if a year is leap year&lt;/h1&gt;
-&lt;p&gt;leap_year(2017)&lt;/p&gt;
-&lt;p&gt;ymd(20160131) + years(1) ymd(20160131) + dyears(1) # adds 365 days&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;meeting&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;meeting&lt;/h1&gt;
-&lt;p&gt;meeting &amp;lt;- ymd_hms(“2016-07-01 09:00:00”) meetings &amp;lt;- meeting + week(0:5)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;convert-stay-to-days-hours-seconds&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;convert stay to days, hours, seconds&lt;/h1&gt;
-&lt;p&gt;stay / ddays(1) stay / ddays(2) stay / dhours() stay / dminutes() stay / dseconds() time_length(stay) stay %% months(1)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;convert-seconds-to-minutes&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;convert seconds to minutes&lt;/h1&gt;
-&lt;p&gt;make_difftime(112, units = ‘minutes’) make_difftime(112, units = ‘hour’)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;how-long-was-my-stay&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;how long was my stay&lt;/h1&gt;
-&lt;p&gt;as.period(stay %% months(1)) as.period(stay)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;use-lubridate-inside-functions&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;1. use lubridate inside functions&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;make_difftimedays-31&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;2. make_difftime(days = 31)&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;period&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;3. period&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;quarter&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;4. quarter&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;semester&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;5. semester&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rollback&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;6. rollback&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;round-date-floor-date-ceiling-date&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;7. round date, floor date, ceiling date&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;link-to-lubridate-page-on-cran&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;link to lubridate page on CRAN&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;link-to-lubridate-paper&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;link to lubridate paper&lt;/h1&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -1,0 +1,11 @@
+---
+title: Why you should purrr - Part 2
+date: '2017-06-23'
+slug: why-you-should-purrr-part-2
+topics:
+  - data-wrangling
+tags:
+  - purrr
+draft: yes
+---
+

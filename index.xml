@@ -7,8 +7,69 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Jun 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why you should purrr - Part 2</title>
+      <link>/post/why-you-should-purrr-part-2/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-purrr-part-2/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Why you should purrr?</title>
+      <link>/post/why-you-should-purrr-part-1/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-purrr-part-1/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;This is the 10th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/&#34;&gt;post&lt;/a&gt;, we learnt helper functions in &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn about &lt;a href=&#34;http://purrr.tidyverse.org&#34;&gt;purrr&lt;/a&gt;, an R package that enhances R’s functional programming toolkit. Let us begin by installing and loading purrr and a set of other pacakges we will be using.&lt;/p&gt;
+&lt;p&gt;As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package. You can download the data for the case study from &lt;a href=&#34;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&#34;&gt;here&lt;/a&gt; or directly import the data using the readr package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mockstring &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&amp;#39;)
+mockstring&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 16
+##       id                bundle_id    app_name
+##    &amp;lt;int&amp;gt;                    &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;
+##  1     1       com.netlog.Cardify   Ronstring
+##  2     2      com.devhub.Aerified     Fintone
+##  3     3           int.who.Zathin Ventosanzap
+##  4     4           jp.ne.goo.Rank     Redhold
+##  5     5  au.gov.oaic.Stringtough    Tres-Zap
+##  6     6           com.go.Pannier    Tampflex
+##  7     7            com.webs.Stim     Bitchip
+##  8     8        com.sogou.Bitchip      Namfix
+##  9     9          com.amazon.Viva    Wrapsafe
+## 10    10 com.theguardian.Domainer     Pannier
+## # ... with 990 more rows, and 13 more variables: image_url &amp;lt;chr&amp;gt;,
+## #   phrase &amp;lt;chr&amp;gt;, domain &amp;lt;chr&amp;gt;, imageurl &amp;lt;chr&amp;gt;, email &amp;lt;chr&amp;gt;,
+## #   filename &amp;lt;chr&amp;gt;, denominatio &amp;lt;chr&amp;gt;, strings &amp;lt;chr&amp;gt;, phone &amp;lt;chr&amp;gt;,
+## #   slogans &amp;lt;chr&amp;gt;, address &amp;lt;chr&amp;gt;, url &amp;lt;chr&amp;gt;, useragent &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will do the following in this case study:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;extract domain name from random email ids&lt;/li&gt;
+&lt;li&gt;extract image type from url&lt;/li&gt;
+&lt;li&gt;extract image dimension from url&lt;/li&gt;
+&lt;li&gt;extract extension from domain name&lt;/li&gt;
+&lt;li&gt;extract http protocol from url&lt;/li&gt;
+&lt;li&gt;extract domain name from url&lt;/li&gt;
+&lt;li&gt;extract extension from url&lt;/li&gt;
+&lt;li&gt;extract file type from url&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Data Manipulation in R with dplyr - Part 3</title>
@@ -2875,36 +2936,6 @@ dbDataType(RMySQL::MySQL(), 1.5)
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/a-complete-guide-to-importing-data-into-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Descriptive Statistics.. What?</title>
-      <link>/post/descriptive-statistics-what/</link>
-      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/descriptive-statistics-what/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>RStudio 2 GitHub: GitHub Pages</title>
-      <link>/post/github-pages/</link>
-      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/post/github-pages/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 

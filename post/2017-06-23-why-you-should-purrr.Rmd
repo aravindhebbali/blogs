@@ -1,0 +1,39 @@
+---
+title: Why you should purrr?
+date: '2017-06-23'
+slug: why-you-should-purrr-part-1
+topics:
+  - data-wrangling
+tags:
+  - purrr
+draft: yes
+---
+
+This is the 10th post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/), we learnt helper functions in [dplyr](http://stringr.tidyverse.org) package. In this post, we will learn about [purrr](http://purrr.tidyverse.org), an R package that enhances R's functional programming toolkit. Let us begin by installing and loading purrr and a set of other pacakges we will be using.
+
+
+```{r str1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(tibble)
+library(magrittr)
+library(purrr)
+library(dplyr)
+```
+
+As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package. You can
+download the data for the case study from [here](https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv) or directly import the data using the readr package. 
+
+```{r import, message=FALSE}
+mockstring <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv')
+mockstring
+```
+
+We will do the following in this case study:
+
+- extract domain name from random email ids
+- extract image type from url
+- extract image dimension from url
+- extract extension from domain name
+- extract http protocol from url
+- extract domain name from url
+- extract extension from url
+- extract file type from url

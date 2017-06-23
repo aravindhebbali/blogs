@@ -15,12 +15,137 @@
       <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/forcats-working-with-factor-data-in-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the 12th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/working-with-strings-in-r-using-stringr/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate strings using the &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;stringr&lt;/a&gt; package. In this post, we will learn to work with categorical/qualitative data in R using &lt;a href=&#34;http://forcats.tidyverse.org&#34;&gt;forcats&lt;/a&gt;. Let us begin by installing and loading forcats and a set of other pacakges we will be using.&lt;/p&gt;
+&lt;p&gt;We will use a case study to explore the various features of the forcats package. You can download the data for the case study from &lt;a href=&#34;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#34;&gt;here&lt;/a&gt; or directly import the data using the readr package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&amp;#39;)
+ecom&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     1   google laptop     true      10       1       27 Czech Republic
+##  2     2    yahoo tablet     true       9       1      899          Yemen
+##  3     3   direct laptop     true       0       1       72         Brazil
+##  4     4     bing tablet    false       3      18      155          China
+##  5     5    yahoo mobile     true       9       1      899         Poland
+##  6     6    yahoo laptop    false       5       5      573   South Africa
+##  7     7    yahoo mobile     true      10       1      692     Bangladesh
+##  8     8   direct mobile     true      10       1      578      Indonesia
+##  9     9     bing mobile    false       3      19      794    Netherlands
+## 10    10   google mobile     true       6       1      762 Czech Republic
+## # ... with 990 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
+## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will do the following in this case study:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;compute the frequency of different referrers&lt;/li&gt;
+&lt;li&gt;plot average number of pages browsed for different referrers&lt;/li&gt;
+&lt;li&gt;collapse referrers with low sample size into a single group&lt;/li&gt;
+&lt;li&gt;club traffic from social media websites into a new category&lt;/li&gt;
+&lt;li&gt;group referrers with traffic below a threshold into a single category&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
+  count(referrer)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
+##   referrer     n
+##      &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1     bing   194
+## 2   direct   191
+## 3   google   208
+## 4   social   200
+## 5    yahoo   207&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refer_summary &amp;lt;- ecom %&amp;gt;%
+  group_by(referrer) %&amp;gt;%
+  summarise(
+    page = mean(n_pages),
+    tos = mean(duration),
+    n = n()
+  )
 
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+ggplot(refer_summary, aes(page, referrer)) + geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(refer_summary, aes(page, fct_reorder(referrer, page))) + geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
+  mutate(ref = referrer %&amp;gt;% fct_infreq()) %&amp;gt;%
+  ggplot(aes(ref)) +
+  geom_bar()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
+  mutate(ref = referrer %&amp;gt;% fct_infreq() %&amp;gt;% fct_rev()) %&amp;gt;%
+  ggplot(aes(ref)) +
+  geom_bar()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web_traffic.csv&amp;#39;)
+traffic&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 48,232 x 1
+##    traffics
+##       &amp;lt;chr&amp;gt;
+##  1   google
+##  2   google
+##  3   google
+##  4   google
+##  5   google
+##  6   google
+##  7   google
+##  8   google
+##  9   google
+## 10   google
+## # ... with 48,222 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_count()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 x 2
+##            f     n
+##       &amp;lt;fctr&amp;gt; &amp;lt;int&amp;gt;
+## 1 affiliates  7641
+## 2       bing  5893
+## 3     direct  1350
+## 4   facebook  8135
+## 5     google  9229
+## 6  instagram  3907
+## 7    twitter  4521
+## 8    unknown  2657
+## 9      yahoo  4899&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic2 &amp;lt;- fct_collapse(traffic$traffics,
+  social = c(&amp;quot;facebook&amp;quot;, &amp;quot;twitter&amp;quot;, &amp;quot;instagram&amp;quot;),
+  search = c(&amp;quot;google&amp;quot;, &amp;quot;bing&amp;quot;, &amp;quot;yahoo&amp;quot;)
+)
 
+traffic2 %&amp;gt;% fct_count() &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
+##            f     n
+##       &amp;lt;fctr&amp;gt; &amp;lt;int&amp;gt;
+## 1 affiliates  7641
+## 2     search 20021
+## 3     direct  1350
+## 4     social 16563
+## 5    unknown  2657&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump() %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+## affiliates       bing   facebook     google  instagram    twitter 
+##       7641       5893       8135       9229       3907       4521 
+##    unknown      yahoo      Other 
+##       2657       4899       1350&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump(n = 3) %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+## affiliates   facebook     google      Other 
+##       7641       8135       9229      23227&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump(prop = 0.1) %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+## affiliates       bing   facebook     google      yahoo      Other 
+##       7641       5893       8135       9229       4899      12435&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump(prop = 0.15) %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+## affiliates   facebook     google      Other 
+##       7641       8135       9229      23227&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump(n = -3) %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+##    direct instagram   unknown     Other 
+##      1350      3907      2657     40318&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;traffic$traffics %&amp;gt;% fct_lump(prop = -0.1) %&amp;gt;% table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## .
+##    direct instagram   twitter   unknown     Other 
+##      1350      3907      4521      2657     35797&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
     </item>
     

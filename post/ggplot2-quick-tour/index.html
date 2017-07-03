@@ -289,12 +289,56 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the second post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/introduction-to-ggplot2/">post</a>, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.</p>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
+<pre class="r"><code>qplot(disp, mpg, data = mtcars)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg2-1.png" width="672" /></p>
+<pre class="r"><code>qplot(disp, mpg, data = mtcars, geom = c(&#39;point&#39;, &#39;line&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg3-1.png" width="672" /></p>
+<pre class="r"><code>qplot(disp, mpg, data = mtcars, color = factor(cyl))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg4-1.png" width="672" /></p>
+<pre class="r"><code>qplot(disp, mpg, data = mtcars, shape = factor(cyl))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg5-1.png" width="672" /></p>
+<pre class="r"><code>qplot(disp, mpg, data = mtcars, size = qsec)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg6-1.png" width="672" /></p>
+</div>
+<div id="bar-plot" class="section level2">
+<h2>Bar Plot</h2>
+<pre class="r"><code>qplot(factor(cyl), data = mtcars, geom = c(&#39;bar&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg7-1.png" width="672" /></p>
+<pre class="r"><code>qplot(factor(cyl), data = mtcars, geom = c(&#39;bar&#39;), fill = factor(am))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg8-1.png" width="672" /></p>
+</div>
+<div id="box-plot" class="section level2">
+<h2>Box Plot</h2>
+<pre class="r"><code>qplot(factor(cyl), mpg, data = mtcars, geom = c(&#39;boxplot&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg9-1.png" width="672" /></p>
+<pre class="r"><code>qplot(factor(1), mpg, data = mtcars, geom = c(&#39;boxplot&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg10-1.png" width="672" /></p>
+<pre class="r"><code>qplot(factor(cyl), mpg, data = mtcars, geom = c(&#39;boxplot&#39;, &#39;jitter&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg11-1.png" width="672" /></p>
+</div>
+<div id="line-chart" class="section level2">
+<h2>Line Chart</h2>
+<pre class="r"><code>qplot(x = date, y = unemploy, data = economics, geom = c(&#39;line&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg12-1.png" width="672" /></p>
+<pre class="r"><code>qplot(x = date, y = unemploy, data = economics, geom = c(&#39;line&#39;),
+      color = &#39;red&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg13-1.png" width="672" /></p>
+</div>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<pre class="r"><code>qplot(mpg, data = mtcars, bins = 5)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg14-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In this post, we learnt to quickly create plots using the <code>qplot()</code> function. While useful, it has limitations and can be used only to quickly visualize data. In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-geoms/">post</a>, we will create the same set of plots but using <strong>geoms</strong>.</p>
+</div>
+</div>
 
 
   

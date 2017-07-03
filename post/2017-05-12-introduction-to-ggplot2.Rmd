@@ -10,6 +10,10 @@ tags:
 draft: yes
 ---
 
+This is the first post in the series **Elegant Data Visualization with ggplot2**. In this post, we will understand the philosophy
+of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic
+plots regularly used for exploring data.
+
 ## Introduction
 
 [ggplot2](http://ggplot2.tidyverse.org/index.html) is an alternative (and awesome) to base R for data visualization. It is based on 
@@ -57,3 +61,13 @@ ggplot2::ggplot(data = mtcars) +
     mapping = aes(x = cyl)
   )
 ```
+
+## Summary
+
+In this post, we learnt 
+
+- about grammar of graphics
+- the components of a plot/chart
+- to build a plot step by step 
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-quick-tour/), we will learn to quickly build a set of plots/charts that are routinely used in exploring data.

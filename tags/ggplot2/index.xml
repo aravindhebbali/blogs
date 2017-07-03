@@ -180,12 +180,56 @@
       <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-quick-tour/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the second post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/introduction-to-ggplot2/&#34;&gt;post&lt;/a&gt;, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.&lt;/p&gt;
+&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scatter Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, color = factor(cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, shape = factor(cyl))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, size = qsec)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;box-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Box Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Line Chart&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),
+      color = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Histogram&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(mpg, data = mtcars, bins = 5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learnt to quickly create plots using the &lt;code&gt;qplot()&lt;/code&gt; function. While useful, it has limitations and can be used only to quickly visualize data. In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-geoms/&#34;&gt;post&lt;/a&gt;, we will create the same set of plots but using &lt;strong&gt;geoms&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -210,7 +254,8 @@
       <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-ggplot2/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;p&gt;This is the first post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In this post, we will understand the philosophy of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic plots regularly used for exploring data.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;http://ggplot2.tidyverse.org/index.html&#34;&gt;ggplot2&lt;/a&gt; is an alternative (and awesome) to base R for data visualization. It is based on &lt;a href=&#34;http://www.springer.com/in/book/9780387245447&#34;&gt;The Grammar of Graphics&lt;/a&gt;. In this post, we will understand the philosophy behind &lt;strong&gt;ggplot2&lt;/strong&gt; and learn to build some of the most frequently used plots for visualizing data.&lt;/p&gt;
 &lt;/div&gt;
@@ -244,6 +289,16 @@
   )&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../../post/2017-05-12-introduction-to-ggplot2_files/figure-html/gg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learnt&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;about grammar of graphics&lt;/li&gt;
+&lt;li&gt;the components of a plot/chart&lt;/li&gt;
+&lt;li&gt;to build a plot step by step&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-quick-tour/&#34;&gt;post&lt;/a&gt;, we will learn to quickly build a set of plots/charts that are routinely used in exploring data.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

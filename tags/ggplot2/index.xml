@@ -218,12 +218,28 @@
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-text-annotations/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;http://www.rsquaredacademy.com/blog/post/axis-plot-labels/&#34;&gt;post&lt;/a&gt;, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.&lt;/p&gt;
+&lt;div id=&#34;annotate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Annotate&lt;/h2&gt;
+&lt;p&gt;We will use the &lt;code&gt;annotate()&lt;/code&gt; function to add custom text to the plots. You can use the &lt;code&gt;annotate()&lt;/code&gt; function to add rectangles/segments/pointrange as well but our focus will be on adding text. Let us start with a simple scatter plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can format the text as well.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;,
+           color = &amp;#39;red&amp;#39;, size = 6, fontface = &amp;#39;bold&amp;#39;, angle = 25)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides/&#34;&gt;post&lt;/a&gt;, we will learn how to work with guides/legends in ggplot2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -289,12 +289,28 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the sixth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="http://www.rsquaredacademy.com/blog/post/axis-plot-labels/">post</a>, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.</p>
+<div id="annotate" class="section level2">
+<h2>Annotate</h2>
+<p>We will use the <code>annotate()</code> function to add custom text to the plots. You can use the <code>annotate()</code> function to add rectangles/segments/pointrange as well but our focus will be on adding text. Let us start with a simple scatter plot.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  annotate(&#39;text&#39;, x = 200, y = 30, label = &#39;Sample Text&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann2-1.png" width="672" /></p>
+<p>We can format the text as well.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  annotate(&#39;text&#39;, x = 200, y = 30, label = &#39;Sample Text&#39;,
+           color = &#39;red&#39;, size = 6, fontface = &#39;bold&#39;, angle = 25)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann3-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/guides/">post</a>, we will learn how to work with guides/legends in ggplot2.</p>
+</div>
+</div>
 
 
   

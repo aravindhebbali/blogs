@@ -287,12 +287,140 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the fifth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/">post</a>, we learnt about aesthetics. In this post, we will learn to:</p>
+<ul>
+<li>add title and subtitle to the plot</li>
+<li>modify axis labels</li>
+<li>modify axis range</li>
+<li>remove axis</li>
+<li>format axis</li>
+</ul>
+<div id="basic-plot" class="section level2">
+<h2>Basic Plot</h2>
+<p>Let us start by building a simple scatter plot.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg))</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis2-1.png" width="672" /></p>
+</div>
+<div id="title-subtitle" class="section level2">
+<h2>Title &amp; Subtitle</h2>
+<p>You can add a title and subtitle to the plot using the <code>ggtitle()</code> function.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  ggtitle(label = &#39;Displacement vs Mileage&#39;, subtitle = &#39;disp vs mpg&#39;)</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis3-1.png" width="672" /></p>
+</div>
+<div id="axis-labels" class="section level2">
+<h2>Axis Labels</h2>
+<p>The axis labels can be modified using the <code>xlab()</code> and <code>ylab()</code> functions.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  xlab(&#39;Displacement&#39;) + ylab(&#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis4-1.png" width="672" /></p>
+<p>We can add all of the above using the <code>labs()</code> function as well.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  labs(title = &#39;Displacement vs Mileage&#39;,
+    subtitle = &#39;disp vs mpg&#39;, x = &#39;Displacement&#39;,
+    y = &#39;Miles Per Gallon&#39;)</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis5-1.png" width="672" /></p>
+</div>
+<div id="axis-range" class="section level2">
+<h2>Axis Range</h2>
+<p>Sometimes you may want to modify the range of the axis.</p>
+<p>Use the <code>xlim()</code> function to modify the range of the X axis.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  xlim(c(0, 600))</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis6-1.png" width="672" /></p>
+<p>Use the <code>ylim()</code> function to modify the range of the Y axis.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  ylim(c(0, 40))</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis7-1.png" width="672" /></p>
+<p>You can use the <code>expand_limits()</code> function as well.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  expand_limits(x = c(0, 600), y = c(0, 40))</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis8-1.png" width="672" /></p>
+</div>
+<div id="remove-axis-labels" class="section level2">
+<h2>Remove Axis Labels</h2>
+<p>If you want to remove the axis labels all together, use the <code>theme()</code> function.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme(axis.title.x = element_blank(),
+    axis.title.y = element_blank())</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis9-1.png" width="672" /></p>
+<p>What we are doing above is to modify the theme of the plot and set the axis labels to blank using <code>element_blank()</code> function.</p>
+</div>
+<div id="format-title-axis-labels" class="section level2">
+<h2>Format Title &amp; Axis Labels</h2>
+<p>To format the title or the axis labels, we have to modify the theme of the plot using the <code>theme()</code> function. We can modify the color, font family, font face, font size and horizontal position. Let us try them one by one.</p>
+<p>The font family can be any of the valid font family types but it must be supported by OS. The font face can be plain, bold, italic, bold.italic hjust must be between 0 (extreme left) and 1 (extreme right).</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  ggtitle(&#39;Diaplacement vs Mileage&#39;) +
+  theme(plot.title = element_text(color = &#39;blue&#39;,
+                                  family = &#39;Arial&#39;,
+                                  face = &#39;bold&#39;,
+                                  size = 8,
+                                  hjust = 0.3))</code></pre>
+<pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
 
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
 
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis10-1.png" width="672" /></p>
+<p>X axis label.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  xlab(&#39;Diaplacement&#39;) +
+  theme(axis.title.x = element_text(color = &#39;blue&#39;,
+                                  family = &#39;Arial&#39;,
+                                  face = &#39;bold&#39;,
+                                  size = 8,
+                                  hjust = 0.5,
+                                  angle = 15))</code></pre>
+<pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
+## $y, : font family not found in Windows font database</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis11-1.png" width="672" /></p>
+<p>Y axis label.</p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  ylab(&#39;Miles Per Gallon&#39;) +
+  theme(axis.title.y = element_text(color = &#39;blue&#39;,
+                                  family = &#39;Arial&#39;,
+                                  face = &#39;italic&#39;,
+                                  size = 8,
+                                  vjust = 0.3,
+                                  angle = 90))</code></pre>
+<pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family not found in Windows font database</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
+## $y, : font family not found in Windows font database</code></pre>
+<p><img src="../../post/2017-07-04-axis-plot-labels_files/figure-html/axis12-1.png" width="672" /></p>
+</div>
+</div>
 
 
   

@@ -289,12 +289,131 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the fourth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-geoms/">post</a> we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the <code>aes()</code> function. We will look at both methods in the following sections.</p>
+<div id="color" class="section level2">
+<h2>Color</h2>
+<p>In ggplot2, when we mention <code>color</code> or <code>colour</code>, it usually refers to the color of the geoms. The <code>fill</code> argument is used to specify the color of the shapes in certain cases. In this first section, we will see how we can specify the color for the different geoms we learnt in the previous post.</p>
+<div id="point" class="section level3">
+<h3>Point</h3>
+<p>For points, the <code>color</code> argument specifies the color of the point for certain shapes and border for others. The <code>fill</code> argument is used to specify the background for some shapes and will not work with other shapes. Let us look at an example:</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg, color = factor(cyl))) +
+  geom_point()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes2-1.png" width="672" /></p>
+<p>We can map the variable to color in the <code>geom_point()</code> function as well since it inherits the data from the <code>ggplot()</code> function.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(aes(color = factor(cyl)))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes3-1.png" width="672" /></p>
+<p>If you do not want to map a variable to color, you can specify it separately using the <code>color</code> argument but in this case it should be outside the <code>aes()</code> function.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes4-1.png" width="672" /></p>
+<p>Now we will change the shape of the points to understand the difference between <code>color</code> and <code>fill</code> arguments. It can be again mapped to variables or values.</p>
+<p>Let us map shape to variables.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg, shape = factor(cyl))) +
+  geom_point()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes5-1.png" width="672" /></p>
+<p>Map shape to variable in the <code>geom_point()</code> function.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(aes(shape = factor(cyl)))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes6-1.png" width="672" /></p>
+<p>Specify value for shape.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(shape = 5)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes7-1.png" width="672" /></p>
+<p>Use <code>color</code> to specify color of the point.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(shape = 5, color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes8-1.png" width="672" /></p>
+<p>You cannot use <code>fill</code> with shape upto 21.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(shape = 5, fill = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes9-1.png" width="672" /></p>
+<p><code>fill</code> will add background color in the below case.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(shape = 22, fill = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes10-1.png" width="672" /></p>
+<p><code>color</code> will modify the border.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(shape = 22, color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes11-1.png" width="672" /></p>
+<p>Let us map size of points to a variable. It is advised to map size only to continuous variables and not categorical variables.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg, size = disp)) +
+  geom_point()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes12-1.png" width="672" /></p>
+<p>If you map size to categorical variables, ggplot2 will throw a warning.</p>
+<p>Specify value for size.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(size = 4)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes13-1.png" width="672" /></p>
+<p>You can also specify the opacity of the color using the <code>alpha</code> argument.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point(aes(alpha = factor(cyl)), color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes14-1.png" width="672" /></p>
+<p>So far we have focussed on <code>geom_point()</code> to learn how to map aesthetics to variables. To explore line type and line width, we will use <code>geom_line()</code>. In the previous post, we used <code>geom_line()</code> to build line charts. Now we will modify the appearance of the line. In the section below, we will specify values for color, line type and width. In the next section, we will map the same to variables in the data. We will use a new data set. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/gdp.csv">here</a>. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.</p>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre class="r"><code>ggplot(gdp, aes(year, india)) +
+  geom_line(color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes15-1.png" width="672" /></p>
+<p><code>linetype</code> can be used to modify the appearance of the line.</p>
+<pre class="r"><code>ggplot(gdp, aes(year, india)) +
+  geom_line(linetype = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes16-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(gdp, aes(year, india)) +
+  geom_line(linetype = &#39;dashed&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes17-1.png" width="672" /></p>
+<p><code>size</code> argument is used to specify the width of the line.</p>
+<pre class="r"><code>ggplot(gdp, aes(year, india)) +
+  geom_line(size = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes18-1.png" width="672" /></p>
+<p>Now let us map the aesthetics to the variables. The data used in the above example cannot be used as we need a variable with country names. We will use <code>gather()</code> function from the <code>tidyr</code> package to reshape the data.</p>
+<pre class="r"><code>gdp2 &lt;- gdp %&gt;% 
+  select(year, growth, india, china) %&gt;% 
+  gather(key = country, value = gdp, -year)</code></pre>
+<p>Now we can map the aethetics to the <code>country</code> variable</p>
+<pre class="r"><code>ggplot(gdp2, aes(year, gdp, group = country)) +
+  geom_line()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes20-1.png" width="672" /></p>
+<p>Let us begin with <code>color</code>.</p>
+<pre class="r"><code>ggplot(gdp2, aes(year, gdp, group = country)) +
+  geom_line(aes(color = country))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes21-1.png" width="672" /></p>
+<p>Map <code>linetype</code> to <code>country</code>.</p>
+<pre class="r"><code>ggplot(gdp2, aes(year, gdp, group = country)) +
+  geom_line(aes(linetype = country))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes22-1.png" width="672" /></p>
+<p>Map <code>linewidth</code> to <code>country</code>.</p>
+<pre class="r"><code>ggplot(gdp2, aes(year, gdp, group = country)) +
+  geom_line(aes(size = country))</code></pre>
+<pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes23-1.png" width="672" /></p>
+<p>Before we wrap up, let us quickly see how we can map aesthetics to variables for different plots.</p>
+</div>
+</div>
+<div id="bar-plots" class="section level2">
+<h2>Bar Plots</h2>
+<pre class="r"><code>ggplot(ecom, aes(device, fill = purchase)) +
+  geom_bar()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes24-1.png" width="672" /></p>
+</div>
+<div id="histograms" class="section level2">
+<h2>Histograms</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(duration, fill = purchase), bins = 10)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes25-1.png" width="672" /></p>
+</div>
+<div id="box-plots" class="section level2">
+<h2>Box Plots</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_boxplot(aes(device, duration, fill = purchase))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes26-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/">post</a>, we will focus on applying all that we have learnt so far to create scatter plots.</p>
+</div>
+</div>
 
 
   

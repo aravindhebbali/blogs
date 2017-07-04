@@ -9,3 +9,23 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the sixth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-text-annotations/), we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+
+```{r guides1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+## Guide
+
+```{r guides2}
+ggplot(mtcars) +
+  geom_bar(aes(factor(cyl), fill = factor(gear))) +
+  scale_fill_discrete(guide = guide_legend(
+    title = 'gear', title.position = 'bottom', title.hjust = 0.5,
+    label.position = 'top', direction = 'horizontal', 
+    label.hjust = 0.5, nrow = 3, reverse = TRUE))
+```

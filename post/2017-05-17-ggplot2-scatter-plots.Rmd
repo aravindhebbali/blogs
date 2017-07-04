@@ -10,3 +10,93 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the fifth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/), we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+
+```{r scat1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+```
+
+## Basic Plot
+
+We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+
+```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
+ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+```
+
+Let us start by building a simple scatter plot. 
+
+```{r scat2}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration))
+```
+
+Let us add some random variation to the location of each point to handle overplotting. Use the `position` argument and set it to `jitter`.
+
+```{r scat22}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration), position = 'jitter')
+```
+
+You can use the `geom_jitter()` function to achieve the above result.
+
+```{r scat3}
+ggplot(ecom) +
+  geom_jitter(aes(n_pages, duration))
+```
+
+## Color
+
+Now let us modify the color of the points. There are two ways:
+
+- map color to variable using the `aes()` function
+- specify colors separately
+
+Map color to variables.
+
+- Categorical Variable
+
+```{r scat4}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration, color = factor(purchase)), 
+             position = 'jitter')
+```
+
+- Continuous Variable
+
+```{r scat5}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration, color = order_items), 
+             position = 'jitter')
+```
+
+Let us specify the color of the points separately. 
+
+```{r scat6}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration), color = 'blue', 
+             position = 'jitter')
+```
+
+Use `alpha` argument to specify the transparency of the points.
+
+```{r scat7}
+ggplot(ecom) +
+  geom_point(aes(n_pages, duration), color = 'blue', alpha = 0.4, 
+             position = 'jitter')
+```
+
+## Shape
+
+## Size
+
+## Fit Line
+

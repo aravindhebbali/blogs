@@ -289,12 +289,68 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the fifth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/">post</a>, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.</p>
+<div id="basic-plot" class="section level2">
+<h2>Basic Plot</h2>
+<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
+<p>Let us start by building a simple scatter plot.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat2-1.png" width="672" /></p>
+<p>Let us add some random variation to the location of each point to handle overplotting. Use the <code>position</code> argument and set it to <code>jitter</code>.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration), position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat22-1.png" width="672" /></p>
+<p>You can use the <code>geom_jitter()</code> function to achieve the above result.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_jitter(aes(n_pages, duration))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat3-1.png" width="672" /></p>
+</div>
+<div id="color" class="section level2">
+<h2>Color</h2>
+<p>Now let us modify the color of the points. There are two ways:</p>
+<ul>
+<li>map color to variable using the <code>aes()</code> function</li>
+<li>specify colors separately</li>
+</ul>
+<p>Map color to variables.</p>
+<ul>
+<li>Categorical Variable</li>
+</ul>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration, color = factor(purchase)), 
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat4-1.png" width="672" /></p>
+<ul>
+<li>Continuous Variable</li>
+</ul>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration, color = order_items), 
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat5-1.png" width="672" /></p>
+<p>Let us specify the color of the points separately.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration), color = &#39;blue&#39;, 
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat6-1.png" width="672" /></p>
+<p>Use <code>alpha</code> argument to specify the transparency of the points.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration), color = &#39;blue&#39;, alpha = 0.4, 
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat7-1.png" width="672" /></p>
+</div>
+<div id="shape" class="section level2">
+<h2>Shape</h2>
+</div>
+<div id="size" class="section level2">
+<h2>Size</h2>
+</div>
+<div id="fit-line" class="section level2">
+<h2>Fit Line</h2>
+</div>
+</div>
 
 
   

@@ -10,6 +10,36 @@
     <atom:link href="/topics/data-visualization/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Axis &amp; Plot Labels</title>
+      <link>/post/axis-plot-labels/</link>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/axis-plot-labels/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Guides</title>
+      <link>/post/guides/</link>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/guides/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>Data Visualization with R - Font, Color &amp; Size</title>
       <link>/post/data-visualization-with-r-font-color-size/</link>
       <pubDate>Sat, 26 Dec 2015 00:00:00 +0000</pubDate>

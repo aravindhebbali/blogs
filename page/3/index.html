@@ -733,9 +733,15 @@
   </header>
 
   <p>
-  
+  IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt the stat_*() family of functions. In this post, we will learn about faceting i.e. combining plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(device ~ .
   </p>
 
+  
+  <footer>
+    <a href="../../post/ggplot2-facets-combine-multiple-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 

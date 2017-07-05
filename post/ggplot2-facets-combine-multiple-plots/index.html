@@ -289,12 +289,59 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the 13th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-facets/">post</a>, we learnt the <code>stat_*()</code> family of functions. In this post, we will learn about faceting i.e. combining plots.</p>
+<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
+  geom_point() +
+  facet_grid(. ~ device)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet1-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
+  geom_point() +
+  facet_grid(device ~ .)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet2-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
+  geom_point() +
+  facet_grid(purchase ~ device)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
+  geom_point() +
+  facet_grid(device ~ purchase)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet4-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration, color = factor(device))) +
+  geom_point() + 
+  facet_grid(. ~ device, scales = &quot;free&quot;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet5-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
+  geom_point() + 
+  facet_grid(device ~ purchase, switch = &quot;both&quot;) </code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet6-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(~device)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet7-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(~device, nrow = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(~device, nrow = 3)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet9-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(~device + purchase)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet10-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(c(&quot;device&quot;, &quot;purchase&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet11-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point() +
+  facet_wrap(~device, scales = &quot;free&quot;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet12-1.png" width="672" /></p>
+</div>
 
 
   

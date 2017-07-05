@@ -12,7 +12,7 @@ draft: yes
 
 # Introduction
 
-This is the 12th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. In this post, we will explore and alternative method to build plots.
+This is the 12th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. In this post, we will explore an alternative method to build plots.
 
 ```{r stat, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)

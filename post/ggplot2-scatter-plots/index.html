@@ -343,12 +343,82 @@
 </div>
 <div id="shape" class="section level2">
 <h2>Shape</h2>
+<ul>
+<li>Map shape to variable.</li>
+</ul>
+<p>We can map shape to a categorical variable only.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration, shape = factor(device)),
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat8-1.png" width="672" /></p>
+<p>Specify value for shape.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration), shape = 3,
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat9-1.png" width="672" /></p>
 </div>
 <div id="size" class="section level2">
 <h2>Size</h2>
+<ul>
+<li>Map size to variable.</li>
+</ul>
+<p>It is advised to map size to a continuous variable.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration, size = n_visit), color = &#39;blue&#39;,
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat10-1.png" width="672" /></p>
+<p>Specify value for shape.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_point(aes(n_pages, duration), size = 3,
+             position = &#39;jitter&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat11-1.png" width="672" /></p>
 </div>
 <div id="fit-line" class="section level2">
 <h2>Fit Line</h2>
+<p>You can fit a line using either <code>geom_abline()</code> or <code>geom_smooth()</code>.</p>
+<p>Use linear regression.</p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point(position = &#39;jitter&#39;) +
+  geom_smooth(method = &#39;lm&#39;, se = FALSE)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes12-1.png" width="672" /></p>
+<p>Add a confidence interval for the fitted values.</p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point(position = &#39;jitter&#39;) +
+  geom_smooth(method = &#39;lm&#39;, se = TRUE)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes13-1.png" width="672" /></p>
+<p>Use loess regression</p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point(position = &#39;jitter&#39;) +
+  geom_smooth(method = &#39;loess&#39;, se = FALSE)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes14-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point(position = &#39;jitter&#39;) +
+  geom_smooth(method = &#39;loess&#39;, se = TRUE)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes15-1.png" width="672" /></p>
+<p>If you use <code>geom_abline()</code>, specify the intercept and the slope. Let us regress <code>duration</code> on <code>n_pages</code> and use the output.</p>
+<pre class="r"><code>lm(duration ~ n_pages, data = ecom)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = duration ~ n_pages, data = ecom)
+## 
+## Coefficients:
+## (Intercept)      n_pages  
+##      0.2199      19.9210</code></pre>
+<pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
+  geom_point(position = &#39;jitter&#39;) +
+  geom_abline(slope = 19.9210, intercept = 0.2199)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes17-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In this post, we learnt to:</p>
+<ul>
+<li>build scatter plots</li>
+<li>map aesthetics to variables</li>
+<li>modify axis and legend</li>
+<li>fit regression line</li>
+</ul>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/">post</a>, we will learn to build line charts.</p>
 </div>
 </div>
 

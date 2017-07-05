@@ -289,12 +289,64 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the ninth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/">post</a>, we learnt to build line charts. In this post, we will focus on bar plots.</p>
+<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
+<div id="simple-bar-plot" class="section level2">
+<h2>Simple Bar Plot</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png" width="672" /></p>
+</div>
+<div id="bar-color" class="section level2">
+<h2>Bar Color</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)),
+           fill = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png" width="672" /></p>
+</div>
+<div id="bar-line-color" class="section level2">
+<h2>Bar Line Color</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)),
+           color = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png" width="672" /></p>
+</div>
+<div id="bar-line-type" class="section level2">
+<h2>Bar Line Type</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
+           color = &#39;red&#39;, linetype = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png" width="672" /></p>
+</div>
+<div id="bar-line-size" class="section level2">
+<h2>Bar Line Size</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
+           color = &#39;red&#39;, linetype = 2, size = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png" width="672" /></p>
+</div>
+<div id="stacked-bar-plot" class="section level2">
+<h2>Stacked Bar Plot</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png" width="672" /></p>
+</div>
+<div id="grouped-bar-plot" class="section level2">
+<h2>Grouped Bar Plot</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)), position = &#39;dodge&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png" width="672" /></p>
+</div>
+<div id="horizontal-bar-plot" class="section level2">
+<h2>Horizontal Bar Plot</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device), fill = factor(referrer))) +
+  coord_flip()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png" width="672" /></p>
+</div>
+</div>
 
 
   

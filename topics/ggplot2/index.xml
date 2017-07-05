@@ -266,12 +266,64 @@
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-bar-plots/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the ninth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we learnt to build line charts. In this post, we will focus on bar plots.&lt;/p&gt;
+&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
+&lt;div id=&#34;simple-bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Simple Bar Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-color&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Color&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device)),
+           fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-line-color&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Line Color&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device)),
+           color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-line-type&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Line Type&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
+           color = &amp;#39;red&amp;#39;, linetype = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-line-size&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Line Size&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
+           color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;stacked-bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Stacked Bar Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grouped-bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grouped Bar Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;horizontal-bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Horizontal Bar Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  geom_bar(aes(factor(device), fill = factor(referrer))) +
+  coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

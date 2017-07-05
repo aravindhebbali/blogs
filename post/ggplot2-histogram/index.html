@@ -289,12 +289,41 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the eleventh post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-box-plots/">post</a>, we learnt to build box plots. In this post, we will focus on histograms.</p>
+<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
+<div id="simple-histogram" class="section level2">
+<h2>Simple Histogram</h2>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit))</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist2-1.png" width="672" /></p>
+<p>Let us add some color to the histogram.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit), fill = &#39;blue&#39;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist3-1.png" width="672" /></p>
+<p>The default number of bins is 30. We can specify the number of bins using <code>bins</code>.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit), bins = 7, fill = &#39;blue&#39;, color = &#39;black&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist4-1.png" width="672" /></p>
+<p>We can specify the width of the bins using <code>binwidth</code>.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit), binwidth = 2, fill = &#39;blue&#39;, color = &#39;black&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist5-1.png" width="672" /></p>
+<p>Line type and size.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit), binwidth = 2, 
+                 fill = &#39;blue&#39;, color = &#39;black&#39;, alpha = 0.3,
+                 linetype = 2, size = 1.25)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist6-1.png" width="672" /></p>
+<p>We can also map the color to a variable.</p>
+<pre class="r"><code>ggplot(ecom) +
+  geom_histogram(aes(n_visit, fill = device), bins = 7)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist7-1.png" width="672" /></p>
+</div>
+</div>
 
 
   

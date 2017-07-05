@@ -92,12 +92,60 @@
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-themes/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;p&gt;This is the last post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets-combine-multiple-plots/&#34;&gt;post&lt;/a&gt;, we learnt to combine multiple plots. In this post, we will learn about themes.&lt;/p&gt;
+&lt;div id=&#34;classic-dark-on-light&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Classic Dark on Light&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;default-gray&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Default Gray&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_gray()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;light&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Light&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;minimal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Minimal&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dark&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Dark&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_dark()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;classic&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Classic&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;void-empty&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Void (Empty)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_void()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learnt about the different themes available in ggplot2. This brings us to the end of the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

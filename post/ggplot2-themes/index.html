@@ -289,12 +289,60 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <p>This is the last post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-facets-combine-multiple-plots/">post</a>, we learnt to combine multiple plots. In this post, we will learn about themes.</p>
+<div id="classic-dark-on-light" class="section level2">
+<h2>Classic Dark on Light</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_bw()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet1-1.png" width="672" /></p>
+</div>
+<div id="default-gray" class="section level2">
+<h2>Default Gray</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_gray()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet2-1.png" width="672" /></p>
+</div>
+<div id="light" class="section level2">
+<h2>Light</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_light()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet3-1.png" width="672" /></p>
+</div>
+<div id="minimal" class="section level2">
+<h2>Minimal</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_minimal()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet4-1.png" width="672" /></p>
+</div>
+<div id="dark" class="section level2">
+<h2>Dark</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_dark()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet5-1.png" width="672" /></p>
+</div>
+<div id="classic" class="section level2">
+<h2>Classic</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_classic()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet6-1.png" width="672" /></p>
+</div>
+<div id="void-empty" class="section level2">
+<h2>Void (Empty)</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_void()</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/facet7-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>In this post, we learnt about the different themes available in ggplot2. This brings us to the end of the series <strong>Elegant Data Visualization with ggplot2</strong>.</p>
+</div>
 
 
   

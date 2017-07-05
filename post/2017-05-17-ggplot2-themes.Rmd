@@ -10,3 +10,78 @@ tags:
 draft: yes
 ---
 
+This is the last post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets-combine-multiple-plots/), we learnt to combine multiple plots. In this post, we will learn about themes.
+
+```{r facet, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+## Classic Dark on Light
+
+```{r facet1}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_bw()
+```
+
+## Default Gray
+
+```{r facet2}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_gray()
+```
+
+## Light
+
+```{r facet3}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_light()
+```
+
+## Minimal
+
+```{r facet4}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_minimal()
+```
+
+## Dark
+
+```{r facet5}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_dark()
+```
+
+## Classic
+
+```{r facet6}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_classic()
+```
+
+## Void (Empty)
+
+```{r facet7}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  theme_void()
+```
+
+
+## Summary
+
+In this post, we learnt about the different themes available in ggplot2.
+This brings us to the end of the series **Elegant Data Visualization with ggplot2**.
+
+
+
+
+
+

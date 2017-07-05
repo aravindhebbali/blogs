@@ -10,3 +10,68 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the 12th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. In this post, we will explore and alternative method to build plots.
+
+```{r stat, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+```
+
+We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+
+```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
+ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+```
+
+## Stats
+
+So far we have used `geom_*()` functions to build plot. Now we will use a new set of functions `stat_*()` to build the plots. 
+
+## Bar Plots
+
+```{r stat2}
+ggplot(ecom) +
+  stat_count(aes(device))
+```
+
+## Box Plots
+
+```{r stat3}
+ggplot(ecom) +
+  stat_boxplot(aes(factor(1), n_visit))
+```
+
+## Scatter Plots
+
+```{r stat4}
+ggplot(ecom) +
+  stat_identity(aes(n_pages, duration), position = 'jitter')
+```
+
+## Histogram
+
+```{r stat5}
+ggplot(ecom) +
+  stat_bin(aes(n_visit), bins = 7, fill = 'blue', alpha = 0.3,
+           color = 'black')
+```
+
+## Plot Unique Values
+
+```{r stat6}
+ggplot(ecom) +
+  stat_unique(aes(n_pages, duration), 
+              position = 'jitter')
+```
+
+## Summary
+
+In this post, we learnt about the functions underlying the `geom_*()` family of functions. In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we will learn about faceting i.e. combining plots.
+

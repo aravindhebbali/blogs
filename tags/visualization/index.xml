@@ -91,12 +91,51 @@
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-statistical-plots/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the 12th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/&#34;&gt;post&lt;/a&gt;, we learnt to build histograms. In this post, we will explore and alternative method to build plots.&lt;/p&gt;
+&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
+&lt;div id=&#34;stats&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Stats&lt;/h2&gt;
+&lt;p&gt;So far we have used &lt;code&gt;geom_*()&lt;/code&gt; functions to build plot. Now we will use a new set of functions &lt;code&gt;stat_*()&lt;/code&gt; to build the plots.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Plots&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  stat_count(aes(device))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;box-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Box Plots&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  stat_boxplot(aes(factor(1), n_visit))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scatter-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scatter Plots&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  stat_identity(aes(n_pages, duration), position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Histogram&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  stat_bin(aes(n_visit), bins = 7, fill = &amp;#39;blue&amp;#39;, alpha = 0.3,
+           color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plot-unique-values&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plot Unique Values&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
+  stat_unique(aes(n_pages, duration), 
+              position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learnt about the functions underlying the &lt;code&gt;geom_*()&lt;/code&gt; family of functions. In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we will learn about faceting i.e. combining plots.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -15,21 +15,11 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-axes/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:&lt;/p&gt;
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the &lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guides()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guide_legend()&lt;/code&gt; and &lt;code&gt;guide_colorbar()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;theme()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us start with &lt;code&gt;scale_*()&lt;/code&gt; family of functions.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_x_continuous()&lt;/code&gt;: modify x axis&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scale_x_continuous()&lt;/code&gt;: modify x axis when x is continuous&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The first function we will explore is &lt;code&gt;scale_x_continuous()&lt;/code&gt;. It can be used for:&lt;/p&gt;
 &lt;ul&gt;
@@ -39,18 +29,47 @@
 &lt;li&gt;axis breaks&lt;/li&gt;
 &lt;li&gt;and axis position&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let us recreate the scatter plot for visualizing the relationship between number of pages visited and time spent on site and then use &lt;code&gt;scale_x_continuous()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
+&lt;p&gt;Let us create a simple scatter plot and then use &lt;code&gt;scale_x_continuous()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_x_continuous(name = &amp;quot;Displacement&amp;quot;,
+                     limits = c(0, 600),
+                     breaks = c(0, 150, 300, 450, 600),
+                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;150&amp;#39;, &amp;#39;300&amp;#39;, &amp;#39;450&amp;#39;, &amp;#39;600&amp;#39;),
+                     position = &amp;#39;top&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;scale_y_continuous()&lt;/code&gt;: modify y axis&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_continuous()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_discrete()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_color_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_shape_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_size_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_shape()&lt;/code&gt;: maps discrete variable to six shapes&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_size()&lt;/code&gt;: maps discrete variable to six sizes&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Now let us modify the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_y_continuous(name = &amp;quot;Miles Per Gallon&amp;quot;,
+                     limits = c(0, 45),
+                     breaks = c(0, 15, 300, 45),
+                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;15&amp;#39;, &amp;#39;30&amp;#39;, &amp;#39;45&amp;#39;),
+                     position = &amp;#39;right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now let us look at plots with discrete X axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_bar(aes(factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;scael_x_discrete()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_bar(aes(factor(cyl))) +
+  scale_x_discrete(name = &amp;quot;Number of Cylinders&amp;quot;,
+                   labels = c(&amp;quot;4&amp;quot; = &amp;quot;Four&amp;quot;, &amp;quot;6&amp;quot; = &amp;quot;Six&amp;quot;, &amp;quot;8&amp;quot; = &amp;quot;Eight&amp;quot;),
+                   breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
+                   position = &amp;quot;bottom&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this post, we learnt how to modify the axis whether it represents a continuous variable or a discrete variable. In the next post, we will learn how to modify the legend when aesthetics are mapped to variables.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

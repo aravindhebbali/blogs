@@ -9,6 +9,13 @@ tags:
 draft: yes
 ---
 
+```{r leg1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+
 Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:
 
 - `scale_*()` family of functions 

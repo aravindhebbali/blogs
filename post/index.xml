@@ -50,7 +50,7 @@
   geom_point(aes(disp, mpg)) +
   scale_y_continuous(name = &amp;quot;Miles Per Gallon&amp;quot;,
                      limits = c(0, 45),
-                     breaks = c(0, 15, 300, 45),
+                     breaks = c(0, 15, 30, 45),
                      labels = c(&amp;#39;0&amp;#39;, &amp;#39;15&amp;#39;, &amp;#39;30&amp;#39;, &amp;#39;45&amp;#39;),
                      position = &amp;#39;right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;../post/2017-07-06-guides-axes_files/figure-html/guide4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;

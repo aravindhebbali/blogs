@@ -57,7 +57,7 @@ ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   scale_y_continuous(name = "Miles Per Gallon",
                      limits = c(0, 45),
-                     breaks = c(0, 15, 300, 45),
+                     breaks = c(0, 15, 30, 45),
                      labels = c('0', '15', '30', '45'),
                      position = 'right')
 ```

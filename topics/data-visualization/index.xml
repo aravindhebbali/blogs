@@ -79,42 +79,169 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-legends/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the 13th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previos &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-axes/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.&lt;/p&gt;
 &lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;guides()&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;guide_legend()&lt;/code&gt; and &lt;code&gt;guide_colorbar()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;theme()&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let us start with &lt;code&gt;scale_*()&lt;/code&gt; family of functions.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_x_continuous()&lt;/code&gt;: modify x axis&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scale_alpha_continuous()&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The first function we will explore is &lt;code&gt;scale_x_continuous()&lt;/code&gt;. It can be used for:&lt;/p&gt;
+&lt;p&gt;If you have mapped alpha to a continuous variable, use &lt;code&gt;scale_alpha_continuous()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a continuous variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;) +
+  scale_alpha_continuous(&amp;quot;Horsepower&amp;quot;,
+                         breaks = c(0, 100, 200, 300, 400),
+                         limits = c(0, 400),
+                         labels = c(&amp;quot;Zero&amp;quot;, &amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;, 
+                                    &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;),
+                         range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;axis title&lt;/li&gt;
-&lt;li&gt;axis labels&lt;/li&gt;
-&lt;li&gt;axis limits&lt;/li&gt;
-&lt;li&gt;axis breaks&lt;/li&gt;
-&lt;li&gt;and axis position&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us recreate the scatter plot for visualizing the relationship between number of pages visited and time spent on site and then use &lt;code&gt;scale_x_continuous()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_y_continuous()&lt;/code&gt;: modify y axis&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_continuous()&lt;/code&gt;:&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;scale_alpha_discrete()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_discrete()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
+  scale_alpha_discrete(name = &amp;quot;Cylinders&amp;quot;,
+                       breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
+                       labels = c(&amp;quot;Four&amp;quot;, &amp;quot;Six&amp;quot;, &amp;quot;Eight&amp;quot;),
+                       range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;scale_color_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_shape_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_size_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_manual()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped color to a discrete variable, use &lt;code&gt;scale_color_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map color to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(name = &amp;quot;Cylinders&amp;quot;,
+                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
+                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scale_fill_manual()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped fill to a discrete variable, use &lt;code&gt;scale_fill_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map fill to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(name = &amp;quot;Cylinders&amp;quot;,
+                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
+                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scale_shape_manual()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape_manual(name = &amp;quot;Cylinders&amp;quot;,
+                    values = c(4, 12, 24),
+                    labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
+                    limits = c(4, 6, 8),
+                    breaks = c(4, 6, 8),
+                    guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scale_size_manual()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp)) +
+  scale_size_continuous(name = &amp;quot;Horsepower&amp;quot;,
+                        range = c(3, 6),
+                        limits = c(0, 400),
+                        breaks = c(100, 200, 300, 400),
+                        labels = c(&amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;,
+                                   &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scale_alpha_manual()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
+  scale_alpha_manual(name = &amp;quot;Cylinders&amp;quot;,
+                     values = c(0.4, 0.6, 0.8),
+                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;scale_shape()&lt;/code&gt;: maps discrete variable to six shapes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape(solid = FALSE,
+              name = &amp;#39;Cylinders&amp;#39;,
+              labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
+              limits = c(4, 6, 8),
+              breaks = c(4, 6, 8))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;scale_size()&lt;/code&gt;: maps discrete variable to six sizes&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp)) +
+  scale_size(name = &amp;quot;Horsepower&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Guides: Legends - Part 2</title>
+      <link>/post/guides-legends-part-2/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/guides-legends-part-2/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
 </description>
     </item>
     
@@ -1516,131 +1643,6 @@ plot(mtcars$disp, mtcars$mpg, pch = 5, col = factor(mtcars$cyl))&lt;/code&gt;&lt
 &lt;/ul&gt;
 &lt;p&gt;In certain cases we might want to fit a regression line or add horizontal/vertical lines to the scatter plots. We will learn to do that in the next post, where we build line plots.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Data Visualization With R - Title and Axis Labels</title>
-      <link>/post/data-visualization-with-r-title-and-axis-labels/</link>
-      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/post/data-visualization-with-r-title-and-axis-labels/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is the second post of the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/&#34;&gt;post&lt;/a&gt;, we explored the &lt;code&gt;plot()&lt;/code&gt; function and observed the different types of plots it generated. In this post, we will learn how to add:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Title&lt;/li&gt;
-&lt;li&gt;Subtitle&lt;/li&gt;
-&lt;li&gt;Axis Labels&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;to a plot and how to modify:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Axis range&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/&#34;&gt;post&lt;/a&gt;, we created plots which did not have any title or labels. Such plots are of no use to any one as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The &lt;code&gt;title&lt;/code&gt; and &lt;code&gt;labels&lt;/code&gt; play an important part in making the plot holistic. There are two ways to add them to a plot:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;use the relevant arguments within the &lt;code&gt;plot()&lt;/code&gt; function&lt;/li&gt;
-&lt;li&gt;use the &lt;code&gt;title()&lt;/code&gt; function&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We will explore both the above methods one by one, and you can choose the method most convenient to you. Let us begin with the &lt;code&gt;plot()&lt;/code&gt; function:&lt;/p&gt;
-&lt;div id=&#34;syntax&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Syntax&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;Feature&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Argument&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Value&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Example&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Title&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;main&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;“Scatter Plot”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Subtitle&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sub&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;“Displacement vs Miles Per Gallon”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;X Axis Label&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;xlab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;“Displacement”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Y Axis Label&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ylab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;string&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;“Miles Per Gallon”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div id=&#34;title&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Title&lt;/h4&gt;
-&lt;p&gt;You can add a title to the plot using the &lt;code&gt;main&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. Ensure that the title is enclosed in single/double quotes as it is a string. Let us create a scatter plot of &lt;code&gt;disp&lt;/code&gt; and &lt;code&gt;mpg&lt;/code&gt; from &lt;code&gt;mtcars&lt;/code&gt; data set, and add a title to it.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
-     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;subtitle&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Subtitle&lt;/h4&gt;
-&lt;p&gt;You can add a subtitle to the plot using the &lt;code&gt;sub&lt;/code&gt; argument in the &lt;code&gt;plot()&lt;/code&gt; function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. Let us add a subtitle to the plot we created in the previous example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
-     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
-     sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/subtitle-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-labels&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Axis Labels&lt;/h4&gt;
-&lt;p&gt;In the plots created in the previous examples, the axis labels appear as &lt;code&gt;mtcars$mpg&lt;/code&gt; and &lt;code&gt;mtcars$disp&lt;/code&gt;. It is not the best way to name the axis and it will make more sense to use names that describe the data. Let us modify the axis labels using the &lt;code&gt;xlab&lt;/code&gt; and &lt;code&gt;ylab&lt;/code&gt; arguments in the &lt;code&gt;plot()&lt;/code&gt; function:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
-     main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
-     sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
-     xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axis-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;title-1&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;title()&lt;/h4&gt;
-&lt;p&gt;We can add title, subtitle and axis labels using the &lt;code&gt;title()&lt;/code&gt; function as well. Let us recreate the plots from the previous examples but this time we will use the &lt;code&gt;title()&lt;/code&gt; instead of the &lt;code&gt;plot()&lt;/code&gt; function. We will continue to use the &lt;code&gt;plot()&lt;/code&gt; function to create the plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create scatter plot
-plot(mtcars$disp, mtcars$mpg) 
-
-# add title, subtitle and axis labels
-title(main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
-      sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
-      xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Do you notice that the axis labels are overwritten? This happens because the &lt;code&gt;plot()&lt;/code&gt; function adds the default labels and we add a new set of labels without modifying the existing ones. The solution is to instruct the &lt;code&gt;plot()&lt;/code&gt; function not to add any labels to the X and Y axis. This can be achieved using the &lt;code&gt;ann&lt;/code&gt; (annotate) argument in the &lt;code&gt;plot()&lt;/code&gt; function and set it to &lt;code&gt;FALSE&lt;/code&gt;. Let us try it:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create scatter plot
-plot(mtcars$disp, mtcars$mpg, ann = FALSE) 
-
-# add title, subtitle and axis labels
-title(main = &amp;#39;Displacement vs Miles Per Gallon&amp;#39;,
-      sub = &amp;#39;Mileage is inversely related to Displacement&amp;#39;,
-      xlab = &amp;#39;Displacement&amp;#39;, ylab = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The axis labels are legible and not overwritten. You can use either the &lt;code&gt;plot()&lt;/code&gt; function or the &lt;code&gt;title()&lt;/code&gt; function to add title, subtitle and axis labels but ensure that in case you use the &lt;code&gt;title()&lt;/code&gt; function, set &lt;code&gt;ann&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt; in the &lt;code&gt;plot()&lt;/code&gt; function.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-range&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Axis Range&lt;/h3&gt;
-&lt;p&gt;In certain cases, you would want to modify the range of the axis of the plots. By default, the &lt;code&gt;plot()&lt;/code&gt; function will take into account the &lt;code&gt;min&lt;/code&gt; and &lt;code&gt;max&lt;/code&gt; values of the variable(s) and set the range for the axis. We can modify the range by using the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments in the &lt;code&gt;plot()&lt;/code&gt; function. Both the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments take 2 values as inputes. The first value is the minimum value for the axis and the second value is the maximum value for the axis. The &lt;code&gt;plot()&lt;/code&gt; function will return an error if we do not specify two values for both &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments. Let us recreate the plot from the previous examples but change the range of both the X and Y axis:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg, 
-     xlim = c(0, 600), ylim = c(0, 50))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axisrange-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Keep in mind that the axis ranges cannot be modified using the &lt;code&gt;title()&lt;/code&gt; function.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learned how to add title, subtitle and axis labels to a plot using the &lt;code&gt;plot()&lt;/code&gt; and &lt;code&gt;title()&lt;/code&gt; function. We also learned how to modify the range of the X and Y axis using the &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; arguments within the &lt;code&gt;plot()&lt;/code&gt; function. In the next post, we will learn to create the &lt;strong&gt;scatter plot&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -1,0 +1,11 @@
+---
+title: 'Guides: Legends - Part 2'
+date: '2017-07-06'
+slug: guides-legends-part-2
+topics:
+  - data-visualization
+tags:
+  - ggplot2
+draft: yes
+---
+

@@ -9,6 +9,11 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the 13th post in the series **Elegant Data Visualization with ggplot2**. In the previos [post](https://rsquaredacademy.github.io/blog/post/guides-axes/), we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.
+
+
 ```{r leg1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
 library(dplyr)
@@ -21,30 +26,180 @@ Now that we have learnt to build different plots, let us look at different ways 
 - `scale_*()` family of functions 
 - `guides()`
 - `guide_legend()` and `guide_colorbar()`
-- `theme()`
 
 Let us start with `scale_*()` family of functions.
 
-- `scale_x_continuous()`: modify x axis
+- `scale_alpha_continuous()`
 
-The first function we will explore is `scale_x_continuous()`. It can be used for:
+If you have mapped alpha to a continuous variable, use `scale_alpha_continuous()` to modify it. Let us create  a simple scatter plot and map alpha to a continuous variable.
 
-- axis title
-- axis labels
-- axis limits
-- axis breaks
-- and axis position
+```{r leg2}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = 'blue')
+```
 
-Let us recreate the scatter plot for visualizing the relationship between number of pages visited
-and time spent on site and then use `scale_x_continuous()` to modify the X axis.
+```{r leg3}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = 'blue') +
+  scale_alpha_continuous("Horsepower",
+                         breaks = c(0, 100, 200, 300, 400),
+                         limits = c(0, 400),
+                         labels = c("Zero", "Hundred", "2 Hundred", 
+                                    "3 Hundred", "4 Hundred"),
+                         range = c(0.4, 0.8))
+```
 
-
-- `scale_y_continuous()`: modify y axis
-- `scale_alpha_continuous()`:
 - `scale_alpha_discrete()`:
+
+If you have mapped alpha to a discrete variable, use `scale_alpha_discrete()` to modify it. Let us create  a simple scatter plot and map alpha to a discrete variable.
+
+```{r leg4}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = 'blue')
+```
+
+```{r leg5}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = 'blue') +
+  scale_alpha_discrete(name = "Cylinders",
+                       breaks = c("4", "6", "8"),
+                       labels = c("Four", "Six", "Eight"),
+                       range = c(0.4, 0.8))
+```
+
 - `scale_color_manual()`:
-- `scale_shape_manual()`:
-- `scale_size_manual()`:
-- `scale_alpha_manual()`:
+
+If you have mapped color to a discrete variable, use `scale_color_manual()` to modify it. Let us create  a simple scatter plot and map color to a discrete variable.
+
+```{r leg6}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl)))
+```
+
+```{r leg7}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(name = "Cylinders",
+                     values = c("red", "blue", "green"),
+                     labels = c('Four', 'Six', 'Eight'),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = "legend")
+```
+
+- `scale_fill_manual()`:
+
+If you have mapped fill to a discrete variable, use `scale_fill_manual()` to modify it. Let us create  a simple scatter plot and map fill to a discrete variable.
+
+```{r leg8}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22)
+```
+
+```{r leg9}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(name = "Cylinders",
+                     values = c("red", "blue", "green"),
+                     labels = c('Four', 'Six', 'Eight'),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = "legend")
+```
+
+
+- `scale_shape_manual()`
+
+If you have mapped shape to a discrete variable, use `scale_shape_manual()` to modify it. Let us create  a simple scatter plot and map shape to a discrete variable.
+
+```{r leg10}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl)))
+```
+
+```{r leg11}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape_manual(name = "Cylinders",
+                    values = c(4, 12, 24),
+                    labels = c('Four', 'Six', 'Eight'),
+                    limits = c(4, 6, 8),
+                    breaks = c(4, 6, 8),
+                    guide = "legend")
+```
+
+- `scale_size_manual()`
+
+If you have mapped size to a discrete variable, use `scale_size_manual()` to modify it. Let us create  a simple scatter plot and map size to a discrete variable.
+
+```{r leg12}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp))
+```
+
+```{r leg13}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp)) +
+  scale_size_continuous(name = "Horsepower",
+                        range = c(3, 6),
+                        limits = c(0, 400),
+                        breaks = c(100, 200, 300, 400),
+                        labels = c("Hundred", "2 Hundred",
+                                   "3 Hundred", "4 Hundred"))
+```
+
+- `scale_alpha_manual()`
+
+If you have mapped alpha to a discrete variable, use `scale_alpha_manual()` to modify it. Let us create  a simple scatter plot and map alpha to a discrete variable.
+
+```{r leg14}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = 'blue')
+```
+
+```{r leg15}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = 'blue') +
+  scale_alpha_manual(name = "Cylinders",
+                     values = c(0.4, 0.6, 0.8),
+                     labels = c('Four', 'Six', 'Eight'),
+                     limits = c(4, 6, 8),
+                     breaks = c(4, 6, 8),
+                     guide = "legend")
+```
+
 - `scale_shape()`: maps discrete variable to six shapes
+
+If you have mapped shape to a discrete variable, use `scale_shape()` to modify it. Let us create  a simple scatter plot and map shape to a discrete variable.
+
+```{r leg16}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape()
+```
+
+```{r leg17}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl))) +
+  scale_shape(solid = FALSE,
+              name = 'Cylinders',
+              labels = c('Four', 'Six', 'Eight'),
+              limits = c(4, 6, 8),
+              breaks = c(4, 6, 8))
+```
+
 - `scale_size()`: maps discrete variable to six sizes
+
+If you have mapped size to a discrete variable, use `scale_size()` to modify it. Let us create  a simple scatter plot and map size to a discrete variable.
+
+```{r leg18}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp))
+
+```
+
+```{r leg19}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp)) +
+  scale_size(name = "Horsepower")
+```

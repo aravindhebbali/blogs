@@ -663,7 +663,7 @@
 ## 
 ## Coefficients:
 ## (Intercept)      n_pages  
-##      0.2199      19.9210&lt;/code&gt;&lt;/pre&gt;
+##     404.803       -8.355&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
   geom_point(position = &amp;#39;jitter&amp;#39;) +
   geom_abline(slope = 19.9210, intercept = 0.2199)&lt;/code&gt;&lt;/pre&gt;

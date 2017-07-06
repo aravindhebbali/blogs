@@ -1,0 +1,43 @@
+---
+title: Guides - Axes
+date: '2017-07-06'
+slug: guides-axes
+topics:
+  - data-visualization
+tags:
+  - ggplot2
+draft: yes
+---
+
+Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:
+
+- `scale_*()` family of functions 
+- `guides()`
+- `guide_legend()` and `guide_colorbar()`
+- `theme()`
+
+Let us start with `scale_*()` family of functions.
+
+- `scale_x_continuous()`: modify x axis
+
+The first function we will explore is `scale_x_continuous()`. It can be used for:
+
+- axis title
+- axis labels
+- axis limits
+- axis breaks
+- and axis position
+
+Let us recreate the scatter plot for visualizing the relationship between number of pages visited
+and time spent on site and then use `scale_x_continuous()` to modify the X axis.
+
+
+- `scale_y_continuous()`: modify y axis
+- `scale_alpha_continuous()`:
+- `scale_alpha_discrete()`:
+- `scale_color_manual()`:
+- `scale_shape_manual()`:
+- `scale_size_manual()`:
+- `scale_alpha_manual()`:
+- `scale_shape()`: maps discrete variable to six shapes
+- `scale_size()`: maps discrete variable to six sizes

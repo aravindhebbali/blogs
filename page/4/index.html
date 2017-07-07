@@ -470,8 +470,9 @@ ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggp
   </header>
 
   <p>
-  This is the last post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to combine multiple plots. In this post, we will learn about themes.
-Classic Dark on Lightggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_bw()Default Grayggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_gray()Lightggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_light()Minimalggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_minimal()Darkggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_dark()Classicggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_classic()Void (Empty)ggplot(mtcars) +geom_point(aes(disp, mpg)) +theme_void()SummaryIn this post, we learnt about the different themes available in ggplot2.
+  This is the last post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to combine multiple plots. In this post, we will learn to
+modify theme componentsuse different themesUse theme() to modify the appearance of all non data components of the plot.
+thememodify components of a plotp &lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))# modify X axis titlep + theme(axis.
   </p>
 
   

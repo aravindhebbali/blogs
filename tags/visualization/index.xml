@@ -92,55 +92,196 @@
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-themes/</guid>
-      <description>&lt;p&gt;This is the last post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets-combine-multiple-plots/&#34;&gt;post&lt;/a&gt;, we learnt to combine multiple plots. In this post, we will learn about themes.&lt;/p&gt;
-&lt;div id=&#34;classic-dark-on-light&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Classic Dark on Light&lt;/h2&gt;
+      <description>&lt;p&gt;This is the last post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we learnt to combine multiple plots. In this post, we will learn to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;modify theme components&lt;/li&gt;
+&lt;li&gt;use different themes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use &lt;code&gt;theme()&lt;/code&gt; to modify the appearance of all non data components of the plot.&lt;/p&gt;
+&lt;div id=&#34;theme&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;theme&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-components-of-a-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;modify components of a plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis title
+p + theme(axis.title.x = element_text(
+  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis text
+p + theme(axis.text.x = element_text(
+  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify both axis text
+p + theme(axis.text = element_text(
+  color = &amp;quot;red&amp;quot;, size = 10, face = &amp;quot;italic&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify axis ticks
+p + theme(
+  axis.ticks = element_line(
+    color = &amp;#39;blue&amp;#39;,
+    size = 1.25,
+    linetype = 2
+  ),
+  axis.ticks.length = unit(1, &amp;quot;cm&amp;quot;)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-axis-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;modify axis line&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  axis.line = element_line(
+    color = &amp;#39;red&amp;#39;,
+    size = 1.5, 
+    linetype = 3
+  )
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-legend&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;modify legend&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl), shape = factor(gear)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  legend.background = element_rect(
+    fill = &amp;#39;gray&amp;#39;, 
+    linetype = 2, 
+    color = &amp;quot;red&amp;quot;
+  ),
+  legend.margin = margin(4, 8, 4, 8),
+  legend.spacing = unit(1.5, &amp;quot;cm&amp;quot;),
+  legend.key = element_rect(fill = &amp;#39;red&amp;#39;),
+  legend.key.size = unit(0.4, &amp;quot;cm&amp;quot;),
+  legend.text = element_text(color = &amp;#39;green&amp;#39;, face = &amp;#39;italic&amp;#39;),
+  legend.title = element_text(color = &amp;#39;blue&amp;#39;, face = &amp;#39;bold&amp;#39;),
+  legend.title.align = 0.1,
+  legend.position = &amp;quot;top&amp;quot;,
+  legend.direction = &amp;quot;horizontal&amp;quot;,
+  legend.box = &amp;quot;horizontal&amp;quot;,
+  legend.box.background = element_rect(fill = &amp;quot;yellow&amp;quot;),
+  legend.box.spacing = unit(1, &amp;quot;cm&amp;quot;),
+  legend.box.margin = margin(4, 8, 4, 8),
+  legend.box.just = &amp;quot;left&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-panel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;modify panel&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  panel.background = element_rect(fill = &amp;#39;gray&amp;#39;),
+  panel.border = element_rect(
+    fill = NA, 
+    color = &amp;#39;red&amp;#39;, 
+    linetype = 1,
+    size = 2
+  ),
+  panel.grid = element_line(
+    color = &amp;#39;blue&amp;#39;,
+    linetype = 2,
+    size = 0.5
+  )
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  panel.grid.major.x = element_line(
+    color = &amp;#39;blue&amp;#39;,
+    linetype = 2,
+    size = 0.5
+  ),
+  panel.grid.minor.y = element_line(
+    color = &amp;#39;red&amp;#39;,
+    linetype = 3, 
+    size = 0.2
+  )
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-plot-area&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;modify plot area&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) + 
+  ggtitle(&amp;#39;Theme Modification&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  plot.background = element_rect(
+    color = &amp;#39;blue&amp;#39;,
+    fill = &amp;#39;#4682B4&amp;#39;
+  ),
+  plot.title = element_text(color = &amp;#39;red&amp;#39;),
+  plot.margin = unit(c(1, 1, 1, 1), &amp;quot;cm&amp;quot;)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;modify-facets&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;modify facets&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) + 
+  facet_grid(~cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
+  strip.background = element_rect(
+    color = &amp;#39;red&amp;#39;,
+    fill = &amp;#39;#4682B4&amp;#39;
+  ),
+  strip.text = element_text(
+    face = &amp;#39;italic&amp;#39;,
+    size = 8, 
+    color = &amp;#39;red&amp;#39;
+  )
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;classic-dark-on-light&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Classic Dark on Light&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;default-gray&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Default Gray&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_gray()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;light&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Light&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_light()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;minimal&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Minimal&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dark&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Dark&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_dark()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;classic&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Classic&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;void-empty&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Void (Empty)&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_void()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/facet7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Summary&lt;/h2&gt;

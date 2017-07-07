@@ -195,11 +195,184 @@ If you have mapped size to a discrete variable, use `scale_size()` to modify it.
 ```{r leg18}
 ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp))
-
 ```
 
 ```{r leg19}
 ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
   scale_size(name = "Horsepower")
+```
+
+## Guides
+
+```{r leg20}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(values = c("red", "blue", "green"),
+                      guide = guide_legend(
+                       title = "Cylinders",
+                       title.hjust = 0.5,
+                       title.position = "top",
+                       label.position = "right",
+                       direction = "horizontal",
+                       label.hjust = 0.5,
+                       nrow = 2,
+                       reverse = TRUE
+                      )
+  )
+```
+
+```{r leg21}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_discrete(guide = guide_legend(
+                        title = "Cylinders",
+                        title.hjust = 0.5,
+                        title.position = "top",
+                        label.position = "right",
+                        direction = "horizontal",
+                        label.hjust = 0.5,
+                        nrow = 2,
+                        reverse = TRUE
+                        )
+  )
+```
+
+
+```{r leg22}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp)) +
+  scale_color_continuous(guide = guide_colorbar(
+    title = "Horsepower",
+    title.position = "top",
+    title.vjust = 1,
+    label.position = "bottom",
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = "horizontal",
+    reverse = TRUE
+  ))
+```
+
+```{r leg23}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_continuous(guide = guide_colorbar(
+    title = "Horsepower",
+    title.position = "top",
+    title.vjust = 1,
+    label.position = "bottom",
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = "horizontal",
+    reverse = TRUE)
+  )
+```
+
+```{r leg24}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient2(guide = guide_colorbar(
+    title = "Horsepower",
+    title.position = "top",
+    title.vjust = 1,
+    label.position = "bottom",
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = "horizontal",
+    reverse = TRUE)
+  ) 
+```
+
+```{r leg25}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient(low = "white", high = "black", 
+    guide = guide_colorbar(
+      title = "Horsepower",
+      title.position = "top",
+      title.vjust = 1,
+      label.position = "bottom",
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = "horizontal",
+      reverse = TRUE
+    )
+  ) 
+```
+
+```{r leg26}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradientn(colors = terrain.colors(5), 
+    guide = guide_colorbar(
+      title = "Horsepower",
+      title.position = "top",
+      title.vjust = 1,
+      label.position = "bottom",
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = "horizontal",
+      reverse = TRUE
+    )
+  ) 
+```
+
+
+```{r leg27}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = qsec, 
+                 shape = factor(gear))) + 
+  guides(color = "colorbar",
+         shape = "legend",
+         size = "legend")
+```
+
+```{r leg28}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = wt, 
+                 shape = factor(gear))) + 
+  guides(
+    color = guide_colorbar(
+      title = "Horsepower"
+    ),
+    shape = guide_legend(
+      title = "Weight"
+    ),
+    size = guide_legend(
+      title = "Gear"
+    )
+  )
 ```

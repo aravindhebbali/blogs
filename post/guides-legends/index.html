@@ -434,6 +434,161 @@
   geom_point(aes(disp, mpg, size = hp)) +
   scale_size(name = &quot;Horsepower&quot;)</code></pre>
 <p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg19-1.png" width="672" /></p>
+<div id="guides" class="section level2">
+<h2>Guides</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
+                      guide = guide_legend(
+                       title = &quot;Cylinders&quot;,
+                       title.hjust = 0.5,
+                       title.position = &quot;top&quot;,
+                       label.position = &quot;right&quot;,
+                       direction = &quot;horizontal&quot;,
+                       label.hjust = 0.5,
+                       nrow = 2,
+                       reverse = TRUE
+                      )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg20-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_discrete(guide = guide_legend(
+                        title = &quot;Cylinders&quot;,
+                        title.hjust = 0.5,
+                        title.position = &quot;top&quot;,
+                        label.position = &quot;right&quot;,
+                        direction = &quot;horizontal&quot;,
+                        label.hjust = 0.5,
+                        nrow = 2,
+                        reverse = TRUE
+                        )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg21-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp)) +
+  scale_color_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE
+  ))</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg22-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg23-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient2(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg24-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;, 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg25-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradientn(colors = terrain.colors(5), 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg26-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = qsec, 
+                 shape = factor(gear))) + 
+  guides(color = &quot;colorbar&quot;,
+         shape = &quot;legend&quot;,
+         size = &quot;legend&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg27-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = wt, 
+                 shape = factor(gear))) + 
+  guides(
+    color = guide_colorbar(
+      title = &quot;Horsepower&quot;
+    ),
+    shape = guide_legend(
+      title = &quot;Weight&quot;
+    ),
+    size = guide_legend(
+      title = &quot;Gear&quot;
+    )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends_files/figure-html/leg28-1.png" width="672" /></p>
+</div>
 </div>
 
 

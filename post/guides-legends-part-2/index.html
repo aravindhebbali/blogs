@@ -287,12 +287,162 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-
+  <p>This is the 14th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previos <a href="https://rsquaredacademy.github.io/blog/post/guides-legends/">post</a>, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.</p>
+<div id="guides" class="section level2">
+<h2>Guides</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
+                      guide = guide_legend(
+                       title = &quot;Cylinders&quot;,
+                       title.hjust = 0.5,
+                       title.position = &quot;top&quot;,
+                       label.position = &quot;right&quot;,
+                       direction = &quot;horizontal&quot;,
+                       label.hjust = 0.5,
+                       nrow = 2,
+                       reverse = TRUE
+                      )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui2-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_discrete(guide = guide_legend(
+                        title = &quot;Cylinders&quot;,
+                        title.hjust = 0.5,
+                        title.position = &quot;top&quot;,
+                        label.position = &quot;right&quot;,
+                        direction = &quot;horizontal&quot;,
+                        label.hjust = 0.5,
+                        nrow = 2,
+                        reverse = TRUE
+                        )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp)) +
+  scale_color_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE
+  ))</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui4-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui5-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient2(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui6-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;, 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui7-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradientn(colors = terrain.colors(5), 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = qsec, 
+                 shape = factor(gear))) + 
+  guides(color = &quot;colorbar&quot;,
+         shape = &quot;legend&quot;,
+         size = &quot;legend&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui9-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = wt, 
+                 shape = factor(gear))) + 
+  guides(
+    color = guide_colorbar(
+      title = &quot;Horsepower&quot;
+    ),
+    shape = guide_legend(
+      title = &quot;Weight&quot;
+    ),
+    size = guide_legend(
+      title = &quot;Gear&quot;
+    )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui10-1.png" width="672" /></p>
+</div>
 
 
   

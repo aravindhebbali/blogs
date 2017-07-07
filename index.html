@@ -464,10 +464,10 @@ Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_
   </header>
 
   <p>
-  Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:
-scale_*() family of functionsguides()guide_legend() and guide_colorbar()theme()Let us start with scale_*() family of functions.
-scale_x_continuous(): modify x axisThe first function we will explore is scale_x_continuous(). It can be used for:
-axis titleaxis labelsaxis limitsaxis breaksand axis positionLet us recreate the scatter plot for visualizing the relationship between number of pages visited and time spent on site and then use scale_x_continuous() to modify the X axis.
+  IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+DodgePreserve the vertical position while adjusting the horizontal position.
+Create grouped bar plots.
+ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar(position = position_dodge(width = 1))JitterAdd some noise to data points for better visualization.
   </p>
 
   

@@ -10,3 +10,106 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the third post in the series **Data Wrangling With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/), we learnt about tibbles. In this post, we will learn to import data into R from different sources.
+
+Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats. 
+
+
+```{r imp1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(readr)
+library(readxl)
+library(haven)
+library(jsonlite)
+library(xml2)
+library(googlesheets)
+```
+
+## Flat Files
+
+## CSV
+
+CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.
+
+```{r imp2}
+# read.csv()
+```
+
+```{r imp3}
+# readr::read_csv()
+```
+
+If the separator is `;`, use `read_csv2()`.
+
+```{r imp4}
+# readr::read_csv2()
+```
+
+## TSV
+
+Tab separated values.
+
+```{r imp5}
+# readr::read_tsv()
+```
+
+## General
+
+Use `read_delim()` and specify the separator using `delim` argument.
+
+```{r imp6}
+# readr::read_delim(file_name, delim = '')
+```
+
+## Table
+
+If the columns are separated by space, use `read_table()` or `read_table2()`.
+
+```{r imp7}
+# readr::read_table()
+```
+
+```{r imp8}
+# readr::read_table2()
+```
+
+We can also specify column types while reading data from the files.
+
+```{r imp10}
+# col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time
+```
+
+## Excel
+
+You can import `.xls` or `.xlsx` files using the [readxl](http://readxl.tidyverse.org/) package.
+
+- specify the file name
+- specify the sheet 
+
+```{r imp11}
+# readxl::read_excel()
+```
+
+## Statistical Softwares
+
+You can import files from other statistical softwares such as STATA, SPSS and SAS using the [haven](http://haven.tidyverse.org/) package.
+
+### STATA Files
+
+```{r imp12}
+# haven::read_stata()
+```
+
+### SPSS Files
+
+```{r imp13}
+# haven::read_spss()
+```
+
+### SAS Files
+
+```{r imp14}
+# haven::read_sas()
+```
+

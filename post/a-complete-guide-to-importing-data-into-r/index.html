@@ -294,7 +294,65 @@
 
 <!-- BLOGDOWN-BODY-BEFORE -->
 <!-- /BLOGDOWN-BODY-BEFORE -->
-
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is the third post in the series <strong>Data Wrangling With R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/">post</a>, we learnt about tibbles. In this post, we will learn to import data into R from different sources.</p>
+<p>Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.</p>
+<div id="flat-files" class="section level2">
+<h2>Flat Files</h2>
+</div>
+<div id="csv" class="section level2">
+<h2>CSV</h2>
+<p>CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.</p>
+<pre class="r"><code># read.csv()</code></pre>
+<pre class="r"><code># readr::read_csv()</code></pre>
+<p>If the separator is <code>;</code>, use <code>read_csv2()</code>.</p>
+<pre class="r"><code># readr::read_csv2()</code></pre>
+</div>
+<div id="tsv" class="section level2">
+<h2>TSV</h2>
+<p>Tab separated values.</p>
+<pre class="r"><code># readr::read_tsv()</code></pre>
+</div>
+<div id="general" class="section level2">
+<h2>General</h2>
+<p>Use <code>read_delim()</code> and specify the separator using <code>delim</code> argument.</p>
+<pre class="r"><code># readr::read_delim(file_name, delim = &#39;&#39;)</code></pre>
+</div>
+<div id="table" class="section level2">
+<h2>Table</h2>
+<p>If the columns are separated by space, use <code>read_table()</code> or <code>read_table2()</code>.</p>
+<pre class="r"><code># readr::read_table()</code></pre>
+<pre class="r"><code># readr::read_table2()</code></pre>
+<p>We can also specify column types while reading data from the files.</p>
+<pre class="r"><code># col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time</code></pre>
+</div>
+<div id="excel" class="section level2">
+<h2>Excel</h2>
+<p>You can import <code>.xls</code> or <code>.xlsx</code> files using the <a href="http://readxl.tidyverse.org/">readxl</a> package.</p>
+<ul>
+<li>specify the file name</li>
+<li>specify the sheet</li>
+</ul>
+<pre class="r"><code># readxl::read_excel()</code></pre>
+</div>
+<div id="statistical-softwares" class="section level2">
+<h2>Statistical Softwares</h2>
+<p>You can import files from other statistical softwares such as STATA, SPSS and SAS using the <a href="http://haven.tidyverse.org/">haven</a> package.</p>
+<div id="stata-files" class="section level3">
+<h3>STATA Files</h3>
+<pre class="r"><code># haven::read_stata()</code></pre>
+</div>
+<div id="spss-files" class="section level3">
+<h3>SPSS Files</h3>
+<pre class="r"><code># haven::read_spss()</code></pre>
+</div>
+<div id="sas-files" class="section level3">
+<h3>SAS Files</h3>
+<pre class="r"><code># haven::read_sas()</code></pre>
+</div>
+</div>
+</div>
 
 
   

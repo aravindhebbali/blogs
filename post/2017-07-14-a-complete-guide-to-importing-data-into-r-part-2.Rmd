@@ -1,0 +1,76 @@
+---
+title: A Complete Guide to Importing Data into R - Part 2
+date: '2017-07-14'
+slug: a-complete-guide-to-importing-data-into-r-part-2
+topics:
+  - data-wrangling
+tags:
+  - import
+draft: yes
+---
+
+## JSON
+
+A lot of API data is available in the JSON format. You can use the [jsonlite](https://cran.r-project.org/package=jsonlite) package to import JSON data into R.
+
+```{r imp8}
+# jsonlite::fromJSON()
+```
+
+## XML
+
+Some APIs offer data in the XML format. Use the [xml2](https://cran.r-project.org/package=xml2) package to import XML data into R.
+
+```{r imp9}
+# x <- read_xml('sample_xml')
+
+# xml_name(x)
+# xml_text(x)
+# xml_attrs(x)
+# xml_children(x)
+# baz <- xml2::xml_find_all(x, './/book')
+# xml_path(baz)
+# xml_attr(baz, "id")
+# xml_structure(x)
+# as_list(x)
+# 
+# library(XML)
+# xmlToDataFrame(x, c("character", "character", "character", "numeric", 
+#                     "character", "character"))
+# 
+# cd <- read_xml("http://www.xmlfiles.com/examples/cd_catalog.xml")
+```
+
+## HTML
+
+```{r imp10}
+# xml2::read_html()
+```
+
+## Google Sheets
+
+You can import data from Google Sheets using the [googlesheets]() pacakge.
+
+```{r imp 11}
+# mysheets <- gs_ls()
+# mysheets %>% glimpse()
+# 
+# # practice sheets
+# gs_gap() %>%
+#     gs_copy(to = "Gapminder")
+# gs_ls('Gapminder')
+# 
+# # register sheet
+# gap <- gs_title('Gapminder')
+# gap
+# 
+# # get worksheet names
+# gs_ws_ls(gap)
+# 
+# # read data in one worksheet
+# oceania <- gap %>%
+#     gs_read(ws = "Oceania")
+# 
+# # read certain cells
+# gap %>% gs_read(ws = 2, range = "A1:D8")
+```

@@ -10,6 +10,97 @@
     <atom:link href="/tags/import/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>A Complete Guide to Importing Data into R - Part 2</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r-part-2/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r-part-2/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;json&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;JSON&lt;/h2&gt;
+&lt;p&gt;A lot of API data is available in the JSON format. You can use the &lt;a href=&#34;https://cran.r-project.org/package=jsonlite&#34;&gt;jsonlite&lt;/a&gt; package to import JSON data into R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jsonlite::fromJSON()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;xml&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;XML&lt;/h2&gt;
+&lt;p&gt;Some APIs offer data in the XML format. Use the &lt;a href=&#34;https://cran.r-project.org/package=xml2&#34;&gt;xml2&lt;/a&gt; package to import XML data into R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# x &amp;lt;- read_xml(&amp;#39;sample_xml&amp;#39;)
+
+# xml_name(x)
+# xml_text(x)
+# xml_attrs(x)
+# xml_children(x)
+# baz &amp;lt;- xml2::xml_find_all(x, &amp;#39;.//book&amp;#39;)
+# xml_path(baz)
+# xml_attr(baz, &amp;quot;id&amp;quot;)
+# xml_structure(x)
+# as_list(x)
+# 
+# library(XML)
+# xmlToDataFrame(x, c(&amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;, &amp;quot;numeric&amp;quot;, 
+#                     &amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;))
+# 
+# cd &amp;lt;- read_xml(&amp;quot;http://www.xmlfiles.com/examples/cd_catalog.xml&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;html&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# xml2::read_html()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;google-sheets&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Google Sheets&lt;/h2&gt;
+&lt;p&gt;You can import data from Google Sheets using the &lt;a href=&#34;&#34;&gt;googlesheets&lt;/a&gt; pacakge.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mysheets &amp;lt;- gs_ls()
+# mysheets %&amp;gt;% glimpse()
+# 
+# # practice sheets
+# gs_gap() %&amp;gt;%
+#     gs_copy(to = &amp;quot;Gapminder&amp;quot;)
+# gs_ls(&amp;#39;Gapminder&amp;#39;)
+# 
+# # register sheet
+# gap &amp;lt;- gs_title(&amp;#39;Gapminder&amp;#39;)
+# gap
+# 
+# # get worksheet names
+# gs_ws_ls(gap)
+# 
+# # read data in one worksheet
+# oceania &amp;lt;- gap %&amp;gt;%
+#     gs_read(ws = &amp;quot;Oceania&amp;quot;)
+# 
+# # read certain cells
+# gap %&amp;gt;% gs_read(ws = 2, range = &amp;quot;A1:D8&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Complete Guide to Importing Data into R - Part 3</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r-part-3/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r-part-3/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Files&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_file()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lines&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Lines&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_lines()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Quick Guide: R &amp; SQLite</title>
       <link>/post/quick-guide-r-sqlite/</link>
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
@@ -35,7 +126,65 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the third post in the series &lt;strong&gt;Data Wrangling With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/&#34;&gt;post&lt;/a&gt;, we learnt about tibbles. In this post, we will learn to import data into R from different sources.&lt;/p&gt;
+&lt;p&gt;Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.&lt;/p&gt;
+&lt;div id=&#34;flat-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Flat Files&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;csv&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;CSV&lt;/h2&gt;
+&lt;p&gt;CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read.csv()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_csv()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the separator is &lt;code&gt;;&lt;/code&gt;, use &lt;code&gt;read_csv2()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_csv2()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tsv&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;TSV&lt;/h2&gt;
+&lt;p&gt;Tab separated values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_tsv()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;general&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;General&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;read_delim()&lt;/code&gt; and specify the separator using &lt;code&gt;delim&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_delim(file_name, delim = &amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;table&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Table&lt;/h2&gt;
+&lt;p&gt;If the columns are separated by space, use &lt;code&gt;read_table()&lt;/code&gt; or &lt;code&gt;read_table2()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_table2()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also specify column types while reading data from the files.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;excel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Excel&lt;/h2&gt;
+&lt;p&gt;You can import &lt;code&gt;.xls&lt;/code&gt; or &lt;code&gt;.xlsx&lt;/code&gt; files using the &lt;a href=&#34;http://readxl.tidyverse.org/&#34;&gt;readxl&lt;/a&gt; package.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;specify the file name&lt;/li&gt;
+&lt;li&gt;specify the sheet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readxl::read_excel()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-softwares&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistical Softwares&lt;/h2&gt;
+&lt;p&gt;You can import files from other statistical softwares such as STATA, SPSS and SAS using the &lt;a href=&#34;http://haven.tidyverse.org/&#34;&gt;haven&lt;/a&gt; package.&lt;/p&gt;
+&lt;div id=&#34;stata-files&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;STATA Files&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_stata()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;spss-files&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SPSS Files&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_spss()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sas-files&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SAS Files&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_sas()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

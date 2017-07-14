@@ -261,6 +261,110 @@
   
     <article>
   <header>
+    <h2><a href="./post/a-complete-guide-to-importing-data-into-r-part-2/">A Complete Guide to Importing Data into R - Part 2</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>14 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="./topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="./tags/import">import</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  JSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.
+# jsonlite::fromJSON()XMLSome APIs offer data in the XML format. Use the xml2 package to import XML data into R.
+# x &lt;- read_xml(&#39;sample_xml&#39;)# xml_name(x)# xml_text(x)# xml_attrs(x)# xml_children(x)# baz &lt;- xml2::xml_find_all(x, &#39;.//book&#39;)# xml_path(baz)# xml_attr(baz, &quot;id&quot;)# xml_structure(x)# as_list(x)# # library(XML)# xmlToDataFrame(x, c(&quot;character&quot;, &quot;character&quot;, &quot;character&quot;, &quot;numeric&quot;, # &quot;character&quot;, &quot;character&quot;))# # cd &lt;- read_xml(&quot;http://www.
+  </p>
+
+  
+  <footer>
+    <a href="./post/a-complete-guide-to-importing-data-into-r-part-2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="./post/a-complete-guide-to-importing-data-into-r-part-3/">A Complete Guide to Importing Data into R - Part 3</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>14 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="./topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="./tags/import">import</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Files# readr::read_file()Lines# readr::read_lines()
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="./post/guides-axes/">Guides - Axes</a></h2>
 
     <div class="post-meta">
@@ -686,114 +790,6 @@ As we did in the earlier posts in this series, we will use a case study to explo
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="./post/data-manipulation-in-r-with-dplyr-part-3/">Data Manipulation in R with dplyr - Part 3</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>28 May 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="./topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="./tags/dplyr">dplyr</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionIn the previous post, we learnt how to combine tables using the *_join() family of functions in dplyr. In this post, we will explore a set of helper functions in order to:
-extract unique rowsrename columnssample dataextract columnsslice rowsarrange rowscompare tablesextract/mutate data using predicate functionscount observations for different levels of a variableCase StudyLet us look at a case study (e-commerce data) and see how we can use dplyr helper functions to answer questions we have about and to modify/transform the underlying data set.
-  </p>
-
-  
-  <footer>
-    <a href="./post/data-manipulation-in-r-with-dplyr-part-3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="./post/data-manipulation-in-r-with-dplyr-part-2/">Data Manipulation in R with dplyr - Part 2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>22 May 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="./topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="./tags/dplyr">dplyr</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionIn a previous post, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different join functions provided in dplyr. Let us assume we have 2 tables X and y. Below are the different types of join functions provided in dplyr.
-inner_join(): return all rows from x where there are matching values in y, and all columns from x and y.
-  </p>
-
-  
-  <footer>
-    <a href="./post/data-manipulation-in-r-with-dplyr-part-2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -802,7 +798,7 @@ As we did in the earlier posts in this series, we will use a case study to explo
   
   <i class="fa fa-chevron-left"></i>
   
-  <span>&nbsp;1 / 7&nbsp;</span>
+  <span>&nbsp;1 / 8&nbsp;</span>
   
   <a href="./page/2/"><i class="fa fa-chevron-right"></i></a>
   

@@ -261,6 +261,115 @@
   
     <article>
   <header>
+    <h2><a href="../../post/ggplot2-bar-plots/">ggplot2: Bar Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>07 Apr 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &#39;white&#39;, color = &#39;red&#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &#39;white&#39;, color = &#39;red&#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &#39;dodge&#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/ggplot2-line-graphs/">ggplot2: Line Graphs</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Mar 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to build line plots.
+Basic Line PlotWe will use a data set related to GDP growth rate. You can download it from here. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-line-graphs/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/ggplot2-scatter-plots/">ggplot2: Scatter Plots</a></h2>
 
     <div class="post-meta">
@@ -708,99 +817,6 @@ IntroductionThere are occassions when you want to display additional informatio
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-legends/">Data Visualization with R - Legends</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>25 Nov 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-
-  </header>
-
-  <p>
-  This is the eighth post in the series Data Visualisation With R. In the previous post, we learnt to build histograms. In this post, we will learn how to add a legend to a plot in R.
-IntroductionLegends are used to convey information about the data being represented by a plot. To understand the importance of legends, let us look at the two plots below. In the first plot, would you be able to understand what the lines represent in the absence of a legend?
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-legends/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-histogram/">Data Visualization with R - Histogram</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Nov 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/histogram">histogram</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
-IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-histogram/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -809,7 +825,7 @@ IntroductionA histogram is a plot that can be used to examine the shape and spr
   
   <a href="../../page/4/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;5 / 7&nbsp;</span>
+  <span>&nbsp;5 / 8&nbsp;</span>
   
   <a href="../../page/6/"><i class="fa fa-chevron-right"></i></a>
   

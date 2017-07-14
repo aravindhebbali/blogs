@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/post/a-complete-guide-to-importing-data-into-r-part-2/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/a-complete-guide-to-importing-data-into-r-part-3/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/guides-axes/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
@@ -422,7 +432,7 @@
   
   <url>
     <loc>/topics/data-wrangling/</loc>
-    <lastmod>2017-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -530,7 +540,7 @@
   
   <url>
     <loc>/tags/import/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -626,7 +636,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -674,7 +684,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -261,6 +261,114 @@
   
     <article>
   <header>
+    <h2><a href="../../post/data-manipulation-in-r-with-dplyr-part-3/">Data Manipulation in R with dplyr - Part 3</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 May 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/dplyr">dplyr</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionIn the previous post, we learnt how to combine tables using the *_join() family of functions in dplyr. In this post, we will explore a set of helper functions in order to:
+extract unique rowsrename columnssample dataextract columnsslice rowsarrange rowscompare tablesextract/mutate data using predicate functionscount observations for different levels of a variableCase StudyLet us look at a case study (e-commerce data) and see how we can use dplyr helper functions to answer questions we have about and to modify/transform the underlying data set.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-manipulation-in-r-with-dplyr-part-3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/data-manipulation-in-r-with-dplyr-part-2/">Data Manipulation in R with dplyr - Part 2</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 May 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/dplyr">dplyr</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionIn a previous post, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different join functions provided in dplyr. Let us assume we have 2 tables X and y. Below are the different types of join functions provided in dplyr.
+inner_join(): return all rows from x where there are matching values in y, and all columns from x and y.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/data-manipulation-in-r-with-dplyr-part-2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/forcats-working-with-factor-data-in-r/">forcats: Working with factor data in R</a></h2>
 
     <div class="post-meta">
@@ -684,118 +792,6 @@ Why dplyr?dplyr helps us solve the most common data manipulation challenges suc
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="../../post/quick-guide-r-sqlite/">Quick Guide: R &amp; SQLite</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>05 Feb 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/sqlite">sqlite</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/rsqlite">rsqlite</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/database">database</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/import">import</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/rmysql-for-beginners/">RMySQL for Beginners</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>23 Jan 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/mysql">mysql</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/rmysql">rmysql</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/database">database</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  ObjectivesInstall and load RMySQL packageConnect to a MySQL database from RDisplay database informationList tables in the databaseCreate new tableImport data into R for analysisExport data from R into MySQLRemove tables and disconnectIntroductionIn real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/rmysql-for-beginners/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -804,7 +800,7 @@ Why dplyr?dplyr helps us solve the most common data manipulation challenges suc
   
   <a href="../../"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;2 / 7&nbsp;</span>
+  <span>&nbsp;2 / 8&nbsp;</span>
   
   <a href="../../page/3/"><i class="fa fa-chevron-right"></i></a>
   

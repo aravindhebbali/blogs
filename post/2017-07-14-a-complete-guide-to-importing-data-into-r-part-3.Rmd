@@ -1,0 +1,22 @@
+---
+title: A Complete Guide to Importing Data into R - Part 3
+date: '2017-07-14'
+slug: a-complete-guide-to-importing-data-into-r-part-3
+topics:
+  - data-wrangling
+tags:
+  - import
+draft: yes
+---
+
+## Files
+
+```{r scan1}
+# readr::read_file()
+```
+
+## Lines
+
+```{r scan2}
+# readr::read_lines()
+```

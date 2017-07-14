@@ -261,6 +261,270 @@
   
     <article>
   <header>
+    <h2><a href="../../post/overlapping/">Overlapping</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+DodgePreserve the vertical position while adjusting the horizontal position.
+Create grouped bar plots.
+ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar(position = position_dodge(width = 1))JitterAdd some noise to data points for better visualization.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/overlapping/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/axis-plot-labels/">Axis &amp; Plot Labels</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will learn to:
+add title and subtitle to the plotmodify axis labelsmodify axis rangeremove axisformat axisBasic PlotLet us start by building a simple scatter plot.
+ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp; SubtitleYou can add a title and subtitle to the plot using the ggtitle() function.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/axis-plot-labels/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/guides/">Guides</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &#39;gear&#39;, title.position = &#39;bottom&#39;, title.hjust = 0.5,label.position = &#39;top&#39;, direction = &#39;horizontal&#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/why-you-should-purrr-part-2/">Why you should purrr - Part 2</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Jun 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/purrr">purrr</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/why-you-should-purrr-part-1/">Why you should purrr?</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Jun 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/purrr">purrr</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This is the 10th post in the series Data Wrangling with R. In the previous post, we learnt helper functions in dplyr package. In this post, we will learn about purrr, an R package that enhances R’s functional programming toolkit. Let us begin by installing and loading purrr and a set of other pacakges we will be using.
+As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/why-you-should-purrr-part-1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/data-manipulation-in-r-with-dplyr-part-3/">Data Manipulation in R with dplyr - Part 3</a></h2>
 
     <div class="post-meta">
@@ -513,280 +777,6 @@ We will use a case study to explore the various features of the forcats package.
   
   <footer>
     <a href="../../post/introduction-to-tibbles/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/getting-started-with-tidyverse/">Getting started with tidyverse</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Apr 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/tidyverse">tidyverse</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  This is the first post in the series Data Wrangling with R. In this series, we will look at the challenges faced when working with data of different types coming from different sources and explore tools available in R to overcome such challenges.
-IntroductionThe tidyverse is a collection of R packages that share a common underlying philosophy and are designed to work together. They share common data representations and API design.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/getting-started-with-tidyverse/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/working-with-strings-in-r-using-stringr/">Working with strings in R using stringr</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>23 Mar 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/strings">strings</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/stringr">stringr</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the 11th post in the series Data Wrangling with R. In the previous post, we learnt to manipulate date and time using the lubridate package. In this post, we will learn to work with string data in R using stringr. Let us begin by installing and loading stringr and a set of other pacakges we will be using.
-As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/working-with-strings-in-r-using-stringr/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/how-to-work-with-dates-in-r/">How to work with dates in R</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>09 Mar 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/lubridate">lubridate</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the 5th post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
-Quick OverviewUse origin to get the origin for the Date and other date/time objects in R.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/how-to-work-with-dates-in-r/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-manipulation-in-r-with-dplyr-part-1/">Data Manipulation in R with dplyr - Part 1</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>18 Feb 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/dplyr">dplyr</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionAccording to a survey by CrowdFlower, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today’s post, we introduce you to dplyr, a grammar of data manipulation.
-Why dplyr?dplyr helps us solve the most common data manipulation challenges such as filtering rows, selecting columns, sorting data, creating new columns, summarizing data etc.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-manipulation-in-r-with-dplyr-part-1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/readable-code-with-pipes/">Readable Code with Pipes</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>14 Feb 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/pipes">pipes</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/magrittr">magrittr</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionWhen you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The magrittr package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.
-especially useful when you have nested functionssimilar in spirit to javascript’s method chainingfunctions taking multiple arguments can be confusing and messy to readwith magrittr, you program from left to rightR being a functional language, code contains a lot of parentheses.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/readable-code-with-pipes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

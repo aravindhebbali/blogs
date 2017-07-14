@@ -12,6 +12,31 @@
   </url>
   
   <url>
+    <loc>/post/blogs/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/books/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/package-website/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/presentations/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/websites/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/guides-axes/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
@@ -635,6 +660,12 @@
   </url>
   
   <url>
+    <loc>/tags/pkgdown/</loc>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
     <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -660,13 +691,13 @@
   
   <url>
     <loc>/tags/rmarkdown/</loc>
-    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/topics/rmarkdown/</loc>
-    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

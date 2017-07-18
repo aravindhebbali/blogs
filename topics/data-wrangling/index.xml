@@ -10,6 +10,21 @@
     <atom:link href="/topics/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Data Wrangling with dbplyr</title>
+      <link>/post/data-wrangling-with-dbplyr/</link>
+      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-wrangling-with-dbplyr/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>A Complete Guide to Importing Data into R - Part 2</title>
       <link>/post/a-complete-guide-to-importing-data-into-r-part-2/</link>
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
@@ -89,6 +104,11 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/tXSoThF.png&#34; alt=&#34;Twitter&#34; /&gt; &lt;img src=&#34;http://i.imgur.com/P3YfQoD.png&#34; alt=&#34;Facebook&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;twitter.png&#34; alt=&#34;Try Image&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Try Image&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Files&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_file()&lt;/code&gt;&lt;/pre&gt;
@@ -1677,6 +1697,21 @@ column_to_rownames(mtcars_tbl)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;This is the 11th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/how-to-work-with-dates-in-r/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate date and time using the &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt; package. In this post, we will learn to work with string data in R using &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;stringr&lt;/a&gt;. Let us begin by installing and loading stringr and a set of other pacakges we will be using.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;print&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;print&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cat&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;cat&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paste&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;paste&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paste0&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;paste0()&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sprintf&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;sprintf()&lt;/h1&gt;
 &lt;p&gt;As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package. You can download the data for the case study from &lt;a href=&#34;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&#34;&gt;here&lt;/a&gt; or directly import the data using the readr package.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mockstring &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&amp;#39;)
 mockstring&lt;/code&gt;&lt;/pre&gt;
@@ -2861,79 +2896,6 @@ dbDataType(RMySQL::MySQL(), 1.5)
 # 8   8 h
 # 9   9 i
 # 10 10 j&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A complete guide to importing data into R</title>
-      <link>/post/a-complete-guide-to-importing-data-into-r/</link>
-      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/a-complete-guide-to-importing-data-into-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the third post in the series &lt;strong&gt;Data Wrangling With R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/&#34;&gt;post&lt;/a&gt;, we learnt about tibbles. In this post, we will learn to import data into R from different sources.&lt;/p&gt;
-&lt;p&gt;Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.&lt;/p&gt;
-&lt;div id=&#34;flat-files&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Flat Files&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&#34;csv&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;CSV&lt;/h2&gt;
-&lt;p&gt;CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read.csv()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_csv()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If the separator is &lt;code&gt;;&lt;/code&gt;, use &lt;code&gt;read_csv2()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_csv2()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;tsv&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;TSV&lt;/h2&gt;
-&lt;p&gt;Tab separated values.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_tsv()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;general&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;General&lt;/h2&gt;
-&lt;p&gt;Use &lt;code&gt;read_delim()&lt;/code&gt; and specify the separator using &lt;code&gt;delim&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_delim(file_name, delim = &amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;table&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Table&lt;/h2&gt;
-&lt;p&gt;If the columns are separated by space, use &lt;code&gt;read_table()&lt;/code&gt; or &lt;code&gt;read_table2()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_table()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_table2()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also specify column types while reading data from the files.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;excel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Excel&lt;/h2&gt;
-&lt;p&gt;You can import &lt;code&gt;.xls&lt;/code&gt; or &lt;code&gt;.xlsx&lt;/code&gt; files using the &lt;a href=&#34;http://readxl.tidyverse.org/&#34;&gt;readxl&lt;/a&gt; package.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;specify the file name&lt;/li&gt;
-&lt;li&gt;specify the sheet&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readxl::read_excel()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;statistical-softwares&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Statistical Softwares&lt;/h2&gt;
-&lt;p&gt;You can import files from other statistical softwares such as STATA, SPSS and SAS using the &lt;a href=&#34;http://haven.tidyverse.org/&#34;&gt;haven&lt;/a&gt; package.&lt;/p&gt;
-&lt;div id=&#34;stata-files&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;STATA Files&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_stata()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;spss-files&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;SPSS Files&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_spss()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;sas-files&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;SAS Files&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# haven::read_sas()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

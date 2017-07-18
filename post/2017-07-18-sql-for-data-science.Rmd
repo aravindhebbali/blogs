@@ -1,0 +1,11 @@
+---
+title: SQL for Data Science
+date: '2017-07-18'
+slug: sql-for-data-science
+topics:
+  - database
+tags:
+  - sql
+draft: yes
+---
+

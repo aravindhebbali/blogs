@@ -23,6 +23,21 @@
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;This is the 11th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/how-to-work-with-dates-in-r/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate date and time using the &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt; package. In this post, we will learn to work with string data in R using &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;stringr&lt;/a&gt;. Let us begin by installing and loading stringr and a set of other pacakges we will be using.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;print&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;print&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cat&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;cat&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paste&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;paste&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paste0&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;paste0()&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sprintf&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;sprintf()&lt;/h1&gt;
 &lt;p&gt;As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package. You can download the data for the case study from &lt;a href=&#34;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&#34;&gt;here&lt;/a&gt; or directly import the data using the readr package.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mockstring &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&amp;#39;)
 mockstring&lt;/code&gt;&lt;/pre&gt;

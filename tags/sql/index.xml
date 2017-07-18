@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Database on Rsquared Academy Blog</title>
-    <link>/topics/database/index.xml</link>
-    <description>Recent content in Database on Rsquared Academy Blog</description>
+    <title>Sql on Rsquared Academy Blog</title>
+    <link>/tags/sql/index.xml</link>
+    <description>Recent content in Sql on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/topics/database/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Data Wrangling with dbplyr</title>
-      <link>/post/data-wrangling-with-dbplyr/</link>
-      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/data-wrangling-with-dbplyr/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
-    </item>
+    <atom:link href="/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>SQL for Data Science</title>

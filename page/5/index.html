@@ -261,6 +261,114 @@
   
     <article>
   <header>
+    <h2><a href="../../post/ggplot2-extensions/">ggplot2: Extensions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>19 Jul 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/ggplot2-facets-combine-multiple-plots/">ggplot2: Facets (Combine multiple plots)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Jul 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt the stat_*() family of functions. In this post, we will learn about faceting i.e. combining plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(device ~ .
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-facets-combine-multiple-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/ggplot2-themes/">ggplot2: Themes</a></h2>
 
     <div class="post-meta">
@@ -704,117 +812,6 @@ Let us start by building a simple scatter plot.
   
   <footer>
     <a href="../../post/ggplot2-scatter-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/ggplot2-introduction-to-aesthetics/">ggplot2: Introduction to aesthetics</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>20 Feb 2016</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the fourth post in the series Elegant Data Visualization with ggplot2. In the previous post we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the aes() function.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/ggplot2-introduction-to-aesthetics/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/ggplot2-quick-tour/">ggplot2: Quick Tour</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Feb 2016</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
-Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&#39;point&#39;, &#39;line&#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)Bar Plotqplot(factor(cyl), data = mtcars, geom = c(&#39;bar&#39;))qplot(factor(cyl), data = mtcars, geom = c(&#39;bar&#39;), fill = factor(am))Box Plotqplot(factor(cyl), mpg, data = mtcars, geom = c(&#39;boxplot&#39;))qplot(factor(1), mpg, data = mtcars, geom = c(&#39;boxplot&#39;))qplot(factor(cyl), mpg, data = mtcars, geom = c(&#39;boxplot&#39;, &#39;jitter&#39;))Line Chartqplot(x = date, y = unemploy, data = economics, geom = c(&#39;line&#39;))qplot(x = date, y = unemploy, data = economics, geom = c(&#39;line&#39;),color = &#39;red&#39;)Histogramqplot(mpg, data = mtcars, bins = 5)SummaryIn this post, we learnt to quickly create plots using the qplot() function.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/ggplot2-quick-tour/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

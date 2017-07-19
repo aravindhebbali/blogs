@@ -12,6 +12,8 @@ draft: yes
 
 # Introduction
 
+This is the sixth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/exporting-data-from-r/), we learnt to export data/code from R. In this post, we will learn about pipes.
+
 When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so
 easy on the eyes. The [magrittr](https://CRAN.R-project.org/package=magrittr) package by Stefan Milton Bache 
 provides pipes enabling us to write R code that is readable.
@@ -91,5 +93,6 @@ email %>%
   toupper()
 ```
 
-We will learn a better way of dealing with `lists` while exploring the [purrr](purrr.tidyverse.org) package. The pipe operators work very well 
-with the dplyr verbs we will explore in the next post.
+## Summary
+
+We will learn a better way of dealing with `lists` while exploring the [purrr](purrr.tidyverse.org) package. The pipe operators work very well with the dplyr verbs we will explore in the next post.

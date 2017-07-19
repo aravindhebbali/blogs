@@ -51,6 +51,14 @@
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the fourth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/&#34;&gt;post&lt;/a&gt;, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JSON&lt;/li&gt;
+&lt;li&gt;XML&lt;/li&gt;
+&lt;li&gt;googlesheets&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div id=&#34;json&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;JSON&lt;/h2&gt;
 &lt;p&gt;A lot of API data is available in the JSON format. You can use the &lt;a href=&#34;https://cran.r-project.org/package=jsonlite&#34;&gt;jsonlite&lt;/a&gt; package to import JSON data into R.&lt;/p&gt;
@@ -106,32 +114,9 @@
 # # read certain cells
 # gap %&amp;gt;% gs_read(ws = 2, range = &amp;quot;A1:D8&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A Complete Guide to Importing Data into R - Part 3</title>
-      <link>/post/a-complete-guide-to-importing-data-into-r-part-3/</link>
-      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/a-complete-guide-to-importing-data-into-r-part-3/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/tXSoThF.png&#34; alt=&#34;Twitter&#34; /&gt; &lt;img src=&#34;http://i.imgur.com/P3YfQoD.png&#34; alt=&#34;Facebook&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;twitter.png&#34; alt=&#34;Try Image&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Try Image&lt;/p&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
 &lt;/div&gt;
-&lt;div id=&#34;files&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Files&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_file()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lines&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lines&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_lines()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -163,6 +148,36 @@
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 
+</description>
+    </item>
+    
+    <item>
+      <title>Exporting Data from R</title>
+      <link>/post/exporting-data-from-r/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/exporting-data-from-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/tXSoThF.png&#34; alt=&#34;Twitter&#34; /&gt; &lt;img src=&#34;http://i.imgur.com/P3YfQoD.png&#34; alt=&#34;Facebook&#34; /&gt; &lt;img src=&#34;twitter.png&#34; alt=&#34;Try Image&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the fifth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r-part-2/&#34;&gt;post&lt;/a&gt;, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.&lt;/p&gt;
+&lt;div id=&#34;files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Files&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_file()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lines&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Lines&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_lines()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

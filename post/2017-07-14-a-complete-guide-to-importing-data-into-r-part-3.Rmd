@@ -1,23 +1,21 @@
 ---
-title: A Complete Guide to Importing Data into R - Part 3
+title: Exporting Data from R
 date: '2017-07-14'
-slug: a-complete-guide-to-importing-data-into-r-part-3
+slug: exporting-data-from-r
 topics:
   - data-wrangling
 tags:
-  - import
+  - export
 draft: yes
 ---
 
 ![Twitter](http://i.imgur.com/tXSoThF.png) 
 ![Facebook](http://i.imgur.com/P3YfQoD.png)
-
-
-
-
 ![Try Image](twitter.png)
 
+# Introduction
 
+This is the fifth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r-part-2/), we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
 
 ## Files
 
@@ -30,3 +28,5 @@ draft: yes
 ```{r scan2}
 # readr::read_lines()
 ```
+
+## Summary

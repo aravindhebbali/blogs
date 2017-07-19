@@ -9,6 +9,14 @@ tags:
 draft: yes
 ---
 
+# Introduction
+
+This is the fourth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/), we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+
+- JSON
+- XML
+- googlesheets
+
 ## JSON
 
 A lot of API data is available in the JSON format. You can use the [jsonlite](https://cran.r-project.org/package=jsonlite) package to import JSON data into R.
@@ -74,3 +82,5 @@ You can import data from Google Sheets using the [googlesheets]() pacakge.
 # # read certain cells
 # gap %>% gs_read(ws = 2, range = "A1:D8")
 ```
+
+## Summary

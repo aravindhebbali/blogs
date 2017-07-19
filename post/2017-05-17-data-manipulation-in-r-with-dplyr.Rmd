@@ -11,6 +11,8 @@ draft: yes
 
 # Introduction
 
+This is the seventh post in the series **Data Wrangling with R**. In the previous [post], we learnt about using pipes to make our code readable. In this post, we will learn about dplyr. 
+
 According to  a [survey](http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf) by [CrowdFlower](https://www.crowdflower.com/), data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today's post, we introduce you to [dplyr](http://dplyr.tidyverse.org/), a grammar of data manipulation.
 
 ## Why dplyr?

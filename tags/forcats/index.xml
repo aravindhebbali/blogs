@@ -23,17 +23,17 @@
 ecom&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
-##  1     1   google laptop     true      10       1       27 Czech Republic
-##  2     2    yahoo tablet     true       9       1      899          Yemen
-##  3     3   direct laptop     true       0       1       72         Brazil
-##  4     4     bing tablet    false       3      18      155          China
-##  5     5    yahoo mobile     true       9       1      899         Poland
-##  6     6    yahoo laptop    false       5       5      573   South Africa
-##  7     7    yahoo mobile     true      10       1      692     Bangladesh
-##  8     8   direct mobile     true      10       1      578      Indonesia
-##  9     9     bing mobile    false       3      19      794    Netherlands
-## 10    10   google mobile     true       6       1      762 Czech Republic
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
 ## # ... with 990 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We will do the following in this case study:&lt;/p&gt;
@@ -145,6 +145,9 @@ traffic2 %&amp;gt;% fct_count() &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## .
 ##    direct instagram   twitter   unknown     Other 
 ##      1350      3907      4521      2657     35797&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -37,7 +37,8 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In the previous post, we learnt how to combine tables using the &lt;code&gt;*_join()&lt;/code&gt; family of functions in &lt;a href=&#34;dplyr.tidyverse.org&#34;&gt;dplyr&lt;/a&gt;. In this post, we will explore a set of helper functions in order to:&lt;/p&gt;
+&lt;p&gt;This is the ninth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-2/&#34;&gt;post&lt;/a&gt;, we learnt how to combine tables using the &lt;code&gt;*_join()&lt;/code&gt; family of functions in &lt;a href=&#34;dplyr.tidyverse.org&#34;&gt;dplyr&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this post, we will explore a set of helper functions in order to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;extract unique rows&lt;/li&gt;
 &lt;li&gt;rename columns&lt;/li&gt;
@@ -60,7 +61,7 @@
 ##   bouncers = col_character(),
 ##   n_visit = col_integer(),
 ##   n_pages = col_double(),
-##   duration = col_integer(),
+##   duration = col_double(),
 ##   country = col_character(),
 ##   purchase = col_character(),
 ##   order_items = col_double(),
@@ -109,17 +110,17 @@
   rename(time_on_site = duration)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 11
 ##       id referrer device bouncers n_visit n_pages time_on_site        country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;        &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1     1   google laptop     true      10       1           27 Czech Republic    false           0           0
-##  2     2    yahoo tablet     true       9       1          899          Yemen    false           0           0
-##  3     3   direct laptop     true       0       1           72         Brazil    false           0           0
-##  4     4     bing tablet    false       3      18          155          China     true           6         434
-##  5     5    yahoo mobile     true       9       1          899         Poland    false           0           0
-##  6     6    yahoo laptop    false       5       5          573   South Africa    false           0           0
-##  7     7    yahoo mobile     true      10       1          692     Bangladesh    false           0           0
-##  8     8   direct mobile     true      10       1          578      Indonesia    false           0           0
-##  9     9     bing mobile    false       3      19          794    Netherlands    false           0           0
-## 10    10   google mobile     true       6       1          762 Czech Republic    false           0           0
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1     1   google laptop     true      10       1          693 Czech Republic    false           0           0
+##  2     2    yahoo tablet     true       9       1          459          Yemen    false           0           0
+##  3     3   direct laptop     true       0       1          996         Brazil    false           0           0
+##  4     4     bing tablet    false       3      18          468          China     true           6         434
+##  5     5    yahoo mobile     true       9       1          955         Poland    false           0           0
+##  6     6    yahoo laptop    false       5       5          135   South Africa    false           0           0
+##  7     7    yahoo mobile     true      10       1           75     Bangladesh    false           0           0
+##  8     8   direct mobile     true      10       1          908      Indonesia    false           0           0
+##  9     9     bing mobile    false       3      19          209    Netherlands    false           0           0
+## 10    10   google mobile     true       6       1          208 Czech Republic    false           0           0
 ## # ... with 990 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;sampling-data&#34; class=&#34;section level3&#34;&gt;
@@ -127,52 +128,52 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   sample_n(700)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 700 x 11
-##       id referrer device bouncers n_visit n_pages duration  country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1   715   google laptop    false      10      18      158    China    false           0           0
-##  2   153   google tablet     true      10       1      361    China    false           0           0
-##  3   541     bing laptop     true       5       1      573   France    false           0           0
-##  4   415    yahoo laptop    false       0       4      620 Colombia    false           0           0
-##  5   197     bing mobile     true       1       1      542   Greece    false           0           0
-##  6   467    yahoo laptop    false       3      10       43     Peru     true           3        2063
-##  7   964     bing mobile     true       4       1        1   Greece    false           0           0
-##  8   663   google tablet     true       2       1       77 Pakistan    false           0           0
-##  9   356     bing laptop     true       4       1       48    Yemen    false           0           0
-## 10   949     bing mobile    false      10       1      826    China    false           0           0
+##       id referrer device bouncers n_visit n_pages duration        country purchase order_items order_value
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1   385     bing tablet    false      10      15      150       Portugal    false           0           0
+##  2   592   google mobile    false       8      11      198       Portugal    false           0           0
+##  3   969     bing laptop     true      10       1      210      Indonesia    false           0           0
+##  4   585   direct tablet     true       0       1      840 United Kingdom    false           0           0
+##  5   968   google tablet    false       4      16      448          China     true           5         982
+##  6   976   google tablet    false       1       7      112       Portugal    false           0           0
+##  7   125    yahoo mobile    false       6      14      322          China     true           3        1443
+##  8   943   social tablet     true       5       1      667          China    false           0           0
+##  9   236    yahoo tablet     true       5       1       10         Poland    false           0           0
+## 10   157   social laptop    false       9       6       66  Faroe Islands    false           0           0
 ## # ... with 690 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   group_by(referrer) %&amp;gt;%
   sample_n(100)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 500 x 11
 ## # Groups:   referrer [5]
-##       id referrer device bouncers n_visit n_pages duration       country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;         &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1   523     bing tablet    false       4      15      650     Indonesia    false           0           0
-##  2   681     bing mobile     true       8       1      879         China    false           0           0
-##  3   724     bing laptop     true       3       1      820        Sweden    false           0           0
-##  4   575     bing laptop    false       1      19      238         Yemen     true           4        2036
-##  5   231     bing tablet     true       0       1      650      Portugal    false           0           0
-##  6   734     bing mobile     true       3       1      663          Peru    false           0           0
-##  7   128     bing tablet    false       9       2      909 United States    false           0           0
-##  8   114     bing tablet    false       0      14      878        Brazil    false           0           0
-##  9   655     bing mobile     true       6       1      522       Nigeria    false           0           0
-## 10   787     bing mobile     true       9       1      791  South Africa    false           0           0
+##       id referrer device bouncers n_visit n_pages duration      country purchase order_items order_value
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;        &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1   751     bing tablet     true       4       1      892       Poland    false           0           0
+##  2   132     bing tablet    false       0       3       42        Chile    false           0           0
+##  3   787     bing mobile     true       9       1      638 South Africa    false           0           0
+##  4   773     bing laptop     true       1       1      169    Argentina    false           0           0
+##  5   886     bing mobile    false       0      16      272         Peru    false           0           0
+##  6   230     bing tablet    false       8       6      180   Costa Rica    false           0           0
+##  7   505     bing tablet    false       8      19      570     Thailand     true           1         510
+##  8   652     bing tablet    false       6       9      198     Thailand    false           0           0
+##  9   676     bing laptop     true       8       1      585        China    false           0           0
+## 10   322     bing tablet     true       3       1      192      Uruguay    false           0           0
 ## # ... with 490 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   sample_frac(size = 0.7)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 700 x 11
-##       id referrer device bouncers n_visit n_pages duration                          country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;                            &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1   908   google laptop     true       5       1      614                      Philippines    false           0           0
-##  2   197     bing mobile     true       1       1      542                           Greece    false           0           0
-##  3   373    yahoo mobile    false       2      20      495                         Portugal    false           0           0
-##  4   635   google laptop     true       2       1      291                            China    false           0           0
-##  5   946   direct mobile    false       1      15      151                            Kenya     true           5        1093
-##  6   141    yahoo tablet     true       1       1      232                            Japan    false           0           0
-##  7    53   social tablet    false       3      12      573                            China    false           0           0
-##  8   868   google tablet    false       9      14      619 Democratic Republic of the Congo     true           7        2436
-##  9    59    yahoo tablet     true       9       1      582                      Philippines    false           0           0
-## 10    19   social tablet    false       7      10      346                         Colombia     true           9        1304
+##       id referrer device bouncers n_visit n_pages duration    country purchase order_items order_value
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1   749     bing laptop    false       0      17      272  Indonesia     true           9        1384
+##  2    28   google laptop     true       9       1      126     Russia    false           0           0
+##  3   401     bing tablet    false       1       9      135 Tajikistan    false           0           0
+##  4   986   google laptop     true       7       1       79   Thailand    false           0           0
+##  5   979   social tablet    false       3       4       44     Poland    false           8        1390
+##  6   758   direct tablet     true       4       1      141      China    false           0           0
+##  7   271   social laptop    false       2       5      150      China    false          10        2367
+##  8   828     bing tablet    false       3      15      390       Peru     true           8        1153
+##  9   830   google mobile     true       3       1      918     Mexico    false           0           0
+## 10   878    yahoo laptop     true       7       1      163     Brazil    false           0           0
 ## # ... with 690 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   group_by(referrer) %&amp;gt;%
@@ -180,17 +181,17 @@
 &lt;pre&gt;&lt;code&gt;## # A tibble: 299 x 11
 ## # Groups:   referrer [5]
 ##       id referrer device bouncers n_visit n_pages duration       country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;         &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1   580     bing laptop     true       7       1       63 United States    false           0           0
-##  2   485     bing tablet     true       7       1      456         Qatar    false           0           0
-##  3   191     bing mobile     true       4       1       72   New Zealand    false           0           0
-##  4   414     bing tablet    false       7       3      556    Madagascar     true           4         260
-##  5   765     bing laptop    false       8      10      294         China     true           7        1531
-##  6   514     bing mobile    false       9       3      136      Thailand    false           0           0
-##  7   364     bing laptop     true       3       1      897         Kenya    false           0           0
-##  8   655     bing mobile     true       6       1      522       Nigeria    false           0           0
-##  9   740     bing mobile    false       9       2      400     Indonesia    false           0           0
-## 10   709     bing mobile     true       6       1      547      Colombia    false           0           0
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;         &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1   170     bing tablet     true       0       1      985 United States    false           0           0
+##  2   987     bing laptop    false       4      11      187        Mexico    false           4         510
+##  3   400     bing mobile    false       9       7      147        Poland    false           2         139
+##  4   768     bing tablet    false       2      17      510 United States    false           0           0
+##  5   559     bing laptop     true       0       1      973        France    false           0           0
+##  6   963     bing laptop     true       4       1      857   Philippines    false           0           0
+##  7   604     bing tablet     true       6       1      567     Indonesia    false           0           0
+##  8   242     bing mobile    false      10      13      221         China    false           0           0
+##  9    36     bing mobile    false       1       1       25       Ireland    false          10        1885
+## 10    70     bing mobile     true       5       1      190         China    false           0           0
 ## # ... with 289 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;extract-columns&#34; class=&#34;section level3&#34;&gt;
@@ -509,34 +510,34 @@
   slice(1:20)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 20 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country purchase order_items order_value
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1     1   google laptop     true      10       1       27 Czech Republic    false           0           0
-##  2     2    yahoo tablet     true       9       1      899          Yemen    false           0           0
-##  3     3   direct laptop     true       0       1       72         Brazil    false           0           0
-##  4     4     bing tablet    false       3      18      155          China     true           6         434
-##  5     5    yahoo mobile     true       9       1      899         Poland    false           0           0
-##  6     6    yahoo laptop    false       5       5      573   South Africa    false           0           0
-##  7     7    yahoo mobile     true      10       1      692     Bangladesh    false           0           0
-##  8     8   direct mobile     true      10       1      578      Indonesia    false           0           0
-##  9     9     bing mobile    false       3      19      794    Netherlands    false           0           0
-## 10    10   google mobile     true       6       1      762 Czech Republic    false           0           0
-## 11    11   direct laptop     true       9       1      905        Jamaica    false           0           0
-## 12    12   direct tablet    false       6      12      999        Estonia    false           0           0
-## 13    13   direct mobile    false       9      14      386        Ireland     true           3         651
-## 14    14    yahoo tablet    false       5       8      260    Philippines     true           2         362
-## 15    15    yahoo mobile    false       7       1      447         France     true           7        2423
-## 16    16     bing laptop     true       1       1      289  United States    false           0           0
-## 17    17     bing tablet    false       5      16       96           Peru     true           6        1049
-## 18    18   google tablet     true       7       1      166          China    false           0           0
-## 19    19   social tablet    false       7      10      346       Colombia     true           9        1304
-## 20    20   social tablet    false       2       1      412        Namibia     true           7        2077&lt;/code&gt;&lt;/pre&gt;
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic    false           0           0
+##  2     2    yahoo tablet     true       9       1      459          Yemen    false           0           0
+##  3     3   direct laptop     true       0       1      996         Brazil    false           0           0
+##  4     4     bing tablet    false       3      18      468          China     true           6         434
+##  5     5    yahoo mobile     true       9       1      955         Poland    false           0           0
+##  6     6    yahoo laptop    false       5       5      135   South Africa    false           0           0
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh    false           0           0
+##  8     8   direct mobile     true      10       1      908      Indonesia    false           0           0
+##  9     9     bing mobile    false       3      19      209    Netherlands    false           0           0
+## 10    10   google mobile     true       6       1      208 Czech Republic    false           0           0
+## 11    11   direct laptop     true       9       1      738        Jamaica    false           0           0
+## 12    12   direct tablet    false       6      12      132        Estonia    false           0           0
+## 13    13   direct mobile    false       9      14      406        Ireland     true           3         651
+## 14    14    yahoo tablet    false       5       8       80    Philippines    false           2         362
+## 15    15    yahoo mobile    false       7       1       19         France    false           7        2423
+## 16    16     bing laptop     true       1       1      995  United States    false           0           0
+## 17    17     bing tablet    false       5      16      368           Peru     true           6        1049
+## 18    18   google tablet     true       7       1      406          China    false           0           0
+## 19    19   social tablet    false       7      10      290       Colombia     true           9        1304
+## 20    20   social tablet    false       2       1       28        Namibia    false           7        2077&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Extract the last row.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   slice(n())&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 11
 ##      id referrer device bouncers n_visit n_pages duration country purchase order_items order_value
-##   &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1  1000   google mobile     true       9       1       48   China    false           0           0&lt;/code&gt;&lt;/pre&gt;
+##   &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+## 1  1000   google mobile     true       9       1      269   China    false           0           0&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;count-of-observations&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Count of observations&lt;/h3&gt;
@@ -585,16 +586,16 @@
 ## # Groups:   referrer [?]
 ##    referrer purchase     n
 ##       &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
-##  1     bing    false   148
-##  2     bing     true    46
-##  3   direct    false   137
-##  4   direct     true    54
-##  5   google    false   163
-##  6   google     true    45
-##  7   social    false   154
-##  8   social     true    46
-##  9    yahoo    false   144
-## 10    yahoo     true    63&lt;/code&gt;&lt;/pre&gt;
+##  1     bing    false   177
+##  2     bing     true    17
+##  3   direct    false   166
+##  4   direct     true    25
+##  5   google    false   189
+##  6   google     true    19
+##  7   social    false   180
+##  8   social     true    20
+##  9    yahoo    false   185
+## 10    yahoo     true    22&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   group_by(referrer, purchase) %&amp;gt;%
   tally() %&amp;gt;%
@@ -603,27 +604,27 @@
 ## # Groups:   referrer [5]
 ##   referrer purchase     n
 ##      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
-## 1     bing     true    46
-## 2   direct     true    54
-## 3   google     true    45
-## 4   social     true    46
-## 5    yahoo     true    63&lt;/code&gt;&lt;/pre&gt;
+## 1     bing     true    17
+## 2   direct     true    25
+## 3   google     true    19
+## 4   social     true    20
+## 5    yahoo     true    22&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Use &lt;code&gt;count()&lt;/code&gt; instead of &lt;code&gt;tally()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   count(referrer, purchase)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    referrer purchase     n
 ##       &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
-##  1     bing    false   148
-##  2     bing     true    46
-##  3   direct    false   137
-##  4   direct     true    54
-##  5   google    false   163
-##  6   google     true    45
-##  7   social    false   154
-##  8   social     true    46
-##  9    yahoo    false   144
-## 10    yahoo     true    63&lt;/code&gt;&lt;/pre&gt;
+##  1     bing    false   177
+##  2     bing     true    17
+##  3   direct    false   166
+##  4   direct     true    25
+##  5   google    false   189
+##  6   google     true    19
+##  7   social    false   180
+##  8   social     true    20
+##  9    yahoo    false   185
+## 10    yahoo     true    22&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Top 2 referrers that bring orders.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   count(referrer, purchase) %&amp;gt;%
@@ -634,8 +635,8 @@
 &lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 3
 ##   referrer purchase     n
 ##      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
-## 1    yahoo     true    63
-## 2   direct     true    54&lt;/code&gt;&lt;/pre&gt;
+## 1   direct     true    25
+## 2    yahoo     true    22&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   pull(n_pages) %&amp;gt;%
   between(5, 15) &lt;/code&gt;&lt;/pre&gt;
@@ -790,6 +791,9 @@
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;google&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -807,7 +811,7 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;In a previous &lt;a href=&#34;http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-1/&#34;&gt;post&lt;/a&gt;, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different &lt;code&gt;join&lt;/code&gt; functions provided in dplyr. Let us assume we have 2 tables &lt;strong&gt;X&lt;/strong&gt; and &lt;strong&gt;y&lt;/strong&gt;. Below are the different types of &lt;code&gt;join&lt;/code&gt; functions provided in dplyr.&lt;/p&gt;
+&lt;p&gt;This is the eighth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In a previous &lt;a href=&#34;http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-1/&#34;&gt;post&lt;/a&gt;, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different &lt;code&gt;join&lt;/code&gt; functions provided in dplyr. Let us assume we have 2 tables &lt;strong&gt;X&lt;/strong&gt; and &lt;strong&gt;y&lt;/strong&gt;. Below are the different types of &lt;code&gt;join&lt;/code&gt; functions provided in dplyr.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;inner_join()&lt;/code&gt;: return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;left_join()&lt;/code&gt;: return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;&lt;/li&gt;
@@ -994,6 +998,9 @@
 ## # ... with 339 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -1011,6 +1018,7 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is the seventh post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous [post], we learnt about using pipes to make our code readable. In this post, we will learn about dplyr.&lt;/p&gt;
 &lt;p&gt;According to a &lt;a href=&#34;http://visit.crowdflower.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport_2016.pdf&#34;&gt;survey&lt;/a&gt; by &lt;a href=&#34;https://www.crowdflower.com/&#34;&gt;CrowdFlower&lt;/a&gt;, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier. In today’s post, we introduce you to &lt;a href=&#34;http://dplyr.tidyverse.org/&#34;&gt;dplyr&lt;/a&gt;, a grammar of data manipulation.&lt;/p&gt;
 &lt;div id=&#34;why-dplyr&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Why dplyr?&lt;/h2&gt;
@@ -1051,7 +1059,7 @@
 ##   bouncers = col_character(),
 ##   n_visit = col_integer(),
 ##   n_pages = col_double(),
-##   duration = col_integer(),
+##   duration = col_double(),
 ##   country = col_character(),
 ##   purchase = col_character(),
 ##   order_items = col_double(),
@@ -1098,9 +1106,9 @@
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
 ##   device      aov
 ##    &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1 laptop 319.1292
-## 2 mobile 253.9381
-## 3 tablet 270.2320&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop 353.3188
+## 2 mobile 279.9130
+## 3 tablet 260.5127&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We will map the dplyr verbs to the above steps.&lt;/p&gt;
 &lt;div id=&#34;step-1-filter-purchasers&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 1: Filter Purchasers&lt;/h3&gt;
@@ -1112,69 +1120,69 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(ecom, device == &amp;quot;mobile&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 344 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
-##  1     5    yahoo mobile     true       9       1      899         Poland
-##  2     7    yahoo mobile     true      10       1      692     Bangladesh
-##  3     8   direct mobile     true      10       1      578      Indonesia
-##  4     9     bing mobile    false       3      19      794    Netherlands
-##  5    10   google mobile     true       6       1      762 Czech Republic
-##  6    13   direct mobile    false       9      14      386        Ireland
-##  7    15    yahoo mobile    false       7       1      447         France
-##  8    22   google mobile     true       5       1      188         Brazil
-##  9    23     bing mobile    false       0       7      608         Russia
-## 10    29   google mobile     true      10       1      164         Russia
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     5    yahoo mobile     true       9       1      955         Poland
+##  2     7    yahoo mobile     true      10       1       75     Bangladesh
+##  3     8   direct mobile     true      10       1      908      Indonesia
+##  4     9     bing mobile    false       3      19      209    Netherlands
+##  5    10   google mobile     true       6       1      208 Czech Republic
+##  6    13   direct mobile    false       9      14      406        Ireland
+##  7    15    yahoo mobile    false       7       1       19         France
+##  8    22   google mobile     true       5       1      147         Brazil
+##  9    23     bing mobile    false       0       7      196         Russia
+## 10    29   google mobile     true      10       1      338         Russia
 ## # ... with 334 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Select all visits from mobile that converted&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(ecom, device == &amp;quot;mobile&amp;quot;, purchase == &amp;quot;true&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 90 x 11
+&lt;pre&gt;&lt;code&gt;## # A tibble: 36 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
-##  1    13   direct mobile    false       9      14      386        Ireland
-##  2    15    yahoo mobile    false       7       1      447         France
-##  3    23     bing mobile    false       0       7      608         Russia
-##  4    36     bing mobile    false       1       1      325        Ireland
-##  5    41     bing mobile    false       4      20      148 Czech Republic
-##  6    49   social mobile    false       1       2      397         France
-##  7    89   direct mobile    false       4       8      598        Ecuador
-##  8    92   google mobile    false       5       8      594      Indonesia
-##  9    98     bing mobile    false       3      18      410       Portugal
-## 10   102   google mobile    false       2       3      958        Bahamas
-## # ... with 80 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1    13   direct mobile    false       9      14      406        Ireland
+##  2    41     bing mobile    false       4      20      440 Czech Republic
+##  3    98     bing mobile    false       3      18      288       Portugal
+##  4   112   social mobile    false      10      11      242      Argentina
+##  5   125    yahoo mobile    false       6      14      322          China
+##  6   134   google mobile    false       1      18      252      Indonesia
+##  7   143   social mobile    false       7      16      352         Sweden
+##  8   156   direct mobile    false       4      18      324          China
+##  9   219   social mobile    false       1      20      520  United States
+## 10   227    yahoo mobile    false       0      13      351  United States
+## # ... with 26 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Select all visits from mobile that visited more than 5 pages&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(ecom, device == &amp;quot;mobile&amp;quot;, n_pages &amp;gt; 5)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 139 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
-##  1     9     bing mobile    false       3      19      794    Netherlands
-##  2    13   direct mobile    false       9      14      386        Ireland
-##  3    23     bing mobile    false       0       7      608         Russia
-##  4    30    yahoo mobile    false       8       9      868       Colombia
-##  5    41     bing mobile    false       4      20      148 Czech Republic
-##  6    42   direct mobile    false       1      13      882      Indonesia
-##  7    89   direct mobile    false       4       8      598        Ecuador
-##  8    92   google mobile    false       5       8      594      Indonesia
-##  9    98     bing mobile    false       3      18      410       Portugal
-## 10   112   social mobile    false      10      11      350      Argentina
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     9     bing mobile    false       3      19      209    Netherlands
+##  2    13   direct mobile    false       9      14      406        Ireland
+##  3    23     bing mobile    false       0       7      196         Russia
+##  4    30    yahoo mobile    false       8       9      225       Colombia
+##  5    41     bing mobile    false       4      20      440 Czech Republic
+##  6    42   direct mobile    false       1      13      234      Indonesia
+##  7    89   direct mobile    false       4       8      144        Ecuador
+##  8    92   google mobile    false       5       8      192      Indonesia
+##  9    98     bing mobile    false       3      18      288       Portugal
+## 10   112   social mobile    false      10      11      242      Argentina
 ## # ... with 129 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For our case study, we want all visits that converted.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(ecom, purchase == &amp;quot;true&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 254 x 11
-##       id referrer device bouncers n_visit n_pages duration     country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;       &amp;lt;chr&amp;gt;
-##  1     4     bing tablet    false       3      18      155       China
-##  2    13   direct mobile    false       9      14      386     Ireland
-##  3    14    yahoo tablet    false       5       8      260 Philippines
-##  4    15    yahoo mobile    false       7       1      447      France
-##  5    17     bing tablet    false       5      16       96        Peru
-##  6    19   social tablet    false       7      10      346    Colombia
-##  7    20   social tablet    false       2       1      412     Namibia
-##  8    23     bing mobile    false       0       7      608      Russia
-##  9    27   direct tablet    false       2      19      473       Japan
-## 10    34   social tablet    false       9      20      385   Indonesia
-## # ... with 244 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
+&lt;pre&gt;&lt;code&gt;## # A tibble: 103 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     4     bing tablet    false       3      18      468          China
+##  2    13   direct mobile    false       9      14      406        Ireland
+##  3    17     bing tablet    false       5      16      368           Peru
+##  4    19   social tablet    false       7      10      290       Colombia
+##  5    27   direct tablet    false       2      19      342          Japan
+##  6    34   social tablet    false       9      20      420      Indonesia
+##  7    41     bing mobile    false       4      20      440 Czech Republic
+##  8    94    yahoo tablet    false       2      16      480          China
+##  9    98     bing mobile    false       3      18      288       Portugal
+## 10   101    yahoo tablet    false       2      14      364         Poland
+## # ... with 93 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-2-select-relevant-columns&#34; class=&#34;section level3&#34;&gt;
@@ -1200,33 +1208,33 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;select(ecom, device:purchase)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 7
 ##    device bouncers n_visit n_pages duration        country purchase
-##     &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;
-##  1 laptop     true      10       1       27 Czech Republic    false
-##  2 tablet     true       9       1      899          Yemen    false
-##  3 laptop     true       0       1       72         Brazil    false
-##  4 tablet    false       3      18      155          China     true
-##  5 mobile     true       9       1      899         Poland    false
-##  6 laptop    false       5       5      573   South Africa    false
-##  7 mobile     true      10       1      692     Bangladesh    false
-##  8 mobile     true      10       1      578      Indonesia    false
-##  9 mobile    false       3      19      794    Netherlands    false
-## 10 mobile     true       6       1      762 Czech Republic    false
+##     &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;
+##  1 laptop     true      10       1      693 Czech Republic    false
+##  2 tablet     true       9       1      459          Yemen    false
+##  3 laptop     true       0       1      996         Brazil    false
+##  4 tablet    false       3      18      468          China     true
+##  5 mobile     true       9       1      955         Poland    false
+##  6 laptop    false       5       5      135   South Africa    false
+##  7 mobile     true      10       1       75     Bangladesh    false
+##  8 mobile     true      10       1      908      Indonesia    false
+##  9 mobile    false       3      19      209    Netherlands    false
+## 10 mobile     true       6       1      208 Czech Republic    false
 ## # ... with 990 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Select all columns excluding id and country&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;select(ecom, -id, -country)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 9
 ##    referrer device bouncers n_visit n_pages duration purchase order_items
-##       &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;
-##  1   google laptop     true      10       1       27    false           0
-##  2    yahoo tablet     true       9       1      899    false           0
-##  3   direct laptop     true       0       1       72    false           0
-##  4     bing tablet    false       3      18      155     true           6
-##  5    yahoo mobile     true       9       1      899    false           0
-##  6    yahoo laptop    false       5       5      573    false           0
-##  7    yahoo mobile     true      10       1      692    false           0
-##  8   direct mobile     true      10       1      578    false           0
-##  9     bing mobile    false       3      19      794    false           0
-## 10   google mobile     true       6       1      762    false           0
+##       &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1   google laptop     true      10       1      693    false           0
+##  2    yahoo tablet     true       9       1      459    false           0
+##  3   direct laptop     true       0       1      996    false           0
+##  4     bing tablet    false       3      18      468     true           6
+##  5    yahoo mobile     true       9       1      955    false           0
+##  6    yahoo laptop    false       5       5      135    false           0
+##  7    yahoo mobile     true      10       1       75    false           0
+##  8   direct mobile     true      10       1      908    false           0
+##  9     bing mobile    false       3      19      209    false           0
+## 10   google mobile     true       6       1      208    false           0
 ## # ... with 990 more rows, and 1 more variables: order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For our case study, we need to select the columns order value and order items to calculate the AOV. We also need to select the device column as we are computing the AOV for different devices.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;select(ecom, device, order_value, order_items)&lt;/code&gt;&lt;/pre&gt;
@@ -1248,20 +1256,20 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom1 &amp;lt;- filter(ecom, purchase == &amp;quot;true&amp;quot;)
 ecom2 &amp;lt;- select(ecom1, device, order_value, order_items)
 ecom2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 254 x 3
+&lt;pre&gt;&lt;code&gt;## # A tibble: 103 x 3
 ##    device order_value order_items
 ##     &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
 ##  1 tablet         434           6
 ##  2 mobile         651           3
-##  3 tablet         362           2
-##  4 mobile        2423           7
-##  5 tablet        1049           6
-##  6 tablet        1304           9
-##  7 tablet        2077           7
-##  8 mobile         237           4
-##  9 tablet         622           5
-## 10 tablet        1613           7
-## # ... with 244 more rows&lt;/code&gt;&lt;/pre&gt;
+##  3 tablet        1049           6
+##  4 tablet        1304           9
+##  5 tablet         622           5
+##  6 tablet        1613           7
+##  7 mobile         184           3
+##  8 tablet         286           9
+##  9 mobile         764           6
+## 10 tablet        1667           6
+## # ... with 93 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-3-group-data-by-devices&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 3: Group data by devices&lt;/h3&gt;
@@ -1271,37 +1279,37 @@ ecom2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000 x 11
 ## # Groups:   referrer [5]
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;chr&amp;gt;
-##  1     1   google laptop     true      10       1       27 Czech Republic
-##  2     2    yahoo tablet     true       9       1      899          Yemen
-##  3     3   direct laptop     true       0       1       72         Brazil
-##  4     4     bing tablet    false       3      18      155          China
-##  5     5    yahoo mobile     true       9       1      899         Poland
-##  6     6    yahoo laptop    false       5       5      573   South Africa
-##  7     7    yahoo mobile     true      10       1      692     Bangladesh
-##  8     8   direct mobile     true      10       1      578      Indonesia
-##  9     9     bing mobile    false       3      19      794    Netherlands
-## 10    10   google mobile     true       6       1      762 Czech Republic
+##    &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;          &amp;lt;chr&amp;gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
 ## # ... with 990 more rows, and 3 more variables: purchase &amp;lt;chr&amp;gt;,
 ## #   order_items &amp;lt;dbl&amp;gt;, order_value &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In the second line in the above output, you can observe &lt;code&gt;Groups: referrer [5]&lt;/code&gt;. The data is split into 5 groups as the referrer variable has 5 distinct values. For our case study, we need to group the data by device type.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom3 &amp;lt;- group_by(ecom2, device)
 ecom3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 254 x 3
+&lt;pre&gt;&lt;code&gt;## # A tibble: 103 x 3
 ## # Groups:   device [3]
 ##    device order_value order_items
 ##     &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
 ##  1 tablet         434           6
 ##  2 mobile         651           3
-##  3 tablet         362           2
-##  4 mobile        2423           7
-##  5 tablet        1049           6
-##  6 tablet        1304           9
-##  7 tablet        2077           7
-##  8 mobile         237           4
-##  9 tablet         622           5
-## 10 tablet        1613           7
-## # ... with 244 more rows&lt;/code&gt;&lt;/pre&gt;
+##  3 tablet        1049           6
+##  4 tablet        1304           9
+##  5 tablet         622           5
+##  6 tablet        1613           7
+##  7 mobile         184           3
+##  8 tablet         286           9
+##  9 mobile         764           6
+## 10 tablet        1667           6
+## # ... with 93 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-4-compute-total-order-value-and-order-items&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 4: Compute total order value and order items&lt;/h3&gt;
@@ -1313,9 +1321,9 @@ ecom4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
 ##   device total_value total_items
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1 laptop      143289         449
-## 2 mobile      127223         501
-## 3 tablet      116470         431&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop       56531         160
+## 2 mobile       51504         184
+## 3 tablet       51321         197&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There you go, we have the total order value and total order items for each device type. Another way to achieve the above result is to use the &lt;code&gt;summarise_all()&lt;/code&gt; function. How does that work? It generates the specified summary for all the columns in the data set except for the column based on which the data has been grouped. So we need to ensure that the data frame does not have any irrelevant columns.&lt;/p&gt;
 &lt;p&gt;In our case study, we have split the data based on the device type and we have 2 other columns which are order value and order items. If we use &lt;code&gt;summarise_all()&lt;/code&gt; function, it will generate the summary for the two columns based on the function specified. To specify the functions, we need to use another argument &lt;code&gt;funs&lt;/code&gt; and it can take any number of valid functions.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom4 &amp;lt;- summarise_all(ecom3, funs(sum))
@@ -1323,9 +1331,9 @@ ecom4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
 ##   device order_value order_items
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1 laptop      143289         449
-## 2 mobile      127223         501
-## 3 tablet      116470         431&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop       56531         160
+## 2 mobile       51504         184
+## 3 tablet       51321         197&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-5-compute-aov&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 5: Compute AOV&lt;/h3&gt;
@@ -1335,9 +1343,9 @@ ecom5&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 4
 ##   device order_value order_items      aov
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1 laptop      143289         449 319.1292
-## 2 mobile      127223         501 253.9381
-## 3 tablet      116470         431 270.2320&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop       56531         160 353.3188
+## 2 mobile       51504         184 279.9130
+## 3 tablet       51321         197 260.5127&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-6-select-the-relevant-columns&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 6: Select the relevant columns&lt;/h3&gt;
@@ -1347,9 +1355,9 @@ ecom6&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
 ##   device      aov
 ##    &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1 laptop 319.1292
-## 2 mobile 253.9381
-## 3 tablet 270.2320&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop 353.3188
+## 2 mobile 279.9130
+## 3 tablet 260.5127&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let us combine all the code from the above steps:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom1 &amp;lt;- filter(ecom, purchase == &amp;quot;true&amp;quot;)
 ecom2 &amp;lt;- select(ecom1, device, order_value, order_items)
@@ -1361,9 +1369,9 @@ ecom6&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
 ##   device      aov
 ##    &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1 laptop 319.1292
-## 2 mobile 253.9381
-## 3 tablet 270.2320&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop 353.3188
+## 2 mobile 279.9130
+## 3 tablet 260.5127&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you observe, at each step we create a new variable(data frame) and then use it as an input in the next step i.e. the output from one function becomes the input for another function. Can we achieve the final outcome i.e. &lt;code&gt;ecom6&lt;/code&gt; without creating the intermediate data frames (ecom1 - ecom5)? Yes, we can. We will use the &lt;code&gt;%&amp;gt;%&lt;/code&gt; operator to chain the above steps so that we can avoid creating the intermediate data frames. Let us see how to do that.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ecom %&amp;gt;%
   filter(purchase == &amp;#39;true&amp;#39;) %&amp;gt;%
@@ -1377,9 +1385,9 @@ ecom6&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
 ##   device      aov
 ##    &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1 laptop 319.1292
-## 2 mobile 253.9381
-## 3 tablet 270.2320&lt;/code&gt;&lt;/pre&gt;
+## 1 laptop 353.3188
+## 2 mobile 279.9130
+## 3 tablet 260.5127&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In the above code, we take the output from each step and use it as an input for the next step using the pipe &lt;code&gt;%&amp;gt;%&lt;/code&gt; operator. It reduces the intermediate data frames and makes the code readable. Take the &lt;code&gt;ecom&lt;/code&gt; data frame &lt;code&gt;-&amp;gt;&lt;/code&gt; filter the purchasers &lt;code&gt;-&amp;gt;&lt;/code&gt; select device, order_value and order_items variables &lt;code&gt;-&amp;gt;&lt;/code&gt; group the resulting data frame by device type &lt;code&gt;-&amp;gt;&lt;/code&gt; compute the sum of all the variables in the grouped data frames &lt;code&gt;-&amp;gt;&lt;/code&gt; compute the average order value &lt;code&gt;-&amp;gt;&lt;/code&gt; select device type and aov&lt;/p&gt;
 &lt;p&gt;It is the same as the steps we wrote at the beginning of this post. Now you realize how powerful dplyr is along with the &lt;code&gt;%&amp;gt;%&lt;/code&gt; operator. There are other functions in dplyr but we will cover them in another post. You are encouraged to use the above approach to answer the questions we have listed below.&lt;/p&gt;
 &lt;/div&gt;

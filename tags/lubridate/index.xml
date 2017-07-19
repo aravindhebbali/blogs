@@ -22,7 +22,7 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is the 5th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate dataframes using the &lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn to work with date/time data in R using &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt;, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.&lt;/p&gt;
+&lt;p&gt;This is the tenth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate dataframes using the &lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34;&gt;dplyr&lt;/a&gt; package. In this post, we will learn to work with date/time data in R using &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt;, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.&lt;/p&gt;
 &lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Quick Overview&lt;/h3&gt;
 &lt;p&gt;Use &lt;code&gt;origin&lt;/code&gt; to get the origin for the &lt;code&gt;Date&lt;/code&gt; and other date/time objects in R.&lt;/p&gt;
@@ -30,9 +30,9 @@
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1970-01-01 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-22 16:44:09 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-07-19 13:12:12 IST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;today()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-06-22&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2017-07-19&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;am(now())  &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pm(now())&lt;/code&gt;&lt;/pre&gt;
@@ -347,6 +347,9 @@ transact %&amp;gt;%
 ## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &amp;lt;S4:
 ## #   Interval&amp;gt;, inv_pay_days &amp;lt;S4: Period&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
 &lt;/div&gt;
 </description>
     </item>

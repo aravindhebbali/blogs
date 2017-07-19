@@ -102,3 +102,5 @@ traffic$traffics %>% fct_lump(prop = 0.15) %>% table()
 traffic$traffics %>% fct_lump(n = -3) %>% table()
 traffic$traffics %>% fct_lump(prop = -0.1) %>% table()
 ```
+
+## Summary

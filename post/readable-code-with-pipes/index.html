@@ -291,6 +291,7 @@
 
   <div id="introduction" class="section level1">
 <h1>Introduction</h1>
+<p>This is the sixth post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/exporting-data-from-r/">post</a>, we learnt to export data/code from R. In this post, we will learn about pipes.</p>
 <p>When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The <a href="https://CRAN.R-project.org/package=magrittr">magrittr</a> package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.</p>
 <ul>
 <li>especially useful when you have nested functions</li>
@@ -317,7 +318,7 @@
 ##   bouncers = col_character(),
 ##   n_visit = col_integer(),
 ##   n_pages = col_double(),
-##   duration = col_integer(),
+##   duration = col_double(),
 ##   country = col_character(),
 ##   purchase = col_character(),
 ##   order_items = col_double(),
@@ -326,33 +327,33 @@
 <pre class="r"><code>head(ecom, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
-##  1     1   google laptop     true      10       1       27 Czech Republic
-##  2     2    yahoo tablet     true       9       1      899          Yemen
-##  3     3   direct laptop     true       0       1       72         Brazil
-##  4     4     bing tablet    false       3      18      155          China
-##  5     5    yahoo mobile     true       9       1      899         Poland
-##  6     6    yahoo laptop    false       5       5      573   South Africa
-##  7     7    yahoo mobile     true      10       1      692     Bangladesh
-##  8     8   direct mobile     true      10       1      578      Indonesia
-##  9     9     bing mobile    false       3      19      794    Netherlands
-## 10    10   google mobile     true       6       1      762 Czech Republic
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
 ## # ... with 3 more variables: purchase &lt;chr&gt;, order_items &lt;dbl&gt;,
 ## #   order_value &lt;dbl&gt;</code></pre>
 <pre class="r"><code>ecom %&gt;% head(10)</code></pre>
 <pre><code>## # A tibble: 10 x 11
 ##       id referrer device bouncers n_visit n_pages duration        country
-##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;          &lt;chr&gt;
-##  1     1   google laptop     true      10       1       27 Czech Republic
-##  2     2    yahoo tablet     true       9       1      899          Yemen
-##  3     3   direct laptop     true       0       1       72         Brazil
-##  4     4     bing tablet    false       3      18      155          China
-##  5     5    yahoo mobile     true       9       1      899         Poland
-##  6     6    yahoo laptop    false       5       5      573   South Africa
-##  7     7    yahoo mobile     true      10       1      692     Bangladesh
-##  8     8   direct mobile     true      10       1      578      Indonesia
-##  9     9     bing mobile    false       3      19      794    Netherlands
-## 10    10   google mobile     true       6       1      762 Czech Republic
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
 ## # ... with 3 more variables: purchase &lt;chr&gt;, order_items &lt;dbl&gt;,
 ## #   order_value &lt;dbl&gt;</code></pre>
 <pre class="r"><code>y &lt;- ecom$n_pages
@@ -363,7 +364,7 @@ y %&lt;&gt;% sqrt()</code></pre>
 <pre class="r"><code>ecom %&gt;%
   subset(purchase == &#39;true&#39;) %$% 
   cor(n_pages, duration)</code></pre>
-<pre><code>## [1] -0.121843</code></pre>
+<pre><code>## [1] 0.4290905</code></pre>
 <pre class="r"><code>ecom %&gt;%
   subset(purchase == &#39;true&#39;) %&gt;%
   extract(&#39;referrer&#39;) %&gt;%
@@ -379,18 +380,18 @@ y %&lt;&gt;% sqrt()</code></pre>
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -506.30 -249.30    1.86  247.83  512.38 
+## -386.45 -213.03  -38.93  179.31  602.55 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  508.783     12.281  41.428   &lt;2e-16 ***
-## n_pages       -1.480      1.405  -1.053    0.292    
+## (Intercept)  404.803     11.323  35.750  &lt; 2e-16 ***
+## n_pages       -8.355      1.296  -6.449 1.76e-10 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 285.5 on 998 degrees of freedom
-## Multiple R-squared:  0.001111,   Adjusted R-squared:  0.0001099 
-## F-statistic:  1.11 on 1 and 998 DF,  p-value: 0.2924</code></pre>
+## Residual standard error: 263.3 on 998 degrees of freedom
+## Multiple R-squared:   0.04,  Adjusted R-squared:  0.03904 
+## F-statistic: 41.58 on 1 and 998 DF,  p-value: 1.756e-10</code></pre>
 <pre class="r"><code>email &lt;- &#39;jovialcann@anymail.com&#39;
 
 toupper(strtrim(strsplit(email, &#39;@&#39;)[[1]][1], 6))</code></pre>
@@ -402,7 +403,10 @@ toupper(strtrim(strsplit(email, &#39;@&#39;)[[1]][1], 6))</code></pre>
   strtrim(width = 6) %&gt;%
   toupper()</code></pre>
 <pre><code>## [1] &quot;JOVIAL&quot;</code></pre>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
 <p>We will learn a better way of dealing with <code>lists</code> while exploring the <a href="purrr.tidyverse.org">purrr</a> package. The pipe operators work very well with the dplyr verbs we will explore in the next post.</p>
+</div>
 </div>
 
 

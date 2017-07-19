@@ -22,7 +22,7 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 11th post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/how-to-work-with-dates-in-r/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate date and time using the &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt; package. In this post, we will learn to work with string data in R using &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;stringr&lt;/a&gt;. Let us begin by installing and loading stringr and a set of other pacakges we will be using.&lt;/p&gt;
+&lt;p&gt;This is the eleventh post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/how-to-work-with-dates-in-r/&#34;&gt;post&lt;/a&gt;, we learnt to manipulate date and time using the &lt;a href=&#34;https://CRAN.R-project.org/package=lubridate&#34;&gt;lubridate&lt;/a&gt; package. In this post, we will learn to work with string data in R using &lt;a href=&#34;http://stringr.tidyverse.org&#34;&gt;stringr&lt;/a&gt;. Let us begin by installing and loading stringr and a set of other pacakges we will be using.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;print&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;print&lt;/h1&gt;
@@ -179,6 +179,9 @@ q &amp;lt;- mockstring$url[1:3] %&amp;gt;%
 mockstring$url[1:3] %&amp;gt;% 
   str_sub(start = d, end = q)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jsp&amp;quot;  &amp;quot;json&amp;quot; &amp;quot;json&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

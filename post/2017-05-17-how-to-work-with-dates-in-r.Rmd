@@ -11,7 +11,7 @@ draft: yes
 
 ## Introduction
 
-This is the 5th post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/post/data-manipulation-in-r-with-dplyr/), we learnt to manipulate dataframes using the [dplyr](https://CRAN.R-project.org/package=dplyr) package. In this post, we will learn to work with date/time data in R using [lubridate]( https://CRAN.R-project.org/package=lubridate), an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
+This is the tenth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/), we learnt to manipulate dataframes using the [dplyr](https://CRAN.R-project.org/package=dplyr) package. In this post, we will learn to work with date/time data in R using [lubridate]( https://CRAN.R-project.org/package=lubridate), an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
 
 ```{r lub1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(lubridate)
@@ -181,7 +181,7 @@ transact %>%
   )
 ```
 
-
+## Summary
 
 
 

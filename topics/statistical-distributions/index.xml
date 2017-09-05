@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistical Distributions on Rsquared Academy Blog</title>
-    <link>/topics/statistical-distributions/index.xml</link>
+    <link>/topics/statistical-distributions/</link>
     <description>Recent content in Statistical Distributions on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/topics/statistical-distributions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/topics/statistical-distributions/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Why you should know the Normal distribution?</title>
@@ -15,13 +18,7 @@
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/why-you-should-know-the-normal-distribution/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
   </channel>

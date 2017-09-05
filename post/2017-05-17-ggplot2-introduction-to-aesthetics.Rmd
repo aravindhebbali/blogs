@@ -195,10 +195,10 @@ Before we wrap up, let us quickly see how we can map aesthetics to variables for
 
 ## Bar Plots
 
-```{r aes24}
 ggplot(ecom, aes(device, fill = purchase)) +
   geom_bar()
 ```
+```{r aes24}
 
 ## Histograms
 

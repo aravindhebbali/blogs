@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vectors on Rsquared Academy Blog</title>
-    <link>/tags/vectors/index.xml</link>
+    <link>/tags/vectors/</link>
     <description>Recent content in Vectors on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/vectors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/vectors/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Vectors</title>
@@ -15,13 +18,7 @@
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-vectors/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
   </channel>

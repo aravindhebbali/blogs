@@ -86,3 +86,4 @@ Map `linewidth` to `country`.
 ggplot(gdp2, aes(year, gdp, group = country)) +
   geom_line(aes(size = country))
 ```
+  

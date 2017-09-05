@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on Rsquared Academy Blog</title>
-    <link>/tags/database/index.xml</link>
+    <link>/tags/database/</link>
     <description>Recent content in Database on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Quick Guide: R &amp; SQLite</title>
@@ -15,13 +18,7 @@
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/quick-guide-r-sqlite/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -30,157 +27,7 @@
       <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/rmysql-for-beginners/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div id=&#34;objectives&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Objectives&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Install and load RMySQL package&lt;/li&gt;
-&lt;li&gt;Connect to a MySQL database from R&lt;/li&gt;
-&lt;li&gt;Display database information&lt;/li&gt;
-&lt;li&gt;List tables in the database&lt;/li&gt;
-&lt;li&gt;Create new table&lt;/li&gt;
-&lt;li&gt;Import data into R for analysis&lt;/li&gt;
-&lt;li&gt;Export data from R into MySQL&lt;/li&gt;
-&lt;li&gt;Remove tables and disconnect&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;In real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis. If you are using R for statistical analysis and a relational database for storing the data, you need to interact with the database in order to access the data sets.&lt;/p&gt;
-&lt;p&gt;One way to accomplish the above task is to export the data from the database in some file format and import the same into R. Similarly, if you have some data as a dataframe in R and want to store it in a database, you will need to export the data from R and import it into the database. This method can be very cumbersome and frustrating.&lt;/p&gt;
-&lt;p&gt;The RMySQL package was created to help R users to easily access a MySQL database from R. In order to take advantage of the features available in the package, you need the following:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Access to a MySQL database&lt;/li&gt;
-&lt;li&gt;Knowledge of basic SQL commmands&lt;/li&gt;
-&lt;li&gt;Latest verison of R (verison 3.3.3)&lt;/li&gt;
-&lt;li&gt;Latest version of RStudio (version 1.0.136)&lt;/li&gt;
-&lt;li&gt;RMySQL package (version 0.10.11)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;installation&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Installation&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/RMySQL/index.html&#34;&gt;RMySQL&lt;/a&gt; package allows you to access MySQL database form R. It was created by &lt;a href=&#34;http://biostat.mc.vanderbilt.edu/wiki/Main/JeffreyHorner&#34;&gt;Jeffrey Horner&lt;/a&gt; but is currently maintained by &lt;a href=&#34;https://github.com/jeroen&#34;&gt;Jeroen Ooms&lt;/a&gt;. The latest version of the pacakge is 0.10.11. You can install and load the package using the following commands:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install the package
-install.packages(&amp;#39;RMySQL&amp;#39;)
-
-# load the package
-library(RMySQL)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;connect-to-database&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Connect to Database&lt;/h3&gt;
-&lt;p&gt;We can establish a connection to a MySQL database using the &lt;code&gt;dbConnect()&lt;/code&gt; function. In order to connect to the database, we need to specify the following:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;MySQL connection&lt;/li&gt;
-&lt;li&gt;database name&lt;/li&gt;
-&lt;li&gt;username&lt;/li&gt;
-&lt;li&gt;password&lt;/li&gt;
-&lt;li&gt;host details&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Below is an example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;con &amp;lt;- dbConnect(MySQL(), user = &amp;#39;root&amp;#39;, password = &amp;#39;password&amp;#39;,
-                 host = &amp;#39;localhost&amp;#39;, dbname = &amp;#39;dbname&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;connection-summary&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Connection Summary&lt;/h3&gt;
-&lt;p&gt;We can get a summary or metadata of the connection using &lt;code&gt;summary()&lt;/code&gt; function. We need to specify the name of the MySQL connection object for which we are seeking metadata. Let us look at the metadata of the MySQL connection object we just created:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(con)
-# &amp;lt;MySQLConnection:0,0&amp;gt;
-#    User: root
-#    Host: localhost
-#    Dbname: world
-#    Connection type: localhost via TCP/IP&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;database-info&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Database Info&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;dbGetInfo()&lt;/code&gt; function can be used to access information about the database to which we have established a connection. Among other things, it will return the following information about host, server and connection:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbGetInfo(con)
-# $host
-# [1]&amp;quot;localhost&amp;quot;
-# 
-# $user
-# [1]&amp;quot;root&amp;quot;
-# 
-# $dbname
-# [1]&amp;quot;world&amp;quot;
-# 
-# $conType
-# [1]&amp;quot;localhost via TCP/IP&amp;quot;
-# 
-# $serveVersion
-# [1]&amp;quot;5.7.9-log&amp;quot;
-# 
-# $protocolVersion
-# [1]10
-# 
-# $threadId
-# [1]7
-# 
-# $rsld
-# list()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;list-tables&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;List Tables&lt;/h3&gt;
-&lt;p&gt;Once we have successfully established a connection to a MySQL database, we can use the &lt;code&gt;dbListTables()&lt;/code&gt; function to assess the list of tables that are present in that particular database. We need to specify the name of the MySQL connection object for which we are seeking the list of tables.&lt;/p&gt;
-&lt;p&gt;Below is an example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of tables in the database
-dbListTables(con)
-# [1] &amp;quot;city&amp;quot;  &amp;quot;country&amp;quot; &amp;quot;countrylanguage&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, there are four tables in the database to which we established the connection through RMySQL package. In the &lt;code&gt;dbListTables()&lt;/code&gt; function, we have not specified the name of the database but the name of the MySQL connection object we created when we connected to the database.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;list-fields&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;List Fields&lt;/h3&gt;
-&lt;p&gt;To get a list of fields or columns in a particular table in the database, we can use the &lt;code&gt;dbListFields()&lt;/code&gt; function. We need to specify the name of the MySQL connection object as well as the table name. If the table exists in the database, the names of the fields will be returned.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of fields in table city
-dbListFields(con, &amp;quot;city&amp;quot;)
-# [1] &amp;quot;ID&amp;quot;          &amp;quot;Name&amp;quot;          &amp;quot;CountryCode&amp;quot;  &amp;quot;District&amp;quot; 
-# [5]&amp;quot;Population&amp;quot; &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The name of the table must be enclosed in single/double quotes and the name of the fields is returned as a character vector.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;testing-data-types&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Testing Data Types&lt;/h3&gt;
-&lt;p&gt;To test the SQL data type of an object, we can use the &lt;code&gt;dbDataType()&lt;/code&gt; function. We need to specify the driver details as well as the object to test the SQL data type.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# data type
-dbDataType(RMySQL::MySQL(), &amp;quot;a&amp;quot;)
-# [1] &amp;quot;text&amp;quot;
-
-dbDataType(RMySQL::MySQL(), 1:5)
-# [1] &amp;quot;bigint&amp;quot;
-
-dbDataType(RMySQL::MySQL(), 1.5)
-# [1] &amp;quot;double&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;querying-data&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Querying Data&lt;/h3&gt;
-&lt;p&gt;There are three different methods of querying data from a database:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;import the complete table using &lt;code&gt;dbReadTable()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;send query and retrieve results usinf &lt;code&gt;dbGetQuery()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;submit query using &lt;code&gt;dbSendQuery()&lt;/code&gt; and fetch results using &lt;code&gt;dbFetch()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us explore each of the above methods one by one.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;import-table&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Import Table&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;dbReadTable()&lt;/code&gt; can be used to extract an entire table from a MySQL database. We can use this method only if the table is not very big. We need to specify the name of the MySQL connection object and the table. The name of the table must be enclosed in single/double quotes.&lt;/p&gt;
-&lt;p&gt;In the below example, we read the entire table named &lt;strong&gt;trial&lt;/strong&gt; from the database:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbReadTable(con, &amp;quot;trial&amp;quot;)
-#     x y
-# 1   1 a 
-# 2   2 b
-# 3   3 c
-# 4   4 d
-# 5   5 e
-# 6   6 f
-# 7   7 g
-# 8   8 h
-# 9   9 i
-# 10 10 j&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
+      <description>ObjectivesInstall and load RMySQL packageConnect to a MySQL database from RDisplay database informationList tables in the databaseCreate new tableImport data into R for analysisExport data from R into MySQLRemove tables and disconnectIntroductionIn real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis.</description>
     </item>
     
   </channel>

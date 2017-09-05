@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.26" />
 
   <title>ggplot2: Introduction to aesthetics &middot; Rsquared Academy Blog</title>
 
@@ -393,12 +393,8 @@
 </div>
 <div id="bar-plots" class="section level2">
 <h2>Bar Plots</h2>
-<pre class="r"><code>ggplot(ecom, aes(device, fill = purchase)) +
-  geom_bar()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes24-1.png" width="672" /></p>
-</div>
-<div id="histograms" class="section level2">
-<h2>Histograms</h2>
+<p>ggplot(ecom, aes(device, fill = purchase)) + geom_bar() ```</p>
+<pre class="r"><code>## Histograms</code></pre>
 <pre class="r"><code>ggplot(ecom) +
   geom_histogram(aes(duration, fill = purchase), bins = 10)</code></pre>
 <p><img src="../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes25-1.png" width="672" /></p>

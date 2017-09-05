@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>/post/data-wrangling-with-dbplyr/</loc>
@@ -194,11 +195,6 @@
   <url>
     <loc>/post/introduction-to-version-control/</loc>
     <lastmod>2016-09-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/rmarkdown-tutorial-for-beginners/</loc>
-    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -472,14 +468,14 @@
   </url>
   
   <url>
-    <loc>/topics/database/</loc>
-    <lastmod>2017-07-18T00:00:00+00:00</lastmod>
+    <loc>/tags/database/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/database/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <loc>/topics/database/</loc>
+    <lastmod>2017-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -550,14 +546,14 @@
   </url>
   
   <url>
-    <loc>/topics/ggplot2/</loc>
-    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+    <loc>/topics/ggplot2/</loc>
+    <lastmod>2016-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -604,12 +600,6 @@
   </url>
   
   <url>
-    <loc>/tags/knitr/</loc>
-    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/lapply/</loc>
     <lastmod>2015-07-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -648,12 +638,6 @@
   <url>
     <loc>/tags/mapply/</loc>
     <lastmod>2015-07-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/markdown/</loc>
-    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -718,13 +702,13 @@
   </url>
   
   <url>
-    <loc>/topics/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/topics/rmarkdown/</loc>
     <lastmod>2017-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -778,13 +762,13 @@
   </url>
   
   <url>
-    <loc>/topics/statistics/</loc>
+    <loc>/tags/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
+    <loc>/topics/statistics/</loc>
     <lastmod>2017-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -803,6 +787,7 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -826,6 +811,7 @@
   
   <url>
     <loc>/topics/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

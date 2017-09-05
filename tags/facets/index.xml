@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Facets on Rsquared Academy Blog</title>
-    <link>/tags/facets/index.xml</link>
+    <link>/tags/facets/</link>
     <description>Recent content in Facets on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/facets/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/facets/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Data Visualization with R - Combining Plots</title>
@@ -15,22 +18,8 @@
       <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-combining-plots/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;This is the tenth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.&lt;/p&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;par()&lt;/code&gt; function can be used to set graphical parameters regarding plot layout using the &lt;code&gt;mfcol&lt;/code&gt; and &lt;code&gt;mfrow&lt;/code&gt; arguments&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;layout()&lt;/code&gt; function serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns in which the plots are arranged&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us explore the &lt;code&gt;par()&lt;/code&gt; function first.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the tenth post in the series Data Visualization With R. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.
+IntroductionOften, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:</description>
     </item>
     
   </channel>

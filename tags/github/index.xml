@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on Rsquared Academy Blog</title>
-    <link>/tags/github/index.xml</link>
+    <link>/tags/github/</link>
     <description>Recent content in Github on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>RStudio 2 GitHub: GitHub Pages</title>
@@ -15,13 +18,7 @@
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/github-pages/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -30,13 +27,7 @@
       <pubDate>Wed, 07 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/git-command-line/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -45,13 +36,7 @@
       <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/git-branch-workflow/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -60,13 +45,7 @@
       <pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/git-project-workflow/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -75,13 +54,7 @@
       <pubDate>Sat, 22 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/configure-rstudio/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -90,13 +63,7 @@
       <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/quick-introduction-to-github/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -105,13 +72,7 @@
       <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/install-git/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -120,13 +81,7 @@
       <pubDate>Thu, 08 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-version-control/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
   </channel>

@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lapply on Rsquared Academy Blog</title>
-    <link>/tags/lapply/index.xml</link>
+    <link>/tags/lapply/</link>
     <description>Recent content in Lapply on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/lapply/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/lapply/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>apply family of functions</title>
@@ -15,13 +18,7 @@
       <pubDate>Mon, 20 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/apply-family-functions/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
   </channel>

@@ -2,13 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rsquared Academy Blog</title>
-    <link>/index.xml</link>
+    <link>/</link>
     <description>Recent content on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 18 Jul 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Data Wrangling with dbplyr</title>
@@ -16,13 +18,7 @@
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/data-wrangling-with-dbplyr/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -31,13 +27,7 @@
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/sql-for-data-science/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -46,79 +36,9 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/a-complete-guide-to-importing-data-into-r-part-2/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fourth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/&#34;&gt;post&lt;/a&gt;, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;JSON&lt;/li&gt;
-&lt;li&gt;XML&lt;/li&gt;
-&lt;li&gt;googlesheets&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div id=&#34;json&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;JSON&lt;/h2&gt;
-&lt;p&gt;A lot of API data is available in the JSON format. You can use the &lt;a href=&#34;https://cran.r-project.org/package=jsonlite&#34;&gt;jsonlite&lt;/a&gt; package to import JSON data into R.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jsonlite::fromJSON()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;xml&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;XML&lt;/h2&gt;
-&lt;p&gt;Some APIs offer data in the XML format. Use the &lt;a href=&#34;https://cran.r-project.org/package=xml2&#34;&gt;xml2&lt;/a&gt; package to import XML data into R.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# x &amp;lt;- read_xml(&amp;#39;sample_xml&amp;#39;)
-
-# xml_name(x)
-# xml_text(x)
-# xml_attrs(x)
-# xml_children(x)
-# baz &amp;lt;- xml2::xml_find_all(x, &amp;#39;.//book&amp;#39;)
-# xml_path(baz)
-# xml_attr(baz, &amp;quot;id&amp;quot;)
-# xml_structure(x)
-# as_list(x)
-# 
-# library(XML)
-# xmlToDataFrame(x, c(&amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;, &amp;quot;numeric&amp;quot;, 
-#                     &amp;quot;character&amp;quot;, &amp;quot;character&amp;quot;))
-# 
-# cd &amp;lt;- read_xml(&amp;quot;http://www.xmlfiles.com/examples/cd_catalog.xml&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;html&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;HTML&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# xml2::read_html()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;google-sheets&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Google Sheets&lt;/h2&gt;
-&lt;p&gt;You can import data from Google Sheets using the &lt;a href=&#34;&#34;&gt;googlesheets&lt;/a&gt; pacakge.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mysheets &amp;lt;- gs_ls()
-# mysheets %&amp;gt;% glimpse()
-# 
-# # practice sheets
-# gs_gap() %&amp;gt;%
-#     gs_copy(to = &amp;quot;Gapminder&amp;quot;)
-# gs_ls(&amp;#39;Gapminder&amp;#39;)
-# 
-# # register sheet
-# gap &amp;lt;- gs_title(&amp;#39;Gapminder&amp;#39;)
-# gap
-# 
-# # get worksheet names
-# gs_ws_ls(gap)
-# 
-# # read data in one worksheet
-# oceania &amp;lt;- gap %&amp;gt;%
-#     gs_read(ws = &amp;quot;Oceania&amp;quot;)
-# 
-# # read certain cells
-# gap %&amp;gt;% gs_read(ws = 2, range = &amp;quot;A1:D8&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fourth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.
+# jsonlite::fromJSON()XMLSome APIs offer data in the XML format.</description>
     </item>
     
     <item>
@@ -127,13 +47,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/blogs/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -142,13 +56,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/books/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -157,28 +65,8 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/exporting-data-from-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/tXSoThF.png&#34; alt=&#34;Twitter&#34; /&gt; &lt;img src=&#34;http://i.imgur.com/P3YfQoD.png&#34; alt=&#34;Facebook&#34; /&gt; &lt;img src=&#34;twitter.png&#34; alt=&#34;Try Image&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fifth post in the series &lt;strong&gt;Data Wrangling with R&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r-part-2/&#34;&gt;post&lt;/a&gt;, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.&lt;/p&gt;
-&lt;div id=&#34;files&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Files&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_file()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lines&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lines&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# readr::read_lines()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
+Files# readr::read_file()Lines# readr::read_lines()Summary</description>
     </item>
     
     <item>
@@ -187,13 +75,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/package-website/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -202,13 +84,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/presentations/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -217,13 +93,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/websites/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -232,62 +102,9 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-axes/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the &lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_x_continuous()&lt;/code&gt;: modify x axis when x is continuous&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The first function we will explore is &lt;code&gt;scale_x_continuous()&lt;/code&gt;. It can be used for:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;axis title&lt;/li&gt;
-&lt;li&gt;axis labels&lt;/li&gt;
-&lt;li&gt;axis limits&lt;/li&gt;
-&lt;li&gt;axis breaks&lt;/li&gt;
-&lt;li&gt;and axis position&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us create a simple scatter plot and then use &lt;code&gt;scale_x_continuous()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-axes_files/figure-html/guide2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  scale_x_continuous(name = &amp;quot;Displacement&amp;quot;,
-                     limits = c(0, 600),
-                     breaks = c(0, 150, 300, 450, 600),
-                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;150&amp;#39;, &amp;#39;300&amp;#39;, &amp;#39;450&amp;#39;, &amp;#39;600&amp;#39;),
-                     position = &amp;#39;top&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-axes_files/figure-html/guide3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_y_continuous()&lt;/code&gt;: modify y axis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now let us modify the Y axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  scale_y_continuous(name = &amp;quot;Miles Per Gallon&amp;quot;,
-                     limits = c(0, 45),
-                     breaks = c(0, 15, 30, 45),
-                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;15&amp;#39;, &amp;#39;30&amp;#39;, &amp;#39;45&amp;#39;),
-                     position = &amp;#39;right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-axes_files/figure-html/guide4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now let us look at plots with discrete X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-axes_files/figure-html/guide5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use &lt;code&gt;scael_x_discrete()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl))) +
-  scale_x_discrete(name = &amp;quot;Number of Cylinders&amp;quot;,
-                   labels = c(&amp;quot;4&amp;quot; = &amp;quot;Four&amp;quot;, &amp;quot;6&amp;quot; = &amp;quot;Six&amp;quot;, &amp;quot;8&amp;quot; = &amp;quot;Eight&amp;quot;),
-                   breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
-                   position = &amp;quot;bottom&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-axes_files/figure-html/guide6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt how to modify the axis whether it represents a continuous variable or a discrete variable. In the next post, we will learn how to modify the legend when aesthetics are mapped to variables.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionNow that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the scale_*() family of functions
+scale_x_continuous(): modify x axis when x is continuousThe first function we will explore is scale_x_continuous(). It can be used for:
+axis titleaxis labelsaxis limitsaxis breaksand axis positionLet us create a simple scatter plot and then use scale_x_continuous() to modify the X axis.</description>
     </item>
     
     <item>
@@ -296,310 +113,8 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-legends/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 13th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previos &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-axes/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.&lt;/p&gt;
-&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guides()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guide_legend()&lt;/code&gt; and &lt;code&gt;guide_colorbar()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us start with &lt;code&gt;scale_*()&lt;/code&gt; family of functions.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_continuous()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a continuous variable, use &lt;code&gt;scale_alpha_continuous()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a continuous variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_continuous(&amp;quot;Horsepower&amp;quot;,
-                         breaks = c(0, 100, 200, 300, 400),
-                         limits = c(0, 400),
-                         labels = c(&amp;quot;Zero&amp;quot;, &amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;, 
-                                    &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;),
-                         range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_discrete()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_discrete()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_discrete(name = &amp;quot;Cylinders&amp;quot;,
-                       breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
-                       labels = c(&amp;quot;Four&amp;quot;, &amp;quot;Six&amp;quot;, &amp;quot;Eight&amp;quot;),
-                       range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_color_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped color to a discrete variable, use &lt;code&gt;scale_color_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map color to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_fill_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped fill to a discrete variable, use &lt;code&gt;scale_fill_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map fill to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
-  scale_fill_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_shape_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape_manual(name = &amp;quot;Cylinders&amp;quot;,
-                    values = c(4, 12, 24),
-                    labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                    limits = c(4, 6, 8),
-                    breaks = c(4, 6, 8),
-                    guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_size_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp)) +
-  scale_size_continuous(name = &amp;quot;Horsepower&amp;quot;,
-                        range = c(3, 6),
-                        limits = c(0, 400),
-                        breaks = c(100, 200, 300, 400),
-                        labels = c(&amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;,
-                                   &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(0.4, 0.6, 0.8),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_shape()&lt;/code&gt;: maps discrete variable to six shapes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape(solid = FALSE,
-              name = &amp;#39;Cylinders&amp;#39;,
-              labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-              limits = c(4, 6, 8),
-              breaks = c(4, 6, 8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_size()&lt;/code&gt;: maps discrete variable to six sizes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp)) +
-  scale_size(name = &amp;quot;Horsepower&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;guides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guides&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                      guide = guide_legend(
-                       title = &amp;quot;Cylinders&amp;quot;,
-                       title.hjust = 0.5,
-                       title.position = &amp;quot;top&amp;quot;,
-                       label.position = &amp;quot;right&amp;quot;,
-                       direction = &amp;quot;horizontal&amp;quot;,
-                       label.hjust = 0.5,
-                       nrow = 2,
-                       reverse = TRUE
-                      )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_discrete(guide = guide_legend(
-                        title = &amp;quot;Cylinders&amp;quot;,
-                        title.hjust = 0.5,
-                        title.position = &amp;quot;top&amp;quot;,
-                        label.position = &amp;quot;right&amp;quot;,
-                        direction = &amp;quot;horizontal&amp;quot;,
-                        label.hjust = 0.5,
-                        nrow = 2,
-                        reverse = TRUE
-                        )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp)) +
-  scale_color_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE
-  ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient2(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg24-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient(low = &amp;quot;white&amp;quot;, high = &amp;quot;black&amp;quot;, 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradientn(colors = terrain.colors(5), 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg26-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = qsec, 
-                 shape = factor(gear))) + 
-  guides(color = &amp;quot;colorbar&amp;quot;,
-         shape = &amp;quot;legend&amp;quot;,
-         size = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg27-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = wt, 
-                 shape = factor(gear))) + 
-  guides(
-    color = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;
-    ),
-    shape = guide_legend(
-      title = &amp;quot;Weight&amp;quot;
-    ),
-    size = guide_legend(
-      title = &amp;quot;Gear&amp;quot;
-    )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends_files/figure-html/leg28-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.
+Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:</description>
     </item>
     
     <item>
@@ -608,163 +123,8 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-legends-part-2/</guid>
-      <description>&lt;p&gt;This is the 14th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previos &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-legends/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.&lt;/p&gt;
-&lt;div id=&#34;guides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guides&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                      guide = guide_legend(
-                       title = &amp;quot;Cylinders&amp;quot;,
-                       title.hjust = 0.5,
-                       title.position = &amp;quot;top&amp;quot;,
-                       label.position = &amp;quot;right&amp;quot;,
-                       direction = &amp;quot;horizontal&amp;quot;,
-                       label.hjust = 0.5,
-                       nrow = 2,
-                       reverse = TRUE
-                      )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_discrete(guide = guide_legend(
-                        title = &amp;quot;Cylinders&amp;quot;,
-                        title.hjust = 0.5,
-                        title.position = &amp;quot;top&amp;quot;,
-                        label.position = &amp;quot;right&amp;quot;,
-                        direction = &amp;quot;horizontal&amp;quot;,
-                        label.hjust = 0.5,
-                        nrow = 2,
-                        reverse = TRUE
-                        )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp)) +
-  scale_color_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE
-  ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient2(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient(low = &amp;quot;white&amp;quot;, high = &amp;quot;black&amp;quot;, 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradientn(colors = terrain.colors(5), 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = qsec, 
-                 shape = factor(gear))) + 
-  guides(color = &amp;quot;colorbar&amp;quot;,
-         shape = &amp;quot;legend&amp;quot;,
-         size = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = wt, 
-                 shape = factor(gear))) + 
-  guides(
-    color = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;
-    ),
-    shape = guide_legend(
-      title = &amp;quot;Weight&amp;quot;
-    ),
-    size = guide_legend(
-      title = &amp;quot;Gear&amp;quot;
-    )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-guides-legends-part-2_files/figure-html/gui10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
+Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),guide = guide_legend(title = &amp;quot;Cylinders&amp;quot;,title.hjust = 0.</description>
     </item>
     
     <item>
@@ -773,81 +133,10 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/overlapping/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 18th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-legends-part-2/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.&lt;/p&gt;
-&lt;div id=&#34;dodge&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Dodge&lt;/h2&gt;
-&lt;p&gt;Preserve the vertical position while adjusting the horizontal position.&lt;/p&gt;
-&lt;p&gt;Create grouped bar plots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar(position = position_dodge(width = 1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;jitter&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Jitter&lt;/h2&gt;
-&lt;p&gt;Add some noise to data points for better visualization.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.05, height = 0.3))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;nudge&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Nudge&lt;/h2&gt;
-&lt;p&gt;Use with geom_text. Useful for adjusting text around points.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- data.frame(
-  x = c(1,3,2,5),
-  y = c(&amp;quot;a&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;c&amp;quot;)
-)
-
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  geom_text(aes(label = y),
-            position = position_nudge(y = -0.1, x = -0.2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fill&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Fill&lt;/h2&gt;
-&lt;p&gt;Proportional bar plots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(gear))) +
-  geom_bar(position = &amp;quot;fill&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stack&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stack&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;series &amp;lt;- data.frame(
-  time = c(rep(1, 4),rep(2, 4), rep(3, 4), rep(4, 4)),
-  type = rep(c(&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;d&amp;#39;), 4),
-  value = rpois(16, 10)
-)
-
-series$type2 &amp;lt;- factor(series$type, levels = c(&amp;#39;c&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;a&amp;#39;))
-
-ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type)) +
-  geom_point(aes(colour = type))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type), position = &amp;quot;stack&amp;quot;) +
-  geom_point(aes(colour = type), position = &amp;quot;stack&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-06-overlapping_files/figure-html/pos11-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+DodgePreserve the vertical position while adjusting the horizontal position.
+Create grouped bar plots.
+ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar(position = position_dodge(width = 1))JitterAdd some noise to data points for better visualization.</description>
     </item>
     
     <item>
@@ -856,141 +145,9 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/axis-plot-labels/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fifth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/&#34;&gt;post&lt;/a&gt;, we learnt about aesthetics. In this post, we will learn to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;add title and subtitle to the plot&lt;/li&gt;
-&lt;li&gt;modify axis labels&lt;/li&gt;
-&lt;li&gt;modify axis range&lt;/li&gt;
-&lt;li&gt;remove axis&lt;/li&gt;
-&lt;li&gt;format axis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div id=&#34;basic-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Basic Plot&lt;/h2&gt;
-&lt;p&gt;Let us start by building a simple scatter plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;title-subtitle&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Title &amp;amp; Subtitle&lt;/h2&gt;
-&lt;p&gt;You can add a title and subtitle to the plot using the &lt;code&gt;ggtitle()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ggtitle(label = &amp;#39;Displacement vs Mileage&amp;#39;, subtitle = &amp;#39;disp vs mpg&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Axis Labels&lt;/h2&gt;
-&lt;p&gt;The axis labels can be modified using the &lt;code&gt;xlab()&lt;/code&gt; and &lt;code&gt;ylab()&lt;/code&gt; functions.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlab(&amp;#39;Displacement&amp;#39;) + ylab(&amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can add all of the above using the &lt;code&gt;labs()&lt;/code&gt; function as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  labs(title = &amp;#39;Displacement vs Mileage&amp;#39;,
-    subtitle = &amp;#39;disp vs mpg&amp;#39;, x = &amp;#39;Displacement&amp;#39;,
-    y = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-range&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Axis Range&lt;/h2&gt;
-&lt;p&gt;Sometimes you may want to modify the range of the axis.&lt;/p&gt;
-&lt;p&gt;Use the &lt;code&gt;xlim()&lt;/code&gt; function to modify the range of the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlim(c(0, 600))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use the &lt;code&gt;ylim()&lt;/code&gt; function to modify the range of the Y axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ylim(c(0, 40))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You can use the &lt;code&gt;expand_limits()&lt;/code&gt; function as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  expand_limits(x = c(0, 600), y = c(0, 40))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;remove-axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Remove Axis Labels&lt;/h2&gt;
-&lt;p&gt;If you want to remove the axis labels all together, use the &lt;code&gt;theme()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme(axis.title.x = element_blank(),
-    axis.title.y = element_blank())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;What we are doing above is to modify the theme of the plot and set the axis labels to blank using &lt;code&gt;element_blank()&lt;/code&gt; function.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;format-title-axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Format Title &amp;amp; Axis Labels&lt;/h2&gt;
-&lt;p&gt;To format the title or the axis labels, we have to modify the theme of the plot using the &lt;code&gt;theme()&lt;/code&gt; function. We can modify the color, font family, font face, font size and horizontal position. Let us try them one by one.&lt;/p&gt;
-&lt;p&gt;The font family can be any of the valid font family types but it must be supported by OS. The font face can be plain, bold, italic, bold.italic hjust must be between 0 (extreme left) and 1 (extreme right).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ggtitle(&amp;#39;Diaplacement vs Mileage&amp;#39;) +
-  theme(plot.title = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;bold&amp;#39;,
-                                  size = 8,
-                                  hjust = 0.3))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;X axis label.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlab(&amp;#39;Diaplacement&amp;#39;) +
-  theme(axis.title.x = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;bold&amp;#39;,
-                                  size = 8,
-                                  hjust = 0.5,
-                                  angle = 15))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
-## $y, : font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Y axis label.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ylab(&amp;#39;Miles Per Gallon&amp;#39;) +
-  theme(axis.title.y = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;italic&amp;#39;,
-                                  size = 8,
-                                  vjust = 0.3,
-                                  angle = 90))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
-## $y, : font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-axis-plot-labels_files/figure-html/axis12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will learn to:
+add title and subtitle to the plotmodify axis labelsmodify axis rangeremove axisformat axisBasic PlotLet us start by building a simple scatter plot.
+ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp;amp; SubtitleYou can add a title and subtitle to the plot using the ggtitle() function.</description>
     </item>
     
     <item>
@@ -999,21 +156,646 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-text-annotations/&#34;&gt;post&lt;/a&gt;, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.&lt;/p&gt;
-&lt;div id=&#34;guide&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guide&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl), fill = factor(gear))) +
-  scale_fill_discrete(guide = guide_legend(
-    title = &amp;#39;gear&amp;#39;, title.position = &amp;#39;bottom&amp;#39;, title.hjust = 0.5,
-    label.position = &amp;#39;top&amp;#39;, direction = &amp;#39;horizontal&amp;#39;, 
-    label.hjust = 0.5, nrow = 3, reverse = TRUE))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2017-07-04-guides_files/figure-html/guides2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &amp;#39;gear&amp;#39;, title.position = &amp;#39;bottom&amp;#39;, title.hjust = 0.5,label.position = &amp;#39;top&amp;#39;, direction = &amp;#39;horizontal&amp;#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))</description>
+    </item>
+    
+    <item>
+      <title>Why you should purrr - Part 2</title>
+      <link>/post/why-you-should-purrr-part-2/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-purrr-part-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Why you should purrr?</title>
+      <link>/post/why-you-should-purrr-part-1/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-purrr-part-1/</guid>
+      <description>This is the 10th post in the series Data Wrangling with R. In the previous post, we learnt helper functions in dplyr package. In this post, we will learn about purrr, an R package that enhances R’s functional programming toolkit. Let us begin by installing and loading purrr and a set of other pacakges we will be using.
+As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.</description>
+    </item>
+    
+    <item>
+      <title>Data Manipulation in R with dplyr - Part 3</title>
+      <link>/post/data-manipulation-in-r-with-dplyr-part-3/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-manipulation-in-r-with-dplyr-part-3/</guid>
+      <description>IntroductionThis is the ninth post in the series Data Wrangling with R. In the previous post, we learnt how to combine tables using the *_join() family of functions in dplyr.
+In this post, we will explore a set of helper functions in order to:
+extract unique rowsrename columnssample dataextract columnsslice rowsarrange rowscompare tablesextract/mutate data using predicate functionscount observations for different levels of a variableCase StudyLet us look at a case study (e-commerce data) and see how we can use dplyr helper functions to answer questions we have about and to modify/transform the underlying data set.</description>
+    </item>
+    
+    <item>
+      <title>Data Manipulation in R with dplyr - Part 2</title>
+      <link>/post/data-manipulation-in-r-with-dplyr-part-2/</link>
+      <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-manipulation-in-r-with-dplyr-part-2/</guid>
+      <description>IntroductionThis is the eighth post in the series Data Wrangling with R. In a previous post, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different join functions provided in dplyr. Let us assume we have 2 tables y and y. Below are the different types of join functions provided in dplyr.</description>
+    </item>
+    
+    <item>
+      <title>forcats: Working with factor data in R</title>
+      <link>/post/forcats-working-with-factor-data-in-r/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/forcats-working-with-factor-data-in-r/</guid>
+      <description>IntroductionThis is the 12th post in the series Data Wrangling with R. In the previous post, we learnt to manipulate strings using the stringr package. In this post, we will learn to work with categorical/qualitative data in R using forcats. Let us begin by installing and loading forcats and a set of other pacakges we will be using.
+We will use a case study to explore the various features of the forcats package.</description>
+    </item>
+    
+    <item>
+      <title>Why you should know the Normal distribution?</title>
+      <link>/post/why-you-should-know-the-normal-distribution/</link>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-you-should-know-the-normal-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to tibbles</title>
+      <link>/post/introduction-to-tibbles/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-tibbles/</guid>
+      <description>IntroductionThis is the second post in the series Data Wrangling with R. In the previous post, we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the tidyverse. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with tidyverse</title>
+      <link>/post/getting-started-with-tidyverse/</link>
+      <pubDate>Thu, 06 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-started-with-tidyverse/</guid>
+      <description>This is the first post in the series Data Wrangling with R. In this series, we will look at the challenges faced when working with data of different types coming from different sources and explore tools available in R to overcome such challenges.
+IntroductionThe tidyverse is a collection of R packages that share a common underlying philosophy and are designed to work together. They share common data representations and API design.</description>
+    </item>
+    
+    <item>
+      <title>Working with strings in R using stringr</title>
+      <link>/post/working-with-strings-in-r-using-stringr/</link>
+      <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/working-with-strings-in-r-using-stringr/</guid>
+      <description>IntroductionThis is the eleventh post in the series Data Wrangling with R. In the previous post, we learnt to manipulate date and time using the lubridate package. In this post, we will learn to work with string data in R using stringr. Let us begin by installing and loading stringr and a set of other pacakges we will be using.
+printcatpastepaste0()sprintf()As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.</description>
+    </item>
+    
+    <item>
+      <title>How to work with dates in R</title>
+      <link>/post/how-to-work-with-dates-in-r/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-work-with-dates-in-r/</guid>
+      <description>IntroductionThis is the tenth post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
+Quick OverviewUse origin to get the origin for the Date and other date/time objects in R.</description>
+    </item>
+    
+    <item>
+      <title>Data Manipulation in R with dplyr - Part 1</title>
+      <link>/post/data-manipulation-in-r-with-dplyr-part-1/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-manipulation-in-r-with-dplyr-part-1/</guid>
+      <description>IntroductionThis is the seventh post in the series Data Wrangling with R. In the previous [post], we learnt about using pipes to make our code readable. In this post, we will learn about dplyr.
+According to a survey by CrowdFlower, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier.</description>
+    </item>
+    
+    <item>
+      <title>Readable Code with Pipes</title>
+      <link>/post/readable-code-with-pipes/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/readable-code-with-pipes/</guid>
+      <description>IntroductionThis is the sixth post in the series Data Wrangling with R. In the previous post, we learnt to export data/code from R. In this post, we will learn about pipes.
+When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The magrittr package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.</description>
+    </item>
+    
+    <item>
+      <title>Quick Guide: R &amp; SQLite</title>
+      <link>/post/quick-guide-r-sqlite/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quick-guide-r-sqlite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RMySQL for Beginners</title>
+      <link>/post/rmysql-for-beginners/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rmysql-for-beginners/</guid>
+      <description>ObjectivesInstall and load RMySQL packageConnect to a MySQL database from RDisplay database informationList tables in the databaseCreate new tableImport data into R for analysisExport data from R into MySQLRemove tables and disconnectIntroductionIn real world, data is often stored in relational databases such as MySQL and an analyst is required to extract the data in order to perform any type of analysis.</description>
+    </item>
+    
+    <item>
+      <title>A complete guide to importing data into R</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r/</guid>
+      <description>IntroductionThis is the third post in the series Data Wrangling With R. In the previous post, we learnt about tibbles. In this post, we will learn to import data into R from different sources.
+Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats.</description>
+    </item>
+    
+    <item>
+      <title>Descriptive Statistics.. What?</title>
+      <link>/post/descriptive-statistics-what/</link>
+      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/descriptive-statistics-what/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub: GitHub Pages</title>
+      <link>/post/github-pages/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git Command Line</title>
+      <link>/post/git-command-line/</link>
+      <pubDate>Wed, 07 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/git-command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub: Git Branch Workflow</title>
+      <link>/post/git-branch-workflow/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/git-branch-workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub: Git Project Workflow</title>
+      <link>/post/git-project-workflow/</link>
+      <pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/git-project-workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub - Configure RStudio</title>
+      <link>/post/configure-rstudio/</link>
+      <pubDate>Sat, 22 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/configure-rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quick Introduction to GitHub</title>
+      <link>/post/quick-introduction-to-github/</link>
+      <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quick-introduction-to-github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Install Git</title>
+      <link>/post/install-git/</link>
+      <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/install-git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio 2 GitHub - Introduction</title>
+      <link>/post/introduction-to-version-control/</link>
+      <pubDate>Thu, 08 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-version-control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Extensions</title>
+      <link>/post/ggplot2-extensions/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-extensions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Facets (Combine multiple plots)</title>
+      <link>/post/ggplot2-facets-combine-multiple-plots/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-facets-combine-multiple-plots/</guid>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt the stat_*() family of functions. In this post, we will learn about faceting i.e. combining plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(device ~ .</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Themes</title>
+      <link>/post/ggplot2-themes/</link>
+      <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-themes/</guid>
+      <description>This is the last post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to combine multiple plots. In this post, we will learn to
+modify theme componentsuse different themesUse theme() to modify the appearance of all non data components of the plot.
+thememodify components of a plotp &amp;lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))# modify X axis titlep + theme(axis.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Text Annotations</title>
+      <link>/post/ggplot2-text-annotations/</link>
+      <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-text-annotations/</guid>
+      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.
+AnnotateWe will use the annotate() function to add custom text to the plots. You can use the annotate() function to add rectangles/segments/pointrange as well but our focus will be on adding text.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Statistical Plots</title>
+      <link>/post/ggplot2-statistical-plots/</link>
+      <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-statistical-plots/</guid>
+      <description>IntroductionThis is the 12th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build histograms. In this post, we will explore an alternative method to build plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+StatsSo far we have used geom_*() functions to build plot. Now we will use a new set of functions stat_*() to build the plots.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Rsquared Academy is an e-learning platform offering self paced and instructor led courses. Our main area of focus are data science and business analytics. Our courses are curated by experts from the industry and delivered by a team passionate about online education. We offer 24&amp;frasl;7 on-demand support for all our courses.
+Vision To make professional education flexible, affordable, effective and enjoyable.
+Mission Leverage technology and experitse to build a platform that offers interactive online learning accompanied by 24&amp;frasl;7 support.</description>
+    </item>
+    
+    <item>
+      <title>Email Subscription</title>
+      <link>/subscribe/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/subscribe/</guid>
+      <description>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</description>
+    </item>
+    
+    <item>
+      <title>New? Start Here</title>
+      <link>/start-here/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/start-here/</guid>
+      <description>New to our blog? Welcome aboard! There are posts on a wide variety of topics listed below. If you are new to R, we suggest you start with Introduction to R section. If you have been using R for a while, feel free to choose any of the topics.
+Introduction to R  Introduction to R Introduction to RStudio Variables &amp;amp; Data Types Vectors Matrix Lists Factors Dataframes Getting Help in R Beginners Guide to R Pacakge Ecosystem  Data Wrangling With R  Getting started with tidyverse Introduction to tibbles A Complete Guide to Importing Data into R - Part 1 A Complete Guide to Importing Data into R - Part 2 Exporting Data from R Readable Code with Pipes Data Manipulation in R with dplyr - Part 1 Data Manipulation in R with dplyr - Part 2 Data Manipulation in R with dplyr - Part 3 How to work with dates in R?</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Histogram</title>
+      <link>/post/ggplot2-histogram/</link>
+      <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-histogram/</guid>
+      <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Box Plots</title>
+      <link>/post/ggplot2-box-plots/</link>
+      <pubDate>Thu, 21 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-box-plots/</guid>
+      <description>IntroductionThis is the 9th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to build line charts. In this post, we will focus on boxplots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now we need to mention something for X axis and hence we use the number 1.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Bar Plots</title>
+      <link>/post/ggplot2-bar-plots/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-bar-plots/</guid>
+      <description>IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Line Graphs</title>
+      <link>/post/ggplot2-line-graphs/</link>
+      <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-line-graphs/</guid>
+      <description>IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to build line plots.
+Basic Line PlotWe will use a data set related to GDP growth rate. You can download it from here. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Scatter Plots</title>
+      <link>/post/ggplot2-scatter-plots/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-scatter-plots/</guid>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+Basic PlotWe will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Let us start by building a simple scatter plot.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to aesthetics</title>
+      <link>/post/ggplot2-introduction-to-aesthetics/</link>
+      <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-aesthetics/</guid>
+      <description>IntroductionThis is the fourth post in the series Elegant Data Visualization with ggplot2. In the previous post we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the aes() function.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Quick Tour</title>
+      <link>/post/ggplot2-quick-tour/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-quick-tour/</guid>
+      <description>IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
+Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)Bar Plotqplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))Box Plotqplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))Line Chartqplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),color = &amp;#39;red&amp;#39;)Histogramqplot(mpg, data = mtcars, bins = 5)SummaryIn this post, we learnt to quickly create plots using the qplot() function.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to geoms</title>
+      <link>/post/ggplot2-introduction-to-geoms/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-geoms/</guid>
+      <description>IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
+PointLet us say we want to visualize the relationship between two continuous variables. For example, as visitors browse more pages on a website, the time spent on the website also increases.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to ggplot2</title>
+      <link>/post/introduction-to-ggplot2/</link>
+      <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-ggplot2/</guid>
+      <description>This is the first post in the series Elegant Data Visualization with ggplot2. In this post, we will understand the philosophy of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic plots regularly used for exploring data.
+Introductionggplot2 is an alternative (and awesome) to base R for data visualization. It is based on The Grammar of Graphics.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Font, Color &amp; Size</title>
+      <link>/post/data-visualization-with-r-font-color-size/</link>
+      <pubDate>Sat, 26 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-font-color-size/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Combining Plots</title>
+      <link>/post/data-visualization-with-r-combining-plots/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-combining-plots/</guid>
+      <description>This is the tenth post in the series Data Visualization With R. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.
+IntroductionOften, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Text Annotations</title>
+      <link>/post/data-visualization-with-r-text-annotations/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-text-annotations/</guid>
+      <description>This is the ninth post in the series Data Visualization With R. In the previous post, we learnt how to add legend to a plot. In this post, we will learn to add text annotations.
+IntroductionThere are occassions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Legends</title>
+      <link>/post/data-visualization-with-r-legends/</link>
+      <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-legends/</guid>
+      <description>This is the eighth post in the series Data Visualisation With R. In the previous post, we learnt to build histograms. In this post, we will learn how to add a legend to a plot in R.
+IntroductionLegends are used to convey information about the data being represented by a plot. To understand the importance of legends, let us look at the two plots below. In the first plot, would you be able to understand what the lines represent in the absence of a legend?</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Histogram</title>
+      <link>/post/data-visualization-with-r-histogram/</link>
+      <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-histogram/</guid>
+      <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
+IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Box Plots</title>
+      <link>/post/data-visualization-with-r-box-plots/</link>
+      <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-box-plots/</guid>
+      <description>This is the sixth post in the series Data Visualization With R. In the previous post, we learnt how to build bar plots. In this post, we will learn about box plots.
+IntroductionThe box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Bar Plots</title>
+      <link>/post/data-visualization-with-r-bar-plots/</link>
+      <pubDate>Mon, 05 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-bar-plots/</guid>
+      <description>IntroductionThis is the fifth post in the series Data Visualization With R. In the previous post we learnt how to build line graphs. In this post, we will visualize categorical data using univariate and bivariate bar plots.
+Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical. The X axis of the plot represents the levels or the categories and the Y axis represents the frequency/count of the variable.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Line Graphs</title>
+      <link>/post/data-visualization-with-r-line-graphs/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-line-graphs/</guid>
+      <description>IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
+create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plotLine GraphTo build a line graph, we will learn a new argument in the plot() function called type.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Scatter Plots</title>
+      <link>/post/data-visualization-with-r-scatter-plots/</link>
+      <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-scatter-plots/</guid>
+      <description>IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Title and Axis Labels</title>
+      <link>/post/data-visualization-with-r-title-and-axis-labels/</link>
+      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-title-and-axis-labels/</guid>
+      <description>IntroductionThis is the second post of the series Data Visualization With R. In the previous post, we explored the plot() function and observed the different types of plots it generated. In this post, we will learn how to add:
+TitleSubtitleAxis Labelsto a plot and how to modify:
+Axis rangeIn the previous post, we created plots which did not have any title or labels.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Introduction</title>
+      <link>/post/data-visualization-with-r-introduction/</link>
+      <pubDate>Wed, 05 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-introduction/</guid>
+      <description>IntroductionThis is the first post of the series Data Visualization With R. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using ggplot2 shortly.
+What is data visualization?In simple words, data visualization is the representation of data in graphical format.
+data-viz
+Why visualize data?Explore: Visualization helps in exploring and explaining patterns and trendsDetect: Patterns or anomalies in data can be detected by looking at graphsMake sense: Possible to make sense of large amount of data efficiently and in timeCommunicate: Easy to communicate and share the insights from dataCompare the below output and the boxplot and you will agree that</description>
+    </item>
+    
+    <item>
+      <title>apply family of functions</title>
+      <link>/post/apply-family-functions/</link>
+      <pubDate>Mon, 20 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/apply-family-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>/post/functions/</link>
+      <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loops</title>
+      <link>/post/loops/</link>
+      <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/loops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Control Flow</title>
+      <link>/post/control-flow/</link>
+      <pubDate>Tue, 09 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/control-flow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beginners Guide to R Package Ecosystem</title>
+      <link>/post/beginners-guide-to-r-package-ecosystem/</link>
+      <pubDate>Tue, 26 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/beginners-guide-to-r-package-ecosystem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Getting Help In R</title>
+      <link>/post/getting-help-in-r/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-help-in-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dataframes</title>
+      <link>/post/introduction-to-dataframes/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-dataframes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Factors</title>
+      <link>/post/introduction-to-factors/</link>
+      <pubDate>Sat, 11 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-factors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lists</title>
+      <link>/post/introduction-to-lists/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-lists/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matrix</title>
+      <link>/post/introduction-to-matrix/</link>
+      <pubDate>Tue, 10 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vectors</title>
+      <link>/post/introduction-to-vectors/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-vectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Types in R</title>
+      <link>/post/data-types-in-r/</link>
+      <pubDate>Sat, 07 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-types-in-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to RStudio</title>
+      <link>/post/introduction-to-rstudio/</link>
+      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to R</title>
+      <link>/post/introduction-to-r/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-r/</guid>
+      <description></description>
     </item>
     
   </channel>

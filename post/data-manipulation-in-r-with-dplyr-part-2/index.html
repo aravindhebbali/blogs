@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.26" />
 
   <title>Data Manipulation in R with dplyr - Part 2 &middot; Rsquared Academy Blog</title>
 
@@ -287,14 +287,9 @@
 
 </div>
 
-  <!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
-
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-<div id="introduction" class="section level1">
+  <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This is the eighth post in the series <strong>Data Wrangling with R</strong>. In a previous <a href="http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-1/">post</a>, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different <code>join</code> functions provided in dplyr. Let us assume we have 2 tables <strong>X</strong> and <strong>y</strong>. Below are the different types of <code>join</code> functions provided in dplyr.</p>
+<p>This is the eighth post in the series <strong>Data Wrangling with R</strong>. In a previous <a href="http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-1/">post</a>, we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different <code>join</code> functions provided in dplyr. Let us assume we have 2 tables <strong>y</strong> and <strong>y</strong>. Below are the different types of <code>join</code> functions provided in dplyr.</p>
 <ul>
 <li><p><code>inner_join()</code>: return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.</p></li>
 <li><p><code>left_join()</code>: return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p></li>

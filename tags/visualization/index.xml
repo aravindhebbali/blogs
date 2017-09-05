@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visualization on Rsquared Academy Blog</title>
-    <link>/tags/visualization/index.xml</link>
+    <link>/tags/visualization/</link>
     <description>Recent content in Visualization on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>ggplot2: Extensions</title>
@@ -15,13 +18,7 @@
       <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-extensions/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -30,60 +27,9 @@
       <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-facets-combine-multiple-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 13th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we learnt the &lt;code&gt;stat_*()&lt;/code&gt; family of functions. In this post, we will learn about faceting i.e. combining plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(. ~ device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(device ~ .)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(purchase ~ device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(device ~ purchase)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration, color = factor(device))) +
-  geom_point() + 
-  facet_grid(. ~ device, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() + 
-  facet_grid(device ~ purchase, switch = &amp;quot;both&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, nrow = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, nrow = 3)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device + purchase)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(c(&amp;quot;device&amp;quot;, &amp;quot;purchase&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt the stat_*() family of functions. In this post, we will learn about faceting i.e. combining plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(device ~ .</description>
     </item>
     
     <item>
@@ -92,202 +38,9 @@
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-themes/</guid>
-      <description>&lt;p&gt;This is the last post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we learnt to combine multiple plots. In this post, we will learn to&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;modify theme components&lt;/li&gt;
-&lt;li&gt;use different themes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Use &lt;code&gt;theme()&lt;/code&gt; to modify the appearance of all non data components of the plot.&lt;/p&gt;
-&lt;div id=&#34;theme&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;theme&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-components-of-a-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify components of a plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis title
-p + theme(axis.title.x = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis text
-p + theme(axis.text.x = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify both axis text
-p + theme(axis.text = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10, face = &amp;quot;italic&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify axis ticks
-p + theme(
-  axis.ticks = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    size = 1.25,
-    linetype = 2
-  ),
-  axis.ticks.length = unit(1, &amp;quot;cm&amp;quot;)
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-axis-line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify axis line&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  axis.line = element_line(
-    color = &amp;#39;red&amp;#39;,
-    size = 1.5, 
-    linetype = 3
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-legend&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify legend&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl), shape = factor(gear)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  legend.background = element_rect(
-    fill = &amp;#39;gray&amp;#39;, 
-    linetype = 2, 
-    color = &amp;quot;red&amp;quot;
-  ),
-  legend.margin = margin(4, 8, 4, 8),
-  legend.spacing = unit(1.5, &amp;quot;cm&amp;quot;),
-  legend.key = element_rect(fill = &amp;#39;red&amp;#39;),
-  legend.key.size = unit(0.4, &amp;quot;cm&amp;quot;),
-  legend.text = element_text(color = &amp;#39;green&amp;#39;, face = &amp;#39;italic&amp;#39;),
-  legend.title = element_text(color = &amp;#39;blue&amp;#39;, face = &amp;#39;bold&amp;#39;),
-  legend.title.align = 0.1,
-  legend.position = &amp;quot;top&amp;quot;,
-  legend.direction = &amp;quot;horizontal&amp;quot;,
-  legend.box = &amp;quot;horizontal&amp;quot;,
-  legend.box.background = element_rect(fill = &amp;quot;yellow&amp;quot;),
-  legend.box.spacing = unit(1, &amp;quot;cm&amp;quot;),
-  legend.box.margin = margin(4, 8, 4, 8),
-  legend.box.just = &amp;quot;left&amp;quot;
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-panel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify panel&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  panel.background = element_rect(fill = &amp;#39;gray&amp;#39;),
-  panel.border = element_rect(
-    fill = NA, 
-    color = &amp;#39;red&amp;#39;, 
-    linetype = 1,
-    size = 2
-  ),
-  panel.grid = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    linetype = 2,
-    size = 0.5
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  panel.grid.major.x = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    linetype = 2,
-    size = 0.5
-  ),
-  panel.grid.minor.y = element_line(
-    color = &amp;#39;red&amp;#39;,
-    linetype = 3, 
-    size = 0.2
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-plot-area&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify plot area&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) + 
-  ggtitle(&amp;#39;Theme Modification&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  plot.background = element_rect(
-    color = &amp;#39;blue&amp;#39;,
-    fill = &amp;#39;#4682B4&amp;#39;
-  ),
-  plot.title = element_text(color = &amp;#39;red&amp;#39;),
-  plot.margin = unit(c(1, 1, 1, 1), &amp;quot;cm&amp;quot;)
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;modify-facets&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;modify facets&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) + 
-  facet_grid(~cyl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  strip.background = element_rect(
-    color = &amp;#39;red&amp;#39;,
-    fill = &amp;#39;#4682B4&amp;#39;
-  ),
-  strip.text = element_text(
-    face = &amp;#39;italic&amp;#39;,
-    size = 8, 
-    color = &amp;#39;red&amp;#39;
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;classic-dark-on-light&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Classic Dark on Light&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;default-gray&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Default Gray&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_gray()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;light&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Light&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_light()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;minimal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Minimal&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;dark&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Dark&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_dark()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;classic&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Classic&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;void-empty&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Void (Empty)&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_void()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt about the different themes available in ggplot2. This brings us to the end of the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the last post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to combine multiple plots. In this post, we will learn to
+modify theme componentsuse different themesUse theme() to modify the appearance of all non data components of the plot.
+thememodify components of a plotp &amp;lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))# modify X axis titlep + theme(axis.</description>
     </item>
     
     <item>
@@ -296,29 +49,8 @@ p + theme(
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-text-annotations/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;http://www.rsquaredacademy.com/blog/post/axis-plot-labels/&#34;&gt;post&lt;/a&gt;, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.&lt;/p&gt;
-&lt;div id=&#34;annotate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Annotate&lt;/h2&gt;
-&lt;p&gt;We will use the &lt;code&gt;annotate()&lt;/code&gt; function to add custom text to the plots. You can use the &lt;code&gt;annotate()&lt;/code&gt; function to add rectangles/segments/pointrange as well but our focus will be on adding text. Let us start with a simple scatter plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can format the text as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;,
-           color = &amp;#39;red&amp;#39;, size = 6, fontface = &amp;#39;bold&amp;#39;, angle = 25)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides/&#34;&gt;post&lt;/a&gt;, we will learn how to work with guides/legends in ggplot2.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.
+AnnotateWe will use the annotate() function to add custom text to the plots. You can use the annotate() function to add rectangles/segments/pointrange as well but our focus will be on adding text.</description>
     </item>
     
     <item>
@@ -327,52 +59,9 @@ p + theme(
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-statistical-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 12th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/&#34;&gt;post&lt;/a&gt;, we learnt to build histograms. In this post, we will explore an alternative method to build plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;stats&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stats&lt;/h2&gt;
-&lt;p&gt;So far we have used &lt;code&gt;geom_*()&lt;/code&gt; functions to build plot. Now we will use a new set of functions &lt;code&gt;stat_*()&lt;/code&gt; to build the plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_count(aes(device))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_boxplot(aes(factor(1), n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;scatter-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scatter Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_identity(aes(n_pages, duration), position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_bin(aes(n_visit), bins = 7, fill = &amp;#39;blue&amp;#39;, alpha = 0.3,
-           color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;plot-unique-values&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Plot Unique Values&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_unique(aes(n_pages, duration), 
-              position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt about the functions underlying the &lt;code&gt;geom_*()&lt;/code&gt; family of functions. In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we will learn about faceting i.e. combining plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 12th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build histograms. In this post, we will explore an alternative method to build plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+StatsSo far we have used geom_*() functions to build plot. Now we will use a new set of functions stat_*() to build the plots.</description>
     </item>
     
     <item>
@@ -381,42 +70,9 @@ p + theme(
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-histogram/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the eleventh post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-box-plots/&#34;&gt;post&lt;/a&gt;, we learnt to build box plots. In this post, we will focus on histograms.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us add some color to the histogram.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), fill = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The default number of bins is 30. We can specify the number of bins using &lt;code&gt;bins&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), bins = 7, fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can specify the width of the bins using &lt;code&gt;binwidth&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), binwidth = 2, fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Line type and size.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), binwidth = 2, 
-                 fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;, alpha = 0.3,
-                 linetype = 2, size = 1.25)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can also map the color to a variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit, fill = device), bins = 7)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.</description>
     </item>
     
     <item>
@@ -425,143 +81,9 @@ p + theme(
       <pubDate>Thu, 21 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-box-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 9th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we learnt how to build line charts. In this post, we will focus on boxplots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-box-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Box Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(1), y = n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now we need to mention something for X axis and hence we use the number 1. If we do not mention anything, ggplot2 will return an error. You can generally use any categorical variable for the X axis. Below is an example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you want horizontal boxplots, use &lt;code&gt;coord_flip()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit)) +
-  coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;notch&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Notch&lt;/h2&gt;
-&lt;p&gt;Notches are used to compare groups; if the notches of two boxes do not overlap, this suggests that the medians are significantly different.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit),
-               notch = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;jitter&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Jitter&lt;/h2&gt;
-&lt;p&gt;Overlay points on boxplots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = n_visit)) +
-  geom_boxplot() +
-  geom_jitter(width = 0.2, color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outliers&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Outliers&lt;/h2&gt;
-&lt;div id=&#34;color&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Color&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.color = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;shape&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Shape&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.shape = 23)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us extend the Y axis and see if the ouliers appear more legible.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.shape = 23) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;size&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Size&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.size = 3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Increasing the size is not very useful.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;alpha&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Alpha&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.color = &amp;#39;blue&amp;#39;, outlier.alpha = 0.3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Decreasing the alpha increases the visibility of the outlier points.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               fill = c(&amp;#39;blue&amp;#39;, &amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;)) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map box color to variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration,
-               fill = factor(device))) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               fill = &amp;#39;blue&amp;#39;, alpha = 0.3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               color = c(&amp;#39;blue&amp;#39;, &amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;)) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration,
-               color = factor(device))) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-width&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Width&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               size = 1.5) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-type&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Type&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               linetype = 2) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;build box plots&lt;/li&gt;
-&lt;li&gt;modify outlier color, shape, size etc.&lt;/li&gt;
-&lt;li&gt;modify box color&lt;/li&gt;
-&lt;li&gt;modify box line color, size and line type&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-bar-plots/&#34;&gt;post&lt;/a&gt;, we will learn to build bar plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 9th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to build line charts. In this post, we will focus on boxplots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now we need to mention something for X axis and hence we use the number 1.</description>
     </item>
     
     <item>
@@ -570,65 +92,9 @@ p + theme(
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-bar-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the ninth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we learnt to build line charts. In this post, we will focus on bar plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-type&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Type&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
-           color = &amp;#39;red&amp;#39;, linetype = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-size&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Size&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
-           color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stacked-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stacked Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(device, fill = factor(referrer)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;grouped-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Grouped Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;horizontal-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Horizontal Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device), fill = factor(referrer))) +
-  coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()</description>
     </item>
     
     <item>
@@ -637,51 +103,8 @@ p + theme(
       <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-line-graphs/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 8th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/&#34;&gt;post&lt;/a&gt;, we learnt to build scatter plots. In this post, we will learn to build line plots.&lt;/p&gt;
-&lt;div id=&#34;basic-line-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Basic Line Plot&lt;/h2&gt;
-&lt;p&gt;We will use a data set related to GDP growth rate. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/gdp.csv&#34;&gt;here&lt;/a&gt;. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;linetype&lt;/code&gt; can be used to modify the appearance of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = &amp;#39;dashed&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;size&lt;/code&gt; argument is used to specify the width of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now let us map the aesthetics to the variables. The data used in the above example cannot be used as we need a variable with country names. We will use &lt;code&gt;gather()&lt;/code&gt; function from the &lt;code&gt;tidyr&lt;/code&gt; package to reshape the data.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gdp2 &amp;lt;- gdp %&amp;gt;% 
-  select(year, growth, india, china) %&amp;gt;% 
-  gather(key = country, value = gdp, -year)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can map the aethetics to the &lt;code&gt;country&lt;/code&gt; variable&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us begin with &lt;code&gt;color&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(color = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linetype&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(linetype = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linewidth&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(size = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Using size for a discrete variable is not advised.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to build line plots.
+Basic Line PlotWe will use a data set related to GDP growth rate. You can download it from here. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.</description>
     </item>
     
     <item>
@@ -690,139 +113,9 @@ p + theme(
       <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-scatter-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fifth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/&#34;&gt;post&lt;/a&gt;, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.&lt;/p&gt;
-&lt;div id=&#34;basic-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Basic Plot&lt;/h2&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;p&gt;Let us start by building a simple scatter plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us add some random variation to the location of each point to handle overplotting. Use the &lt;code&gt;position&lt;/code&gt; argument and set it to &lt;code&gt;jitter&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration), position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You can use the &lt;code&gt;geom_jitter()&lt;/code&gt; function to achieve the above result.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_jitter(aes(n_pages, duration))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Color&lt;/h2&gt;
-&lt;p&gt;Now let us modify the color of the points. There are two ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;map color to variable using the &lt;code&gt;aes()&lt;/code&gt; function&lt;/li&gt;
-&lt;li&gt;specify colors separately&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Map color to variables.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Categorical Variable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration, color = factor(purchase)), 
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Continuous Variable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration, color = order_items), 
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us specify the color of the points separately.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration), color = &amp;#39;blue&amp;#39;, 
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use &lt;code&gt;alpha&lt;/code&gt; argument to specify the transparency of the points.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration), color = &amp;#39;blue&amp;#39;, alpha = 0.4, 
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;shape&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Shape&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Map shape to variable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We can map shape to a categorical variable only.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration, shape = factor(device)),
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Specify value for shape.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration), shape = 3,
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;size&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Size&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Map size to variable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It is advised to map size to a continuous variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration, size = n_visit), color = &amp;#39;blue&amp;#39;,
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Specify value for shape.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_point(aes(n_pages, duration), size = 3,
-             position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/scat11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fit-line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Fit Line&lt;/h2&gt;
-&lt;p&gt;You can fit a line using either &lt;code&gt;geom_abline()&lt;/code&gt; or &lt;code&gt;geom_smooth()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Use linear regression.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = &amp;#39;jitter&amp;#39;) +
-  geom_smooth(method = &amp;#39;lm&amp;#39;, se = FALSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Add a confidence interval for the fitted values.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = &amp;#39;jitter&amp;#39;) +
-  geom_smooth(method = &amp;#39;lm&amp;#39;, se = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use loess regression&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = &amp;#39;jitter&amp;#39;) +
-  geom_smooth(method = &amp;#39;loess&amp;#39;, se = FALSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = &amp;#39;jitter&amp;#39;) +
-  geom_smooth(method = &amp;#39;loess&amp;#39;, se = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you use &lt;code&gt;geom_abline()&lt;/code&gt;, specify the intercept and the slope. Let us regress &lt;code&gt;duration&lt;/code&gt; on &lt;code&gt;n_pages&lt;/code&gt; and use the output.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm(duration ~ n_pages, data = ecom)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Call:
-## lm(formula = duration ~ n_pages, data = ecom)
-## 
-## Coefficients:
-## (Intercept)      n_pages  
-##     404.803       -8.355&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = &amp;#39;jitter&amp;#39;) +
-  geom_abline(slope = 19.9210, intercept = 0.2199)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-scatter-plots_files/figure-html/aes17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;build scatter plots&lt;/li&gt;
-&lt;li&gt;map aesthetics to variables&lt;/li&gt;
-&lt;li&gt;modify axis and legend&lt;/li&gt;
-&lt;li&gt;fit regression line&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we will learn to build line charts.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+Basic PlotWe will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Let us start by building a simple scatter plot.</description>
     </item>
     
     <item>
@@ -831,132 +124,7 @@ p + theme(
       <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-introduction-to-aesthetics/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fourth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-geoms/&#34;&gt;post&lt;/a&gt; we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the &lt;code&gt;aes()&lt;/code&gt; function. We will look at both methods in the following sections.&lt;/p&gt;
-&lt;div id=&#34;color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Color&lt;/h2&gt;
-&lt;p&gt;In ggplot2, when we mention &lt;code&gt;color&lt;/code&gt; or &lt;code&gt;colour&lt;/code&gt;, it usually refers to the color of the geoms. The &lt;code&gt;fill&lt;/code&gt; argument is used to specify the color of the shapes in certain cases. In this first section, we will see how we can specify the color for the different geoms we learnt in the previous post.&lt;/p&gt;
-&lt;div id=&#34;point&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Point&lt;/h3&gt;
-&lt;p&gt;For points, the &lt;code&gt;color&lt;/code&gt; argument specifies the color of the point for certain shapes and border for others. The &lt;code&gt;fill&lt;/code&gt; argument is used to specify the background for some shapes and will not work with other shapes. Let us look at an example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg, color = factor(cyl))) +
-  geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can map the variable to color in the &lt;code&gt;geom_point()&lt;/code&gt; function as well since it inherits the data from the &lt;code&gt;ggplot()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(aes(color = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you do not want to map a variable to color, you can specify it separately using the &lt;code&gt;color&lt;/code&gt; argument but in this case it should be outside the &lt;code&gt;aes()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now we will change the shape of the points to understand the difference between &lt;code&gt;color&lt;/code&gt; and &lt;code&gt;fill&lt;/code&gt; arguments. It can be again mapped to variables or values.&lt;/p&gt;
-&lt;p&gt;Let us map shape to variables.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg, shape = factor(cyl))) +
-  geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map shape to variable in the &lt;code&gt;geom_point()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(aes(shape = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Specify value for shape.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(shape = 5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use &lt;code&gt;color&lt;/code&gt; to specify color of the point.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(shape = 5, color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You cannot use &lt;code&gt;fill&lt;/code&gt; with shape upto 21.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(shape = 5, fill = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;fill&lt;/code&gt; will add background color in the below case.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(shape = 22, fill = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;color&lt;/code&gt; will modify the border.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(shape = 22, color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us map size of points to a variable. It is advised to map size only to continuous variables and not categorical variables.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg, size = disp)) +
-  geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you map size to categorical variables, ggplot2 will throw a warning.&lt;/p&gt;
-&lt;p&gt;Specify value for size.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(size = 4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You can also specify the opacity of the color using the &lt;code&gt;alpha&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg)) +
-  geom_point(aes(alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;So far we have focussed on &lt;code&gt;geom_point()&lt;/code&gt; to learn how to map aesthetics to variables. To explore line type and line width, we will use &lt;code&gt;geom_line()&lt;/code&gt;. In the previous post, we used &lt;code&gt;geom_line()&lt;/code&gt; to build line charts. Now we will modify the appearance of the line. In the section below, we will specify values for color, line type and width. In the next section, we will map the same to variables in the data. We will use a new data set. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/gdp.csv&#34;&gt;here&lt;/a&gt;. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;linetype&lt;/code&gt; can be used to modify the appearance of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = &amp;#39;dashed&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;size&lt;/code&gt; argument is used to specify the width of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now let us map the aesthetics to the variables. The data used in the above example cannot be used as we need a variable with country names. We will use &lt;code&gt;gather()&lt;/code&gt; function from the &lt;code&gt;tidyr&lt;/code&gt; package to reshape the data.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gdp2 &amp;lt;- gdp %&amp;gt;% 
-  select(year, growth, india, china) %&amp;gt;% 
-  gather(key = country, value = gdp, -year)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can map the aethetics to the &lt;code&gt;country&lt;/code&gt; variable&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us begin with &lt;code&gt;color&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(color = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linetype&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(linetype = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linewidth&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(size = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Using size for a discrete variable is not advised.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Before we wrap up, let us quickly see how we can map aesthetics to variables for different plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(device, fill = purchase)) +
-  geom_bar()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes24-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histograms&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histograms&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(duration, fill = purchase), bins = 10)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(device, duration, fill = purchase))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-aesthetics_files/figure-html/aes26-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/&#34;&gt;post&lt;/a&gt;, we will focus on applying all that we have learnt so far to create scatter plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fourth post in the series Elegant Data Visualization with ggplot2. In the previous post we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the aes() function.</description>
     </item>
     
     <item>
@@ -965,57 +133,8 @@ p + theme(
       <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-quick-tour/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the second post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/introduction-to-ggplot2/&#34;&gt;post&lt;/a&gt;, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.&lt;/p&gt;
-&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scatter Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, color = factor(cyl))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, shape = factor(cyl))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(disp, mpg, data = mtcars, size = qsec)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-chart&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Chart&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),
-      color = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(mpg, data = mtcars, bins = 5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-quick-tour_files/figure-html/gg14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt to quickly create plots using the &lt;code&gt;qplot()&lt;/code&gt; function. While useful, it has limitations and can be used only to quickly visualize data. In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-geoms/&#34;&gt;post&lt;/a&gt;, we will create the same set of plots but using &lt;strong&gt;geoms&lt;/strong&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
+Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)Bar Plotqplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))Box Plotqplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))Line Chartqplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),color = &amp;#39;red&amp;#39;)Histogramqplot(mpg, data = mtcars, bins = 5)SummaryIn this post, we learnt to quickly create plots using the qplot() function.</description>
     </item>
     
     <item>
@@ -1024,144 +143,8 @@ p + theme(
       <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-introduction-to-geoms/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the third post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-quick-tour/&#34;&gt;post&lt;/a&gt;, we learnt how to create plots using the &lt;code&gt;qplot()&lt;/code&gt; function. In this post, we will create some of the most routinely used plots to explore data using the &lt;code&gt;geom_*&lt;/code&gt; functions.&lt;/p&gt;
-&lt;div id=&#34;point&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Point&lt;/h2&gt;
-&lt;p&gt;Let us say we want to visualize the relationship between two continuous variables. For example, as visitors browse more pages on a website, the time spent on the website also increases. We cannot say that more time spent on a website indicates more page visits as some of the visitors might have spent a lot of time on a couple of pages or might have been idle. Using the ecommerce data, we will look at the relationship between number of pages visited and time on site. Now the best way to represent this relationship is a scatter plot i.e. represent the data using points.&lt;/p&gt;
-&lt;p&gt;You can download the data from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import it directly using &lt;code&gt;read_csv()&lt;/code&gt; from the &lt;a href=&#34;readr.tidyverse.org&#34;&gt;readr&lt;/a&gt; package.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
-## cols(
-##   id = col_integer(),
-##   referrer = col_character(),
-##   device = col_character(),
-##   bouncers = col_character(),
-##   n_visit = col_integer(),
-##   n_pages = col_double(),
-##   duration = col_integer(),
-##   country = col_character(),
-##   purchase = col_character(),
-##   order_items = col_double(),
-##   order_value = col_double()
-## )&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = n_pages, y = duration)) + 
-  geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can fit a regression line or add horizontal or vertical lines to the plots using&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;geom_abline()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_hline()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_vline()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can add a vertical line using the &lt;code&gt;geom_vline()&lt;/code&gt; function. The main argument of this function is &lt;code&gt;xintercept&lt;/code&gt; which specifies the value on the X axis where the line must be drawn.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_vline(xintercept = 5) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;geom_hline()&lt;/code&gt; function can be used to add a horizontal line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_hline(yintercept = 30) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;To fit a regression line to the plot, use the &lt;code&gt;geom_abline()&lt;/code&gt; function. You need to specify values for the intercept and the slope.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() + 
-  geom_abline(intercept = 10, slope = 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Another way to fit a regression line to the plot is &lt;code&gt;geom_smooth()&lt;/code&gt;. You need to specify the regression type using the &lt;code&gt;method&lt;/code&gt; argument. You can choose to display the confidence intervals for the fitted values by setting the &lt;code&gt;se&lt;/code&gt; argument to &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = wt, y = mpg)) +
-    geom_smooth(method = &amp;#39;lm&amp;#39;, se = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_smooth(method = &amp;#39;loess&amp;#39;, se = FALSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can modify the color, type and width of the lines but we will learn about them in the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/&#34;&gt;post.&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar&lt;/h2&gt;
-&lt;p&gt;Continuing with our ecommerce website, let us say we want to know the distribution of the referrers or the devices. Such information is best displayed using bar plots. Use the &lt;code&gt;geom_bar()&lt;/code&gt; function to create grouped/stacke bar plots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device))) +
-  geom_bar()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Suppose you want to visualize the total revenue from different devices, you can map the variable to the Y axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device))) +
-  geom_bar(aes(weight = order_value))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you want to get a breakdown of the purchasers/non-purchasers for different device types, create a stacked bar plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device))) +
-  geom_bar(aes(fill = purchase))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;To create horizontal bar plots, use the &lt;code&gt;coord_flip()&lt;/code&gt; function. As the name indicates, it flips the X and Y coordinates.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device))) +
-  geom_bar(aes(fill = purchase)) +
-  coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Sometimes you have data in a tabular format. In such cases, you can use the &lt;code&gt;geom_col()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;device &amp;lt;- c(&amp;#39;laptop&amp;#39;, &amp;#39;mobile&amp;#39;, &amp;#39;tablet&amp;#39;)
-visits &amp;lt;- c(30000, 12000, 5000)
-traffic &amp;lt;- tibble::tibble(device, visits)
-ggplot(traffic, aes(x = device, y = visits)) +
-  geom_col(fill = &amp;#39;blue&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;boxplot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Boxplot&lt;/h2&gt;
-&lt;p&gt;If you want to examine the distribution of a variable or detect outliers, boxplots are very handy. Let us look at the distribution of number of pages visited for different device types using the &lt;code&gt;geom_boxplot()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = n_pages)) +
-  geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use the &lt;code&gt;geom_jitter()&lt;/code&gt; function to overlay the observations on the boxplot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = n_pages)) +
-  geom_boxplot() +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We will learn about modifying the appearance of the boxplot and the outliers in the next post.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;p&gt;Histograms are useful for examing the distribution of a continuous variable. Let us look at the distribution of time spent on the site using the &lt;code&gt;geom_histogram()&lt;/code&gt; function and examine if it is skewed.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = duration)) +
-  geom_histogram()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Specify the number of bins using the &lt;code&gt;bins&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = duration)) +
-  geom_histogram(bins = 5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line&lt;/h2&gt;
-&lt;p&gt;Line charts are useful for visualizing trends or changes in metrics over a period time. Use the &lt;code&gt;geom_line()&lt;/code&gt; function to plot the conversion over several quarters.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;jitter&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Jitter&lt;/h2&gt;
-&lt;p&gt;We used the &lt;code&gt;geom_jitter()&lt;/code&gt; function to overlay observation on the boxplot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = duration)) +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Change the width and height to get a better overview.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = duration)) +
-  geom_jitter(width = 0.25, height = 0.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;label&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Label&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(disp, mpg, label = rownames(mtcars))) +
-  geom_text(check_overlap = TRUE, size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(disp, mpg, label = rownames(mtcars))) +
-  geom_label()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars, aes(x = disp, y = mpg, label = rownames(mtcars))) +
-  geom_point() + 
-  geom_text(aes(color = cyl), hjust = 0, nudge_x = 0.05, 
-            size = 2, angle = 45)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-introduction-to-geoms_files/figure-html/geoms21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;```&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
+PointLet us say we want to visualize the relationship between two continuous variables. For example, as visitors browse more pages on a website, the time spent on the website also increases.</description>
     </item>
     
     <item>
@@ -1170,53 +153,8 @@ ggplot(traffic, aes(x = device, y = visits)) +
       <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-ggplot2/</guid>
-      <description>&lt;p&gt;This is the first post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In this post, we will understand the philosophy of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic plots regularly used for exploring data.&lt;/p&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://ggplot2.tidyverse.org/index.html&#34;&gt;ggplot2&lt;/a&gt; is an alternative (and awesome) to base R for data visualization. It is based on &lt;a href=&#34;http://www.springer.com/in/book/9780387245447&#34;&gt;The Grammar of Graphics&lt;/a&gt;. In this post, we will understand the philosophy behind &lt;strong&gt;ggplot2&lt;/strong&gt; and learn to build some of the most frequently used plots for visualizing data.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;grammar-of-graphics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Grammar of Graphics&lt;/h2&gt;
-&lt;p&gt;It is a formal system for building plots. The core idea is that any plot can be uniquely described as a combination of&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a dataset&lt;/li&gt;
-&lt;li&gt;a geom&lt;/li&gt;
-&lt;li&gt;a set of mappings&lt;/li&gt;
-&lt;li&gt;a statistic&lt;/li&gt;
-&lt;li&gt;a position adjustment&lt;/li&gt;
-&lt;li&gt;a coordinate system&lt;/li&gt;
-&lt;li&gt;a faceting scheme&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us build a bar plot from scratch using the &lt;code&gt;mtcars&lt;/code&gt; data. We will build the plot incrementally and understand the above components.&lt;/p&gt;
-&lt;div id=&#34;step-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Step 1&lt;/h3&gt;
-&lt;p&gt;The first step in any data visualization exercise is to identify the data set. In &lt;code&gt;ggplot2&lt;/code&gt;, we can specify the data set using &lt;code&gt;ggplot&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot2::ggplot(data = mtcars) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-12-introduction-to-ggplot2_files/figure-html/gg1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you compare with the &lt;code&gt;barplot()&lt;/code&gt; function from &lt;code&gt;base&lt;/code&gt;, you can observe that instead of specifying the variable we are using the whole data set. And most importantly, the &lt;code&gt;ggplot()&lt;/code&gt; function does not generate any plots. It just identifies the data that will be used by the other components.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;step-2&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Step 2&lt;/h3&gt;
-&lt;p&gt;Once you have identified the data set, we need to specify how the data must be visualized. We will do this using &lt;code&gt;geoms&lt;/code&gt;. It basically indicate the geometric shapes that must be used to display the data. In our case, we are building bar plot and hence we want the data to be displayed as &lt;code&gt;bars&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;There are several &lt;code&gt;geoms&lt;/code&gt; and we will explore them one by one. For the time time being, let us use &lt;code&gt;geom_bar()&lt;/code&gt; and map the &lt;code&gt;x&lt;/code&gt; axis to a variable using &lt;code&gt;mapping&lt;/code&gt;. We will use the &lt;code&gt;cyl&lt;/code&gt; variable from &lt;code&gt;mtcars&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot2::ggplot(data = mtcars) +
-  geom_bar(
-    mapping = aes(x = cyl)
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-12-introduction-to-ggplot2_files/figure-html/gg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;about grammar of graphics&lt;/li&gt;
-&lt;li&gt;the components of a plot/chart&lt;/li&gt;
-&lt;li&gt;to build a plot step by step&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-quick-tour/&#34;&gt;post&lt;/a&gt;, we will learn to quickly build a set of plots/charts that are routinely used in exploring data.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the first post in the series Elegant Data Visualization with ggplot2. In this post, we will understand the philosophy of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic plots regularly used for exploring data.
+Introductionggplot2 is an alternative (and awesome) to base R for data visualization. It is based on The Grammar of Graphics.</description>
     </item>
     
     <item>
@@ -1225,13 +163,109 @@ ggplot(traffic, aes(x = device, y = visits)) +
       <pubDate>Sat, 26 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-font-color-size/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Combining Plots</title>
+      <link>/post/data-visualization-with-r-combining-plots/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-combining-plots/</guid>
+      <description>This is the tenth post in the series Data Visualization With R. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.
+IntroductionOften, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Text Annotations</title>
+      <link>/post/data-visualization-with-r-text-annotations/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-text-annotations/</guid>
+      <description>This is the ninth post in the series Data Visualization With R. In the previous post, we learnt how to add legend to a plot. In this post, we will learn to add text annotations.
+IntroductionThere are occassions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Legends</title>
+      <link>/post/data-visualization-with-r-legends/</link>
+      <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-legends/</guid>
+      <description>This is the eighth post in the series Data Visualisation With R. In the previous post, we learnt to build histograms. In this post, we will learn how to add a legend to a plot in R.
+IntroductionLegends are used to convey information about the data being represented by a plot. To understand the importance of legends, let us look at the two plots below. In the first plot, would you be able to understand what the lines represent in the absence of a legend?</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Histogram</title>
+      <link>/post/data-visualization-with-r-histogram/</link>
+      <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-histogram/</guid>
+      <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
+IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization with R - Box Plots</title>
+      <link>/post/data-visualization-with-r-box-plots/</link>
+      <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-box-plots/</guid>
+      <description>This is the sixth post in the series Data Visualization With R. In the previous post, we learnt how to build bar plots. In this post, we will learn about box plots.
+IntroductionThe box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Bar Plots</title>
+      <link>/post/data-visualization-with-r-bar-plots/</link>
+      <pubDate>Mon, 05 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-bar-plots/</guid>
+      <description>IntroductionThis is the fifth post in the series Data Visualization With R. In the previous post we learnt how to build line graphs. In this post, we will visualize categorical data using univariate and bivariate bar plots.
+Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical. The X axis of the plot represents the levels or the categories and the Y axis represents the frequency/count of the variable.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Line Graphs</title>
+      <link>/post/data-visualization-with-r-line-graphs/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-line-graphs/</guid>
+      <description>IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
+create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plotLine GraphTo build a line graph, we will learn a new argument in the plot() function called type.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Scatter Plots</title>
+      <link>/post/data-visualization-with-r-scatter-plots/</link>
+      <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-scatter-plots/</guid>
+      <description>IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Title and Axis Labels</title>
+      <link>/post/data-visualization-with-r-title-and-axis-labels/</link>
+      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-title-and-axis-labels/</guid>
+      <description>IntroductionThis is the second post of the series Data Visualization With R. In the previous post, we explored the plot() function and observed the different types of plots it generated. In this post, we will learn how to add:
+TitleSubtitleAxis Labelsto a plot and how to modify:
+Axis rangeIn the previous post, we created plots which did not have any title or labels.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization With R - Introduction</title>
+      <link>/post/data-visualization-with-r-introduction/</link>
+      <pubDate>Wed, 05 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization-with-r-introduction/</guid>
+      <description>IntroductionThis is the first post of the series Data Visualization With R. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using ggplot2 shortly.
+What is data visualization?In simple words, data visualization is the representation of data in graphical format.
+data-viz
+Why visualize data?Explore: Visualization helps in exploring and explaining patterns and trendsDetect: Patterns or anomalies in data can be detected by looking at graphsMake sense: Possible to make sense of large amount of data efficiently and in timeCommunicate: Easy to communicate and share the insights from dataCompare the below output and the boxplot and you will agree that</description>
     </item>
     
   </channel>

@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ggplot2 on Rsquared Academy Blog</title>
-    <link>/tags/ggplot2/index.xml</link>
+    <link>/tags/ggplot2/</link>
     <description>Recent content in Ggplot2 on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Guides - Axes</title>
@@ -15,62 +18,9 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-axes/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the &lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_x_continuous()&lt;/code&gt;: modify x axis when x is continuous&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The first function we will explore is &lt;code&gt;scale_x_continuous()&lt;/code&gt;. It can be used for:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;axis title&lt;/li&gt;
-&lt;li&gt;axis labels&lt;/li&gt;
-&lt;li&gt;axis limits&lt;/li&gt;
-&lt;li&gt;axis breaks&lt;/li&gt;
-&lt;li&gt;and axis position&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us create a simple scatter plot and then use &lt;code&gt;scale_x_continuous()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  scale_x_continuous(name = &amp;quot;Displacement&amp;quot;,
-                     limits = c(0, 600),
-                     breaks = c(0, 150, 300, 450, 600),
-                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;150&amp;#39;, &amp;#39;300&amp;#39;, &amp;#39;450&amp;#39;, &amp;#39;600&amp;#39;),
-                     position = &amp;#39;top&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_y_continuous()&lt;/code&gt;: modify y axis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now let us modify the Y axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  scale_y_continuous(name = &amp;quot;Miles Per Gallon&amp;quot;,
-                     limits = c(0, 45),
-                     breaks = c(0, 15, 30, 45),
-                     labels = c(&amp;#39;0&amp;#39;, &amp;#39;15&amp;#39;, &amp;#39;30&amp;#39;, &amp;#39;45&amp;#39;),
-                     position = &amp;#39;right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now let us look at plots with discrete X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use &lt;code&gt;scael_x_discrete()&lt;/code&gt; to modify the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl))) +
-  scale_x_discrete(name = &amp;quot;Number of Cylinders&amp;quot;,
-                   labels = c(&amp;quot;4&amp;quot; = &amp;quot;Four&amp;quot;, &amp;quot;6&amp;quot; = &amp;quot;Six&amp;quot;, &amp;quot;8&amp;quot; = &amp;quot;Eight&amp;quot;),
-                   breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
-                   position = &amp;quot;bottom&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-axes_files/figure-html/guide6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt how to modify the axis whether it represents a continuous variable or a discrete variable. In the next post, we will learn how to modify the legend when aesthetics are mapped to variables.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionNow that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the scale_*() family of functions
+scale_x_continuous(): modify x axis when x is continuousThe first function we will explore is scale_x_continuous(). It can be used for:
+axis titleaxis labelsaxis limitsaxis breaksand axis positionLet us create a simple scatter plot and then use scale_x_continuous() to modify the X axis.</description>
     </item>
     
     <item>
@@ -79,310 +29,8 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-legends/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 13th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previos &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-axes/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.&lt;/p&gt;
-&lt;p&gt;Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_*()&lt;/code&gt; family of functions&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guides()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;guide_legend()&lt;/code&gt; and &lt;code&gt;guide_colorbar()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us start with &lt;code&gt;scale_*()&lt;/code&gt; family of functions.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_continuous()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a continuous variable, use &lt;code&gt;scale_alpha_continuous()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a continuous variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = hp), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_continuous(&amp;quot;Horsepower&amp;quot;,
-                         breaks = c(0, 100, 200, 300, 400),
-                         limits = c(0, 400),
-                         labels = c(&amp;quot;Zero&amp;quot;, &amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;, 
-                                    &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;),
-                         range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_discrete()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_discrete()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_discrete(name = &amp;quot;Cylinders&amp;quot;,
-                       breaks = c(&amp;quot;4&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;8&amp;quot;),
-                       labels = c(&amp;quot;Four&amp;quot;, &amp;quot;Six&amp;quot;, &amp;quot;Eight&amp;quot;),
-                       range = c(0.4, 0.8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_color_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped color to a discrete variable, use &lt;code&gt;scale_color_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map color to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_fill_manual()&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped fill to a discrete variable, use &lt;code&gt;scale_fill_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map fill to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
-  scale_fill_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_shape_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape_manual(name = &amp;quot;Cylinders&amp;quot;,
-                    values = c(4, 12, 24),
-                    labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                    limits = c(4, 6, 8),
-                    breaks = c(4, 6, 8),
-                    guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_size_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp)) +
-  scale_size_continuous(name = &amp;quot;Horsepower&amp;quot;,
-                        range = c(3, 6),
-                        limits = c(0, 400),
-                        breaks = c(100, 200, 300, 400),
-                        labels = c(&amp;quot;Hundred&amp;quot;, &amp;quot;2 Hundred&amp;quot;,
-                                   &amp;quot;3 Hundred&amp;quot;, &amp;quot;4 Hundred&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_alpha_manual()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped alpha to a discrete variable, use &lt;code&gt;scale_alpha_manual()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map alpha to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &amp;#39;blue&amp;#39;) +
-  scale_alpha_manual(name = &amp;quot;Cylinders&amp;quot;,
-                     values = c(0.4, 0.6, 0.8),
-                     labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-                     limits = c(4, 6, 8),
-                     breaks = c(4, 6, 8),
-                     guide = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_shape()&lt;/code&gt;: maps discrete variable to six shapes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped shape to a discrete variable, use &lt;code&gt;scale_shape()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map shape to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, shape = factor(cyl))) +
-  scale_shape(solid = FALSE,
-              name = &amp;#39;Cylinders&amp;#39;,
-              labels = c(&amp;#39;Four&amp;#39;, &amp;#39;Six&amp;#39;, &amp;#39;Eight&amp;#39;),
-              limits = c(4, 6, 8),
-              breaks = c(4, 6, 8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;scale_size()&lt;/code&gt;: maps discrete variable to six sizes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have mapped size to a discrete variable, use &lt;code&gt;scale_size()&lt;/code&gt; to modify it. Let us create a simple scatter plot and map size to a discrete variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, size = hp)) +
-  scale_size(name = &amp;quot;Horsepower&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;guides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guides&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                      guide = guide_legend(
-                       title = &amp;quot;Cylinders&amp;quot;,
-                       title.hjust = 0.5,
-                       title.position = &amp;quot;top&amp;quot;,
-                       label.position = &amp;quot;right&amp;quot;,
-                       direction = &amp;quot;horizontal&amp;quot;,
-                       label.hjust = 0.5,
-                       nrow = 2,
-                       reverse = TRUE
-                      )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_discrete(guide = guide_legend(
-                        title = &amp;quot;Cylinders&amp;quot;,
-                        title.hjust = 0.5,
-                        title.position = &amp;quot;top&amp;quot;,
-                        label.position = &amp;quot;right&amp;quot;,
-                        direction = &amp;quot;horizontal&amp;quot;,
-                        label.hjust = 0.5,
-                        nrow = 2,
-                        reverse = TRUE
-                        )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp)) +
-  scale_color_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE
-  ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient2(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg24-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient(low = &amp;quot;white&amp;quot;, high = &amp;quot;black&amp;quot;, 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradientn(colors = terrain.colors(5), 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg26-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = qsec, 
-                 shape = factor(gear))) + 
-  guides(color = &amp;quot;colorbar&amp;quot;,
-         shape = &amp;quot;legend&amp;quot;,
-         size = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg27-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = wt, 
-                 shape = factor(gear))) + 
-  guides(
-    color = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;
-    ),
-    shape = guide_legend(
-      title = &amp;quot;Weight&amp;quot;
-    ),
-    size = guide_legend(
-      title = &amp;quot;Gear&amp;quot;
-    )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends_files/figure-html/leg28-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.
+Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:</description>
     </item>
     
     <item>
@@ -391,163 +39,8 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-legends-part-2/</guid>
-      <description>&lt;p&gt;This is the 14th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previos &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-legends/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.&lt;/p&gt;
-&lt;div id=&#34;guides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guides&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),
-                      guide = guide_legend(
-                       title = &amp;quot;Cylinders&amp;quot;,
-                       title.hjust = 0.5,
-                       title.position = &amp;quot;top&amp;quot;,
-                       label.position = &amp;quot;right&amp;quot;,
-                       direction = &amp;quot;horizontal&amp;quot;,
-                       label.hjust = 0.5,
-                       nrow = 2,
-                       reverse = TRUE
-                      )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_discrete(guide = guide_legend(
-                        title = &amp;quot;Cylinders&amp;quot;,
-                        title.hjust = 0.5,
-                        title.position = &amp;quot;top&amp;quot;,
-                        label.position = &amp;quot;right&amp;quot;,
-                        direction = &amp;quot;horizontal&amp;quot;,
-                        label.hjust = 0.5,
-                        nrow = 2,
-                        reverse = TRUE
-                        )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp)) +
-  scale_color_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE
-  ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_continuous(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient2(guide = guide_colorbar(
-    title = &amp;quot;Horsepower&amp;quot;,
-    title.position = &amp;quot;top&amp;quot;,
-    title.vjust = 1,
-    label.position = &amp;quot;bottom&amp;quot;,
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = &amp;quot;horizontal&amp;quot;,
-    reverse = TRUE)
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient(low = &amp;quot;white&amp;quot;, high = &amp;quot;black&amp;quot;, 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradientn(colors = terrain.colors(5), 
-    guide = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;,
-      title.position = &amp;quot;top&amp;quot;,
-      title.vjust = 1,
-      label.position = &amp;quot;bottom&amp;quot;,
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = &amp;quot;horizontal&amp;quot;,
-      reverse = TRUE
-    )
-  ) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = qsec, 
-                 shape = factor(gear))) + 
-  guides(color = &amp;quot;colorbar&amp;quot;,
-         shape = &amp;quot;legend&amp;quot;,
-         size = &amp;quot;legend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = wt, 
-                 shape = factor(gear))) + 
-  guides(
-    color = guide_colorbar(
-      title = &amp;quot;Horsepower&amp;quot;
-    ),
-    shape = guide_legend(
-      title = &amp;quot;Weight&amp;quot;
-    ),
-    size = guide_legend(
-      title = &amp;quot;Gear&amp;quot;
-    )
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
+Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),guide = guide_legend(title = &amp;quot;Cylinders&amp;quot;,title.hjust = 0.</description>
     </item>
     
     <item>
@@ -556,81 +49,10 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/overlapping/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 18th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides-legends-part-2/&#34;&gt;post&lt;/a&gt;, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.&lt;/p&gt;
-&lt;div id=&#34;dodge&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Dodge&lt;/h2&gt;
-&lt;p&gt;Preserve the vertical position while adjusting the horizontal position.&lt;/p&gt;
-&lt;p&gt;Create grouped bar plots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar(position = position_dodge(width = 1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;jitter&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Jitter&lt;/h2&gt;
-&lt;p&gt;Add some noise to data points for better visualization.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.05, height = 0.3))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;nudge&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Nudge&lt;/h2&gt;
-&lt;p&gt;Use with geom_text. Useful for adjusting text around points.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- data.frame(
-  x = c(1,3,2,5),
-  y = c(&amp;quot;a&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;c&amp;quot;)
-)
-
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  geom_text(aes(label = y),
-            position = position_nudge(y = -0.1, x = -0.2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fill&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Fill&lt;/h2&gt;
-&lt;p&gt;Proportional bar plots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = mtcars, aes(factor(cyl), fill = factor(gear))) +
-  geom_bar(position = &amp;quot;fill&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stack&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stack&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;series &amp;lt;- data.frame(
-  time = c(rep(1, 4),rep(2, 4), rep(3, 4), rep(4, 4)),
-  type = rep(c(&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;d&amp;#39;), 4),
-  value = rpois(16, 10)
-)
-
-series$type2 &amp;lt;- factor(series$type, levels = c(&amp;#39;c&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;a&amp;#39;))
-
-ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type)) +
-  geom_point(aes(colour = type))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type), position = &amp;quot;stack&amp;quot;) +
-  geom_point(aes(colour = type), position = &amp;quot;stack&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-06-overlapping_files/figure-html/pos11-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+DodgePreserve the vertical position while adjusting the horizontal position.
+Create grouped bar plots.
+ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar(position = position_dodge(width = 1))JitterAdd some noise to data points for better visualization.</description>
     </item>
     
     <item>
@@ -639,141 +61,9 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/axis-plot-labels/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the fifth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/&#34;&gt;post&lt;/a&gt;, we learnt about aesthetics. In this post, we will learn to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;add title and subtitle to the plot&lt;/li&gt;
-&lt;li&gt;modify axis labels&lt;/li&gt;
-&lt;li&gt;modify axis range&lt;/li&gt;
-&lt;li&gt;remove axis&lt;/li&gt;
-&lt;li&gt;format axis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div id=&#34;basic-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Basic Plot&lt;/h2&gt;
-&lt;p&gt;Let us start by building a simple scatter plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;title-subtitle&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Title &amp;amp; Subtitle&lt;/h2&gt;
-&lt;p&gt;You can add a title and subtitle to the plot using the &lt;code&gt;ggtitle()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ggtitle(label = &amp;#39;Displacement vs Mileage&amp;#39;, subtitle = &amp;#39;disp vs mpg&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Axis Labels&lt;/h2&gt;
-&lt;p&gt;The axis labels can be modified using the &lt;code&gt;xlab()&lt;/code&gt; and &lt;code&gt;ylab()&lt;/code&gt; functions.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlab(&amp;#39;Displacement&amp;#39;) + ylab(&amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can add all of the above using the &lt;code&gt;labs()&lt;/code&gt; function as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  labs(title = &amp;#39;Displacement vs Mileage&amp;#39;,
-    subtitle = &amp;#39;disp vs mpg&amp;#39;, x = &amp;#39;Displacement&amp;#39;,
-    y = &amp;#39;Miles Per Gallon&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;axis-range&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Axis Range&lt;/h2&gt;
-&lt;p&gt;Sometimes you may want to modify the range of the axis.&lt;/p&gt;
-&lt;p&gt;Use the &lt;code&gt;xlim()&lt;/code&gt; function to modify the range of the X axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlim(c(0, 600))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Use the &lt;code&gt;ylim()&lt;/code&gt; function to modify the range of the Y axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ylim(c(0, 40))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You can use the &lt;code&gt;expand_limits()&lt;/code&gt; function as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  expand_limits(x = c(0, 600), y = c(0, 40))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;remove-axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Remove Axis Labels&lt;/h2&gt;
-&lt;p&gt;If you want to remove the axis labels all together, use the &lt;code&gt;theme()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme(axis.title.x = element_blank(),
-    axis.title.y = element_blank())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;What we are doing above is to modify the theme of the plot and set the axis labels to blank using &lt;code&gt;element_blank()&lt;/code&gt; function.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;format-title-axis-labels&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Format Title &amp;amp; Axis Labels&lt;/h2&gt;
-&lt;p&gt;To format the title or the axis labels, we have to modify the theme of the plot using the &lt;code&gt;theme()&lt;/code&gt; function. We can modify the color, font family, font face, font size and horizontal position. Let us try them one by one.&lt;/p&gt;
-&lt;p&gt;The font family can be any of the valid font family types but it must be supported by OS. The font face can be plain, bold, italic, bold.italic hjust must be between 0 (extreme left) and 1 (extreme right).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ggtitle(&amp;#39;Diaplacement vs Mileage&amp;#39;) +
-  theme(plot.title = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;bold&amp;#39;,
-                                  size = 8,
-                                  hjust = 0.3))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;X axis label.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  xlab(&amp;#39;Diaplacement&amp;#39;) +
-  theme(axis.title.x = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;bold&amp;#39;,
-                                  size = 8,
-                                  hjust = 0.5,
-                                  angle = 15))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
-## $y, : font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Y axis label.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  ylab(&amp;#39;Miles Per Gallon&amp;#39;) +
-  theme(axis.title.y = element_text(color = &amp;#39;blue&amp;#39;,
-                                  family = &amp;#39;Arial&amp;#39;,
-                                  face = &amp;#39;italic&amp;#39;,
-                                  size = 8,
-                                  vjust = 0.3,
-                                  angle = 90))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database
-
-## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-## font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x
-## $y, : font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-axis-plot-labels_files/figure-html/axis12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will learn to:
+add title and subtitle to the plotmodify axis labelsmodify axis rangeremove axisformat axisBasic PlotLet us start by building a simple scatter plot.
+ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp;amp; SubtitleYou can add a title and subtitle to the plot using the ggtitle() function.</description>
     </item>
     
     <item>
@@ -782,21 +72,8 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-text-annotations/&#34;&gt;post&lt;/a&gt;, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.&lt;/p&gt;
-&lt;div id=&#34;guide&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guide&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_bar(aes(factor(cyl), fill = factor(gear))) +
-  scale_fill_discrete(guide = guide_legend(
-    title = &amp;#39;gear&amp;#39;, title.position = &amp;#39;bottom&amp;#39;, title.hjust = 0.5,
-    label.position = &amp;#39;top&amp;#39;, direction = &amp;#39;horizontal&amp;#39;, 
-    label.hjust = 0.5, nrow = 3, reverse = TRUE))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-07-04-guides_files/figure-html/guides2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &amp;#39;gear&amp;#39;, title.position = &amp;#39;bottom&amp;#39;, title.hjust = 0.5,label.position = &amp;#39;top&amp;#39;, direction = &amp;#39;horizontal&amp;#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))</description>
     </item>
     
     <item>
@@ -805,13 +82,7 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-extensions/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -820,60 +91,9 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-facets-combine-multiple-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 13th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we learnt the &lt;code&gt;stat_*()&lt;/code&gt; family of functions. In this post, we will learn about faceting i.e. combining plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(. ~ device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(device ~ .)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(purchase ~ device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() +
-  facet_grid(device ~ purchase)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration, color = factor(device))) +
-  geom_point() + 
-  facet_grid(. ~ device, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) + 
-  geom_point() + 
-  facet_grid(device ~ purchase, switch = &amp;quot;both&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, nrow = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, nrow = 3)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device + purchase)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(c(&amp;quot;device&amp;quot;, &amp;quot;purchase&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(n_pages, duration)) +
-  geom_point() +
-  facet_wrap(~device, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt the stat_*() family of functions. In this post, we will learn about faceting i.e. combining plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(. ~ device)ggplot(ecom, aes(n_pages, duration)) + geom_point() +facet_grid(device ~ .</description>
     </item>
     
     <item>
@@ -882,202 +102,9 @@ ggplot(series, aes(time, value, group = type)) +
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-themes/</guid>
-      <description>&lt;p&gt;This is the last post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we learnt to combine multiple plots. In this post, we will learn to&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;modify theme components&lt;/li&gt;
-&lt;li&gt;use different themes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Use &lt;code&gt;theme()&lt;/code&gt; to modify the appearance of all non data components of the plot.&lt;/p&gt;
-&lt;div id=&#34;theme&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;theme&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-components-of-a-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify components of a plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis title
-p + theme(axis.title.x = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify X axis text
-p + theme(axis.text.x = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify both axis text
-p + theme(axis.text = element_text(
-  color = &amp;quot;red&amp;quot;, size = 10, face = &amp;quot;italic&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modify axis ticks
-p + theme(
-  axis.ticks = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    size = 1.25,
-    linetype = 2
-  ),
-  axis.ticks.length = unit(1, &amp;quot;cm&amp;quot;)
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-axis-line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify axis line&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  axis.line = element_line(
-    color = &amp;#39;red&amp;#39;,
-    size = 1.5, 
-    linetype = 3
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-legend&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify legend&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl), shape = factor(gear)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  legend.background = element_rect(
-    fill = &amp;#39;gray&amp;#39;, 
-    linetype = 2, 
-    color = &amp;quot;red&amp;quot;
-  ),
-  legend.margin = margin(4, 8, 4, 8),
-  legend.spacing = unit(1.5, &amp;quot;cm&amp;quot;),
-  legend.key = element_rect(fill = &amp;#39;red&amp;#39;),
-  legend.key.size = unit(0.4, &amp;quot;cm&amp;quot;),
-  legend.text = element_text(color = &amp;#39;green&amp;#39;, face = &amp;#39;italic&amp;#39;),
-  legend.title = element_text(color = &amp;#39;blue&amp;#39;, face = &amp;#39;bold&amp;#39;),
-  legend.title.align = 0.1,
-  legend.position = &amp;quot;top&amp;quot;,
-  legend.direction = &amp;quot;horizontal&amp;quot;,
-  legend.box = &amp;quot;horizontal&amp;quot;,
-  legend.box.background = element_rect(fill = &amp;quot;yellow&amp;quot;),
-  legend.box.spacing = unit(1, &amp;quot;cm&amp;quot;),
-  legend.box.margin = margin(4, 8, 4, 8),
-  legend.box.just = &amp;quot;left&amp;quot;
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-panel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify panel&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  panel.background = element_rect(fill = &amp;#39;gray&amp;#39;),
-  panel.border = element_rect(
-    fill = NA, 
-    color = &amp;#39;red&amp;#39;, 
-    linetype = 1,
-    size = 2
-  ),
-  panel.grid = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    linetype = 2,
-    size = 0.5
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  panel.grid.major.x = element_line(
-    color = &amp;#39;blue&amp;#39;,
-    linetype = 2,
-    size = 0.5
-  ),
-  panel.grid.minor.y = element_line(
-    color = &amp;#39;red&amp;#39;,
-    linetype = 3, 
-    size = 0.2
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;modify-plot-area&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;modify plot area&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) + 
-  ggtitle(&amp;#39;Theme Modification&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  plot.background = element_rect(
-    color = &amp;#39;blue&amp;#39;,
-    fill = &amp;#39;#4682B4&amp;#39;
-  ),
-  plot.title = element_text(color = &amp;#39;red&amp;#39;),
-  plot.margin = unit(c(1, 1, 1, 1), &amp;quot;cm&amp;quot;)
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;modify-facets&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;modify facets&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) + 
-  facet_grid(~cyl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(
-  strip.background = element_rect(
-    color = &amp;#39;red&amp;#39;,
-    fill = &amp;#39;#4682B4&amp;#39;
-  ),
-  strip.text = element_text(
-    face = &amp;#39;italic&amp;#39;,
-    size = 8, 
-    color = &amp;#39;red&amp;#39;
-  )
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;classic-dark-on-light&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Classic Dark on Light&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;default-gray&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Default Gray&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_gray()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;light&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Light&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_light()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;minimal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Minimal&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;dark&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Dark&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_dark()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;classic&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Classic&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;void-empty&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Void (Empty)&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  theme_void()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-themes_files/figure-html/theme23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt about the different themes available in ggplot2. This brings us to the end of the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the last post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to combine multiple plots. In this post, we will learn to
+modify theme componentsuse different themesUse theme() to modify the appearance of all non data components of the plot.
+thememodify components of a plotp &amp;lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))# modify X axis titlep + theme(axis.</description>
     </item>
     
     <item>
@@ -1086,29 +113,8 @@ p + theme(
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-text-annotations/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the sixth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;http://www.rsquaredacademy.com/blog/post/axis-plot-labels/&#34;&gt;post&lt;/a&gt;, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.&lt;/p&gt;
-&lt;div id=&#34;annotate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Annotate&lt;/h2&gt;
-&lt;p&gt;We will use the &lt;code&gt;annotate()&lt;/code&gt; function to add custom text to the plots. You can use the &lt;code&gt;annotate()&lt;/code&gt; function to add rectangles/segments/pointrange as well but our focus will be on adding text. Let us start with a simple scatter plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can format the text as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  annotate(&amp;#39;text&amp;#39;, x = 200, y = 30, label = &amp;#39;Sample Text&amp;#39;,
-           color = &amp;#39;red&amp;#39;, size = 6, fontface = &amp;#39;bold&amp;#39;, angle = 25)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-text-annotations_files/figure-html/ann3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/guides/&#34;&gt;post&lt;/a&gt;, we will learn how to work with guides/legends in ggplot2.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.
+AnnotateWe will use the annotate() function to add custom text to the plots. You can use the annotate() function to add rectangles/segments/pointrange as well but our focus will be on adding text.</description>
     </item>
     
     <item>
@@ -1117,52 +123,9 @@ p + theme(
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-statistical-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 12th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/&#34;&gt;post&lt;/a&gt;, we learnt to build histograms. In this post, we will explore an alternative method to build plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;stats&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stats&lt;/h2&gt;
-&lt;p&gt;So far we have used &lt;code&gt;geom_*()&lt;/code&gt; functions to build plot. Now we will use a new set of functions &lt;code&gt;stat_*()&lt;/code&gt; to build the plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_count(aes(device))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_boxplot(aes(factor(1), n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;scatter-plots&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scatter Plots&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_identity(aes(n_pages, duration), position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_bin(aes(n_visit), bins = 7, fill = &amp;#39;blue&amp;#39;, alpha = 0.3,
-           color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;plot-unique-values&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Plot Unique Values&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  stat_unique(aes(n_pages, duration), 
-              position = &amp;#39;jitter&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-statistical-plots_files/figure-html/stat6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt about the functions underlying the &lt;code&gt;geom_*()&lt;/code&gt; family of functions. In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-facets/&#34;&gt;post&lt;/a&gt;, we will learn about faceting i.e. combining plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 12th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build histograms. In this post, we will explore an alternative method to build plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+StatsSo far we have used geom_*() functions to build plot. Now we will use a new set of functions stat_*() to build the plots.</description>
     </item>
     
     <item>
@@ -1171,42 +134,9 @@ p + theme(
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-histogram/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the eleventh post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-box-plots/&#34;&gt;post&lt;/a&gt;, we learnt to build box plots. In this post, we will focus on histograms.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us add some color to the histogram.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), fill = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The default number of bins is 30. We can specify the number of bins using &lt;code&gt;bins&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), bins = 7, fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can specify the width of the bins using &lt;code&gt;binwidth&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), binwidth = 2, fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Line type and size.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit), binwidth = 2, 
-                 fill = &amp;#39;blue&amp;#39;, color = &amp;#39;black&amp;#39;, alpha = 0.3,
-                 linetype = 2, size = 1.25)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can also map the color to a variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_histogram(aes(n_visit, fill = device), bins = 7)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-histogram_files/figure-html/hist7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.</description>
     </item>
     
     <item>
@@ -1215,143 +145,9 @@ p + theme(
       <pubDate>Thu, 21 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-box-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 9th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we learnt how to build line charts. In this post, we will focus on boxplots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-box-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Box Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(1), y = n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now we need to mention something for X axis and hence we use the number 1. If we do not mention anything, ggplot2 will return an error. You can generally use any categorical variable for the X axis. Below is an example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If you want horizontal boxplots, use &lt;code&gt;coord_flip()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit)) +
-  coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;notch&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Notch&lt;/h2&gt;
-&lt;p&gt;Notches are used to compare groups; if the notches of two boxes do not overlap, this suggests that the medians are significantly different.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = n_visit),
-               notch = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;jitter&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Jitter&lt;/h2&gt;
-&lt;p&gt;Overlay points on boxplots.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom, aes(x = factor(device), y = n_visit)) +
-  geom_boxplot() +
-  geom_jitter(width = 0.2, color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outliers&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Outliers&lt;/h2&gt;
-&lt;div id=&#34;color&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Color&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.color = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;shape&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Shape&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.shape = 23)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us extend the Y axis and see if the ouliers appear more legible.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.shape = 23) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;size&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Size&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.size = 3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Increasing the size is not very useful.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;alpha&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Alpha&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.color = &amp;#39;blue&amp;#39;, outlier.alpha = 0.3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Decreasing the alpha increases the visibility of the outlier points.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;box-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               fill = c(&amp;#39;blue&amp;#39;, &amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;)) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map box color to variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration,
-               fill = factor(device))) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               fill = &amp;#39;blue&amp;#39;, alpha = 0.3) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               color = c(&amp;#39;blue&amp;#39;, &amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;)) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration,
-               color = factor(device))) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-width&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Width&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               size = 1.5) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line-type&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Line Type&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               linetype = 2) +
-  expand_limits(y = c(0, 1100))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this post, we learnt to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;build box plots&lt;/li&gt;
-&lt;li&gt;modify outlier color, shape, size etc.&lt;/li&gt;
-&lt;li&gt;modify box color&lt;/li&gt;
-&lt;li&gt;modify box line color, size and line type&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the next &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-bar-plots/&#34;&gt;post&lt;/a&gt;, we will learn to build bar plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 9th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to build line charts. In this post, we will focus on boxplots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now we need to mention something for X axis and hence we use the number 1.</description>
     </item>
     
     <item>
@@ -1360,65 +156,9 @@ p + theme(
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-bar-plots/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the ninth post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/&#34;&gt;post&lt;/a&gt;, we learnt to build line charts. In this post, we will focus on bar plots.&lt;/p&gt;
-&lt;p&gt;We will continue to use the ecommerce data. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/web.csv&#34;&gt;here&lt;/a&gt; or import directly using the readr package.&lt;/p&gt;
-&lt;div id=&#34;simple-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Simple Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-color&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Color&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-type&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Type&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
-           color = &amp;#39;red&amp;#39;, linetype = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bar-line-size&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Bar Line Size&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, 
-           color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stacked-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stacked Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(device, fill = factor(referrer)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;grouped-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Grouped Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;horizontal-bar-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Horizontal Bar Plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(ecom) +
-  geom_bar(aes(factor(device), fill = factor(referrer))) +
-  coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()</description>
     </item>
     
     <item>
@@ -1427,51 +167,58 @@ p + theme(
       <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-line-graphs/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is the 8th post in the series &lt;strong&gt;Elegant Data Visualization with ggplot2&lt;/strong&gt;. In the previous &lt;a href=&#34;https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/&#34;&gt;post&lt;/a&gt;, we learnt to build scatter plots. In this post, we will learn to build line plots.&lt;/p&gt;
-&lt;div id=&#34;basic-line-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Basic Line Plot&lt;/h2&gt;
-&lt;p&gt;We will use a data set related to GDP growth rate. You can download it from &lt;a href=&#34;https://github.com/rsquaredacademy/datasets/blob/master/gdp.csv&#34;&gt;here&lt;/a&gt;. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(color = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;linetype&lt;/code&gt; can be used to modify the appearance of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(linetype = &amp;#39;dashed&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;size&lt;/code&gt; argument is used to specify the width of the line.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp, aes(year, india)) +
-  geom_line(size = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now let us map the aesthetics to the variables. The data used in the above example cannot be used as we need a variable with country names. We will use &lt;code&gt;gather()&lt;/code&gt; function from the &lt;code&gt;tidyr&lt;/code&gt; package to reshape the data.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gdp2 &amp;lt;- gdp %&amp;gt;% 
-  select(year, growth, india, china) %&amp;gt;% 
-  gather(key = country, value = gdp, -year)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can map the aethetics to the &lt;code&gt;country&lt;/code&gt; variable&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us begin with &lt;code&gt;color&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(color = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linetype&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(linetype = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Map &lt;code&gt;linewidth&lt;/code&gt; to &lt;code&gt;country&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gdp2, aes(year, gdp, group = country)) +
-  geom_line(aes(size = country))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Using size for a discrete variable is not advised.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-ggplot2-line-graphs_files/figure-html/line9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to build line plots.
+Basic Line PlotWe will use a data set related to GDP growth rate. You can download it from here. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Scatter Plots</title>
+      <link>/post/ggplot2-scatter-plots/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-scatter-plots/</guid>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+Basic PlotWe will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
+Let us start by building a simple scatter plot.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to aesthetics</title>
+      <link>/post/ggplot2-introduction-to-aesthetics/</link>
+      <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-aesthetics/</guid>
+      <description>IntroductionThis is the fourth post in the series Elegant Data Visualization with ggplot2. In the previous post we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the aes() function.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Quick Tour</title>
+      <link>/post/ggplot2-quick-tour/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-quick-tour/</guid>
+      <description>IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
+Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)Bar Plotqplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))Box Plotqplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))Line Chartqplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),color = &amp;#39;red&amp;#39;)Histogramqplot(mpg, data = mtcars, bins = 5)SummaryIn this post, we learnt to quickly create plots using the qplot() function.</description>
+    </item>
+    
+    <item>
+      <title>ggplot2: Introduction to geoms</title>
+      <link>/post/ggplot2-introduction-to-geoms/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggplot2-introduction-to-geoms/</guid>
+      <description>IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
+PointLet us say we want to visualize the relationship between two continuous variables. For example, as visitors browse more pages on a website, the time spent on the website also increases.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to ggplot2</title>
+      <link>/post/introduction-to-ggplot2/</link>
+      <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-ggplot2/</guid>
+      <description>This is the first post in the series Elegant Data Visualization with ggplot2. In this post, we will understand the philosophy of Grammar of Graphics. In the subsequent posts, we will explore different aspects of ggplot2 and learn to build some of the basic plots regularly used for exploring data.
+Introductionggplot2 is an alternative (and awesome) to base R for data visualization. It is based on The Grammar of Graphics.</description>
     </item>
     
   </channel>

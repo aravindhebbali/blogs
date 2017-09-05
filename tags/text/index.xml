@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Text on Rsquared Academy Blog</title>
-    <link>/tags/text/index.xml</link>
+    <link>/tags/text/</link>
     <description>Recent content in Text on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/tags/text/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/text/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Data Visualization with R - Text Annotations</title>
@@ -15,130 +18,8 @@
       <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-text-annotations/</guid>
-      <description>&lt;p&gt;This is the ninth post in the series &lt;strong&gt;Data Visualization With R&lt;/strong&gt;. In the previous post, we learnt how to add legend to a plot. In this post, we will learn to add text annotations.&lt;/p&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;There are occassions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot. The idea is to use the available space within/outside the plot to provide additional information that can be useful to the end users.&lt;/p&gt;
-&lt;p&gt;We will learn to add text inside as well as on the margins of the plot. This is accomplished using the following two functions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;text()&lt;/code&gt; : add text inside the plot&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mtext()&lt;/code&gt; : add text on the margins of the plot&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let us take a quick look at the syntax of both the functions:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text(x, y = NULL, labels = seq_along(x$x), adj = NULL,
-     pos = NULL, offset = 0.5, vfont = NULL,
-     cex = 1, col = NULL, font = NULL, ...)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtext(text, side = 3, line = 0, outer = FALSE, at = NA,
-      adj = NA, padj = NA, cex = NA, col = NA, font = NA, ...)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We will first explore the &lt;code&gt;text()&lt;/code&gt; function and then move onto the &lt;code&gt;mtext()&lt;/code&gt; function.&lt;/p&gt;
-&lt;div id=&#34;text-inside-the-plot&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Text Inside the Plot&lt;/h4&gt;
-&lt;p&gt;To add text inside a plot, the following arguments must be supplied to the &lt;code&gt;text()&lt;/code&gt; function:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;labels&lt;/code&gt; : the text to be displayed&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;x&lt;/code&gt; : x axis coordinate&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;y&lt;/code&gt; : y axis coordinate&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Below is a simple example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-text(x = 340, y = 30, labels = &amp;#39;Sample Text&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The text appears at the coordinates (340, 30). Ensure that the text is enclosed in single/double quotes and the coordinates provided are within the range of the &lt;strong&gt;X&lt;/strong&gt; and &lt;strong&gt;Y&lt;/strong&gt; axis variables.&lt;/p&gt;
-&lt;div id=&#34;color&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Color&lt;/h5&gt;
-&lt;p&gt;The color of the text can be modified using the &lt;code&gt;col&lt;/code&gt; argument in the &lt;code&gt;text()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-text(x = 340, y = 30, labels = &amp;#39;Sample Text&amp;#39;, col = &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot depicts the appearance of the text for different values of the &lt;code&gt;col&lt;/code&gt; argument:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text3-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;font&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Font&lt;/h5&gt;
-&lt;p&gt;The font of the text can be modified using the &lt;code&gt;font&lt;/code&gt; argument in the &lt;code&gt;text()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-text(x = 340, y = 30, labels = &amp;#39;Sample Text&amp;#39;, col = &amp;#39;red&amp;#39;, font = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot depicts the appearance of the text for different values of the &lt;code&gt;font&lt;/code&gt; argument:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text5-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;font-family&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Font Family&lt;/h5&gt;
-&lt;p&gt;The font family of the text can be modified using the &lt;code&gt;family&lt;/code&gt; argument in the &lt;code&gt;text()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-text(x = 340, y = 30, labels = &amp;#39;Sample Text&amp;#39;, col = &amp;#39;red&amp;#39;, family = &amp;#39;mono&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot depicts the appearance of the text for different values of the &lt;code&gt;family&lt;/code&gt; argument:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in text.default(x = 340, y = 30, labels = &amp;quot;Sample Text&amp;quot;, col =
-## &amp;quot;red&amp;quot;, : font family not found in Windows font database&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text7-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;font-size&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Font Size&lt;/h5&gt;
-&lt;p&gt;The font size of the text can be modified using the &lt;code&gt;cex&lt;/code&gt; argument in the &lt;code&gt;text()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-text(x = 340, y = 30, labels = &amp;#39;Sample Text&amp;#39;, col = &amp;#39;red&amp;#39;, cex = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text8-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot depicts the appearance of the text for different values of the &lt;code&gt;cex&lt;/code&gt; argument:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/text9-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;text-on-the-margins&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Text on the Margins&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;mtext()&lt;/code&gt; function allows the user to place the text on the margins of the plot. It allows the user to modify the location of the text in multiple ways and we will explore them one by one. To beign with, let us add text to the plot using the &lt;code&gt;mtext()&lt;/code&gt; function. The minimum input you need to provide is the text itself. Below is a simple example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext1-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;As you can see, the text is placed on the margin of the plot and not inside the plot. Next, we will specify the margin on which to place the text.&lt;/p&gt;
-&lt;div id=&#34;specify-margin&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Specify Margin&lt;/h5&gt;
-&lt;p&gt;Use the &lt;code&gt;side&lt;/code&gt; argument to specify the margin on which you want to place the text. If takes values 1 to 4, each representing one side of the plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;, side = 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext2-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot displays the appearance of the text when differnt options for &lt;code&gt;side&lt;/code&gt; argument are supplied:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext3-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;line&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Line&lt;/h5&gt;
-&lt;p&gt;The &lt;code&gt;line&lt;/code&gt; argument places the text at a specified distance from the margin. The default value is &lt;code&gt;0&lt;/code&gt;. As the value increases, the text is placed farther from the margin and outside the plot. As the value decreases, the text is placed inside the plot and farther from the margin. Below is a example where the text is placed outside the plot as the value is greater than 1.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;, line = 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;When the value is less than &lt;code&gt;0&lt;/code&gt;, the line argument places the text inside the plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;, line = -1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot displays the appearance of the text when different values are supplied to the &lt;code&gt;line&lt;/code&gt; argument:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext6-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;alignment&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Alignment&lt;/h5&gt;
-&lt;p&gt;The &lt;code&gt;adj&lt;/code&gt; argument is used for horizontal alignment of the text. It takes values between 0 and 1. If set to &lt;code&gt;0&lt;/code&gt;, the text will be left aligned and at &lt;code&gt;1&lt;/code&gt;, it will be right aligned. Below is a example where the text is left aligned as &lt;code&gt;adj&lt;/code&gt; is set to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;, adj = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext7-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;When the value is set to &lt;code&gt;1&lt;/code&gt;, the text is right aligned.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mtcars$disp, mtcars$mpg)
-mtext(&amp;#39;Sample Text&amp;#39;, adj = 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext8-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The below plot displays the appearance of the text when different values are supplied to the &lt;code&gt;adj&lt;/code&gt; argument:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/2017-05-17-data-visualization-with-r-text-annotations_files/figure-html/mtext9-1.png&#34; width=&#34;1440&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Summary&lt;/h4&gt;
-&lt;p&gt;In this post, we learnt how to add text annotations to a plot. Specifically, we learnt to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;add text inside the plot&lt;/li&gt;
-&lt;li&gt;add text on the margins of the plot&lt;/li&gt;
-&lt;li&gt;modify tehe color, font and size of the text&lt;/li&gt;
-&lt;li&gt;modify the position of the text&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In the next post, we will learn how to combine multiple plots into a single frame.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>This is the ninth post in the series Data Visualization With R. In the previous post, we learnt how to add legend to a plot. In this post, we will learn to add text annotations.
+IntroductionThere are occassions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot.</description>
     </item>
     
   </channel>

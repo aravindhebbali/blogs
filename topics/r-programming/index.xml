@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Programming on Rsquared Academy Blog</title>
-    <link>/topics/r-programming/index.xml</link>
+    <link>/topics/r-programming/</link>
     <description>Recent content in R Programming on Rsquared Academy Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <atom:link href="/topics/r-programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/topics/r-programming/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>apply family of functions</title>
@@ -15,13 +18,7 @@
       <pubDate>Mon, 20 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/apply-family-functions/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -30,13 +27,7 @@
       <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/functions/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -45,13 +36,7 @@
       <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/loops/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -60,13 +45,7 @@
       <pubDate>Tue, 09 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/control-flow/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -75,13 +54,7 @@
       <pubDate>Sat, 07 Feb 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-types-in-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-</description>
+      <description></description>
     </item>
     
   </channel>

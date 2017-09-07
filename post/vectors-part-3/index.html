@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Vectors - Part 3 &middot; Rsquared Academy Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../"><img src="../../img/logo.png" alt="Mapflat logo"></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../start-here"><i class='fa fa-play fa-fw'></i>New? Start Here</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../topics"><i class='fa fa-bars fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://rsquaredacademy.github.io/"><i class='fa fa-graduation-cap fa-fw'></i>Courses</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://rsquaredlabs.com:3838/explorer/"><i class='fa fa-cube fa-fw'></i>Shiny Apps</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://rsquaredacademy.github.io/pkgs/"><i class='fa fa-code fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../subscribe/"><i class='fa fa-envelope fa-fw'></i>Subscribe</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/rsquaredacademy" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://youtube.com/user/rsquaredin" target="_blank"><i class="fa fa-youtube-square fa-fw"></i>YouTube</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://vimeo.com/rsquaredacademy" target="_blank"><i class="fa fa-vimeo-square fa-fw"></i>Vimeo</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://slideshare.net/rsquaredin" target="_blank"><i class="fa fa-slideshare fa-fw"></i>SlideShare</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2014-2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Vectors - Part 3</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>07 Sep 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/r-introduction">r-introduction</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/vectors">vectors</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This is the seventh post in the series <strong>Introduction to R</strong>. In the previous <a href="">post</a>, we learnt to perform simple operations on vector and handle missing values. In this post, we will learn to index/subset vectors.</p>
+</div>
+<div id="index-vectors" class="section level2">
+<h2>Index Vectors</h2>
+<p>One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this post, we look at various ways of indexing/subsetting vectors.</p>
+</div>
+<div id="index-operator" class="section level2">
+<h2>Index Operator</h2>
+<p><code>[]</code> is the index operator in R. We can use various expressions within <code>[]</code> to subset data. In R, <strong>index positions begin at 1 and not 0</strong>. To begin with, let us look at values in different index positions:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  2  1 10  5  3  4  8  7  6  9</code></pre>
+<pre class="r"><code># return third element
+vect1[3]</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code># return seventh element
+vect1[7]    </code></pre>
+<pre><code>## [1] 8</code></pre>
+<div id="out-of-range-index" class="section level4">
+<h4>Out of range index</h4>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  5  1  7 10  8  4  9  6  2  3</code></pre>
+<pre class="r"><code># return value at index 0
+vect1[0]</code></pre>
+<pre><code>## integer(0)</code></pre>
+<pre class="r"><code># length of the vector
+length(vect1)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code># out of range index
+vect1[11]   </code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>In the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and <code>NA</code> in the second case.</p>
+</div>
+<div id="negative-index" class="section level4">
+<h4>Negative Index</h4>
+<p>Using a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the end of the vector counting backwards. Let us look at an example to understand how negative index works in R:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  8  4 10  7  3  6  9  5  2  1</code></pre>
+<pre class="r"><code># drop third element
+vect1[-3]</code></pre>
+<pre><code>## [1] 8 4 7 3 6 9 5 2 1</code></pre>
+<pre class="r"><code># drop seventh element
+vect1[-7]   </code></pre>
+<pre><code>## [1]  8  4 10  7  3  6  5  2  1</code></pre>
+</div>
+</div>
+<div id="subset-multiple-elements" class="section level2">
+<h2>Subset Multiple Elements</h2>
+<p>If we do not specify anything within <code>[]</code>, all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  2  4  7  5 10  1  9  8  3  6</code></pre>
+<pre class="r"><code># return all elements
+vect1[]</code></pre>
+<pre><code>##  [1]  2  4  7  5 10  1  9  8  3  6</code></pre>
+<pre class="r"><code># return first 5 values
+vect1[1:5]</code></pre>
+<pre><code>## [1]  2  4  7  5 10</code></pre>
+<pre class="r"><code># return all values from the 5th position
+end &lt;- length(vect1)
+vect1[5:end]</code></pre>
+<pre><code>## [1] 10  1  9  8  3  6</code></pre>
+<p>If you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.</p>
+<p>What if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using <code>c()</code> and use it to extract elements from the original vector. Below is an example:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  9  4  6  5  8  2  7  3  1 10</code></pre>
+<pre class="r"><code># extract 2nd, 5th and 7th element
+select &lt;- c(2, 5, 7)
+vect1[select]</code></pre>
+<pre><code>## [1] 4 8 7</code></pre>
+<pre class="r"><code># extract elements in position 1 to 4, 6 and 9
+select &lt;- c(1:4, 6, 9)
+vect1[select]</code></pre>
+<pre><code>## [1] 9 4 6 5 2 1</code></pre>
+</div>
+<div id="subset-named-vectors" class="section level2">
+<h2>Subset Named Vectors</h2>
+<p>Vectors can be subset using the name of the elements. <strong>When using name of elements for subsetting, ensure that the names are enclosed in single or double quotations</strong>, else R will return an error. Let us look at a few examples:</p>
+<pre class="r"><code>vect1 &lt;- c(score1 = 8, score2 = 6, score3 = 9)
+vect1</code></pre>
+<pre><code>## score1 score2 score3 
+##      8      6      9</code></pre>
+<pre class="r"><code># extract score2
+vect1[&#39;score2&#39;]</code></pre>
+<pre><code>## score2 
+##      6</code></pre>
+<pre class="r"><code># extract score1 and score3
+vect1[c(&#39;score1&#39;, &#39;score3&#39;)]</code></pre>
+<pre><code>## score1 score3 
+##      8      9</code></pre>
+</div>
+<div id="subset-using-logical-values" class="section level2">
+<h2>Subset using logical values</h2>
+<p>Logical values can be used to subset vectors. They are not very flexible but can be used for simple indexing. In all of the below examples, the logical vectors are recycled to match the length of the vector from which we subset data:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  9  6  4 10  2  8  3  7  5  1</code></pre>
+<pre class="r"><code># returns all values
+vect1[TRUE]</code></pre>
+<pre><code>##  [1]  9  6  4 10  2  8  3  7  5  1</code></pre>
+<pre class="r"><code># empty vector
+vect1[FALSE]</code></pre>
+<pre><code>## integer(0)</code></pre>
+<pre class="r"><code># values in odd positions
+vect1[c(TRUE, FALSE)]</code></pre>
+<pre><code>## [1] 9 4 2 3 5</code></pre>
+<pre class="r"><code># values in even positions
+vect1[c(FALSE, TRUE)]</code></pre>
+<pre><code>## [1]  6 10  8  7  1</code></pre>
+</div>
+<div id="subset-using-logical-expressions" class="section level2">
+<h2>Subset using logical expressions</h2>
+<p>Logical expressions can be used to extract elements that meet specific criteria. This method is most flexible and useful as we can combine multiple conditions using relational and logical operators. Before we use logical expressions, let us spend some time understanding comparison and logical operators as we will be using them extensively hereafter.</p>
+<div id="comparison-operators" class="section level4">
+<h4>Comparison Operators</h4>
+<p>When you create an expression using a comparison operator, the output is always a logical value i.e. <code>TRUE</code> or <code>FALSE</code>. Let us see how we can use comparison operators to subset data:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  8  3  6  1  2  7  5 10  4  9</code></pre>
+<pre class="r"><code># return elements greater than 5
+vect1 &gt; 5</code></pre>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code>vect1[vect1 &gt; 5]</code></pre>
+<pre><code>## [1]  8  6  7 10  9</code></pre>
+<pre class="r"><code># return elements greater than or equal to 5
+vect1 &gt;= 5</code></pre>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code>vect1[vect1 &gt;= 5]</code></pre>
+<pre><code>## [1]  8  6  7  5 10  9</code></pre>
+<pre class="r"><code># return elements lesser than 5
+vect1 &lt; 5</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code>vect1[vect1 &lt; 5]</code></pre>
+<pre><code>## [1] 3 1 2 4</code></pre>
+<pre class="r"><code># return elements lesser than or equal to 5
+vect1 &lt;= 5</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code>vect1[vect1 &lt;= 5]</code></pre>
+<pre><code>## [1] 3 1 2 5 4</code></pre>
+<pre class="r"><code># return elements equal to 5
+vect1 == 5</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>vect1[vect1 == 5]</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code># return elements not equal to 5
+vect1 != 5</code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>vect1[vect1 != 5]</code></pre>
+<pre><code>## [1]  8  3  6  1  2  7 10  4  9</code></pre>
+</div>
+</div>
+<div id="logical-operators" class="section level2">
+<h2>Logical Operators</h2>
+<p>Let us combine comparison and logical operators to create expressions and use them to subset vectors:</p>
+<pre class="r"><code># random sample of 10 values
+vect1 &lt;- sample(10)
+vect1</code></pre>
+<pre><code>##  [1]  5 10  6  4  7  3  2  9  8  1</code></pre>
+<pre class="r"><code># return all elements less than 8 or divisible by 3
+vect1[(vect1 &lt; 8 | (vect1 %% 3 == 0))]</code></pre>
+<pre><code>## [1] 5 6 4 7 3 2 9 1</code></pre>
+<pre class="r"><code># return all elements less than 7 or divisible by 2
+vect1[(vect1 &lt; 7 | (vect1 %% 2 == 0))]</code></pre>
+<pre><code>## [1]  5 10  6  4  3  2  8  1</code></pre>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/data-types-in-r/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/data-types-in-r/">Data Types in R</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/vectors-part-2/">Vectors - Part 2</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/vectors-part-2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57270671-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

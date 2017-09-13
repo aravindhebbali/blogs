@@ -28,8 +28,7 @@
       
       <guid>/post/a-complete-guide-to-importing-data-into-r-part-2/</guid>
       <description>IntroductionThis is the fourth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
-JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.
-# jsonlite::fromJSON()XMLSome APIs offer data in the XML format.</description>
+JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.</description>
     </item>
     
     <item>
@@ -38,7 +37,8 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/exporting-data-from-r/</guid>
-      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
+      <description> 
+IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
 Files# readr::read_file()Lines# readr::read_lines()Summary</description>
     </item>
     
@@ -146,7 +146,7 @@ When you are dealing with a sequence of multiple operations, R code can get a bi
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/quick-guide-r-sqlite/</guid>
-      <description></description>
+      <description>Connectioncon &amp;lt;- DBI::dbConnect(RSQLite::SQLite(), &amp;quot;:memory:&amp;quot;)Connection Summarysummary(con)## Length Class Mode ## 1 SQLiteConnection S4List TablesdbListTables(con)## [1] &amp;quot;ecom&amp;quot; &amp;quot;sqlite_stat1&amp;quot; &amp;quot;sqlite_stat4&amp;quot;List FieldsDBI::dbListFields(con, &amp;quot;ecom&amp;quot;)## [1] &amp;quot;referrer&amp;quot; &amp;quot;device&amp;quot; &amp;quot;bouncers&amp;quot; &amp;quot;n_visit&amp;quot; &amp;quot;n_pages&amp;quot; &amp;quot;duration&amp;quot;Querying DatadbReadTable(): read entire tabledbGetQuery(): read few rowsdbSendQuery() &amp;amp; dbFetch(): read data in batchesEntire TableDBI::dbReadTable(con, &amp;#39;ecom&amp;#39;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19## 16 bing laptop true 1 1 995## 17 bing tablet false 5 16 368## 18 google tablet true 7 1 406## 19 social tablet false 7 10 290## 20 social tablet false 2 1 28Few RowsDBI::dbGetQuery(con, &amp;quot;select * from ecom limit 10&amp;quot;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208Read Data in Batchesquery &amp;lt;- DBI::dbSendQuery(con, &amp;#39;select * from ecom&amp;#39;)result &amp;lt;- DBI::dbFetch(query, n = 15)result## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19QueryQuery StatusDBI::dbHasCompleted(query)## [1] FALSEQuery InfoDBI::dbGetInfo(query)## $statement## [1] &amp;quot;select * from ecom&amp;quot;## ## $row.</description>
     </item>
     
     <item>

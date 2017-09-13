@@ -574,7 +574,8 @@ ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp; SubtitleYou can add a 
   </header>
 
   <p>
-  IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+   
+IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
 Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &#39;gear&#39;, title.position = &#39;bottom&#39;, title.hjust = 0.5,label.position = &#39;top&#39;, direction = &#39;horizontal&#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))
   </p>
 
@@ -906,7 +907,7 @@ StatsSo far we have used geom_*() functions to build plot. Now we will use a ne
   <p>
   IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
-Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
   </p>
 
   
@@ -1018,7 +1019,8 @@ Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now
   </header>
 
   <p>
-  IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+   
+IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
 Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &#39;white&#39;, color = &#39;red&#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &#39;white&#39;, color = &#39;red&#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &#39;dodge&#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()
   </p>

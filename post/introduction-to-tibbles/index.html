@@ -287,7 +287,8 @@
 
 </div>
 
-  <div id="introduction" class="section level1">
+  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+<div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>This is the second post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/getting-started-with-tidyverse/">post</a>, we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the <a href="http://tidyverse.org/">tidyverse</a>. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn</p>
 <ul>
@@ -306,16 +307,16 @@
 <pre><code>## # A tibble: 26 x 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-##  1     a     1    72
-##  2     b     2    62
-##  3     c     3    45
-##  4     d     4    77
-##  5     e     5    29
-##  6     f     6    42
-##  7     g     7    78
-##  8     h     8    59
-##  9     i     9    86
-## 10     j    10    44
+##  1     a     1    46
+##  2     b     2     7
+##  3     c     3    94
+##  4     d     4    36
+##  5     e     5    70
+##  6     f     6    44
+##  7     g     7     2
+##  8     h     8    45
+##  9     i     9    68
+## 10     j    10    89
 ## # ... with 16 more rows</code></pre>
 <p><br></p>
 </div>
@@ -331,16 +332,16 @@
 <pre><code>## # A tibble: 26 x 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-##  1     a     1    26
-##  2     b     2    21
-##  3     c     3    58
-##  4     d     4    49
-##  5     e     5    95
-##  6     f     6    88
-##  7     g     7    64
-##  8     h     8    38
-##  9     i     9    76
-## 10     j    10    12
+##  1     a     1     2
+##  2     b     2    75
+##  3     c     3    22
+##  4     d     4     3
+##  5     e     5    63
+##  6     f     6    91
+##  7     g     7    85
+##  8     h     8    87
+##  9     i     9    71
+## 10     j    10    13
 ## # ... with 16 more rows</code></pre>
 <p><br></p>
 </div>
@@ -363,16 +364,16 @@ tibble(x, y, z)</code></pre>
 <pre><code>## # A tibble: 100 x 3
 ##        x     y     z
 ##    &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
-##  1     1     a FALSE
+##  1     1     a  TRUE
 ##  2     2     a  TRUE
 ##  3     3     a  TRUE
 ##  4     4     a FALSE
 ##  5     5     a  TRUE
-##  6     6     a  TRUE
+##  6     6     a FALSE
 ##  7     7     a FALSE
 ##  8     8     a FALSE
-##  9     9     a  TRUE
-## 10    10     a  TRUE
+##  9     9     a FALSE
+## 10    10     a FALSE
 ## # ... with 90 more rows</code></pre>
 <p><br></p>
 </div>
@@ -420,16 +421,16 @@ as_tibble(l)</code></pre>
 <pre><code>## # A tibble: 32 x 3
 ##        x     y          z
 ##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
-##  1     1    43 &lt;chr [26]&gt;
-##  2     2    14 &lt;chr [26]&gt;
-##  3     3    53 &lt;chr [26]&gt;
-##  4     4    29 &lt;chr [26]&gt;
-##  5     5   100 &lt;chr [26]&gt;
-##  6     6    25 &lt;chr [26]&gt;
-##  7     7    62 &lt;chr [26]&gt;
-##  8     8    28 &lt;chr [26]&gt;
-##  9     9    41 &lt;chr [26]&gt;
-## 10    10    24 &lt;chr [26]&gt;
+##  1     1    64 &lt;chr [26]&gt;
+##  2     2    74 &lt;chr [26]&gt;
+##  3     3    34 &lt;chr [26]&gt;
+##  4     4    26 &lt;chr [26]&gt;
+##  5     5    38 &lt;chr [26]&gt;
+##  6     6    70 &lt;chr [26]&gt;
+##  7     7    61 &lt;chr [26]&gt;
+##  8     8    50 &lt;chr [26]&gt;
+##  9     9    16 &lt;chr [26]&gt;
+## 10    10    40 &lt;chr [26]&gt;
 ## # ... with 22 more rows</code></pre>
 <p><br></p>
 </div>
@@ -441,16 +442,16 @@ as_tibble(m)</code></pre>
 <pre><code>## # A tibble: 100 x 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1   665   454   566   463   370   711   699   522   270   376   718   312
-##  2   283   794     4   629   179   929   631   433   904   232    88   760
-##  3    96   117   614   583   515   306   977   267   781   334   169   607
-##  4   524   270   151   431   849   226   542   889   203   309   371   700
-##  5   553   286   207   786   166   592    83   107   293   279    92   331
-##  6   739   750   479   606   983   667   851   707   531   417   575    24
-##  7   223   468   706   331   249   572    74   227   444    65   833   497
-##  8   478   909    31   875    64   163   369   735  1000   300   462   360
-##  9   173   329   983   467   774    88   999   983   215   113   154   747
-## 10   278   250   218   457   704   884   821   124   967   353   876   232
+##  1   693   685   247    81   921   134   619   512   830   728   875   951
+##  2   879   374   820   332   709    64   709   125   553    52   851   644
+##  3   225   781   195   808   494   309   557    93   637   764   295   824
+##  4   722   542   121   858   513   306   206   369   254   529   952   215
+##  5   190    25   937   221   817   454   397   692    85   952   773   904
+##  6   123   842   445   900    75   248   701   554   749   455   467   795
+##  7   538   652   758   842   534   125   893   230   499   199   549   418
+##  8   189   811   774   816   717   578   367   510   499   164   251   145
+##  9   303   253   314   834   184   236   680   902   355   700   765   332
+## 10   681   868   731   267   902   215    26   426   726   531   617   585
 ## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
 ## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
 ## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;</code></pre>

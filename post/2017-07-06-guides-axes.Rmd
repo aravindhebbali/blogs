@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the `scale_*()` family of functions 

@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the fourth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/), we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:

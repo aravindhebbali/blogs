@@ -10,6 +10,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the sixth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/exporting-data-from-r/), we learnt to export data/code from R. In this post, we will learn about pipes.

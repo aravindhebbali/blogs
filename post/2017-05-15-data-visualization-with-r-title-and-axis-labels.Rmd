@@ -10,6 +10,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 ## Introduction
 
 This is the second post of the series **Data Visualization With R**. In the previous [post](https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/), we explored the `plot()` function and observed the different types of plots it generated. In this post, we will learn how to add:

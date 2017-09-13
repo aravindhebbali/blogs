@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 This is the first post in the series **Data Wrangling with R**. In this series, we will look at the 
 challenges faced when working with data of different types coming from different sources and explore 
 tools available in R to overcome such challenges. 

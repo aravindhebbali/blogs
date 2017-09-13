@@ -20,7 +20,7 @@
       <guid>/post/dataframes/</guid>
       <description>IntroductionThis is the tenth post in the series Introduction to R. In the previous post. In the previous post, we learnt about lists. In this post, we will learn about dataframe.
 create dataframeselect columnsselect rowsutitlity functionsCreate dataframesUse data.frame to create dataframes. Below is the function syntax:
-args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.empty.names = TRUE, stringsAsFactors = default.</description>
+args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.</description>
     </item>
     
     <item>
@@ -89,8 +89,7 @@ args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.n
       
       <guid>/post/a-complete-guide-to-importing-data-into-r-part-2/</guid>
       <description>IntroductionThis is the fourth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
-JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.
-# jsonlite::fromJSON()XMLSome APIs offer data in the XML format.</description>
+JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.</description>
     </item>
     
     <item>
@@ -117,7 +116,8 @@ args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.n
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/exporting-data-from-r/</guid>
-      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
+      <description> 
+IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
 Files# readr::read_file()Lines# readr::read_lines()Summary</description>
     </item>
     
@@ -208,7 +208,8 @@ ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp;amp; SubtitleYou can ad
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides/</guid>
-      <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+      <description> 
+IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
 Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &amp;#39;gear&amp;#39;, title.position = &amp;#39;bottom&amp;#39;, title.hjust = 0.5,label.position = &amp;#39;top&amp;#39;, direction = &amp;#39;horizontal&amp;#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))</description>
     </item>
     
@@ -335,7 +336,7 @@ When you are dealing with a sequence of multiple operations, R code can get a bi
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/quick-guide-r-sqlite/</guid>
-      <description></description>
+      <description>Connectioncon &amp;lt;- DBI::dbConnect(RSQLite::SQLite(), &amp;quot;:memory:&amp;quot;)Connection Summarysummary(con)## Length Class Mode ## 1 SQLiteConnection S4List TablesdbListTables(con)## [1] &amp;quot;ecom&amp;quot; &amp;quot;sqlite_stat1&amp;quot; &amp;quot;sqlite_stat4&amp;quot;List FieldsDBI::dbListFields(con, &amp;quot;ecom&amp;quot;)## [1] &amp;quot;referrer&amp;quot; &amp;quot;device&amp;quot; &amp;quot;bouncers&amp;quot; &amp;quot;n_visit&amp;quot; &amp;quot;n_pages&amp;quot; &amp;quot;duration&amp;quot;Querying DatadbReadTable(): read entire tabledbGetQuery(): read few rowsdbSendQuery() &amp;amp; dbFetch(): read data in batchesEntire TableDBI::dbReadTable(con, &amp;#39;ecom&amp;#39;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19## 16 bing laptop true 1 1 995## 17 bing tablet false 5 16 368## 18 google tablet true 7 1 406## 19 social tablet false 7 10 290## 20 social tablet false 2 1 28Few RowsDBI::dbGetQuery(con, &amp;quot;select * from ecom limit 10&amp;quot;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208Read Data in Batchesquery &amp;lt;- DBI::dbSendQuery(con, &amp;#39;select * from ecom&amp;#39;)result &amp;lt;- DBI::dbFetch(query, n = 15)result## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19QueryQuery StatusDBI::dbHasCompleted(query)## [1] FALSEQuery InfoDBI::dbGetInfo(query)## $statement## [1] &amp;quot;select * from ecom&amp;quot;## ## $row.</description>
     </item>
     
     <item>
@@ -528,7 +529,7 @@ Introduction to R  Introduction to R Introduction to RStudio Variables &amp;amp;
       <guid>/post/ggplot2-histogram/</guid>
       <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
-Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.</description>
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</description>
     </item>
     
     <item>
@@ -548,7 +549,8 @@ Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-bar-plots/</guid>
-      <description>IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+      <description> 
+IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
 Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()</description>
     </item>
@@ -659,7 +661,7 @@ IntroductionLegends are used to convey information about the data being represe
       
       <guid>/post/data-visualization-with-r-histogram/</guid>
       <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
-IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:</description>
+IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data.</description>
     </item>
     
     <item>
@@ -679,7 +681,7 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       
       <guid>/post/data-visualization-with-r-bar-plots/</guid>
       <description>IntroductionThis is the fifth post in the series Data Visualization With R. In the previous post we learnt how to build line graphs. In this post, we will visualize categorical data using univariate and bivariate bar plots.
-Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical. The X axis of the plot represents the levels or the categories and the Y axis represents the frequency/count of the variable.</description>
+Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical.</description>
     </item>
     
     <item>
@@ -767,7 +769,7 @@ data-viz
       
       <guid>/post/beginners-guide-to-r-package-ecosystem/</guid>
       <description>IntroductionThis is the thirteenth post in the series Introduction to R. In the previous post, we learnt about getting help in R. In this post, we will learn about R packages. Packages are fundamental to R. There are approximately 11000 packages available on CRAN or the Comprehensive R Archive Network.
-Packages are available for different topics. You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package.</description>
+Packages are available for different topics. You should always look for a package before writing code from scratch.</description>
     </item>
     
     <item>

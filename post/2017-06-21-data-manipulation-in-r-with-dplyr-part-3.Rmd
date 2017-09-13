@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the ninth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-2/), we learnt how to combine tables using the `*_join()` family of functions in [dplyr](dplyr.tidyverse.org).

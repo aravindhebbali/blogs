@@ -18,7 +18,8 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/exporting-data-from-r/</guid>
-      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
+      <description> 
+IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from JSON, XML and googlesheets. In this post, we will learn to export data/code from R.
 Files# readr::read_file()Lines# readr::read_lines()Summary</description>
     </item>
     

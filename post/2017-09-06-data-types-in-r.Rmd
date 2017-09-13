@@ -9,6 +9,9 @@ tags:
   - data
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 ## Introduction
 
 This is the fourth post in the series **Introduction to R**. In the previous [post](), we learnt how to create variables in R. In this post, we will learn about the following data types:

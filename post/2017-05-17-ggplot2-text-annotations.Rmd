@@ -10,6 +10,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the sixth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](http://www.rsquaredacademy.com/blog/post/axis-plot-labels/), we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.

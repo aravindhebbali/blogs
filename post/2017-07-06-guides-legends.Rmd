@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the 13th post in the series **Elegant Data Visualization with ggplot2**. In the previos [post](https://rsquaredacademy.github.io/blog/post/guides-axes/), we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.

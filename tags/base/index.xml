@@ -58,7 +58,7 @@ IntroductionLegends are used to convey information about the data being represe
       
       <guid>/post/data-visualization-with-r-histogram/</guid>
       <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
-IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:</description>
+IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data.</description>
     </item>
     
     <item>

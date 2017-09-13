@@ -72,7 +72,7 @@ StatsSo far we have used geom_*() functions to build plot. Now we will use a ne
       <guid>/post/ggplot2-histogram/</guid>
       <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will focus on histograms.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
-Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.Let us add some color to the histogram.</description>
+Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</description>
     </item>
     
     <item>
@@ -92,7 +92,8 @@ Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-bar-plots/</guid>
-      <description>IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
+      <description> 
+IntroductionThis is the ninth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build line charts. In this post, we will focus on bar plots.
 We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
 Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(ecom) +geom_bar(aes(factor(device)),fill = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Colorggplot(ecom) +geom_bar(aes(factor(device)),color = c(&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;))Bar Line Typeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2)Bar Line Sizeggplot(ecom) +geom_bar(aes(factor(device)), fill = &amp;#39;white&amp;#39;, color = &amp;#39;red&amp;#39;, linetype = 2, size = 2)Stacked Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)))Grouped Bar Plotggplot(ecom) +geom_bar(aes(device, fill = factor(referrer)), position = &amp;#39;dodge&amp;#39;)Horizontal Bar Plotggplot(ecom) +geom_bar(aes(factor(device), fill = factor(referrer))) +coord_flip()</description>
     </item>
@@ -203,7 +204,7 @@ IntroductionLegends are used to convey information about the data being represe
       
       <guid>/post/data-visualization-with-r-histogram/</guid>
       <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
-IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data. The histogram graphically shows the following:</description>
+IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data.</description>
     </item>
     
     <item>
@@ -223,7 +224,7 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       
       <guid>/post/data-visualization-with-r-bar-plots/</guid>
       <description>IntroductionThis is the fifth post in the series Data Visualization With R. In the previous post we learnt how to build line graphs. In this post, we will visualize categorical data using univariate and bivariate bar plots.
-Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical. The X axis of the plot represents the levels or the categories and the Y axis represents the frequency/count of the variable.</description>
+Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical.</description>
     </item>
     
     <item>

@@ -9,6 +9,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 ## Introduction
 
 This is the twelfth post in the series **Introduction to R**. In the previous [post](), we learnt about factors. In this post, we will learn about the different methods of getting help in R. Often we get stuck while doing some analysis as either we do not know the correct function to use or its syntax. It is important for anyone who is new to R to know the right place to look for help. There are two ways to look for help in R:

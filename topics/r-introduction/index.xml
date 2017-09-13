@@ -20,7 +20,7 @@
       <guid>/post/dataframes/</guid>
       <description>IntroductionThis is the tenth post in the series Introduction to R. In the previous post. In the previous post, we learnt about lists. In this post, we will learn about dataframe.
 create dataframeselect columnsselect rowsutitlity functionsCreate dataframesUse data.frame to create dataframes. Below is the function syntax:
-args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.empty.names = TRUE, stringsAsFactors = default.</description>
+args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.</description>
     </item>
     
     <item>

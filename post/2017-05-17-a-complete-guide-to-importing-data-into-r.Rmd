@@ -10,6 +10,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 # Introduction
 
 This is the third post in the series **Data Wrangling With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/), we learnt about tibbles. In this post, we will learn to import data into R from different sources.

@@ -12,3 +12,226 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
+```{r libs, echo=FALSE, message=FALSE}
+library(dbplyr)
+library(dplyr)
+library(DBI)
+library(RSQLite)
+```
+
+## Connection
+
+```{r lite1}
+con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+```
+
+```{r data, echo=FALSE, message=FALSE}
+ecom1 <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom <- ecom1 %>% 
+  slice(1:20) %>% 
+  select(referrer, device, bouncers, n_visit, n_pages, duration)
+copy_to(con, ecom)
+```
+
+### Connection Summary
+
+```{r lite2}
+summary(con)
+```
+
+### List Tables
+
+```{r lite3}
+dbListTables(con)
+```
+
+### List Fields
+
+```{r lite4}
+DBI::dbListFields(con, "ecom")
+```
+
+## Querying Data
+
+- `dbReadTable()`: read entire table
+- `dbGetQuery()`: read few rows
+- `dbSendQuery()` & `dbFetch()`: read data in batches
+
+### Entire Table
+
+```{r lite5}
+DBI::dbReadTable(con, 'ecom')
+```
+
+### Few Rows
+
+```{r lite6}
+DBI::dbGetQuery(con, "select * from ecom limit 10")
+```
+
+### Read Data in Batches
+
+```{r lite7}
+query <- DBI::dbSendQuery(con, 'select * from ecom')
+result <- DBI::dbFetch(query, n = 15)
+result
+```
+
+## Query
+
+### Query Status
+
+```{r lite8}
+DBI::dbHasCompleted(query)
+```
+
+### Query Info
+
+```{r lite9}
+DBI::dbGetInfo(query)
+```
+
+### Latest Query
+
+```{r lite10}
+DBI::dbGetStatement(query)
+```
+
+### Rows Fetched
+
+```{r lite11}
+DBI::dbGetRowCount(query)
+```
+
+### Rows Affected
+
+```{r lite12}
+DBI::dbGetRowsAffected(query)
+```
+
+### Column Info
+
+```{r lite13}
+DBI::dbColumnInfo(query)
+```
+
+### Clear Results
+
+```{r lite14}
+DBI::dbClearResult(query)
+```
+
+## Create Table
+
+### Introduction
+
+```{r lite15} 
+x <- 1:10
+y <- letters[1:10]
+trial <- tibble::tibble(x, y)
+DBI::dbWriteTable(con, "trial", trial)
+```
+
+### check if table is created in database
+
+```{r lite16}
+DBI::dbListTables(con)
+DBI::dbExistsTable(con, "trial")
+```
+
+### query sample data from table
+
+```{r lite17}
+DBI::dbGetQuery(con, "select * from trial limit 5")
+```
+
+### overwrite table in the database
+
+```{r lite18}
+x <- sample(100, 10)
+y <- letters[11:20]
+trial2 <- tibble::tibble(x, y)
+DBI::dbWriteTable(con, "trial", trial2, overwrite = TRUE)
+```
+
+### query sample data from table to see if it has been overwritten
+
+```{r lite19}
+DBI::dbGetQuery(con, "select * from trial limit 5")
+```
+
+### append data to the table in the database
+
+```{r lite20}
+x <- sample(100, 10)
+y <- letters[5:14]
+trial3 <- tibble::tibble(x, y)
+DBI::dbWriteTable(con, "trial", trial3, append = TRUE)
+```
+
+### query sample data from table to see if new data is appended
+
+```{r lite21}
+DBI::dbReadTable(con, "trial")
+```
+
+## Insert Rows
+
+### Introduction
+
+```{r lite22}
+DBI::dbExecute(con,
+  "INSERT into trial (x, y) VALUES (32, 'c'), (45, 'k'), (61, 'h')"
+)
+```
+
+### Insert Rows
+
+```{r lite23}
+DBI::dbSendStatement(con,
+  "INSERT into trial (x, y) VALUES (25, 'm'), (54, 'l'), (16, 'y')"
+)
+```
+
+## SQLite Data Type
+
+```{r lite24}
+DBI::dbDataType(RSQLite::SQLite(), "a")
+DBI::dbDataType(RSQLite::SQLite(), 1:5)
+DBI::dbDataType(RSQLite::SQLite(), 1.5)
+```
+
+## Others
+
+### remove table from database
+
+```{r lite25}
+DBI::dbRemoveTable(con, "trial")
+```
+
+### check if table has been removed 
+
+```{r lite26}
+DBI::dbListTables(con)
+```
+
+### Generate SQL Query
+
+```{r lite27}
+DBI::sqlCreateTable(con, "new", c(x = "integer", y = "text"))
+```
+
+## Append Table
+
+```{r lite28}
+DBI::sqlAppendTable(con, "ecom", head(ecom))
+```
+
+## Close Connection
+
+```{r lite29}
+DBI::dbDisconnect(con)
+```

@@ -10,6 +10,9 @@ tags:
 draft: yes
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 ## Introduction
 
 This is the third post in the series **Data Visualization With R**. In the previous [post](https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/), we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this [post](https://rsquaredacademy.github.io/post/data-visualization-with-r-introduction/), using the `plot()` function. We will continue with the same plot and learn how to enhance a scatter plot by 

@@ -9,6 +9,9 @@ tags:
   - dataframe
 ---
 
+[![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
+[![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
+
 ## Introduction
 
 This is the tenth post in the series **Introduction to R**. In the previous [post](). In the previous [post](), we learnt about lists. In this post, we will learn about `dataframe`.

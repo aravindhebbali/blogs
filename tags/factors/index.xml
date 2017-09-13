@@ -28,7 +28,9 @@ We will use a case study to explore the various features of the forcats package.
       <pubDate>Sat, 11 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-factors/</guid>
-      <description></description>
+      <description>IntroductionThis is the eleventh post in the series Introduction to R. In the previous post, we learnt about dataframes. In this post, we will learn about factors.
+create factorsorder levelsspecify labelscheck levelsnumber of levelsCategorical or qualitative data in R is treated as data type factor.
+Create Factorsargs(factor)## function (x = character(), levels, labels = levels, exclude = NA, ## ordered = is.</description>
     </item>
     
   </channel>

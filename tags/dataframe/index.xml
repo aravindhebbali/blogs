@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/dataframe/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dataframes</title>
+      <link>/post/dataframes/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/dataframes/</guid>
+      <description>IntroductionThis is the tenth post in the series Introduction to R. In the previous post. In the previous post, we learnt about lists. In this post, we will learn about dataframe.
+create dataframeselect columnsselect rowsutitlity functionsCreate dataframesUse data.frame to create dataframes. Below is the function syntax:
+args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.empty.names = TRUE, stringsAsFactors = default.</description>
+    </item>
     
     <item>
       <title>Dataframes</title>

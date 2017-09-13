@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 07 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/topics/r-introduction/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dataframes</title>
+      <link>/post/dataframes/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/dataframes/</guid>
+      <description>IntroductionThis is the tenth post in the series Introduction to R. In the previous post. In the previous post, we learnt about lists. In this post, we will learn about dataframe.
+create dataframeselect columnsselect rowsutitlity functionsCreate dataframesUse data.frame to create dataframes. Below is the function syntax:
+args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, ## fix.empty.names = TRUE, stringsAsFactors = default.</description>
+    </item>
     
     <item>
       <title>Matrix - Part 2</title>
@@ -59,7 +70,7 @@
       <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/getting-help-in-r/</guid>
-      <description></description>
+      <description>IntroductionThis is the twelfth post in the series Introduction to R. In the previous post, we learnt about factors. In this post, we will learn about the different methods of getting help in R. Often we get stuck while doing some analysis as either we do not know the correct function to use or its syntax. It is important for anyone who is new to R to know the right place to look for help.</description>
     </item>
     
     <item>
@@ -77,7 +88,9 @@
       <pubDate>Sat, 11 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-factors/</guid>
-      <description></description>
+      <description>IntroductionThis is the eleventh post in the series Introduction to R. In the previous post, we learnt about dataframes. In this post, we will learn about factors.
+create factorsorder levelsspecify labelscheck levelsnumber of levelsCategorical or qualitative data in R is treated as data type factor.
+Create Factorsargs(factor)## function (x = character(), levels, labels = levels, exclude = NA, ## ordered = is.</description>
     </item>
     
     <item>
@@ -86,7 +99,7 @@
       <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-lists/</guid>
-      <description></description>
+      <description>IntroductionThis is the ninth post in the series Introduction to R. In the previous post, we learnt about matrices. In this post, we will learn about lists. Lists are very useful as they are heterogeneous i.e. they can contain different data types. If you remember, vectors and matrices are homogeneous i.e. they can contain only one type of data. If you include different data types, they will all be coerced to the same type.</description>
     </item>
     
     <item>

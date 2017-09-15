@@ -29,3 +29,5 @@ This is the fifth post in the series **Data Wrangling with R**. In the previous 
 ```
 
 ## Summary
+
+## Up Next..

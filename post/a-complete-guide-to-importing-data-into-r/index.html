@@ -289,68 +289,213 @@
 
 </div>
 
-  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the third post in the series <strong>Data Wrangling With R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/">post</a>, we learnt about tibbles. In this post, we will learn to import data into R from different sources.</p>
-<p>Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.</p>
-<div id="flat-files" class="section level2">
-<h2>Flat Files</h2>
+  <style type="text/css">
+.table {
+  width: 50%;
+}
+</style>
+<p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>This is the third post in the series <strong>Introduction to tidyverse</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/">post</a>, we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.</p>
 </div>
-<div id="csv" class="section level2">
-<h2>CSV</h2>
-<p>CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.</p>
-<pre class="r"><code># read.csv()</code></pre>
-<pre class="r"><code># readr::read_csv()</code></pre>
-<p>If the separator is <code>;</code>, use <code>read_csv2()</code>.</p>
-<pre class="r"><code># readr::read_csv2()</code></pre>
+<div id="libraries" class="section level3">
+<h3>Libraries</h3>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://readxl.tidyverse.org/">readxl</a></li>
+<li><a href="http://haven.tidyverse.org/">haven</a></li>
+</ul>
 </div>
-<div id="tsv" class="section level2">
-<h2>TSV</h2>
-<p>Tab separated values.</p>
-<pre class="r"><code># readr::read_tsv()</code></pre>
+<div id="data-code" class="section level3">
+<h3>Data &amp; Code</h3>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
 </div>
-<div id="general" class="section level2">
-<h2>General</h2>
-<p>Use <code>read_delim()</code> and specify the separator using <code>delim</code> argument.</p>
-<pre class="r"><code># readr::read_delim(file_name, delim = &#39;&#39;)</code></pre>
+<div id="flat-files" class="section level3">
+<h3>Flat Files</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Delimiter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>read_csv</code></td>
+<td>comma</td>
+</tr>
+<tr class="even">
+<td><code>read_csv2</code></td>
+<td>semicolon</td>
+</tr>
+<tr class="odd">
+<td><code>read_tsv</code></td>
+<td>tab</td>
+</tr>
+<tr class="even">
+<td><code>read_table</code></td>
+<td>space</td>
+</tr>
+<tr class="odd">
+<td><code>read_table2</code></td>
+<td>multiple space</td>
+</tr>
+<tr class="even">
+<td><code>read_delim</code></td>
+<td>specify delim</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="table" class="section level2">
-<h2>Table</h2>
-<p>If the columns are separated by space, use <code>read_table()</code> or <code>read_table2()</code>.</p>
-<pre class="r"><code># readr::read_table()</code></pre>
-<pre class="r"><code># readr::read_table2()</code></pre>
-<p>We can also specify column types while reading data from the files.</p>
+<div id="options" class="section level2">
+<h2>Options</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>file</code></td>
+<td>path to file</td>
+</tr>
+<tr class="even">
+<td><code>col_names</code></td>
+<td>whether data includes column names</td>
+</tr>
+<tr class="odd">
+<td><code>col_types</code></td>
+<td>specify column type</td>
+</tr>
+<tr class="even">
+<td><code>skip</code></td>
+<td>number of records to skip</td>
+</tr>
+<tr class="odd">
+<td><code>n_max</code></td>
+<td>maximum number of records to read</td>
+</tr>
+<tr class="even">
+<td><code>na</code></td>
+<td>specify how missing values are represented</td>
+</tr>
+</tbody>
+</table>
+<div id="general" class="section level3">
+<h3>General</h3>
+<p>You can use <code>read_delim()</code> and specify the separator using <code>delim</code> to read data from any delimited file. CSV (comma separated values) is a very popular file format. We can read data from CSV files using <code>read_csv()</code>. If the separator is <code>;</code>, use <code>read_csv2()</code>. If the delimiter is a tab, use <code>read_tsv()</code>.</p>
+<pre class="r"><code># read_csv
+read_csv(&#39;hsb2.csv&#39;)
+## # A tibble: 200 x 11
+##       id female  race   ses schtyp  prog  read write  math science socst
+##    &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;
+##  1    70      0     4     1      1     1    57    52    41      47    57
+##  2   121      1     4     2      1     3    68    59    53      63    61
+##  3    86      0     4     3      1     1    44    33    54      58    31
+##  4   141      0     4     3      1     3    63    44    47      53    56
+##  5   172      0     4     2      1     2    47    52    57      53    61
+##  6   113      0     4     2      1     2    44    52    51      63    61
+##  7    50      0     3     2      1     1    50    59    42      53    61
+##  8    11      0     1     2      1     2    34    46    45      39    36
+##  9    84      0     4     2      1     1    63    57    54      58    51
+## 10    48      0     3     2      1     2    57    55    52      50    51
+## # ... with 190 more rows
+
+# col_names
+read_csv(&#39;hsb2.csv&#39;, col_names = FALSE)
+## # A tibble: 201 x 11
+##       X1     X2    X3    X4     X5    X6    X7    X8    X9     X10   X11
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
+##  1    id female  race   ses schtyp  prog  read write  math science socst
+##  2    70      0     4     1      1     1    57    52    41      47    57
+##  3   121      1     4     2      1     3    68    59    53      63    61
+##  4    86      0     4     3      1     1    44    33    54      58    31
+##  5   141      0     4     3      1     3    63    44    47      53    56
+##  6   172      0     4     2      1     2    47    52    57      53    61
+##  7   113      0     4     2      1     2    44    52    51      63    61
+##  8    50      0     3     2      1     1    50    59    42      53    61
+##  9    11      0     1     2      1     2    34    46    45      39    36
+## 10    84      0     4     2      1     1    63    57    54      58    51
+## # ... with 191 more rows
+
+# skip records
+read_csv(&#39;hsb2.csv&#39;, col_names = FALSE, skip = 1)
+## # A tibble: 200 x 11
+##       X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1    70     0     4     1     1     1    57    52    41    47    57
+##  2   121     1     4     2     1     3    68    59    53    63    61
+##  3    86     0     4     3     1     1    44    33    54    58    31
+##  4   141     0     4     3     1     3    63    44    47    53    56
+##  5   172     0     4     2     1     2    47    52    57    53    61
+##  6   113     0     4     2     1     2    44    52    51    63    61
+##  7    50     0     3     2     1     1    50    59    42    53    61
+##  8    11     0     1     2     1     2    34    46    45    39    36
+##  9    84     0     4     2     1     1    63    57    54    58    51
+## 10    48     0     3     2     1     2    57    55    52    50    51
+## # ... with 190 more rows
+
+# max records to read
+read_csv(&#39;hsb2.csv&#39;, n_max = 50)
+## # A tibble: 50 x 11
+##       id female  race   ses schtyp  prog  read write  math science socst
+##    &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;
+##  1    70      0     4     1      1     1    57    52    41      47    57
+##  2   121      1     4     2      1     3    68    59    53      63    61
+##  3    86      0     4     3      1     1    44    33    54      58    31
+##  4   141      0     4     3      1     3    63    44    47      53    56
+##  5   172      0     4     2      1     2    47    52    57      53    61
+##  6   113      0     4     2      1     2    44    52    51      63    61
+##  7    50      0     3     2      1     1    50    59    42      53    61
+##  8    11      0     1     2      1     2    34    46    45      39    36
+##  9    84      0     4     2      1     1    63    57    54      58    51
+## 10    48      0     3     2      1     2    57    55    52      50    51
+## # ... with 40 more rows</code></pre>
+</div>
+<div id="table" class="section level3">
+<h3>Table</h3>
+<p>If the columns are separated by space, use <code>read_table()</code>. If the number of whitespace characters between columns is not fixed or th lines are of different length, use <code>read_table2()</code>.</p>
+<pre class="r"><code># readr::read_table()
+
+# readr::read_table2()</code></pre>
+</div>
+<div id="specify-column-type" class="section level3">
+<h3>Specify Column Type</h3>
+<p>We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned. In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.</p>
 <pre class="r"><code># col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time</code></pre>
 </div>
-<div id="excel" class="section level2">
-<h2>Excel</h2>
-<p>You can import <code>.xls</code> or <code>.xlsx</code> files using the <a href="http://readxl.tidyverse.org/">readxl</a> package.</p>
+<div id="read-specific-columns" class="section level3">
+<h3>Read Specific Columns</h3>
+<p>If you are interested in reading only a few columns instead of all, use <code>cols_only()</code>. Let us read 3 columns from the data set.</p>
+</div>
+<div id="excel" class="section level3">
+<h3>Excel</h3>
+<p>You can read data from <code>.xls</code> or <code>.xlsx</code> files using <code>read_excel()</code> from the <a href="http://readxl.tidyverse.org/">readxl</a> package. It takes 2 arguments:</p>
 <ul>
-<li>specify the file name</li>
-<li>specify the sheet</li>
+<li>file name</li>
+<li>the sheet number</li>
 </ul>
 <pre class="r"><code># readxl::read_excel()</code></pre>
 </div>
-<div id="statistical-softwares" class="section level2">
-<h2>Statistical Softwares</h2>
-<p>You can import files from other statistical softwares such as STATA, SPSS and SAS using the <a href="http://haven.tidyverse.org/">haven</a> package.</p>
-<div id="stata-files" class="section level3">
-<h3>STATA Files</h3>
-<pre class="r"><code># haven::read_stata()</code></pre>
-</div>
-<div id="spss-files" class="section level3">
-<h3>SPSS Files</h3>
-<pre class="r"><code># haven::read_spss()</code></pre>
-</div>
-<div id="sas-files" class="section level3">
-<h3>SAS Files</h3>
-<pre class="r"><code># haven::read_sas()</code></pre>
+<div id="statistical-softwares" class="section level3">
+<h3>Statistical Softwares</h3>
+<p>You can read data from other statistical softwares such as STATA, SPSS and SAS using the <a href="http://haven.tidyverse.org/">haven</a> package.</p>
+<pre class="r"><code># haven::read_stata()
+
+# haven::read_spss()
+
+# haven::read_sas()</code></pre>
 </div>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 </div>
+<div id="up-next.." class="section level2">
+<h2>Up Next..</h2>
 </div>
 
 

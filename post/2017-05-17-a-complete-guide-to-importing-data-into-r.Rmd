@@ -10,110 +10,123 @@ tags:
 draft: yes
 ---
 
+<style type="text/css">
+.table {
+  width: 50%;
+}
+</style>
+
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
 
-This is the third post in the series **Data Wrangling With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/), we learnt about tibbles. In this post, we will learn to import data into R from different sources.
+This is the third post in the series **Introduction to tidyverse**. In the previous [post](https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/), we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats. 
 
-Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats. 
+### Libraries
 
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [readxl](http://readxl.tidyverse.org/)
+- [haven](http://haven.tidyverse.org/)
+
+### Data & Code
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
 
 ```{r imp1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(readr)
 library(readxl)
 library(haven)
-library(jsonlite)
-library(xml2)
-library(googlesheets)
 ```
 
-## Flat Files
+### Flat Files
 
-## CSV
+Function      | Delimiter
+------------- | ---------
+`read_csv`    | comma
+`read_csv2`   | semicolon
+`read_tsv`    | tab
+`read_table`  | space
+`read_table2` | multiple space
+`read_delim`  | specify delim
 
-CSV (comma separated values) is a very popular file format. We can read data from CSV files using 2 different functions.
+## Options
 
-```{r imp2}
-# read.csv()
+Argument     | Description
+------------ | ---------
+`file`       | path to file
+`col_names`  | whether data includes column names
+`col_types`  | specify column type
+`skip`       | number of records to skip
+`n_max`      | maximum number of records to read
+`na`         | specify how missing values are represented
+
+### General
+
+You can use `read_delim()` and specify the separator using `delim` to read data from any delimited file. CSV (comma separated values) is a very popular file format. We can read data from CSV files using `read_csv()`. If the separator is `;`, use `read_csv2()`. If the delimiter is a tab, use `read_tsv()`.
+
+```{r imp6, collapse=TRUE, message=FALSE}
+# read_csv
+read_csv('hsb2.csv')
+
+# col_names
+read_csv('hsb2.csv', col_names = FALSE)
+
+# skip records
+read_csv('hsb2.csv', col_names = FALSE, skip = 1)
+
+# max records to read
+read_csv('hsb2.csv', n_max = 50)
 ```
 
-```{r imp3}
-# readr::read_csv()
-```
+### Table
 
-If the separator is `;`, use `read_csv2()`.
+If the columns are separated by space, use `read_table()`. If the number of whitespace characters between columns is not fixed or th lines are of different length, use `read_table2()`.
 
-```{r imp4}
-# readr::read_csv2()
-```
 
-## TSV
-
-Tab separated values.
-
-```{r imp5}
-# readr::read_tsv()
-```
-
-## General
-
-Use `read_delim()` and specify the separator using `delim` argument.
-
-```{r imp6}
-# readr::read_delim(file_name, delim = '')
-```
-
-## Table
-
-If the columns are separated by space, use `read_table()` or `read_table2()`.
-
-```{r imp7}
+```{r imp7, collapse=TRUE}
 # readr::read_table()
-```
 
-```{r imp8}
 # readr::read_table2()
 ```
 
-We can also specify column types while reading data from the files.
+### Specify Column Type
+
+We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned. In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.
 
 ```{r imp10}
 # col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time
 ```
 
-## Excel
+### Read Specific Columns
 
-You can import `.xls` or `.xlsx` files using the [readxl](http://readxl.tidyverse.org/) package.
+If you are interested in reading only a few columns instead of all, use `cols_only()`. Let us read 3 columns from the data set.
 
-- specify the file name
-- specify the sheet 
+### Excel
+
+You can read data from `.xls` or `.xlsx` files using `read_excel()` from the [readxl](http://readxl.tidyverse.org/) package. It takes 2 arguments:
+
+- file name
+- the sheet number
 
 ```{r imp11}
 # readxl::read_excel()
 ```
 
-## Statistical Softwares
+### Statistical Softwares
 
-You can import files from other statistical softwares such as STATA, SPSS and SAS using the [haven](http://haven.tidyverse.org/) package.
-
-### STATA Files
+You can read data from other statistical softwares such as STATA, SPSS and SAS using the [haven](http://haven.tidyverse.org/) package.
 
 ```{r imp12}
 # haven::read_stata()
-```
 
-### SPSS Files
-
-```{r imp13}
 # haven::read_spss()
-```
 
-### SAS Files
-
-```{r imp14}
 # haven::read_sas()
 ```
 
 ## Summary
+
+## Up Next..

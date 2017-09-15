@@ -57,33 +57,6 @@ Some APIs offer data in the XML format. Use the [xml2](https://cran.r-project.or
 ```{r imp10}
 # xml2::read_html()
 ```
-
-## Google Sheets
-
-You can import data from Google Sheets using the [googlesheets]() pacakge.
-
-```{r imp 11}
-# mysheets <- gs_ls()
-# mysheets %>% glimpse()
-# 
-# # practice sheets
-# gs_gap() %>%
-#     gs_copy(to = "Gapminder")
-# gs_ls('Gapminder')
-# 
-# # register sheet
-# gap <- gs_title('Gapminder')
-# gap
-# 
-# # get worksheet names
-# gs_ws_ls(gap)
-# 
-# # read data in one worksheet
-# oceania <- gap %>%
-#     gs_read(ws = "Oceania")
-# 
-# # read certain cells
-# gap %>% gs_read(ws = 2, range = "A1:D8")
-```
-
 ## Summary
+
+## Up Next..

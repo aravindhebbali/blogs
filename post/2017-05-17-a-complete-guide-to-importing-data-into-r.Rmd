@@ -43,14 +43,14 @@ library(haven)
 
 ### Flat Files
 
-Function      | Delimiter
-------------- | ---------
-`read_csv`    | comma
-`read_csv2`   | semicolon
-`read_tsv`    | tab
-`read_table`  | space
-`read_table2` | multiple space
-`read_delim`  | specify delim
+Function         | Delimiter
+---------------- | ---------
+`read_csv`       | comma
+`read_csv2`      | semicolon
+`read_tsv`       | tab
+`read_table`     | space
+`read_table2`    | multiple space
+`read_delim`     | specify delim
 
 ## Options
 

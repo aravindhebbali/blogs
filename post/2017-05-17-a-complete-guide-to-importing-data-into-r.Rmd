@@ -11,9 +11,17 @@ draft: yes
 ---
 
 <style type="text/css">
-.table {
+table {
+  border: 1px solid black;
+  text-align: left;
+  width: 25%;
+}
+
+th, td {
+  text-align: left;
   width: 50%;
 }
+
 </style>
 
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)

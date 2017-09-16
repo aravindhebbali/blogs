@@ -261,6 +261,57 @@
   
     <article>
   <header>
+    <h2><a href="../../post/guides/">Guides</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   
+IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to add text to a plot. In this post, we will learn how to modify guide/legend.
+Guideggplot(mtcars) +geom_bar(aes(factor(cyl), fill = factor(gear))) +scale_fill_discrete(guide = guide_legend(title = &#39;gear&#39;, title.position = &#39;bottom&#39;, title.hjust = 0.5,label.position = &#39;top&#39;, direction = &#39;horizontal&#39;, label.hjust = 0.5, nrow = 3, reverse = TRUE))
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/why-you-should-purrr-part-2/">Why you should purrr - Part 2</a></h2>
 
     <div class="post-meta">
@@ -725,60 +776,6 @@ IntroductionThe tidyverse is a collection of R packages that share a common und
   
   <footer>
     <a href="../../post/working-with-strings-in-r-using-stringr/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/how-to-work-with-dates-in-r/">How to work with dates in R</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>09 Mar 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/lubridate">lubridate</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the tenth post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
-Quick OverviewUse origin to get the origin for the Date and other date/time objects in R.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/how-to-work-with-dates-in-r/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

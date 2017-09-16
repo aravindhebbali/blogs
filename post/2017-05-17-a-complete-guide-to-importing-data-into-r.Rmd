@@ -21,17 +21,20 @@ draft: yes
 
 ### Introduction
 
+<hr>
+
 This is the third post in the series **Introduction to tidyverse**. In the previous [post](https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/), we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats. 
 
-### Libraries
+<br>
+
+### Libraries, Data & Code
+
+<hr>
 
 We will use the following libraries in this post:
 
 - [readr](http://readr.tidyverse.org/)
-- [readxl](http://readxl.tidyverse.org/)
 - [haven](http://haven.tidyverse.org/)
-
-### Data & Code
 
 All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
 
@@ -41,18 +44,26 @@ library(readxl)
 library(haven)
 ```
 
-### Flat Files
+<br>
 
-Function         | Delimiter
----------------- | ---------
-`read_csv`       | comma
-`read_csv2`      | semicolon
-`read_tsv`       | tab
-`read_table`     | space
-`read_table2`    | multiple space
-`read_delim`     | specify delim
+### Overview
 
-## Options
+<hr>
+
+Function      | Delimiter
+--------------| ---------
+`read_csv`    | comma
+`read_csv2`   | semicolon
+`read_tsv`    | tab
+`read_table`  | space
+`read_table2` | multiple space
+`read_delim`  | specify delim
+
+<br>
+
+### Syntax
+
+<hr>
 
 Argument     | Description
 ------------ | ---------
@@ -63,9 +74,18 @@ Argument     | Description
 `n_max`      | maximum number of records to read
 `na`         | specify how missing values are represented
 
-### General
+<br>
 
-You can use `read_delim()` and specify the separator using `delim` to read data from any delimited file. CSV (comma separated values) is a very popular file format. We can read data from CSV files using `read_csv()`. If the separator is `;`, use `read_csv2()`. If the delimiter is a tab, use `read_tsv()`.
+### Get Started
+
+<hr>
+
+- You can use `read_delim()` and specify the separator using `delim` to read data from any delimited file. 
+- CSV (comma separated values) is a very popular file format. We can read data from CSV files using `read_csv()`. 
+- If the separator is `;`, use `read_csv2()`. 
+- If the delimiter is a tab, use `read_tsv()`. 
+
+In the below example, we will read data from a CSV file:
 
 ```{r imp6, collapse=TRUE, message=FALSE}
 # read_csv
@@ -81,52 +101,109 @@ read_csv('hsb2.csv', col_names = FALSE, skip = 1)
 read_csv('hsb2.csv', n_max = 50)
 ```
 
+<br>
+
 ### Table
 
-If the columns are separated by space, use `read_table()`. If the number of whitespace characters between columns is not fixed or th lines are of different length, use `read_table2()`.
+<hr>
 
+- If the columns are separated by space, use `read_table()`. 
+- If the number of whitespace characters between columns is not fixed or th lines are of different length, use `read_table2()`.
 
 ```{r imp7, collapse=TRUE}
-# readr::read_table()
-
-# readr::read_table2()
+# read space separated values
+read_table('hsb1.csv')
 ```
+
+<br>
+
+### Check Column Type
+
+<hr>
+
+Use `spec_csv()` to check the column types before you read the data. If the columns are being detected correctly, you need not specify the column types.
+
+```{r imp2 89, message=FALSE}
+spec_csv('hsb2.csv')
+```
+
+<br>
+
+### Column Types
+
+<hr>
+
+- `col_integer()`
+- `col_double()`
+- `col_logical()`
+- `col_factor()`
+- `col_character()`
+- `col_datetime()`
+- `col_date()`
+- `col_time()`
+
+<br>
 
 ### Specify Column Type
 
-We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned. In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.
+<hr>
 
-```{r imp10}
-# col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time
+We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned. 
+
+
+In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.
+
+```{r imp10, message=FALSE}
+read_csv('hsb2.csv', col_types = list(col_integer(),  col_factor(levels = c(0, 1)), 
+  col_factor(levels = c(1, 2, 3, 4)), col_factor(levels = c(1, 2, 3)), 
+  col_factor(levels = c(1, 2)), col_factor(levels = c(1, 2, 3)),
+  col_integer(), col_integer(), col_integer(), col_integer(), col_integer())            
+)
 ```
+
+<br>
 
 ### Read Specific Columns
 
+<hr>
+
 If you are interested in reading only a few columns instead of all, use `cols_only()`. Let us read 3 columns from the data set.
 
-### Excel
-
-You can read data from `.xls` or `.xlsx` files using `read_excel()` from the [readxl](http://readxl.tidyverse.org/) package. It takes 2 arguments:
-
-- file name
-- the sheet number
-
-```{r imp11}
-# readxl::read_excel()
+```{r imps34, message=FALSE}
+read_csv('hsb2.csv', col_types = cols_only(id = col_integer(),
+  prog = col_factor(levels = c(1, 2, 3)), read = col_integer())
+)
 ```
+
+<br>
 
 ### Statistical Softwares
 
+<hr>
+
 You can read data from other statistical softwares such as STATA, SPSS and SAS using the [haven](http://haven.tidyverse.org/) package.
 
-```{r imp12}
-# haven::read_stata()
+```{r imp12, message=FALSE, collapse=TRUE}
+# stata
+read_stata('airline.dta')
 
-# haven::read_spss()
+# spss
+read_spss('employee.sav')
 
-# haven::read_sas()
+# sas 
+read_sas('airline.sas7bdat')
 ```
 
-## Summary
+<br>
 
-## Up Next..
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

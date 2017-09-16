@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>Import &middot; Rsquared Academy Blog</title>
+  <title>Readxl &middot; Rsquared Academy Blog</title>
 
   
   
@@ -37,7 +37,7 @@
 
   
   
-  <link rel="alternate" type="application/rss+xml" title="Rsquared Academy Blog" href="../../tags/import/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Rsquared Academy Blog" href="../../tags/readxl/index.xml" />
   
 
   
@@ -134,7 +134,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="../../tags/import/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="../../tags/readxl/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -253,7 +253,7 @@
 
 
 <div class="header">
-  <h1>Import</h1>
+  <h1>Readxl</h1>
 </div>
 
 <div class="content">
@@ -308,175 +308,6 @@
 file namethe sheet number# readxl::read_excel()
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/a-complete-guide-to-importing-data-into-r-part-2/">A Complete Guide to Importing Data into R - Part 2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>14 Jul 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/import">import</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the fourth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
-JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format. You can use the jsonlite package to import JSON data into R.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/a-complete-guide-to-importing-data-into-r-part-2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/quick-guide-r-sqlite/">Quick Guide: R &amp; SQLite</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>05 Feb 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/sqlite">sqlite</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/rsqlite">rsqlite</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/database">database</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/import">import</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Connectioncon &lt;- DBI::dbConnect(RSQLite::SQLite(), &quot;:memory:&quot;)Connection Summarysummary(con)## Length Class Mode ## 1 SQLiteConnection S4List TablesdbListTables(con)## [1] &quot;ecom&quot; &quot;sqlite_stat1&quot; &quot;sqlite_stat4&quot;List FieldsDBI::dbListFields(con, &quot;ecom&quot;)## [1] &quot;referrer&quot; &quot;device&quot; &quot;bouncers&quot; &quot;n_visit&quot; &quot;n_pages&quot; &quot;duration&quot;Querying DatadbReadTable(): read entire tabledbGetQuery(): read few rowsdbSendQuery() &amp; dbFetch(): read data in batchesEntire TableDBI::dbReadTable(con, &#39;ecom&#39;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19## 16 bing laptop true 1 1 995## 17 bing tablet false 5 16 368## 18 google tablet true 7 1 406## 19 social tablet false 7 10 290## 20 social tablet false 2 1 28Few RowsDBI::dbGetQuery(con, &quot;select * from ecom limit 10&quot;)## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208Read Data in Batchesquery &lt;- DBI::dbSendQuery(con, &#39;select * from ecom&#39;)result &lt;- DBI::dbFetch(query, n = 15)result## referrer device bouncers n_visit n_pages duration## 1 google laptop true 10 1 693## 2 yahoo tablet true 9 1 459## 3 direct laptop true 0 1 996## 4 bing tablet false 3 18 468## 5 yahoo mobile true 9 1 955## 6 yahoo laptop false 5 5 135## 7 yahoo mobile true 10 1 75## 8 direct mobile true 10 1 908## 9 bing mobile false 3 19 209## 10 google mobile true 6 1 208## 11 direct laptop true 9 1 738## 12 direct tablet false 6 12 132## 13 direct mobile false 9 14 406## 14 yahoo tablet false 5 8 80## 15 yahoo mobile false 7 1 19QueryQuery StatusDBI::dbHasCompleted(query)## [1] FALSEQuery InfoDBI::dbGetInfo(query)## $statement## [1] &quot;select * from ecom&quot;## ## $row.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/quick-guide-r-sqlite/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/a-complete-guide-to-importing-data-into-r/">A complete guide to importing data into R</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>08 Jan 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/import">import</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/data">data</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  .table {width: 50%;} 
-IntroductionThis is the third post in the series Introduction to tidyverse. In the previous post, we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/a-complete-guide-to-importing-data-into-r/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 

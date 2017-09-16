@@ -1,0 +1,23 @@
+---
+title: Import Data into R - Part 2
+author: ''
+date: '2017-09-16'
+slug: import-data-into-r-part-2
+topics:
+  - data-wrangling
+tags:
+  - import
+  - excel
+  - readxl
+---
+
+### Excel
+
+You can read data from `.xls` or `.xlsx` files using `read_excel()` from the [readxl](http://readxl.tidyverse.org/) package. It takes 2 arguments:
+
+- file name
+- the sheet number
+
+```{r imp11}
+# readxl::read_excel()
+```

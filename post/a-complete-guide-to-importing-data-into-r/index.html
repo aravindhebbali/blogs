@@ -297,23 +297,24 @@
 <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
+<hr>
 <p>This is the third post in the series <strong>Introduction to tidyverse</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/introduction-to-tibbles/">post</a>, we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis. R allows you to import data from several sources and a variety of file formats. In this post, we will focus on different file formats.</p>
+<p><br></p>
 </div>
-<div id="libraries" class="section level3">
-<h3>Libraries</h3>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<hr>
 <p>We will use the following libraries in this post:</p>
 <ul>
 <li><a href="http://readr.tidyverse.org/">readr</a></li>
-<li><a href="http://readxl.tidyverse.org/">readxl</a></li>
 <li><a href="http://haven.tidyverse.org/">haven</a></li>
 </ul>
-</div>
-<div id="data-code" class="section level3">
-<h3>Data &amp; Code</h3>
 <p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p><br></p>
 </div>
-<div id="flat-files" class="section level3">
-<h3>Flat Files</h3>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
+<hr>
 <table>
 <thead>
 <tr class="header">
@@ -348,9 +349,11 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
 </div>
-<div id="options" class="section level2">
-<h2>Options</h2>
+<div id="syntax" class="section level3">
+<h3>Syntax</h3>
+<hr>
 <table>
 <thead>
 <tr class="header">
@@ -385,9 +388,18 @@
 </tr>
 </tbody>
 </table>
-<div id="general" class="section level3">
-<h3>General</h3>
-<p>You can use <code>read_delim()</code> and specify the separator using <code>delim</code> to read data from any delimited file. CSV (comma separated values) is a very popular file format. We can read data from CSV files using <code>read_csv()</code>. If the separator is <code>;</code>, use <code>read_csv2()</code>. If the delimiter is a tab, use <code>read_tsv()</code>.</p>
+<p><br></p>
+</div>
+<div id="get-started" class="section level3">
+<h3>Get Started</h3>
+<hr>
+<ul>
+<li>You can use <code>read_delim()</code> and specify the separator using <code>delim</code> to read data from any delimited file.</li>
+<li>CSV (comma separated values) is a very popular file format. We can read data from CSV files using <code>read_csv()</code>.</li>
+<li>If the separator is <code>;</code>, use <code>read_csv2()</code>.</li>
+<li>If the delimiter is a tab, use <code>read_tsv()</code>.</li>
+</ul>
+<p>In the below example, we will read data from a CSV file:</p>
 <pre class="r"><code># read_csv
 read_csv(&#39;hsb2.csv&#39;)
 ## # A tibble: 200 x 11
@@ -455,47 +467,192 @@ read_csv(&#39;hsb2.csv&#39;, n_max = 50)
 ##  9    84      0     4     2      1     1    63    57    54      58    51
 ## 10    48      0     3     2      1     2    57    55    52      50    51
 ## # ... with 40 more rows</code></pre>
+<p><br></p>
 </div>
 <div id="table" class="section level3">
 <h3>Table</h3>
-<p>If the columns are separated by space, use <code>read_table()</code>. If the number of whitespace characters between columns is not fixed or th lines are of different length, use <code>read_table2()</code>.</p>
-<pre class="r"><code># readr::read_table()
-
-# readr::read_table2()</code></pre>
+<hr>
+<ul>
+<li>If the columns are separated by space, use <code>read_table()</code>.</li>
+<li>If the number of whitespace characters between columns is not fixed or th lines are of different length, use <code>read_table2()</code>.</li>
+</ul>
+<pre class="r"><code># read space separated values
+read_table(&#39;hsb1.csv&#39;)
+## Parsed with column specification:
+## cols(
+##   `id female race ses schtyp prog` = col_character(),
+##   read = col_character(),
+##   write = col_character(),
+##   math = col_character(),
+##   science = col_character(),
+##   socst = col_character()
+## )
+## # A tibble: 200 x 6
+##    `id female race ses schtyp prog`  read write  math science socst
+##                               &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
+##  1      70 0 4 1 1 1 57 52 41 47 57  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  2     121 1 4 2 1 3 68 59 53 63 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  3      86 0 4 3 1 1 44 33 54 58 31  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  4     141 0 4 3 1 3 63 44 47 53 56  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  5     172 0 4 2 1 2 47 52 57 53 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  6     113 0 4 2 1 2 44 52 51 63 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  7      50 0 3 2 1 1 50 59 42 53 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  8      11 0 1 2 1 2 34 46 45 39 36  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+##  9      84 0 4 2 1 1 63 57 54 58 51  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+## 10      48 0 3 2 1 2 57 55 52 50 51  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+## # ... with 190 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="check-column-type" class="section level3">
+<h3>Check Column Type</h3>
+<hr>
+<p>Use <code>spec_csv()</code> to check the column types before you read the data. If the columns are being detected correctly, you need not specify the column types.</p>
+<pre class="r"><code>spec_csv(&#39;hsb2.csv&#39;)</code></pre>
+<pre><code>## cols(
+##   id = col_integer(),
+##   female = col_integer(),
+##   race = col_integer(),
+##   ses = col_integer(),
+##   schtyp = col_integer(),
+##   prog = col_integer(),
+##   read = col_integer(),
+##   write = col_integer(),
+##   math = col_integer(),
+##   science = col_integer(),
+##   socst = col_integer()
+## )</code></pre>
+<p><br></p>
+</div>
+<div id="column-types" class="section level3">
+<h3>Column Types</h3>
+<hr>
+<ul>
+<li><code>col_integer()</code></li>
+<li><code>col_double()</code></li>
+<li><code>col_logical()</code></li>
+<li><code>col_factor()</code></li>
+<li><code>col_character()</code></li>
+<li><code>col_datetime()</code></li>
+<li><code>col_date()</code></li>
+<li><code>col_time()</code></li>
+</ul>
+<p><br></p>
 </div>
 <div id="specify-column-type" class="section level3">
 <h3>Specify Column Type</h3>
-<p>We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned. In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.</p>
-<pre class="r"><code># col_integer(), col_logical, col_character, col_double, col_datetime, col_date, col_time</code></pre>
+<hr>
+<p>We can specify the column type for each column while reading data from a file. If we do not specify the column type, it will be detected based on the first 1000 rows of input. If the column type is not detected correctly, we need to specify them. When we specify the column type, it must be done for all the columns, else an error will be returned.</p>
+<p>In the next example, we will specify the column type for each column and also see what happens when we miss out on a couple of columns.</p>
+<pre class="r"><code>read_csv(&#39;hsb2.csv&#39;, col_types = list(col_integer(),  col_factor(levels = c(0, 1)), 
+  col_factor(levels = c(1, 2, 3, 4)), col_factor(levels = c(1, 2, 3)), 
+  col_factor(levels = c(1, 2)), col_factor(levels = c(1, 2, 3)),
+  col_integer(), col_integer(), col_integer(), col_integer(), col_integer())            
+)</code></pre>
+<pre><code>## # A tibble: 200 x 11
+##       id female   race    ses schtyp   prog  read write  math science
+##    &lt;int&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;
+##  1    70      0      4      1      1      1    57    52    41      47
+##  2   121      1      4      2      1      3    68    59    53      63
+##  3    86      0      4      3      1      1    44    33    54      58
+##  4   141      0      4      3      1      3    63    44    47      53
+##  5   172      0      4      2      1      2    47    52    57      53
+##  6   113      0      4      2      1      2    44    52    51      63
+##  7    50      0      3      2      1      1    50    59    42      53
+##  8    11      0      1      2      1      2    34    46    45      39
+##  9    84      0      4      2      1      1    63    57    54      58
+## 10    48      0      3      2      1      2    57    55    52      50
+## # ... with 190 more rows, and 1 more variables: socst &lt;int&gt;</code></pre>
+<p><br></p>
 </div>
 <div id="read-specific-columns" class="section level3">
 <h3>Read Specific Columns</h3>
+<hr>
 <p>If you are interested in reading only a few columns instead of all, use <code>cols_only()</code>. Let us read 3 columns from the data set.</p>
-</div>
-<div id="excel" class="section level3">
-<h3>Excel</h3>
-<p>You can read data from <code>.xls</code> or <code>.xlsx</code> files using <code>read_excel()</code> from the <a href="http://readxl.tidyverse.org/">readxl</a> package. It takes 2 arguments:</p>
-<ul>
-<li>file name</li>
-<li>the sheet number</li>
-</ul>
-<pre class="r"><code># readxl::read_excel()</code></pre>
+<pre class="r"><code>read_csv(&#39;hsb2.csv&#39;, col_types = cols_only(id = col_integer(),
+  prog = col_factor(levels = c(1, 2, 3)), read = col_integer())
+)</code></pre>
+<pre><code>## # A tibble: 200 x 3
+##       id   prog  read
+##    &lt;int&gt; &lt;fctr&gt; &lt;int&gt;
+##  1    70      1    57
+##  2   121      3    68
+##  3    86      1    44
+##  4   141      3    63
+##  5   172      2    47
+##  6   113      2    44
+##  7    50      1    50
+##  8    11      2    34
+##  9    84      1    63
+## 10    48      2    57
+## # ... with 190 more rows</code></pre>
+<p><br></p>
 </div>
 <div id="statistical-softwares" class="section level3">
 <h3>Statistical Softwares</h3>
+<hr>
 <p>You can read data from other statistical softwares such as STATA, SPSS and SAS using the <a href="http://haven.tidyverse.org/">haven</a> package.</p>
-<pre class="r"><code># haven::read_stata()
+<pre class="r"><code># stata
+read_stata(&#39;airline.dta&#39;)
+## # A tibble: 32 x 6
+##     year     y     w      r     l     k
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  1948 1.214 0.243 0.1454 1.415 0.612
+##  2  1949 1.354 0.260 0.2181 1.384 0.559
+##  3  1950 1.569 0.278 0.3157 1.388 0.573
+##  4  1951 1.948 0.297 0.3940 1.550 0.564
+##  5  1952 2.265 0.310 0.3559 1.802 0.574
+##  6  1953 2.731 0.322 0.3593 1.926 0.711
+##  7  1954 3.025 0.335 0.4025 1.964 0.776
+##  8  1955 3.562 0.350 0.3961 2.116 0.827
+##  9  1956 3.979 0.361 0.3822 2.435 0.800
+## 10  1957 4.420 0.379 0.3045 2.707 0.921
+## # ... with 22 more rows
 
-# haven::read_spss()
+# spss
+read_spss(&#39;employee.sav&#39;)
+## # A tibble: 474 x 9
+##       id    gender      educ    jobcat    salary  salbegin   jobtime
+##    &lt;dbl&gt; &lt;chr+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
+##  1     1         m        15         3     57000     27000        98
+##  2     2         m        16         1     40200     18750        98
+##  3     3         f        12         1     21450     12000        98
+##  4     4         f         8         1     21900     13200        98
+##  5     5         m        15         1     45000     21000        98
+##  6     6         m        15         1     32100     13500        98
+##  7     7         m        15         1     36000     18750        98
+##  8     8         f        12         1     21900      9750        98
+##  9     9         f        15         1     27900     12750        98
+## 10    10         f        12         1     24000     13500        98
+## # ... with 464 more rows, and 2 more variables: prevexp &lt;dbl+lbl&gt;,
+## #   minority &lt;dbl+lbl&gt;
 
-# haven::read_sas()</code></pre>
+# sas 
+read_sas(&#39;airline.sas7bdat&#39;)
+## # A tibble: 32 x 6
+##     YEAR     Y     W      R     L     K
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  1948 1.214 0.243 0.1454 1.415 0.612
+##  2  1949 1.354 0.260 0.2181 1.384 0.559
+##  3  1950 1.569 0.278 0.3157 1.388 0.573
+##  4  1951 1.948 0.297 0.3940 1.550 0.564
+##  5  1952 2.265 0.310 0.3559 1.802 0.574
+##  6  1953 2.731 0.322 0.3593 1.926 0.711
+##  7  1954 3.025 0.335 0.4025 1.964 0.776
+##  8  1955 3.562 0.350 0.3961 2.116 0.827
+##  9  1956 3.979 0.361 0.3822 2.435 0.800
+## 10  1957 4.420 0.379 0.3045 2.707 0.921
+## # ... with 22 more rows</code></pre>
+<p><br></p>
 </div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-</div>
-<div id="up-next.." class="section level2">
-<h2>Up Next..</h2>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>Introduction to R &middot; Rsquared Academy Blog</title>
+  <title>Import Data into R - Part 2 &middot; Rsquared Academy Blog</title>
 
   
   
@@ -247,7 +247,7 @@
 
 
 <div class="header">
-  <h1>Introduction to R</h1>
+  <h1>Import Data into R - Part 2</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -256,7 +256,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Jan 2015</time>
+    <time>16 Sep 2017</time>
   </div>
 
   
@@ -267,7 +267,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="../../topics/r-introduction">r-introduction</a>
+      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
     
   </div>
   
@@ -279,7 +279,11 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="../../tags/intro">intro</a>
+      <a class="post-taxonomy-tag" href="../../tags/import">import</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/excel">excel</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/readxl">readxl</a>
     
   </div>
   
@@ -287,20 +291,28 @@
 
 </div>
 
-  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+  <div id="excel" class="section level3">
+<h3>Excel</h3>
+<p>You can read data from <code>.xls</code> or <code>.xlsx</code> files using <code>read_excel()</code> from the <a href="http://readxl.tidyverse.org/">readxl</a> package. It takes 2 arguments:</p>
+<ul>
+<li>file name</li>
+<li>the sheet number</li>
+</ul>
+<pre class="r"><code># readxl::read_excel()</code></pre>
+</div>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="../../post/2017-07-14-a-complete-guide-to-importing-data-into-r-part-3/"><i class="fa fa-chevron-left"></i></a>
+    <a href="../../post/dataframes/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="../../post/2017-07-14-a-complete-guide-to-importing-data-into-r-part-3/"></a>
+      <a href="../../post/dataframes/">Dataframes</a>
     </nav>
     
   </div>
@@ -309,14 +321,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="../../post/introduction-to-rstudio/">Introduction to RStudio</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="../../post/introduction-to-rstudio/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

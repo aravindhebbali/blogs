@@ -174,8 +174,8 @@ When you are dealing with a sequence of multiple operations, R code can get a bi
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/a-complete-guide-to-importing-data-into-r/</guid>
-      <description>table {border: 1px solid black;text-align: left;width: 50%;}th, td {text-align: left;width: 50%;} 
-IntroductionThis is the third post in the series Introduction to tidyverse. In the previous post, we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow. If you cannot import data from differernt sources or file formats, you cannot proceed with data analysis.</description>
+      <description>table {border: 1px solid black;text-align: left;width: 70%;}th, td {border: 1px solid black;text-align: left;width: 50%;} 
+IntroductionThis is the third post in the series Introduction to tidyverse. In the previous post, we learnt about tibbles. In this post, we will learn to import data into R from different sources. Importing data is the first step in any data analysis workflow.</description>
     </item>
     
   </channel>

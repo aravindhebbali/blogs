@@ -50,14 +50,12 @@ library(haven)
 
 <hr>
 
-Function      | Delimiter
---------------| ---------
-`read_csv`    | comma
-`read_csv2`   | semicolon
-`read_tsv`    | tab
-`read_table`  | space
-`read_table2` | multiple space
-`read_delim`  | specify delim
+```{r overview, echo=FALSE}
+functions <- c('read_csv', 'read_csv2', 'read_tsv', 'read_table', 'read_table2', 'read_delim')
+delimiter <- c('comma', 'semicolon', 'tab', 'space', 'multiple space', 'specify delim')
+data <- data.frame(Function = functions, Delimiter = delimiter)
+knitr::kable(data)
+```
 
 <br>
 
@@ -80,10 +78,10 @@ Argument     | Description
 
 <hr>
 
-- You can use `read_delim()` and specify the separator using `delim` to read data from any delimited file. 
-- CSV (comma separated values) is a very popular file format. We can read data from CSV files using `read_csv()`. 
-- If the separator is `;`, use `read_csv2()`. 
-- If the delimiter is a tab, use `read_tsv()`. 
+- use `read_delim()` and specify the separator using `delim` to read data from any delimited file
+- CSV (comma separated values) is a very popular file format, use `read_csv()` to read data from a CSV file
+- if the separator is `;`, use `read_csv2()` 
+- if the delimiter is a tab, use `read_tsv()` 
 
 In the below example, we will read data from a CSV file:
 
@@ -107,12 +105,12 @@ read_csv('hsb2.csv', n_max = 50)
 
 <hr>
 
-- If the columns are separated by space, use `read_table()`. 
-- If the number of whitespace characters between columns is not fixed or th lines are of different length, use `read_table2()`.
+- if the columns are separated by space, use `read_table()`. 
+- if the number of whitespace characters between columns is not fixed or the lines are of different length, use `read_table2()`.
 
-```{r imp7, collapse=TRUE}
+```{r imp7, collapse=TRUE, message=FALSE}
 # read space separated values
-read_table('hsb1.csv')
+read_table2('hsb1.csv')
 ```
 
 <br>
@@ -132,6 +130,8 @@ spec_csv('hsb2.csv')
 ### Column Types
 
 <hr>
+
+Let us quickly take a look at the different column types:
 
 - `col_integer()`
 - `col_double()`

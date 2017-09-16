@@ -318,34 +318,34 @@
 <table>
 <thead>
 <tr class="header">
-<th>Function</th>
-<th>Delimiter</th>
+<th align="left">Function</th>
+<th align="left">Delimiter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>read_csv</code></td>
-<td>comma</td>
+<td align="left">read_csv</td>
+<td align="left">comma</td>
 </tr>
 <tr class="even">
-<td><code>read_csv2</code></td>
-<td>semicolon</td>
+<td align="left">read_csv2</td>
+<td align="left">semicolon</td>
 </tr>
 <tr class="odd">
-<td><code>read_tsv</code></td>
-<td>tab</td>
+<td align="left">read_tsv</td>
+<td align="left">tab</td>
 </tr>
 <tr class="even">
-<td><code>read_table</code></td>
-<td>space</td>
+<td align="left">read_table</td>
+<td align="left">space</td>
 </tr>
 <tr class="odd">
-<td><code>read_table2</code></td>
-<td>multiple space</td>
+<td align="left">read_table2</td>
+<td align="left">multiple space</td>
 </tr>
 <tr class="even">
-<td><code>read_delim</code></td>
-<td>specify delim</td>
+<td align="left">read_delim</td>
+<td align="left">specify delim</td>
 </tr>
 </tbody>
 </table>
@@ -394,10 +394,10 @@
 <h3>Get Started</h3>
 <hr>
 <ul>
-<li>You can use <code>read_delim()</code> and specify the separator using <code>delim</code> to read data from any delimited file.</li>
-<li>CSV (comma separated values) is a very popular file format. We can read data from CSV files using <code>read_csv()</code>.</li>
-<li>If the separator is <code>;</code>, use <code>read_csv2()</code>.</li>
-<li>If the delimiter is a tab, use <code>read_tsv()</code>.</li>
+<li>use <code>read_delim()</code> and specify the separator using <code>delim</code> to read data from any delimited file</li>
+<li>CSV (comma separated values) is a very popular file format, use <code>read_csv()</code> to read data from a CSV file</li>
+<li>if the separator is <code>;</code>, use <code>read_csv2()</code></li>
+<li>if the delimiter is a tab, use <code>read_tsv()</code></li>
 </ul>
 <p>In the below example, we will read data from a CSV file:</p>
 <pre class="r"><code># read_csv
@@ -473,33 +473,24 @@ read_csv(&#39;hsb2.csv&#39;, n_max = 50)
 <h3>Table</h3>
 <hr>
 <ul>
-<li>If the columns are separated by space, use <code>read_table()</code>.</li>
-<li>If the number of whitespace characters between columns is not fixed or th lines are of different length, use <code>read_table2()</code>.</li>
+<li>if the columns are separated by space, use <code>read_table()</code>.</li>
+<li>if the number of whitespace characters between columns is not fixed or the lines are of different length, use <code>read_table2()</code>.</li>
 </ul>
 <pre class="r"><code># read space separated values
-read_table(&#39;hsb1.csv&#39;)
-## Parsed with column specification:
-## cols(
-##   `id female race ses schtyp prog` = col_character(),
-##   read = col_character(),
-##   write = col_character(),
-##   math = col_character(),
-##   science = col_character(),
-##   socst = col_character()
-## )
-## # A tibble: 200 x 6
-##    `id female race ses schtyp prog`  read write  math science socst
-##                               &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
-##  1      70 0 4 1 1 1 57 52 41 47 57  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  2     121 1 4 2 1 3 68 59 53 63 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  3      86 0 4 3 1 1 44 33 54 58 31  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  4     141 0 4 3 1 3 63 44 47 53 56  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  5     172 0 4 2 1 2 47 52 57 53 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  6     113 0 4 2 1 2 44 52 51 63 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  7      50 0 3 2 1 1 50 59 42 53 61  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  8      11 0 1 2 1 2 34 46 45 39 36  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-##  9      84 0 4 2 1 1 63 57 54 58 51  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
-## 10      48 0 3 2 1 2 57 55 52 50 51  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;
+read_table2(&#39;hsb1.csv&#39;)
+## # A tibble: 200 x 11
+##       id female  race   ses schtyp  prog  read write  math science socst
+##    &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;
+##  1    70      0     4     1      1     1    57    52    41      47    57
+##  2   121      1     4     2      1     3    68    59    53      63    61
+##  3    86      0     4     3      1     1    44    33    54      58    31
+##  4   141      0     4     3      1     3    63    44    47      53    56
+##  5   172      0     4     2      1     2    47    52    57      53    61
+##  6   113      0     4     2      1     2    44    52    51      63    61
+##  7    50      0     3     2      1     1    50    59    42      53    61
+##  8    11      0     1     2      1     2    34    46    45      39    36
+##  9    84      0     4     2      1     1    63    57    54      58    51
+## 10    48      0     3     2      1     2    57    55    52      50    51
 ## # ... with 190 more rows</code></pre>
 <p><br></p>
 </div>
@@ -526,6 +517,7 @@ read_table(&#39;hsb1.csv&#39;)
 <div id="column-types" class="section level3">
 <h3>Column Types</h3>
 <hr>
+<p>Let us quickly take a look at the different column types:</p>
 <ul>
 <li><code>col_integer()</code></li>
 <li><code>col_double()</code></li>

@@ -12,7 +12,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the ninth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-2/), we learnt how to combine tables using the `*_join()` family of functions in [dplyr](dplyr.tidyverse.org).
 
@@ -28,11 +30,15 @@ In this post, we will explore a set of helper functions in order to:
 - extract/mutate data using predicate functions
 - count observations for different levels of a variable
 
-## Case Study
+<br>
+
+#### Case Study
+
+<hr>
 
 Let us look at a case study (e-commerce data) and see how we can use dplyr helper functions to answer questions we have about and to modify/transform the underlying data set. You can download the data from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import it directly using `read_csv()` from the [readr](readr.tidyverse.org) package.
 
-```{r import, echo=FALSE}
+```{r import, echo=FALSE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
 ```
 
@@ -50,7 +56,11 @@ Below is the description of the data set:
 - purchase: whether visitor purchased
 - order_value: order value of visitor (in dollars)
 
-### Data Sanitization
+<br>
+
+#### Data Sanitization
+
+<hr>
 
 ```{r dplyr1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(dplyr)
@@ -59,7 +69,7 @@ options(tibble.width = Inf)
 
 Check the sources of traffic and device types.
 
-```{r dplyr2}
+```{r dplyr2, collapse=TRUE}
 ecom %>%
   distinct(referrer)
 
@@ -67,7 +77,11 @@ ecom %>%
   distinct(device)
 ```
 
-### Rename Columns
+<br>
+
+#### Rename Columns
+
+<hr>
 
 Rename the `duration` column to `time_on_site`.
 
@@ -76,97 +90,91 @@ ecom %>%
   rename(time_on_site = duration)
 ```
 
-### Sampling Data
+<br>
 
-```{r dplyr4}
+#### Sampling Data
+
+<hr>
+
+```{r dplyr4, collapse=TRUE}
 ecom %>%
   sample_n(700)
-```
 
-```{r dplyr5}
 ecom %>%
   group_by(referrer) %>%
   sample_n(100)
 ```
 
-```{r dplyr6}
+<br>
+
+```{r dplyr6, collapse=TRUE}
 ecom %>%
   sample_frac(size = 0.7)
-```
 
-```{r dplyr7}
 ecom %>%
   group_by(referrer) %>%
   sample_frac(0.3)
 ```
 
-### Extract Columns
+<br>
 
-Extract the `device` column.
+#### Extract Columns
 
-```{r dplyr8}
+<hr>
+
+
+```{r dplyr8, collapse=TRUE}
+# extract the `device` column.
 ecom %>%
   pull(device)
-```
 
-Extract the first column.
-
-```{r dplyr9}
+# extract the first column.
 ecom %>%
   pull(1)
-```
 
-Extract the last column
-
-```{r dplyr10}
+# extract the last column
 ecom %>%
   pull(-1)
 ```
 
-### Slice Rows
+<br>
 
-Extract the first 20 rows.
+#### Slice Rows
 
-```{r dplyr11}
+<hr>
+
+```{r dplyr11, collapse =TRUE}
+# extract the first 20 rows
 ecom %>%
   slice(1:20)
-```
 
-Extract the last row.
-
-```{r dplyr12}
+# extract the last row
 ecom %>%
   slice(n())
 ```
 
-### Count of observations
+<br>
 
-Total number of observations in the data.
+#### Count of observations
 
-```{r dplyr13}
+<hr>
+
+```{r dplyr13, collapse=TRUE}
+# total number of observations in the data
 ecom %>%
   tally()
-```
 
-Observations of different types of referrers.
-
-```{r dplyr14}
+# observations of different types of referrers
 ecom %>%
   group_by(referrer) %>%
   tally()
-```
 
-Observations of referrers and bouncers.
-
-```{r dplyr15}
+# observations of referrers and bouncers
 ecom %>%
   group_by(referrer, bouncers) %>%
   tally()
-```
 
-Observations of referrers and purchasers.
-
-```{r dplyr16}
+# observations of referrers and purchasers
 ecom %>%
   group_by(referrer, purchase) %>%
   tally()
@@ -175,16 +183,17 @@ ecom %>%
   group_by(referrer, purchase) %>%
   tally() %>%
   filter(purchase == 'true')
-```
 
-Use `count()` instead of `tally()`.
-
-```{r dplyr17}
+# use `count()` instead of `tally()`
 ecom %>%
   count(referrer, purchase)
 ```
 
+<br>
+
 Top 2 referrers that bring orders.
+
+<hr>
 
 ```{r dplyr18}
 ecom %>%
@@ -194,47 +203,59 @@ ecom %>%
   top_n(n = 2)
 ```
 
+<br>
+
 ```{r dplyr19}
 ecom %>%
   pull(n_pages) %>%
   between(5, 15) 
 ```
 
+<br>
+
 ```{r dplyr20}
 mtcars %>%
   select(mpg, disp, cyl, gear, carb) %>%
   mutate(
     type = case_when(
-      disp > 200 ~ 'dabba',
-      cyl == 8 ~ 'kachda',
-      TRUE ~ 'worst'
+      disp > 200 ~ 'High',
+      cyl == 8 ~ 'Eight',
+      TRUE ~ 'True'
     )
   )
 ```
 
-```{r dplyr21}
+<br>
+
+```{r dplyr21, collapse=TRUE}
 ecom %>%
   pull(referrer) %>%
   nth(1)
-```
 
-```{r dplyr22}
 ecom %>%
   pull(referrer) %>%
   nth(1000)
-```
 
-```{r dplyr23}
 ecom %>%
   pull(referrer) %>%
   last()
-```
 
-```{r dplyr24}
 ecom %>%
   pull(referrer) %>%
   first()
 ```  
 
-## Summary
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>
 

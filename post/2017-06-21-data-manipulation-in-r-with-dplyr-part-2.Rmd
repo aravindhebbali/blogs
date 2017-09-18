@@ -45,10 +45,24 @@ library(dplyr)
 options(tibble.width = Inf)
 ```
 
+<br>
+
+#### Order
+
+<hr>
+
 ```{r dplyr2, echo=FALSE, message=FALSE, collapse=TRUE}
 order <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/order.csv')
 order
+```
 
+<br>
+
+#### Customer
+
+<hr>
+
+```{r data2, echo=FALSE, message=FALSE, collapse=TRUE}
 customer <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/customer.csv')
 customer
 ```

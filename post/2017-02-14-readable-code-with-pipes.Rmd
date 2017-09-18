@@ -35,7 +35,6 @@ pipes:
 - `%>%` : pipe operator - pipe a value forward into an expression or function call
 - `%<>%`: compound assignment pipe operator - result assigned to left hand side object instead of returning it
 - `%$%` : exposition pipe operator - expose names within left hand side objects to right hand side expressions
-
 - extract data from dataframes, list, matrix etc.: `extract2`, `extract`
 - arithmetic operations: `add`, `subtract`, `multiply_by`, `divide_by`, `raise_to_power`
 - logical operators: `and`, `or`, `equals`
@@ -46,30 +45,61 @@ Let us look at a few examples:
 library(magrittr)
 ```
 
-```{r import, echo=FALSE}
+```{r import, echo=FALSE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
 ```
 
-```{r mag1}
+#### View Data
+
+<hr>
+
+```{r mag1, collapse=TRUE}
 head(ecom, 10)
 ecom %>% head(10)
 ```
 
-```{r mag2}
+<br>
+
+#### Square Root
+
+<hr>
+
+```{r mag2, collapse=TRUE}
 y <- ecom$n_pages
 y <- sqrt(y)
 
 y <- ecom %$% n_pages
 y %<>% sqrt()
+
+y <- ecom %$% 
+  n_pages %>% 
+  sqrt()
 ```
 
-```{r mag3}
+<br>
+
+#### Correlation
+
+<hr>
+
+```{r mag3, collapse=TRUE}
+ecom1 <- subset(ecom, purchase == 'true')
+cor(ecom1$n_pages, ecom1$duration)
+
 ecom %>%
   subset(purchase == 'true') %$% 
   cor(n_pages, duration)
 ```
 
-```{r mag4}
+<br>
+
+#### Visualization
+
+<hr>
+
+```{r mag4, collapse=TRUE}
+barplot(table(subset(ecom, purchase == 'true')$referrer))
+
 ecom %>%
   subset(purchase == 'true') %>%
   extract('referrer') %>%
@@ -77,13 +107,27 @@ ecom %>%
   barplot()
 ```
 
-```{r mag6}
+<br>
+
+#### Regression
+
+<hr>
+
+```{r mag6, collapse=TRUE}
+summary(lm(duration ~ n_pages, data = ecom))
+
 ecom %$%
   lm(duration ~ n_pages) %>%
   summary()
 ```
 
-```{r mag7}
+<br>
+
+#### String Manipulation
+
+<hr>
+
+```{r mag7, collapse=TRUE}
 email <- 'jovialcann@anymail.com'
 
 toupper(strtrim(strsplit(email, '@')[[1]][1], 6))
@@ -96,6 +140,223 @@ email %>%
   toupper()
 ```
 
-## Summary
+<br>
 
-We will learn a better way of dealing with `lists` while exploring the [purrr](purrr.tidyverse.org) package. The pipe operators work very well with the dplyr verbs we will explore in the next post.
+#### Data Extraction
+
+<hr>
+
+- `extract()`
+- `extract2()`
+- `use_series()`
+
+<br>
+
+##### Extract Column By Name
+
+<hr>
+
+```{r mag10, collapse=TRUE}
+head(ecom['n_pages'], 3)
+
+ecom %>%
+  extract('n_pages') %>%
+  head(3)
+```
+
+<br>
+
+##### Extract Column By Position
+
+<hr>
+
+```{r mag23, collapse=TRUE}
+head(ecom[6], 3)
+
+ecom %>%
+  extract(6) %>%
+  head(3)
+```
+
+<br>
+
+##### Extract Column (as vector)
+
+<hr>
+
+```{r mag11, collapse=TRUE}
+head(ecom$n_pages)
+
+ecom %>%
+  use_series('n_pages') %>%
+  head()
+```
+
+<br>
+
+##### Extract List Element By Name
+
+<hr>
+
+```{r mag12, collapse=TRUE}
+mt <- as.list(mtcars)
+
+mt[['mpg']]
+
+mt %>%
+  extract2('mpg')
+```
+
+<br>
+
+##### Extract List Element By Position
+
+<hr>
+
+```{r mag13, collapse=TRUE}
+mt[[1]]
+
+mt %>%
+  extract2(1)
+```
+
+<br>
+
+##### Extract List Element (as vector)
+
+<hr>
+
+```{r mag14, collapse=TRUE}
+mt$mpg
+
+mt %>%
+  use_series(mpg)
+```
+
+<br>
+
+#### Arithmetic Operations
+
+<hr>
+
+- `add()`
+- `subtract()`
+- `multiply_by()`
+- `multiply_by_matrix()`
+- `divide_by()`
+- `divide_by_int()`
+- `mod()`
+- `raise_to_power()`
+
+<br>
+
+##### Addition
+
+<hr>
+
+```{r mag15, collapse=TRUE}
+1:10 %>%
+  `+`(1)
+
+1:10 %>%
+  add(1)
+```
+
+<br>
+
+##### Multiplication
+
+<hr>
+
+```{r mag16, collapse=TRUE}
+1:10 %>%
+  `*`(3)
+
+1:10 %>%
+  multiply_by(3)
+```
+
+<br>
+
+##### Division
+
+<hr>
+
+```{r mag17, collapse=TRUE}
+1:10 %>%
+  `/`(2)
+
+1:10 %>%
+  divide_by(2)
+```
+
+<br>
+
+##### Power
+
+<hr>
+
+```{r mag18, collapse=TRUE}
+1:10 %>%
+  `^`(2)
+
+1:10 %>%
+  raise_to_power(2)
+```
+
+<br>
+
+#### Logical Operators
+
+<hr>
+
+- `and()`
+- `or()`
+- `equals()`
+- `not()`
+- `is_greater_than()`
+- `is_weakly_greater_than()`
+- `is_less_than()`
+- `is_weakly_less_than()`
+
+<br>
+
+##### Greater Than
+
+<hr>
+
+```{r mag19, collapse=TRUE}
+1:10 %>%
+  `>`(5)
+
+1:10 %>%
+  is_greater_than(5)
+```
+
+<br>
+
+##### Weakly Greater Than
+
+<hr>
+
+```{r mag20, collapse=TRUE}
+1:10 %>%
+  `>=`(5)
+
+1:10 %>%
+  is_weakly_greater_than(5)
+```
+
+<br>
+
+#### Summary
+
+<hr>
+
+<br>
+
+#### Up Next..
+
+<hr>
+
+<br>

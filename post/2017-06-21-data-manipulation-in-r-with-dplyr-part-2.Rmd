@@ -12,7 +12,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the eighth post in the series **Data Wrangling with R**. In a previous [post](http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-1/), we learnt about dplyr verbs and used them to compute average order value for an e-commerce website data. In this post, we will learn to combine tables using different `join` functions provided in dplyr. Let us assume we have 2 tables **y** and **y**. Below are the different types of `join` functions provided in dplyr.
 
@@ -29,8 +31,11 @@ This is the eighth post in the series **Data Wrangling with R**. In a previous [
 
 - `full_join()`: return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
 
+<br>
 
-## Case Study
+#### Case Study
+
+<hr>
 
 We have two data sets with details of customers and their orders. We will use the above functions to combine the data sets in different ways to glean information about customer orders. Let us import the data from our github repository:
 
@@ -40,7 +45,7 @@ library(dplyr)
 options(tibble.width = Inf)
 ```
 
-```{r dplyr2}
+```{r dplyr2, echo=FALSE, message=FALSE, collapse=TRUE}
 order <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/order.csv')
 order
 
@@ -50,7 +55,9 @@ customer
 
 <br>
 
-### inner join
+#### inner join
+
+<hr>
 
 ```{r dplyr3}
 customer %>%
@@ -59,7 +66,9 @@ customer %>%
 
 <br>
 
-### left join
+#### left join
+
+<hr>
 
 ```{r dplyr4}
 customer %>%
@@ -68,7 +77,9 @@ customer %>%
 
 <br>
 
-### right join
+#### right join
+
+<hr>
 
 ```{r dplyr5}
 customer %>%
@@ -77,7 +88,9 @@ customer %>%
 
 <br>
 
-### semi join
+#### semi join
+
+<hr>
 
 ```{r dplyr6}
 customer %>%
@@ -86,7 +99,9 @@ customer %>%
 
 <br>
 
-### anti join
+#### anti join
+
+<hr>
 
 ```{r dplyr7}
 customer %>%
@@ -95,11 +110,25 @@ customer %>%
 
 <br>
 
-### full join
+#### full join
+
+<hr>
 
 ```{r dplyr8}
 customer %>%
   full_join(order)
 ```
 
-## Summary
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

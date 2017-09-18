@@ -321,82 +321,30 @@ th, td {
 <p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
 <p><br></p>
 </div>
-<div id="overview" class="section level3">
-<h3>Overview</h3>
+<div id="delimiter-overview" class="section level3">
+<h3>Delimiter Overview</h3>
 <hr>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Function</th>
-<th align="left">Delimiter</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">read_csv</td>
-<td align="left">comma</td>
-</tr>
-<tr class="even">
-<td align="left">read_csv2</td>
-<td align="left">semicolon</td>
-</tr>
-<tr class="odd">
-<td align="left">read_tsv</td>
-<td align="left">tab</td>
-</tr>
-<tr class="even">
-<td align="left">read_table</td>
-<td align="left">space</td>
-</tr>
-<tr class="odd">
-<td align="left">read_table2</td>
-<td align="left">multiple space</td>
-</tr>
-<tr class="even">
-<td align="left">read_delim</td>
-<td align="left">specify delim</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>read_csv</code> : comma</li>
+<li><code>read_csv2</code> : semicolon</li>
+<li><code>read_tsv</code> : tab</li>
+<li><code>read_table</code> : space</li>
+<li><code>read_table2</code> : multiple</li>
+<li><code>read_delim</code> : specify delim</li>
+</ul>
 <p><br></p>
 </div>
 <div id="syntax" class="section level3">
 <h3>Syntax</h3>
 <hr>
-<table>
-<thead>
-<tr class="header">
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>file</code></td>
-<td>path to file</td>
-</tr>
-<tr class="even">
-<td><code>col_names</code></td>
-<td>whether data includes column names</td>
-</tr>
-<tr class="odd">
-<td><code>col_types</code></td>
-<td>specify column type</td>
-</tr>
-<tr class="even">
-<td><code>skip</code></td>
-<td>number of records to skip</td>
-</tr>
-<tr class="odd">
-<td><code>n_max</code></td>
-<td>maximum number of records to read</td>
-</tr>
-<tr class="even">
-<td><code>na</code></td>
-<td>specify how missing values are represented</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>file</code> : path to file</li>
+<li><code>col_names</code> : whether data includes column names</li>
+<li><code>col_types</code> : specify column type</li>
+<li><code>skip</code> : number of records to skip</li>
+<li><code>n_max</code> : maximum number of records to read</li>
+<li><code>na</code> : specify how missing values are represented</li>
+</ul>
 <p><br></p>
 </div>
 <div id="get-started" class="section level3">
@@ -648,11 +596,20 @@ read_sas(&#39;airline.sas7bdat&#39;)
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
+<p>In this post, we learnt how to:</p>
+<ul>
+<li>read data from delimited files</li>
+<li>read data from STATA, SPSS and SAS files</li>
+<li>check column types before reading data</li>
+<li>specify column types</li>
+<li>read specific columns</li>
+</ul>
 <p><br></p>
 </div>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next post, we will learn to read data from excel spreadsheets.</p>
 <p><br></p>
 </div>
 

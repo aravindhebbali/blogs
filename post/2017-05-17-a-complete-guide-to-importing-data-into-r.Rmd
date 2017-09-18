@@ -55,16 +55,16 @@ library(haven)
 
 <br>
 
-### Overview
+### Delimiter Overview
 
 <hr>
 
-```{r overview, echo=FALSE}
-functions <- c('read_csv', 'read_csv2', 'read_tsv', 'read_table', 'read_table2', 'read_delim')
-delimiter <- c('comma', 'semicolon', 'tab', 'space', 'multiple space', 'specify delim')
-data <- data.frame(Function = functions, Delimiter = delimiter)
-knitr::kable(data)
-```
+- `read_csv`    : comma
+- `read_csv2`   : semicolon
+- `read_tsv`    : tab
+- `read_table`  : space
+- `read_table2` : multiple
+- `read_delim`  : specify delim
 
 <br>
 
@@ -72,14 +72,12 @@ knitr::kable(data)
 
 <hr>
 
-Argument     | Description
------------- | ---------
-`file`       | path to file
-`col_names`  | whether data includes column names
-`col_types`  | specify column type
-`skip`       | number of records to skip
-`n_max`      | maximum number of records to read
-`na`         | specify how missing values are represented
+- `file`      : path to file
+- `col_names` : whether data includes column names
+- `col_types` : specify column type
+- `skip`      : number of records to skip
+- `n_max`     : maximum number of records to read
+- `na`        : specify how missing values are represented
 
 <br>
 
@@ -209,10 +207,20 @@ read_sas('airline.sas7bdat')
 
 <hr>
 
+In this post, we learnt how to:
+
+- read data from delimited files
+- read data from STATA, SPSS and SAS files
+- check column types before reading data
+- specify column types
+- read specific columns 
+
 <br>
 
 ### Up Next..
 
 <hr>
+
+In the next post, we will learn to read data from excel spreadsheets.
 
 <br>

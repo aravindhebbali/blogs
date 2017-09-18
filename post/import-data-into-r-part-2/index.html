@@ -291,14 +291,282 @@
 
 </div>
 
-  <div id="excel" class="section level3">
-<h3>Excel</h3>
-<p>You can read data from <code>.xls</code> or <code>.xlsx</code> files using <code>read_excel()</code> from the <a href="http://readxl.tidyverse.org/">readxl</a> package. It takes 2 arguments:</p>
+  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
+<p>This is the fourth post in the series <strong>Introduction to tidyverse</strong>. In the previous <a href="">post</a>, we learnt how to read data from delimited files and other statistical softwares. In this post we will learn to:</p>
 <ul>
-<li>file name</li>
+<li>list sheets in an excel file</li>
+<li>read data from excel sheet</li>
+<li>read specific cells from an excel sheet</li>
+<li>read a single row</li>
+<li>read a single column</li>
+<li>read several rows</li>
+<li>read several columns</li>
+</ul>
+<p><br></p>
+</div>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readxl</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+</div>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
+<hr>
+<p>There are two main functions in <code>readxl</code>:</p>
+<ul>
+<li><code>excel_sheets()</code> : list all sheets in an excel spreadsheet</li>
+<li><code>read_excel()</code> : read data from <code>xls</code> or <code>xlsx</code> files</li>
+</ul>
+<p><br></p>
+</div>
+<div id="list-sheets" class="section level3">
+<h3>List Sheets</h3>
+<hr>
+<p>Let us start by listing out all the sheets in an excel file.</p>
+<pre class="r"><code>excel_sheets(&#39;sample2.xls&#39;)</code></pre>
+<pre><code>## [1] &quot;Sheet1&quot; &quot;Sheet2&quot; &quot;Sheet3&quot;</code></pre>
+<p><br></p>
+</div>
+<div id="read-data" class="section level3">
+<h3>Read Data</h3>
+<hr>
+<p>There are 3 sheets in the <code>sample2.xls</code> file. Let us read data from the first sheet. To do this, we will use <code>read_excel()</code> and specify:</p>
+<ul>
+<li>the file name</li>
 <li>the sheet number</li>
 </ul>
-<pre class="r"><code># readxl::read_excel()</code></pre>
+<pre class="r"><code>read_excel(&#39;sample2.xls&#39;, sheet = 1)</code></pre>
+<pre><code>## # A tibble: 135 x 13
+##       ID Point Strain   sex `sex#`   age bodywt brainwt MedUNshOB Res1_sex
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+##  1   169   0.3      B     F      2   189   29.4   495.8    31.976 11.49506
+##  2   171   0.3      B     F      2    51   19.7   474.9    24.772  4.29106
+##  3   232   0.3      B     M      1   294   35.0   476.1    24.836  4.44382
+##  4  1709   0.3      B     M      1    70   26.0   478.5    22.957  2.56518
+##  5   247   0.4      D     M      1   203   26.7   397.2    20.035 -0.35698
+##  6   248   0.4      D     M      1   294   26.8   408.9    22.523  2.13082
+##  7   871   0.4      D     M      1    56   23.7   419.2    20.617  0.22434
+##  8  1541   0.4      D     M      1    65   16.2   402.4    18.144 -2.24814
+##  9   101   1.0   BxD1     M      1    52   24.0   449.3    21.817  1.42492
+## 10   104   1.0   BxD1     M      1    53   18.5   445.0    21.404  1.01182
+## # ... with 125 more rows, and 3 more variables: `Res2_sex-age` &lt;dbl&gt;,
+## #   `Res3_sex-age-bw` &lt;dbl&gt;, `Res4_sex-age-bw-brnw` &lt;dbl&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="read-specific-cells" class="section level3">
+<h3>Read Specific Cells</h3>
+<hr>
+<p>Sometimes you may want to read data from specific cells and not the entire sheet. In such cases, use <code>range</code> to specify the cells from which you want to read data. Let us look at an example:</p>
+<pre class="r"><code># read data from sheet 2
+read_excel(&#39;sample2.xls&#39;, sheet = 2)
+## # A tibble: 41 x 3
+##    Point        Strain      Res_4
+##    &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;
+##  1   0.1        B6D2F1          x
+##  2   0.2        D2B6F1          x
+##  3   0.3 B  (C57BL/6J)    2.61265
+##  4   0.4    D (DBA/2J)  -0.712858
+##  5     1          BxD1   -2.52487
+##  6     2          BxD2  -0.764992
+##  7     5          BxD5  -0.659102
+##  8     6          BxD6    3.94894
+##  9     8          BxD8    1.65269
+## 10     9          BxD9 -0.0555975
+## # ... with 31 more rows
+
+# read data from cells B3 to C7
+# read data from rows 3 to 7 of columns 2 &amp; 3
+read_excel(&#39;sample2.xls&#39;, sheet = 2, range = &quot;B3:C8&quot;)
+## # A tibble: 5 x 2
+##          D2B6F1          x
+##           &lt;chr&gt;      &lt;dbl&gt;
+## 1 B  (C57BL/6J)  2.6126475
+## 2    D (DBA/2J) -0.7128575
+## 3          BxD1 -2.5248700
+## 4          BxD2 -0.7649925
+## 5          BxD5 -0.6591025</code></pre>
+<p><br></p>
+<p>Now in the above example, you can see that the column name is acutally the second row of data. This works fine if your data has column names in the second row. But if that is not the case, you may want to specify column names or let <code>readxl</code> generate column names. In both the cases, use <code>col_names</code> argument. Let us look at some more examples:</p>
+<pre class="r"><code># generate column names
+read_excel(&#39;sample2.xls&#39;, sheet = 2, range = &quot;B3:C8&quot;, col_names = FALSE)
+## # A tibble: 6 x 2
+##            X__1      X__2
+##           &lt;chr&gt;     &lt;chr&gt;
+## 1        D2B6F1         x
+## 2 B  (C57BL/6J)   2.61265
+## 3    D (DBA/2J) -0.712858
+## 4          BxD1  -2.52487
+## 5          BxD2 -0.764992
+## 6          BxD5 -0.659102
+
+# specify column names
+read_excel(&#39;sample2.xls&#39;, sheet = 2, range = &quot;B3:C8&quot;, col_names = c(&quot;Strain&quot;, &quot;Res_4&quot;))
+## # A tibble: 6 x 2
+##          Strain     Res_4
+##           &lt;chr&gt;     &lt;chr&gt;
+## 1        D2B6F1         x
+## 2 B  (C57BL/6J)   2.61265
+## 3    D (DBA/2J) -0.712858
+## 4          BxD1  -2.52487
+## 5          BxD2 -0.764992
+## 6          BxD5 -0.659102</code></pre>
+<p><br></p>
+<p>Another way to read specific cells is through the <code>anchored()</code> function. You can specify a particular cell to start with and then the number of rows and columns to span or cover. Let us say, you want to read data from 3 rows and 2 columns starting at the cell <code>A4</code>. The first argument is a cell position. The second argument is a 2 length vector which details the number of rows and columns to cover. The below example shows how to specify the cells:</p>
+<pre class="r"><code>read_excel(&#39;sample2.xls&#39;, sheet = 2, col_names = FALSE,
+  range = anchored(&quot;A4&quot;, dim = c(3, 2)))</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##    X__1          X__2
+##   &lt;dbl&gt;         &lt;chr&gt;
+## 1   0.3 B  (C57BL/6J)
+## 2   0.4    D (DBA/2J)
+## 3   1.0          BxD1</code></pre>
+<p><br></p>
+<p>One more way to read data from specific cells is through <code>cell_limits()</code> function. You can specify the row and column of the upper left and lower right of the range of cells. Let us look at an example:</p>
+<pre class="r"><code>read_excel(&#39;sample2.xls&#39;, sheet = 2, range = cell_limits(c(3, 1), c(5, 2)))
+## # A tibble: 2 x 2
+##   `0.2`        D2B6F1
+##   &lt;dbl&gt;         &lt;chr&gt;
+## 1   0.3 B  (C57BL/6J)
+## 2   0.4    D (DBA/2J)</code></pre>
+<p><br></p>
+<p>The <code>cell_limits()</code> function takes two inputs. The first input is the row and column number of the upper left cell. The second input is the row and column number of the lower right cell. In the above example, we read all the cell from the third row of the 1st column to the 5th row of the second column.</p>
+<p><br></p>
+</div>
+<div id="read-single-column" class="section level3">
+<h3>Read Single Column</h3>
+<hr>
+<p>Use <code>cell_cols()</code> and <code>cell_rows()</code> to read specific columns and rows.</p>
+<pre class="r"><code># read second column
+read_excel(&#39;sample2.xls&#39;, sheet = 2, range = cell_cols(2))
+## # A tibble: 41 x 1
+##           Strain
+##            &lt;chr&gt;
+##  1        B6D2F1
+##  2        D2B6F1
+##  3 B  (C57BL/6J)
+##  4    D (DBA/2J)
+##  5          BxD1
+##  6          BxD2
+##  7          BxD5
+##  8          BxD6
+##  9          BxD8
+## 10          BxD9
+## # ... with 31 more rows
+
+# read second row
+read_excel(&#39;sample2.xls&#39;, sheet = 2, range = cell_rows(2))
+## # A tibble: 0 x 3
+## # ... with 3 variables: 0.1 &lt;lgl&gt;, B6D2F1 &lt;lgl&gt;, x &lt;lgl&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="column-types" class="section level3">
+<h3>Column Types</h3>
+<p>You can specify the column type using <code>col_types</code> argument. It takes the following values:</p>
+<ul>
+<li><code>skip</code></li>
+<li><code>guess</code></li>
+<li><code>logical</code></li>
+<li><code>numeric</code></li>
+<li><code>date</code></li>
+<li><code>text</code></li>
+<li><code>list</code></li>
+</ul>
+<p>If all the columns are the same type, you can mention the column type once and it will be recycled.</p>
+<pre class="r"><code>read_excel(&#39;sample2.xls&#39;, sheet = 2, col_types = c(&quot;numeric&quot;, &quot;text&quot;, &quot;numeric&quot;))
+## Warning in read_fun(path = path, sheet = sheet, limits = limits, shim =
+## shim, : Expecting numeric in C2 / R2C3: got &#39;x&#39;
+## Warning in read_fun(path = path, sheet = sheet, limits = limits, shim =
+## shim, : Expecting numeric in C3 / R3C3: got &#39;x&#39;
+## Warning in read_fun(path = path, sheet = sheet, limits = limits, shim =
+## shim, : Expecting numeric in A24 / R24C1: got &#39;24a&#39;
+## Warning in read_fun(path = path, sheet = sheet, limits = limits, shim =
+## shim, : Expecting numeric in C24 / R24C3: got &#39;x&#39;
+## Warning in read_fun(path = path, sheet = sheet, limits = limits, shim =
+## shim, : Expecting numeric in C41 / R41C3: got &#39;x&#39;
+## # A tibble: 41 x 3
+##    Point        Strain      Res_4
+##    &lt;dbl&gt;         &lt;chr&gt;      &lt;dbl&gt;
+##  1   0.1        B6D2F1         NA
+##  2   0.2        D2B6F1         NA
+##  3   0.3 B  (C57BL/6J)  2.6126475
+##  4   0.4    D (DBA/2J) -0.7128575
+##  5   1.0          BxD1 -2.5248700
+##  6   2.0          BxD2 -0.7649925
+##  7   5.0          BxD5 -0.6591025
+##  8   6.0          BxD6  3.9489433
+##  9   8.0          BxD8  1.6526925
+## 10   9.0          BxD9 -0.0555975
+## # ... with 31 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="others" class="section level3">
+<h3>Others</h3>
+<hr>
+<p>You can specify the number of rows to skip before reading data using <code>skip</code> argument and the maximum number of rows to read using the <code>n_max</code> argument. Below are a couple of examples:</p>
+<pre class="r"><code># skip first 3 rows
+read_excel(&#39;sample2.xls&#39;, sheet = 2, skip = 3, col_names = FALSE)
+## # A tibble: 39 x 3
+##     X__1          X__2       X__3
+##    &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;
+##  1   0.3 B  (C57BL/6J)    2.61265
+##  2   0.4    D (DBA/2J)  -0.712858
+##  3     1          BxD1   -2.52487
+##  4     2          BxD2  -0.764992
+##  5     5          BxD5  -0.659102
+##  6     6          BxD6    3.94894
+##  7     8          BxD8    1.65269
+##  8     9          BxD9 -0.0555975
+##  9    11         BxD11   -6.94433
+## 10    12         BxD12   0.920397
+## # ... with 29 more rows
+
+# read 10 rows
+read_excel(&#39;sample2.xls&#39;, sheet = 2, n_max = 10)
+## # A tibble: 10 x 3
+##    Point        Strain      Res_4
+##    &lt;dbl&gt;         &lt;chr&gt;      &lt;chr&gt;
+##  1   0.1        B6D2F1          x
+##  2   0.2        D2B6F1          x
+##  3   0.3 B  (C57BL/6J)    2.61265
+##  4   0.4    D (DBA/2J)  -0.712858
+##  5   1.0          BxD1   -2.52487
+##  6   2.0          BxD2  -0.764992
+##  7   5.0          BxD5  -0.659102
+##  8   6.0          BxD6    3.94894
+##  9   8.0          BxD8    1.65269
+## 10   9.0          BxD9 -0.0555975</code></pre>
+<p><br></p>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p>In this post, we learnt to:</p>
+<ul>
+<li>list sheets in a file using <code>excel_sheets()</code></li>
+<li>read data from excel sheets using <code>read_excel()</code></li>
+<li>read specific cells using <code>range</code> argument</li>
+<li>specify range of cells using:
+<ul>
+<li><code>anchored()</code></li>
+<li>`cell_limits()</li>
+</ul></li>
+<li>read specific columns using <code>cell_cols()</code></li>
+<li>read specific rows using <code>cell_rows()</code></li>
+</ul>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p>In the next <a href="">post</a>, we will learn to read data from <code>JSON</code> and <code>XML</code> files.</p>
+<p><br></p>
 </div>
 
 

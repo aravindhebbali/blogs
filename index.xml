@@ -18,8 +18,8 @@
       <pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/import-data-into-r-part-2/</guid>
-      <description>ExcelYou can read data from .xls or .xlsx files using read_excel() from the readxl package. It takes 2 arguments:
-file namethe sheet number# readxl::read_excel()</description>
+      <description>IntroductionThis is the fourth post in the series Introduction to tidyverse. In the previous post, we learnt how to read data from delimited files and other statistical softwares. In this post we will learn to:
+list sheets in an excel fileread data from excel sheetread specific cells from an excel sheetread a single rowread a single columnread several rowsread several columns</description>
     </item>
     
     <item>
@@ -528,7 +528,7 @@ Mission Leverage technology and experitse to build a platform that offers intera
       
       <guid>/start-here/</guid>
       <description>New to our blog? Welcome aboard! There are posts on a wide variety of topics listed below. If you are new to R, we suggest you start with Introduction to R section. If you have been using R for a while, feel free to choose any of the topics.
-Introduction to R  Introduction to R Introduction to RStudio Variables &amp;amp; Data Types Vectors Matrix Lists Factors Dataframes Getting Help in R Beginners Guide to R Pacakge Ecosystem  Data Wrangling With R  Getting started with tidyverse Introduction to tibbles A Complete Guide to Importing Data into R - Part 1 A Complete Guide to Importing Data into R - Part 2 Exporting Data from R Readable Code with Pipes Data Manipulation in R with dplyr - Part 1 Data Manipulation in R with dplyr - Part 2 Data Manipulation in R with dplyr - Part 3 How to work with dates in R?</description>
+Introduction to R  Introduction to R Introduction to RStudio Variables &amp;amp; Data Types Vectors Matrix Lists Factors Dataframes Getting Help in R Beginners Guide to R Pacakge Ecosystem  Data Wrangling With R  Getting started with tidyverse Introduction to tibbles A Complete Guide to Importing Data into R - Part 1 A Complete Guide to Importing Data into R - Part 2 A Complete Guide to Importing Data into R - Part 2 Readable Code with Pipes Data Manipulation in R with dplyr - Part 1 Data Manipulation in R with dplyr - Part 2 Data Manipulation in R with dplyr - Part 3 How to work with dates in R?</description>
     </item>
     
     <item>
@@ -875,8 +875,8 @@ Packages are available for different topics. You should always look for a packag
       <guid>/post/2017-07-14-a-complete-guide-to-importing-data-into-r-part-3/</guid>
       <description>3— title: A Complete Guide to Importing Data into R - Part 2 date: ‘2017-07-14’ slug: a-complete-guide-to-importing-data-into-r-part-2 topics: - data-wrangling tags: - import draft: yes —
  
-IntroductionThis is the fourth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
-JSONXMLgooglesheetsJSONA lot of API data is available in the JSON format.</description>
+IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+JSONXML</description>
     </item>
     
   </channel>

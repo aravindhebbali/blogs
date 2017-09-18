@@ -328,8 +328,9 @@ IntroductionThe tidyverse is a collection of R packages that share a common und
       <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/how-to-work-with-dates-in-r/</guid>
-      <description>IntroductionThis is the tenth post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
-Quick OverviewUse origin to get the origin for the Date and other date/time objects in R.</description>
+      <description>IntroductionThis is the tenth post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
+
+Quick OverviewThere are functions to check origin, current date, time, timezone and AM/PM.</description>
     </item>
     
     <item>

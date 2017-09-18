@@ -294,30 +294,36 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the tenth post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/">post</a>, we learnt to manipulate dataframes using the <a href="https://CRAN.R-project.org/package=dplyr">dplyr</a> package. In this post, we will learn to work with date/time data in R using <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a>, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.</p>
-<div id="quick-overview" class="section level3">
-<h3>Quick Overview</h3>
-<p>Use <code>origin</code> to get the origin for the <code>Date</code> and other date/time objects in R.</p>
-<pre class="r"><code>lubridate::origin</code></pre>
-<pre><code>## [1] &quot;1970-01-01 UTC&quot;</code></pre>
-<p>There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:</p>
-<pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2017-09-13 23:14:43 IST&quot;</code></pre>
-<pre class="r"><code>today()</code></pre>
-<pre><code>## [1] &quot;2017-09-13&quot;</code></pre>
-<pre class="r"><code>am(now())  </code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>pm(now())</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<p><br></p>
+<div id="quick-overview" class="section level4">
+<h4>Quick Overview</h4>
+<hr>
+<p>There are functions to check origin, current date, time, timezone and AM/PM. Let us take a quick look at these:</p>
+<pre class="r"><code>lubridate::origin
+## [1] &quot;1970-01-01 UTC&quot;
+now()
+## [1] &quot;2017-09-18 23:18:56 IST&quot;
+today()
+## [1] &quot;2017-09-18&quot;
+am(now())  
+## [1] FALSE
+pm(now())
+## [1] TRUE</code></pre>
+<p><br></p>
+</div>
+<div id="case-study" class="section level4">
+<h4>Case Study</h4>
+<hr>
 <p>We will use a case study to explore the lubridate package. The data set can be downloaded from here or directly imported using the readr package.</p>
-<pre><code>## Parsed with column specification:
-## cols(
-##   Invoice = col_date(format = &quot;&quot;),
-##   Due = col_date(format = &quot;&quot;),
-##   Payment = col_date(format = &quot;&quot;)
-## )</code></pre>
+<p><br></p>
+</div>
+<div id="data-dictionary" class="section level4">
+<h4>Data Dictionary</h4>
+<hr>
 <p>The data set has 3 columns:</p>
 <ul>
 <li>Invoice: invoice date</li>
@@ -335,6 +341,11 @@
 <li>how many invoices are due in each quarter</li>
 <li>what is the average duration between invoice date and payment date</li>
 </ul>
+<p><br></p>
+</div>
+<div id="extract-date-month-year-from-due-date" class="section level4">
+<h4>Extract Date, Month &amp; Year from Due Date</h4>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     due_day = day(Due),
@@ -355,6 +366,11 @@
 ##  9 2012-05-14 2012-06-13 2012-07-01      13         6     2012
 ## 10 2013-07-01 2013-07-31 2013-07-26      31         7     2013
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="compute-days-to-settle-invoice" class="section level4">
+<h4>compute days to settle invoice</h4>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     days_to_pay = Payment - Invoice
@@ -373,6 +389,11 @@
 ##  9 2012-05-14 2012-06-13 2012-07-01     48 days
 ## 10 2013-07-01 2013-07-31 2013-07-26     25 days
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="compute-days-over-due" class="section level4">
+<h4>compute days over due</h4>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     delay = Payment - Due
@@ -391,6 +412,12 @@
 ##  9 2012-05-14 2012-06-13 2012-07-01  18 days
 ## 10 2013-07-01 2013-07-31 2013-07-26  -5 days
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="is-due-year-a-leap-year" class="section level2">
+<h2>Is due year a leap year?</h2>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     due_year = year(Due),
@@ -410,6 +437,11 @@
 ##  9 2012-05-14 2012-06-13 2012-07-01     2012    TRUE
 ## 10 2013-07-01 2013-07-31 2013-07-26     2013   FALSE
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="if-due-day-is-february-29-is-it-a-leap-year" class="section level2">
+<h2>If due day is February 29, is it a leap year?</h2>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     due_day = day(Due),
@@ -434,6 +466,11 @@
 ##  9 2012-02-21      21         2             28     2012    TRUE
 ## 10 2012-02-29      29         2             28     2012    TRUE
 ## # ... with 177 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="how-many-invoices-were-settled-within-due-date" class="section level2">
+<h2>how many invoices were settled within due date?</h2>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     inv_due_interval = interval(Invoice, Due),
@@ -441,8 +478,8 @@
     due_pay_interval = interval(due_next, Payment),
     overlaps = int_overlaps(inv_due_interval, due_pay_interval)
   ) %&gt;%
-  select(inv_due_interval, due_next, due_pay_interval, overlaps)</code></pre>
-<pre><code>## # A tibble: 2,466 x 4
+  select(inv_due_interval, due_next, due_pay_interval, overlaps)
+## # A tibble: 2,466 x 4
 ##                  inv_due_interval   due_next
 ##                    &lt;S4: Interval&gt;     &lt;date&gt;
 ##  1 2013-01-02 UTC--2013-02-01 UTC 2013-02-02
@@ -456,8 +493,9 @@
 ##  9 2012-05-14 UTC--2012-06-13 UTC 2012-06-14
 ## 10 2013-07-01 UTC--2013-07-31 UTC 2013-08-01
 ## # ... with 2,456 more rows, and 2 more variables: due_pay_interval &lt;S4:
-## #   Interval&gt;, overlaps &lt;lgl&gt;</code></pre>
-<pre class="r"><code># using int_shift
+## #   Interval&gt;, overlaps &lt;lgl&gt;
+
+# using int_shift
 transact %&gt;%
   mutate(
     inv_due_interval = interval(Invoice, Due),
@@ -465,8 +503,8 @@ transact %&gt;%
     due_pay_next = int_shift(due_pay_interval, by = days(1)),
     overlaps = int_overlaps(inv_due_interval, due_pay_next)
   ) %&gt;%
-  select(inv_due_interval, due_pay_next, overlaps)</code></pre>
-<pre><code>## # A tibble: 2,466 x 3
+  select(inv_due_interval, due_pay_next, overlaps)
+## # A tibble: 2,466 x 3
 ##                  inv_due_interval                   due_pay_next overlaps
 ##                    &lt;S4: Interval&gt;                 &lt;S4: Interval&gt;    &lt;lgl&gt;
 ##  1 2013-01-02 UTC--2013-02-01 UTC 2013-02-02 UTC--2013-01-16 UTC     TRUE
@@ -479,14 +517,15 @@ transact %&gt;%
 ##  8 2012-12-16 UTC--2013-01-15 UTC 2013-01-16 UTC--2013-01-13 UTC     TRUE
 ##  9 2012-05-14 UTC--2012-06-13 UTC 2012-06-14 UTC--2012-07-02 UTC    FALSE
 ## 10 2013-07-01 UTC--2013-07-31 UTC 2013-08-01 UTC--2013-07-27 UTC     TRUE
-## # ... with 2,456 more rows</code></pre>
-<pre class="r"><code>transact %&gt;%
+## # ... with 2,456 more rows
+
+transact %&gt;%
   mutate(
     inv_due_interval = interval(Invoice, Due),
     overlaps = Payment %within% inv_due_interval
   ) %&gt;%
-  select(Due, Payment, overlaps)</code></pre>
-<pre><code>## # A tibble: 2,466 x 3
+  select(Due, Payment, overlaps)
+## # A tibble: 2,466 x 3
 ##           Due    Payment overlaps
 ##        &lt;date&gt;     &lt;date&gt;    &lt;lgl&gt;
 ##  1 2013-02-01 2013-01-15     TRUE
@@ -500,11 +539,15 @@ transact %&gt;%
 ##  9 2012-06-13 2012-07-01    FALSE
 ## 10 2013-07-31 2013-07-26     TRUE
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+<div id="quarter" class="section level4">
+<h4>Quarter</h4>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     Quarter = quarter(Due)
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 4
+  )
+## # A tibble: 2,466 x 4
 ##       Invoice        Due    Payment Quarter
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;   &lt;int&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15       1
@@ -517,12 +560,13 @@ transact %&gt;%
 ##  8 2012-12-16 2013-01-15 2013-01-12       1
 ##  9 2012-05-14 2012-06-13 2012-07-01       2
 ## 10 2013-07-01 2013-07-31 2013-07-26       3
-## # ... with 2,456 more rows</code></pre>
-<pre class="r"><code>transact %&gt;%
+## # ... with 2,456 more rows
+
+transact %&gt;%
   mutate(
     Quarter = quarter(Due, with_year = TRUE)
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 4
+  )
+## # A tibble: 2,466 x 4
 ##       Invoice        Due    Payment Quarter
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;   &lt;dbl&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15  2013.1
@@ -536,6 +580,11 @@ transact %&gt;%
 ##  9 2012-05-14 2012-06-13 2012-07-01  2012.2
 ## 10 2013-07-01 2013-07-31 2013-07-26  2013.3
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="duration" class="section level4">
+<h4>Duration</h4>
+<hr>
 <pre class="r"><code>transact %&lt;&gt;%
   mutate(
     days_to_pay = Payment - Invoice
@@ -544,8 +593,8 @@ transact %&gt;%
 transact %&gt;%
   mutate(
     dseconds = duration(as.numeric(days_to_pay), &#39;days&#39;)
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 5
+  )
+## # A tibble: 2,466 x 5
 ##       Invoice        Due    Payment days_to_pay               dseconds
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;      &lt;time&gt;         &lt;S4: Duration&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15     13 days 1123200s (~1.86 weeks)
@@ -559,15 +608,25 @@ transact %&gt;%
 ##  9 2012-05-14 2012-06-13 2012-07-01     48 days 4147200s (~6.86 weeks)
 ## 10 2013-07-01 2013-07-31 2013-07-26     25 days 2160000s (~3.57 weeks)
 ## # ... with 2,456 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="interval" class="section level4">
+<h4>Interval</h4>
+<hr>
 <pre class="r"><code>transact %&lt;&gt;%
   mutate(
     inv_pay_int = interval(Invoice, Payment)
   )</code></pre>
+<p><br></p>
+</div>
+<div id="convert-units" class="section level4">
+<h4>Convert Units</h4>
+<hr>
 <pre class="r"><code>transact %&gt;%
   mutate(
     inv_pay_days = inv_pay_int / ddays()
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 6
+  )
+## # A tibble: 2,466 x 6
 ##       Invoice        Due    Payment days_to_pay
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;      &lt;time&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15     13 days
@@ -581,12 +640,13 @@ transact %&gt;%
 ##  9 2012-05-14 2012-06-13 2012-07-01     48 days
 ## 10 2013-07-01 2013-07-31 2013-07-26     25 days
 ## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &lt;S4:
-## #   Interval&gt;, inv_pay_days &lt;dbl&gt;</code></pre>
-<pre class="r"><code>transact %&gt;%
+## #   Interval&gt;, inv_pay_days &lt;dbl&gt;
+
+transact %&gt;%
   mutate(
     inv_pay_days = time_length(inv_pay_int, unit = &quot;days&quot;)
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 6
+  )
+## # A tibble: 2,466 x 6
 ##       Invoice        Due    Payment days_to_pay
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;      &lt;time&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15     13 days
@@ -600,12 +660,13 @@ transact %&gt;%
 ##  9 2012-05-14 2012-06-13 2012-07-01     48 days
 ## 10 2013-07-01 2013-07-31 2013-07-26     25 days
 ## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &lt;S4:
-## #   Interval&gt;, inv_pay_days &lt;dbl&gt;</code></pre>
-<pre class="r"><code>transact %&gt;%
+## #   Interval&gt;, inv_pay_days &lt;dbl&gt;
+
+transact %&gt;%
   mutate(
     inv_pay_days = as.period(inv_pay_int)
-  )</code></pre>
-<pre><code>## # A tibble: 2,466 x 6
+  )
+## # A tibble: 2,466 x 6
 ##       Invoice        Due    Payment days_to_pay
 ##        &lt;date&gt;     &lt;date&gt;     &lt;date&gt;      &lt;time&gt;
 ##  1 2013-01-02 2013-02-01 2013-01-15     13 days
@@ -620,10 +681,18 @@ transact %&gt;%
 ## 10 2013-07-01 2013-07-31 2013-07-26     25 days
 ## # ... with 2,456 more rows, and 2 more variables: inv_pay_int &lt;S4:
 ## #   Interval&gt;, inv_pay_days &lt;S4: Period&gt;</code></pre>
+<p><br></p>
 </div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
+</div>
 </div>
 
 

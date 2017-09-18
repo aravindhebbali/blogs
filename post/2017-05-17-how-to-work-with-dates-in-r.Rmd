@@ -12,7 +12,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-## Introduction
+### Introduction
+
+<hr>
 
 This is the tenth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-3/), we learnt to manipulate dataframes using the [dplyr](https://CRAN.R-project.org/package=dplyr) package. In this post, we will learn to work with date/time data in R using [lubridate]( https://CRAN.R-project.org/package=lubridate), an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
 
@@ -22,29 +24,40 @@ library(dplyr)
 library(magrittr)
 ```
 
-### Quick Overview
+<br>
 
-Use `origin` to get the origin for the `Date` and other date/time objects in R.
+#### Quick Overview
 
-```{r origin}
+<hr>
+
+There are functions to check origin, current date, time, timezone and AM/PM. Let us take a quick look at these:
+
+```{r today, collapse=TRUE}
 lubridate::origin
-```
-
-There are functions to check current date, time, timezone and AM/PM. Let us take a quick look at these:
-
-```{r today}
 now()
 today()
 am(now())  
 pm(now())
 ```
 
+<br>
+
+#### Case Study
+
+<hr>
+
 We will use a case study to explore the lubridate package. The data set can be downloaded from here or directly 
 imported using the readr package.
 
-```{r import, echo=FALSE}
+```{r import, echo=FALSE, message=FALSE}
 transact <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/transact.csv')
 ```
+
+<br>
+
+#### Data Dictionary
+
+<hr>
 
 The data set has 3 columns:
 
@@ -64,6 +77,12 @@ questions we have about the transact data.
 - how many invoices are due in each quarter
 - what is the average duration between invoice date and payment date
 
+<br>
+
+#### Extract Date, Month & Year from Due Date
+
+<hr>
+
 ```{r lub2}
 transact %>%
   mutate(
@@ -73,12 +92,24 @@ transact %>%
   )
 ```
 
+<br>
+
+#### compute days to settle invoice
+
+<hr>
+
 ```{r lub3}
 transact %>%
   mutate(
     days_to_pay = Payment - Invoice
   )
 ```
+
+<br>
+
+#### compute days over due
+
+<hr>
 
 ```{r lub4}
 transact %>%
@@ -87,6 +118,12 @@ transact %>%
   )
 ```
 
+<br>
+
+## Is due year a leap year?
+
+<hr>
+
 ```{r lub5}
 transact %>%
   mutate(
@@ -94,6 +131,12 @@ transact %>%
     is_leap = leap_year(due_year)
   )
 ```
+
+<br>
+
+## If due day is February 29, is it a leap year?
+
+<hr>
 
 ```{r lub6}
 transact %>%
@@ -108,7 +151,13 @@ transact %>%
   filter(due_month == 2)
 ```
 
-```{r lub7}
+<br>
+
+## how many invoices were settled within due date?
+
+<hr>
+
+```{r lub7, collapse=TRUE}
 transact %>%
   mutate(
     inv_due_interval = interval(Invoice, Due),
@@ -136,7 +185,13 @@ transact %>%
   select(Due, Payment, overlaps)
 ```
 
-```{r lub8}
+<br>
+
+#### Quarter
+
+<hr>
+
+```{r lub8, collapse=TRUE}
 transact %>%
   mutate(
     Quarter = quarter(Due)
@@ -148,7 +203,13 @@ transact %>%
   )
 ```
 
-```{r lub9}
+<br>
+
+#### Duration
+
+<hr>
+
+```{r lub9, collapse=TRUE}
 transact %<>%
   mutate(
     days_to_pay = Payment - Invoice
@@ -160,6 +221,12 @@ transact %>%
   )
 ```
 
+<br>
+
+#### Interval
+
+<hr>
+
 ```{r lub10}
 transact %<>%
   mutate(
@@ -167,7 +234,13 @@ transact %<>%
   )
 ```
 
-```{r lub11}
+<br>
+
+#### Convert Units
+
+<hr>
+
+```{r lub11, collapse=TRUE}
 transact %>%
   mutate(
     inv_pay_days = inv_pay_int / ddays()
@@ -184,7 +257,19 @@ transact %>%
   )
 ```
 
-## Summary
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>
 
 
 

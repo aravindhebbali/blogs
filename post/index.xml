@@ -103,6 +103,18 @@ args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.n
     </item>
     
     <item>
+      <title>A Complete Guide to Importing Data into R - Part 3</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r-part-3/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r-part-3/</guid>
+      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+JSONXML
+Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:
+jsonlitexml2XML[purrr]All the data sets used in this post can be found here and code can be downloaded from here.</description>
+    </item>
+    
+    <item>
       <title>Blogs</title>
       <link>/post/blogs/</link>
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
@@ -835,18 +847,6 @@ Packages are available for different topics. You should always look for a packag
       
       <guid>/post/introduction-to-r/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/post/2017-07-14-a-complete-guide-to-importing-data-into-r-part-3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-07-14-a-complete-guide-to-importing-data-into-r-part-3/</guid>
-      <description>3— title: A Complete Guide to Importing Data into R - Part 2 date: ‘2017-07-14’ slug: a-complete-guide-to-importing-data-into-r-part-2 topics: - data-wrangling tags: - import draft: yes —
- 
-IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
-JSONXML</description>
     </item>
     
   </channel>

@@ -33,6 +33,18 @@
     </item>
     
     <item>
+      <title>A Complete Guide to Importing Data into R - Part 3</title>
+      <link>/post/a-complete-guide-to-importing-data-into-r-part-3/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-complete-guide-to-importing-data-into-r-part-3/</guid>
+      <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+JSONXML
+Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:
+jsonlitexml2XML[purrr]All the data sets used in this post can be found here and code can be downloaded from here.</description>
+    </item>
+    
+    <item>
       <title>Quick Guide: R &amp; SQLite</title>
       <link>/post/quick-guide-r-sqlite/</link>
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>

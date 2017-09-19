@@ -300,35 +300,85 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="connection" class="section level2">
-<h2>Connection</h2>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
+<p>This is the first post in the series <strong>R &amp; Databases</strong>. You can find the links to the other two posts of this series below:</p>
+<ul>
+<li><a href="">SQL for Data Science</a></li>
+<li><a href="">Data Wrangling with dbplyr</a></li>
+</ul>
+<p>In this post, we will learn to:</p>
+<ul>
+<li>connect to a SQLite database from R</li>
+<li>display database information</li>
+<li>list tables in the database</li>
+<li>query data
+<ul>
+<li>read entire table</li>
+<li>read few rows</li>
+<li>read data in batches</li>
+</ul></li>
+<li>create table in database</li>
+<li>overwrite table in database</li>
+<li>append data to table in database</li>
+<li>remove table from database</li>
+<li>generate SQL query</li>
+<li>close database connection</li>
+</ul>
+<p><br></p>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">DBI</a></li>
+<li><a href="">RSQLite</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p><br></p>
+<div id="connection" class="section level4">
+<h4>Connection</h4>
+<hr>
 <pre class="r"><code>con &lt;- DBI::dbConnect(RSQLite::SQLite(), &quot;:memory:&quot;)</code></pre>
-<div id="connection-summary" class="section level3">
-<h3>Connection Summary</h3>
+<p><br></p>
+</div>
+<div id="connection-summary" class="section level4">
+<h4>Connection Summary</h4>
+<hr>
 <pre class="r"><code>summary(con)</code></pre>
 <pre><code>##           Length            Class             Mode 
 ##                1 SQLiteConnection               S4</code></pre>
+<p><br></p>
 </div>
-<div id="list-tables" class="section level3">
-<h3>List Tables</h3>
+<div id="list-tables" class="section level4">
+<h4>List Tables</h4>
+<hr>
 <pre class="r"><code>dbListTables(con)</code></pre>
 <pre><code>## [1] &quot;ecom&quot;         &quot;sqlite_stat1&quot; &quot;sqlite_stat4&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="list-fields" class="section level3">
-<h3>List Fields</h3>
+<div id="list-fields" class="section level4">
+<h4>List Fields</h4>
+<hr>
 <pre class="r"><code>DBI::dbListFields(con, &quot;ecom&quot;)</code></pre>
 <pre><code>## [1] &quot;referrer&quot; &quot;device&quot;   &quot;bouncers&quot; &quot;n_visit&quot;  &quot;n_pages&quot;  &quot;duration&quot;</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="querying-data" class="section level2">
-<h2>Querying Data</h2>
+<div id="querying-data" class="section level3">
+<h3>Querying Data</h3>
+<hr>
 <ul>
 <li><code>dbReadTable()</code>: read entire table</li>
 <li><code>dbGetQuery()</code>: read few rows</li>
 <li><code>dbSendQuery()</code> &amp; <code>dbFetch()</code>: read data in batches</li>
 </ul>
-<div id="entire-table" class="section level3">
-<h3>Entire Table</h3>
+<p><br></p>
+<div id="entire-table" class="section level4">
+<h4>Entire Table</h4>
+<hr>
 <pre class="r"><code>DBI::dbReadTable(con, &#39;ecom&#39;)</code></pre>
 <pre><code>##    referrer device bouncers n_visit n_pages duration
 ## 1    google laptop     true      10       1      693
@@ -351,9 +401,11 @@
 ## 18   google tablet     true       7       1      406
 ## 19   social tablet    false       7      10      290
 ## 20   social tablet    false       2       1       28</code></pre>
+<p><br></p>
 </div>
-<div id="few-rows" class="section level3">
-<h3>Few Rows</h3>
+<div id="few-rows" class="section level4">
+<h4>Few Rows</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetQuery(con, &quot;select * from ecom limit 10&quot;)</code></pre>
 <pre><code>##    referrer device bouncers n_visit n_pages duration
 ## 1    google laptop     true      10       1      693
@@ -366,9 +418,11 @@
 ## 8    direct mobile     true      10       1      908
 ## 9      bing mobile    false       3      19      209
 ## 10   google mobile     true       6       1      208</code></pre>
+<p><br></p>
 </div>
-<div id="read-data-in-batches" class="section level3">
-<h3>Read Data in Batches</h3>
+<div id="read-data-in-batches" class="section level4">
+<h4>Read Data in Batches</h4>
+<hr>
 <pre class="r"><code>query &lt;- DBI::dbSendQuery(con, &#39;select * from ecom&#39;)
 result &lt;- DBI::dbFetch(query, n = 15)
 result</code></pre>
@@ -388,17 +442,22 @@ result</code></pre>
 ## 13   direct mobile    false       9      14      406
 ## 14    yahoo tablet    false       5       8       80
 ## 15    yahoo mobile    false       7       1       19</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="query" class="section level2">
-<h2>Query</h2>
-<div id="query-status" class="section level3">
-<h3>Query Status</h3>
+<div id="query" class="section level3">
+<h3>Query</h3>
+<p><br></p>
+<div id="query-status" class="section level4">
+<h4>Query Status</h4>
+<hr>
 <pre class="r"><code>DBI::dbHasCompleted(query)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
+<p><br></p>
 </div>
-<div id="query-info" class="section level3">
-<h3>Query Info</h3>
+<div id="query-info" class="section level4">
+<h4>Query Info</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetInfo(query)</code></pre>
 <pre><code>## $statement
 ## [1] &quot;select * from ecom&quot;
@@ -411,24 +470,32 @@ result</code></pre>
 ## 
 ## $has.completed
 ## [1] FALSE</code></pre>
+<p><br></p>
 </div>
-<div id="latest-query" class="section level3">
-<h3>Latest Query</h3>
+<div id="latest-query" class="section level4">
+<h4>Latest Query</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetStatement(query)</code></pre>
 <pre><code>## [1] &quot;select * from ecom&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="rows-fetched" class="section level3">
-<h3>Rows Fetched</h3>
+<div id="rows-fetched" class="section level4">
+<h4>Rows Fetched</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetRowCount(query)</code></pre>
 <pre><code>## [1] 15</code></pre>
+<p><br></p>
 </div>
-<div id="rows-affected" class="section level3">
-<h3>Rows Affected</h3>
+<div id="rows-affected" class="section level4">
+<h4>Rows Affected</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetRowsAffected(query)</code></pre>
 <pre><code>## [1] 0</code></pre>
+<p><br></p>
 </div>
-<div id="column-info" class="section level3">
-<h3>Column Info</h3>
+<div id="column-info" class="section level4">
+<h4>Column Info</h4>
+<hr>
 <pre class="r"><code>DBI::dbColumnInfo(query)</code></pre>
 <pre><code>##       name      type
 ## 1 referrer character
@@ -437,30 +504,40 @@ result</code></pre>
 ## 4  n_visit   integer
 ## 5  n_pages    double
 ## 6 duration    double</code></pre>
+<p><br></p>
 </div>
-<div id="clear-results" class="section level3">
-<h3>Clear Results</h3>
+<div id="clear-results" class="section level4">
+<h4>Clear Results</h4>
+<hr>
 <pre class="r"><code>DBI::dbClearResult(query)</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="create-table" class="section level2">
-<h2>Create Table</h2>
-<div id="introduction" class="section level3">
-<h3>Introduction</h3>
+<div id="create-table" class="section level3">
+<h3>Create Table</h3>
+<hr>
+<p><br></p>
+<div id="introduction-1" class="section level4">
+<h4>Introduction</h4>
+<hr>
 <pre class="r"><code>x &lt;- 1:10
 y &lt;- letters[1:10]
 trial &lt;- tibble::tibble(x, y)
 DBI::dbWriteTable(con, &quot;trial&quot;, trial)</code></pre>
+<p><br></p>
 </div>
-<div id="check-if-table-is-created-in-database" class="section level3">
-<h3>check if table is created in database</h3>
+<div id="check-if-table-is-created-in-database" class="section level4">
+<h4>check if table is created in database</h4>
+<hr>
 <pre class="r"><code>DBI::dbListTables(con)</code></pre>
 <pre><code>## [1] &quot;ecom&quot;         &quot;sqlite_stat1&quot; &quot;sqlite_stat4&quot; &quot;trial&quot;</code></pre>
 <pre class="r"><code>DBI::dbExistsTable(con, &quot;trial&quot;)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<p><br></p>
 </div>
-<div id="query-sample-data-from-table" class="section level3">
-<h3>query sample data from table</h3>
+<div id="query-sample-data-from-table" class="section level4">
+<h4>query sample data from table</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetQuery(con, &quot;select * from trial limit 5&quot;)</code></pre>
 <pre><code>##   x y
 ## 1 1 a
@@ -468,68 +545,82 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial)</code></pre>
 ## 3 3 c
 ## 4 4 d
 ## 5 5 e</code></pre>
+<p><br></p>
 </div>
-<div id="overwrite-table-in-the-database" class="section level3">
-<h3>overwrite table in the database</h3>
+<div id="overwrite-table-in-the-database" class="section level4">
+<h4>overwrite table in the database</h4>
+<hr>
 <pre class="r"><code>x &lt;- sample(100, 10)
 y &lt;- letters[11:20]
 trial2 &lt;- tibble::tibble(x, y)
 DBI::dbWriteTable(con, &quot;trial&quot;, trial2, overwrite = TRUE)</code></pre>
+<p><br></p>
 </div>
-<div id="query-sample-data-from-table-to-see-if-it-has-been-overwritten" class="section level3">
-<h3>query sample data from table to see if it has been overwritten</h3>
+<div id="query-sample-data-from-table-to-see-if-it-has-been-overwritten" class="section level4">
+<h4>query sample data from table to see if it has been overwritten</h4>
+<hr>
 <pre class="r"><code>DBI::dbGetQuery(con, &quot;select * from trial limit 5&quot;)</code></pre>
 <pre><code>##    x y
-## 1 50 k
-## 2 78 l
-## 3 89 m
-## 4 84 n
-## 5 24 o</code></pre>
+## 1 71 k
+## 2 83 l
+## 3 20 m
+## 4  9 n
+## 5  5 o</code></pre>
+<p><br></p>
 </div>
-<div id="append-data-to-the-table-in-the-database" class="section level3">
-<h3>append data to the table in the database</h3>
+<div id="append-data-to-the-table-in-the-database" class="section level4">
+<h4>append data to the table in the database</h4>
+<hr>
 <pre class="r"><code>x &lt;- sample(100, 10)
 y &lt;- letters[5:14]
 trial3 &lt;- tibble::tibble(x, y)
 DBI::dbWriteTable(con, &quot;trial&quot;, trial3, append = TRUE)</code></pre>
+<p><br></p>
 </div>
-<div id="query-sample-data-from-table-to-see-if-new-data-is-appended" class="section level3">
-<h3>query sample data from table to see if new data is appended</h3>
+<div id="query-sample-data-from-table-to-see-if-new-data-is-appended" class="section level4">
+<h4>query sample data from table to see if new data is appended</h4>
+<hr>
 <pre class="r"><code>DBI::dbReadTable(con, &quot;trial&quot;)</code></pre>
 <pre><code>##      x y
-## 1   50 k
-## 2   78 l
-## 3   89 m
-## 4   84 n
-## 5   24 o
-## 6   67 p
-## 7   90 q
-## 8    4 r
-## 9  100 s
-## 10  74 t
-## 11  37 e
-## 12  41 f
-## 13  11 g
-## 14  80 h
-## 15  82 i
-## 16  85 j
-## 17  15 k
-## 18   3 l
-## 19  28 m
-## 20  22 n</code></pre>
+## 1   71 k
+## 2   83 l
+## 3   20 m
+## 4    9 n
+## 5    5 o
+## 6   40 p
+## 7  100 q
+## 8   93 r
+## 9   57 s
+## 10  32 t
+## 11  55 e
+## 12  66 f
+## 13  89 g
+## 14  76 h
+## 15  27 i
+## 16   7 j
+## 17  95 k
+## 18  87 l
+## 19  54 m
+## 20   4 n</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="insert-rows" class="section level2">
-<h2>Insert Rows</h2>
-<div id="introduction-1" class="section level3">
-<h3>Introduction</h3>
+<div id="insert-rows" class="section level3">
+<h3>Insert Rows</h3>
+<hr>
+<p><br></p>
+<div id="introduction-2" class="section level4">
+<h4>Introduction</h4>
+<hr>
 <pre class="r"><code>DBI::dbExecute(con,
   &quot;INSERT into trial (x, y) VALUES (32, &#39;c&#39;), (45, &#39;k&#39;), (61, &#39;h&#39;)&quot;
 )</code></pre>
 <pre><code>## [1] 3</code></pre>
+<p><br></p>
 </div>
-<div id="insert-rows-1" class="section level3">
-<h3>Insert Rows</h3>
+<div id="insert-rows-1" class="section level4">
+<h4>Insert Rows</h4>
+<hr>
 <pre class="r"><code>DBI::dbSendStatement(con,
   &quot;INSERT into trial (x, y) VALUES (25, &#39;m&#39;), (54, &#39;l&#39;), (16, &#39;y&#39;)&quot;
 )</code></pre>
@@ -537,40 +628,50 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial3, append = TRUE)</code></pre>
 ##   SQL  INSERT into trial (x, y) VALUES (25, &#39;m&#39;), (54, &#39;l&#39;), (16, &#39;y&#39;)
 ##   ROWS Fetched: 0 [complete]
 ##        Changed: 3</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="sqlite-data-type" class="section level2">
-<h2>SQLite Data Type</h2>
+<div id="sqlite-data-type" class="section level3">
+<h3>SQLite Data Type</h3>
+<hr>
 <pre class="r"><code>DBI::dbDataType(RSQLite::SQLite(), &quot;a&quot;)</code></pre>
 <pre><code>## [1] &quot;TEXT&quot;</code></pre>
 <pre class="r"><code>DBI::dbDataType(RSQLite::SQLite(), 1:5)</code></pre>
 <pre><code>## [1] &quot;INTEGER&quot;</code></pre>
 <pre class="r"><code>DBI::dbDataType(RSQLite::SQLite(), 1.5)</code></pre>
 <pre><code>## [1] &quot;REAL&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="others" class="section level2">
-<h2>Others</h2>
-<div id="remove-table-from-database" class="section level3">
-<h3>remove table from database</h3>
+<div id="others" class="section level3">
+<h3>Others</h3>
+<p><br></p>
+<div id="remove-table-from-database" class="section level4">
+<h4>remove table from database</h4>
+<hr>
 <pre class="r"><code>DBI::dbRemoveTable(con, &quot;trial&quot;)</code></pre>
 <pre><code>## Warning: Closing open result set, pending rows</code></pre>
+<p><br></p>
 </div>
-<div id="check-if-table-has-been-removed" class="section level3">
-<h3>check if table has been removed</h3>
+<div id="check-if-table-has-been-removed" class="section level4">
+<h4>check if table has been removed</h4>
+<hr>
 <pre class="r"><code>DBI::dbListTables(con)</code></pre>
 <pre><code>## [1] &quot;ecom&quot;         &quot;sqlite_stat1&quot; &quot;sqlite_stat4&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="generate-sql-query" class="section level3">
-<h3>Generate SQL Query</h3>
+<div id="generate-sql-query" class="section level4">
+<h4>Generate SQL Query</h4>
+<hr>
 <pre class="r"><code>DBI::sqlCreateTable(con, &quot;new&quot;, c(x = &quot;integer&quot;, y = &quot;text&quot;))</code></pre>
 <pre><code>## &lt;SQL&gt; CREATE TABLE `new` (
 ##   `x` integer,
 ##   `y` text
 ## )</code></pre>
+<p><br></p>
 </div>
-</div>
-<div id="append-table" class="section level2">
-<h2>Append Table</h2>
+<div id="append-table" class="section level4">
+<h4>Append Table</h4>
+<hr>
 <pre class="r"><code>DBI::sqlAppendTable(con, &quot;ecom&quot;, head(ecom))</code></pre>
 <pre><code>## &lt;SQL&gt; INSERT INTO `ecom`
 ##   (`referrer`, `device`, `bouncers`, `n_visit`, `n_pages`, `duration`)
@@ -581,10 +682,24 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial3, append = TRUE)</code></pre>
 ##   (&#39;bing&#39;, &#39;tablet&#39;, &#39;false&#39;, 3, 18, 468),
 ##   (&#39;yahoo&#39;, &#39;mobile&#39;, &#39;true&#39;, 9, 1, 955),
 ##   (&#39;yahoo&#39;, &#39;laptop&#39;, &#39;false&#39;, 5, 5, 135)</code></pre>
+<p><br></p>
 </div>
-<div id="close-connection" class="section level2">
-<h2>Close Connection</h2>
+<div id="close-connection" class="section level4">
+<h4>Close Connection</h4>
+<hr>
 <pre class="r"><code>DBI::dbDisconnect(con)</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

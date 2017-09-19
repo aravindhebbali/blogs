@@ -22,7 +22,49 @@ library(DBI)
 library(RSQLite)
 ```
 
-## Connection
+### Introduction
+
+<hr>
+
+This is the first post in the series **R & Databases**. You can find the links to the other two posts of this series below:
+
+- [SQL for Data Science]()
+- [Data Wrangling with dbplyr]()
+
+In this post, we will learn to:
+
+- connect to a SQLite database from R
+- display database information
+- list tables in the database
+- query data 
+    - read entire table
+    - read few rows
+    - read data in batches
+- create table in database
+- overwrite table in database
+- append data to table in database
+- remove table from database
+- generate SQL query
+- close database connection
+
+<br>
+
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [DBI](http://readr.tidyverse.org/)
+- [RSQLite]()
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
+
+<br>
+
+#### Connection
+
+<hr>
 
 ```{r lite1}
 con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
@@ -36,43 +78,71 @@ ecom <- ecom1 %>%
 copy_to(con, ecom)
 ```
 
-### Connection Summary
+<br>
+
+#### Connection Summary
+
+<hr>
 
 ```{r lite2}
 summary(con)
 ```
 
-### List Tables
+<br>
+
+#### List Tables
+
+<hr>
 
 ```{r lite3}
 dbListTables(con)
 ```
 
-### List Fields
+<br>
+
+#### List Fields
+
+<hr>
 
 ```{r lite4}
 DBI::dbListFields(con, "ecom")
 ```
 
-## Querying Data
+<br>
+
+### Querying Data
+
+<hr>
 
 - `dbReadTable()`: read entire table
 - `dbGetQuery()`: read few rows
 - `dbSendQuery()` & `dbFetch()`: read data in batches
 
-### Entire Table
+<br>
+
+#### Entire Table
+
+<hr>
 
 ```{r lite5}
 DBI::dbReadTable(con, 'ecom')
 ```
 
-### Few Rows
+<br>
+
+#### Few Rows
+
+<hr>
 
 ```{r lite6}
 DBI::dbGetQuery(con, "select * from ecom limit 10")
 ```
 
-### Read Data in Batches
+<br>
+
+#### Read Data in Batches
+
+<hr>
 
 ```{r lite7}
 query <- DBI::dbSendQuery(con, 'select * from ecom')
@@ -80,53 +150,91 @@ result <- DBI::dbFetch(query, n = 15)
 result
 ```
 
-## Query
+<br>
 
-### Query Status
+### Query
+
+<br>
+
+#### Query Status
+
+<hr>
 
 ```{r lite8}
 DBI::dbHasCompleted(query)
 ```
 
-### Query Info
+<br>
+
+#### Query Info
+
+<hr>
 
 ```{r lite9}
 DBI::dbGetInfo(query)
 ```
 
-### Latest Query
+<br>
+
+#### Latest Query
+
+<hr>
 
 ```{r lite10}
 DBI::dbGetStatement(query)
 ```
 
-### Rows Fetched
+<br>
+
+#### Rows Fetched
+
+<hr>
 
 ```{r lite11}
 DBI::dbGetRowCount(query)
 ```
 
-### Rows Affected
+<br>
+
+#### Rows Affected
+
+<hr>
 
 ```{r lite12}
 DBI::dbGetRowsAffected(query)
 ```
 
-### Column Info
+<br>
+
+#### Column Info
+
+<hr>
 
 ```{r lite13}
 DBI::dbColumnInfo(query)
 ```
 
-### Clear Results
+<br>
+
+#### Clear Results
+
+<hr>
 
 ```{r lite14}
 DBI::dbClearResult(query)
 ```
 
-## Create Table
+<br>
 
-### Introduction
+### Create Table
+
+<hr>
+
+<br>
+
+#### Introduction
+
+<hr>
 
 ```{r lite15} 
 x <- 1:10
@@ -135,20 +243,32 @@ trial <- tibble::tibble(x, y)
 DBI::dbWriteTable(con, "trial", trial)
 ```
 
-### check if table is created in database
+<br>
+
+#### check if table is created in database
+
+<hr>
 
 ```{r lite16}
 DBI::dbListTables(con)
 DBI::dbExistsTable(con, "trial")
 ```
 
-### query sample data from table
+<br>
+
+#### query sample data from table
+
+<hr>
 
 ```{r lite17}
 DBI::dbGetQuery(con, "select * from trial limit 5")
 ```
 
-### overwrite table in the database
+<br>
+
+#### overwrite table in the database
+
+<hr>
 
 ```{r lite18}
 x <- sample(100, 10)
@@ -157,13 +277,21 @@ trial2 <- tibble::tibble(x, y)
 DBI::dbWriteTable(con, "trial", trial2, overwrite = TRUE)
 ```
 
-### query sample data from table to see if it has been overwritten
+<br>
+
+#### query sample data from table to see if it has been overwritten
+
+<hr>
 
 ```{r lite19}
 DBI::dbGetQuery(con, "select * from trial limit 5")
 ```
 
-### append data to the table in the database
+<br>
+
+#### append data to the table in the database
+
+<hr>
 
 ```{r lite20}
 x <- sample(100, 10)
@@ -172,15 +300,27 @@ trial3 <- tibble::tibble(x, y)
 DBI::dbWriteTable(con, "trial", trial3, append = TRUE)
 ```
 
-### query sample data from table to see if new data is appended
+<br>
+
+#### query sample data from table to see if new data is appended
+
+<hr>
 
 ```{r lite21}
 DBI::dbReadTable(con, "trial")
 ```
 
-## Insert Rows
+<br>
 
-### Introduction
+### Insert Rows
+
+<hr>
+
+<br>
+
+#### Introduction
+
+<hr>
 
 ```{r lite22}
 DBI::dbExecute(con,
@@ -188,7 +328,11 @@ DBI::dbExecute(con,
 )
 ```
 
-### Insert Rows
+<br>
+
+#### Insert Rows
+
+<hr>
 
 ```{r lite23}
 DBI::dbSendStatement(con,
@@ -196,7 +340,11 @@ DBI::dbSendStatement(con,
 )
 ```
 
-## SQLite Data Type
+<br>
+
+### SQLite Data Type
+
+<hr>
 
 ```{r lite24}
 DBI::dbDataType(RSQLite::SQLite(), "a")
@@ -204,34 +352,70 @@ DBI::dbDataType(RSQLite::SQLite(), 1:5)
 DBI::dbDataType(RSQLite::SQLite(), 1.5)
 ```
 
-## Others
+<br>
 
-### remove table from database
+### Others
+
+<br>
+
+#### remove table from database
+
+<hr>
 
 ```{r lite25}
 DBI::dbRemoveTable(con, "trial")
 ```
 
-### check if table has been removed 
+<br>
+
+#### check if table has been removed 
+
+<hr>
 
 ```{r lite26}
 DBI::dbListTables(con)
 ```
 
-### Generate SQL Query
+<br>
+
+#### Generate SQL Query
+
+<hr>
 
 ```{r lite27}
 DBI::sqlCreateTable(con, "new", c(x = "integer", y = "text"))
 ```
 
-## Append Table
+<br>
+
+#### Append Table
+
+<hr>
 
 ```{r lite28}
 DBI::sqlAppendTable(con, "ecom", head(ecom))
 ```
 
-## Close Connection
+<br>
+
+#### Close Connection
+
+<hr>
 
 ```{r lite29}
 DBI::dbDisconnect(con)
 ```
+
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

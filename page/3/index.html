@@ -267,6 +267,62 @@
   
     <article>
   <header>
+    <h2><a href="../../post/overlapping/">Overlapping</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Jul 2017</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+DodgePreserve the vertical position while adjusting the horizontal position.
+Create grouped bar plots.
+ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar(position = position_dodge(width = 1))JitterAdd some noise to data points for better visualization.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/overlapping/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/axis-plot-labels/">Axis &amp; Plot Labels</a></h2>
 
     <div class="post-meta">
@@ -728,60 +784,6 @@ In this post, we will explore a set of helper functions in order to:
   
   <footer>
     <a href="../../post/introduction-to-tibbles/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/getting-started-with-tidyverse/">Getting started with tidyverse</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Apr 2017</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/tidyverse">tidyverse</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  This is the first post in the series Data Wrangling with R. In this series, we will look at the challenges faced when working with data of different types coming from different sources and explore tools available in R to overcome such challenges.
-IntroductionThe tidyverse is a collection of R packages that share a common underlying philosophy and are designed to work together. They share common data representations and API design.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/getting-started-with-tidyverse/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

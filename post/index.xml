@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL for Data Science - Part 2</title>
+      <link>/post/sql-for-data-science-part-2/</link>
+      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/sql-for-data-science-part-2/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Import Data into R - Part 2</title>
@@ -87,12 +96,14 @@ args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.n
     </item>
     
     <item>
-      <title>SQL for Data Science</title>
-      <link>/post/sql-for-data-science/</link>
+      <title>SQL for Data Science - Part 1</title>
+      <link>/post/sql-for-data-science-part-1/</link>
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/sql-for-data-science/</guid>
-      <description></description>
+      <guid>/post/sql-for-data-science-part-1/</guid>
+      <description>IntroductionThis is the third post in the series R &amp;amp; Databases. You can find the links to the other two posts of this series below:
+Quick Guide: R &amp;amp; SQLiteData Wrangling with dbplyrIn this post, we will learn to:
+connect to a SQLite database from Rdisplay database informationlist tables in the databasequery dataread entire tableread few rowsread data in batchescreate table in databaseoverwrite table in databaseappend data to table in databaseremove table from databasegenerate SQL queryclose database connection</description>
     </item>
     
     <item>

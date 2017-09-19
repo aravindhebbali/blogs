@@ -1,0 +1,12 @@
+---
+title: SQL for Data Science - Part 2
+author: ''
+date: '2017-09-19'
+slug: sql-for-data-science-part-2
+topics:
+  - data-wrangling
+tags:
+  - sql
+  - sqlite
+---
+

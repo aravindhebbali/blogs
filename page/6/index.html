@@ -815,8 +815,9 @@ Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, ge
   </header>
 
   <p>
-  IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
-PointLet us say we want to visualize the relationship between two continuous variables. For example, as visitors browse more pages on a website, the time spent on the website also increases.
+  IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
+
+Dataecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)## # A tibble: 1,000 x 11## id referrer device bouncers n_visit n_pages duration country## &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;## 1 1 google laptop true 10 1 693 Czech Republic## 2 2 yahoo tablet true 9 1 459 Yemen## 3 3 direct laptop true 0 1 996 Brazil## 4 4 bing tablet false 3 18 468 China## 5 5 yahoo mobile true 9 1 955 Poland## 6 6 yahoo laptop false 5 5 135 South Africa## 7 7 yahoo mobile true 10 1 75 Bangladesh## 8 8 direct mobile true 10 1 908 Indonesia## 9 9 bing mobile false 3 19 209 Netherlands## 10 10 google mobile true 6 1 208 Czech Republic## # .
   </p>
 
   

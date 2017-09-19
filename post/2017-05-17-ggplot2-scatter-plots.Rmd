@@ -13,9 +13,22 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the fifth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/), we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+
+- build scatter plots
+- modify point
+    - color
+    - fill
+    - alpha
+    - shape
+    - size
+- fit regression line
+
+<br>
 
 ```{r scat1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
@@ -23,169 +36,197 @@ library(dplyr)
 library(tidyr)
 ```
 
-```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+#### Basic Plot
+
+<hr>
+
+```{r scat2, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg))
 ```
 
-## Basic Plot
+<br>
 
-We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+#### Jitter
 
-```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+<hr>
+
+```{r scat22, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg), position = 'jitter')
 ```
 
-Let us start by building a simple scatter plot. 
+<br>
 
-```{r scat2}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration))
+#### Jitter
+
+<hr>
+
+```{r scat3, fig.align='center'}
+ggplot(mtcars) +
+  geom_jitter(aes(disp, mpg))
 ```
 
-Let us add some random variation to the location of each point to handle overplotting. Use the `position` argument and set it to `jitter`.
+<br>
 
-```{r scat22}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration), position = 'jitter')
-```
+#### Aesthetics
 
-You can use the `geom_jitter()` function to achieve the above result.
+<hr>
 
-```{r scat3}
-ggplot(ecom) +
-  geom_jitter(aes(n_pages, duration))
-```
+Now let us modify the aesthetics of the points. There are two ways:
 
-## Color
+- map them to variables using the `aes()` function
+- specify values
 
-Now let us modify the color of the points. There are two ways:
+<br>
 
-- map color to variable using the `aes()` function
-- specify colors separately
+#### Map Color to Variable (Categorical)
 
-Map color to variables.
+<hr>
 
-- Categorical Variable
-
-```{r scat4}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration, color = factor(purchase)), 
+```{r scat4, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl)), 
              position = 'jitter')
 ```
 
-- Continuous Variable
+<br>
 
-```{r scat5}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration, color = order_items), 
+#### Map Color to Variable (Continuous)
+
+<hr>
+
+```{r scat5, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp), 
              position = 'jitter')
 ```
 
-Let us specify the color of the points separately. 
+<br>
 
-```{r scat6}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration), color = 'blue', 
+#### Specify Value for Color
+
+<hr>
+
+```{r scat6, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg), color = 'blue', 
              position = 'jitter')
 ```
 
-Use `alpha` argument to specify the transparency of the points.
+<br>
 
-```{r scat7}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration), color = 'blue', alpha = 0.4, 
+#### Specify Value for Alpha
+
+<hr>
+
+```{r scat7, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg), color = 'blue', alpha = 0.4, 
              position = 'jitter')
 ```
 
-## Shape
+<br>
 
-- Map shape to variable.
+#### Map Shape to Variable
 
-We can map shape to a categorical variable only.
+<hr>
 
-```{r scat8}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration, shape = factor(device)),
+```{r scat8, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, shape = factor(cyl)),
              position = 'jitter')
 ```
 
-Specify value for shape.
+<br>
 
-```{r scat9}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration), shape = 3,
+#### Specify Value for Shape
+
+<hr>
+
+```{r scat9, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg), shape = 3,
              position = 'jitter')
 ```
 
-## Size
+<br>
 
-- Map size to variable.
+#### Map Size to Variable
 
-It is advised to map size to a continuous variable.
+<hr>
 
-```{r scat10}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration, size = n_visit), color = 'blue',
+```{r scat10, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg, size = hp), color = 'blue',
              position = 'jitter')
 ```
 
-Specify value for shape.
+<br>
 
-```{r scat11}
-ggplot(ecom) +
-  geom_point(aes(n_pages, duration), size = 3,
+#### Specify Value for Size
+
+<hr>
+
+```{r scat11, fig.align='center'}
+ggplot(mtcars) +
+  geom_point(aes(disp, mpg), size = 3,
              position = 'jitter')
 ```
 
+<br>
 
-## Fit Line
+#### Regression Line
 
-You can fit a line using either `geom_abline()` or `geom_smooth()`. 
+<hr>
 
-Use linear regression.
-
-```{r aes12}
-ggplot(ecom, aes(n_pages, duration)) +
+```{r aes12, fig.align='center'}
+ggplot(mtcars, aes(disp, mpg)) +
   geom_point(position = 'jitter') +
   geom_smooth(method = 'lm', se = FALSE)
 ```
 
-Add a confidence interval for the fitted values.
+<br>
 
-```{r aes13}
-ggplot(ecom, aes(n_pages, duration)) +
+#### Regression Line - Conf. Interval
+
+<hr>
+
+```{r aes13, fig.align='center'}
+ggplot(mtcars, aes(disp, mpg)) +
   geom_point(position = 'jitter') +
   geom_smooth(method = 'lm', se = TRUE)
 ```
 
-Use loess regression
+<br>
 
-```{r aes14}
-ggplot(ecom, aes(n_pages, duration)) +
+#### Regression Line - Loess Method
+
+<hr>
+
+```{r aes14, fig.align='center'}
+ggplot(mtcars, aes(disp, mpg)) +
   geom_point(position = 'jitter') +
   geom_smooth(method = 'loess', se = FALSE)
 ```
 
-```{r aes15}
-ggplot(ecom, aes(n_pages, duration)) +
+<br>
+
+#### Fit Line - Intercept & Slope
+
+<hr>
+
+```{r aes17, fig.align='center'}
+ggplot(mtcars, aes(disp, mpg)) +
   geom_point(position = 'jitter') +
-  geom_smooth(method = 'loess', se = TRUE)
+  geom_abline(slope = 29.59985, intercept = -0.04122)
 ```
 
-If you use `geom_abline()`, specify the intercept and the slope.
-Let us regress `duration` on `n_pages` and use the output.
+<br>
 
-```{r aes16}
-lm(duration ~ n_pages, data = ecom)
-```
+### Summary
 
-```{r aes17}
-ggplot(ecom, aes(n_pages, duration)) +
-  geom_point(position = 'jitter') +
-  geom_abline(slope = 19.9210, intercept = 0.2199)
-```
-
-## Summary
+<hr>
 
 In this post, we learnt to:
 
@@ -194,5 +235,13 @@ In this post, we learnt to:
 - modify axis and legend
 - fit regression line
 
+<br>
+
+### Up Next..
+
+<hr>
+
 In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/), we will learn to build line charts.
+
+<br>
 

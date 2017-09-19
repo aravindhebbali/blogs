@@ -13,9 +13,24 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
 
-This is the 9th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/), we learnt how to build line charts. In this post, we will focus on boxplots.
+<hr>
+
+This is the 9th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/), we learnt how to build line charts. In this post, we will 
+
+- build box plots
+- modify box 
+    - color
+    - fill
+    - alpha
+    - line size
+    - line type
+- modify outlier 
+    - color
+    - shape 
+    - size 
+    - alpha
 
 ```{r box, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
@@ -23,169 +38,271 @@ library(dplyr)
 library(tidyr)
 ```
 
-```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+<br>
+
+#### Data
+
+<hr>
+
+```{r import, eval=TRUE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom
 ```
 
-We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+<br>
 
-```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
-```
+#### Data Dictionary
 
-## Simple Box Plot
+<hr>
 
-```{r box2}
+- id: row id
+- referrer: referrer website/search engine
+- os: operating system
+- browser: browser
+- device: device used to visit the website
+- n_pages: number of pages visited
+- duration: time spent on the website (in seconds)
+- repeat: frequency of visits
+- country: country of origin
+- purchase: whether visitor purchased
+- order_value: order value of visitor (in dollars)
+
+<br>
+
+#### Univariate Box Plot
+
+<hr>
+
+```{r box2, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(1), y = n_visit))
 ```
 
-Now we need to mention something for X axis and hence we use the number 1. If we do not mention anything, ggplot2 will return an error. You can generally use any categorical variable for the X axis. Below is an example:
+<br>
 
-```{r box3}
+#### Box Plot
+
+<hr>
+
+```{r box3, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = n_visit))
 ```
 
-If you want horizontal boxplots, use `coord_flip()`. 
+<br>
 
-```{r box4}
+#### Horizontal Box Plot
+
+<hr>   
+
+```{r box4, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = n_visit)) +
   coord_flip()
 ```
 
-## Notch
+<br>
 
-Notches are used to compare groups; if the notches of two boxes do not overlap, this suggests that the medians are significantly different.
+#### Notch
 
-```{r box5}
+<hr>
+
+```{r box5, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = n_visit),
                notch = TRUE) 
 ```
 
-## Jitter
+<br>
 
-Overlay points on boxplots.
+#### Jitter
 
-```{r box6}
+<hr>
+
+```{r box6, fig.align='center'}
 ggplot(ecom, aes(x = factor(device), y = n_visit)) +
   geom_boxplot() +
   geom_jitter(width = 0.2, color = 'blue')
 ```
 
+<br>
 
-## Outliers
+#### Outliers
 
-### Color
+<hr>
 
-```{r box7}
+- color
+- shape
+- size
+- alpha
+
+<br>
+
+#### Outlier Color
+
+<hr>
+
+```{r box7, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                outlier.color = 'red')
 ```
 
-## Shape
+<br>
 
-```{r box8}
+#### Outlier Shape
+
+<hr>
+
+```{r box8, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                outlier.shape = 23)
 ```
 
-Let us extend the Y axis and see if the ouliers appear more legible.
+<br>
 
-```{r box9}
+#### Outlier Shape
+
+<hr>
+
+```{r box9, fig.align='center'}
 ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.shape = 23) +
+  geom_boxplot(aes(x = factor(device), y = duration), outlier.shape = 23) +
   expand_limits(y = c(0, 1100))
 ```
 
-## Size
+<br>
 
-```{r box10}
+#### Outlier Size
+
+<hr>
+
+```{r box10, fig.align='center'}
 ggplot(ecom) +
-  geom_boxplot(aes(x = factor(device), y = duration),
-               outlier.size = 3) +
+  geom_boxplot(aes(x = factor(device), y = duration), outlier.size = 3) +
   expand_limits(y = c(0, 1100))
 ```
 
-Increasing the size is not very useful.
+<br>
 
-## Alpha
+#### Outlier Alpha
 
-```{r box11}
+<hr>
+
+```{r box11, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                outlier.color = 'blue', outlier.alpha = 0.3) +
   expand_limits(y = c(0, 1100))
 ```
 
-Decreasing the alpha increases the visibility of the outlier points.
+<br>
 
-## Box Color
+#### Box Aesthetics
 
-```{r box12}
+<hr>
+
+- color
+- fill
+- alpha
+- line type
+- line width
+
+<br>
+
+#### Specify Values for Fill
+
+<hr>
+
+```{r box12, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                fill = c('blue', 'red', 'green')) +
   expand_limits(y = c(0, 1100))
 ```
 
-Map box color to variable.
+<br>
 
-```{r box13}
+#### Map Fill to Variable
+
+<hr>
+
+```{r box13, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration,
                fill = factor(device))) +
   expand_limits(y = c(0, 1100))
 ```
 
-```{r box14}
+<br>
+
+#### Specify Values for Alpha
+
+```{r box14, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                fill = 'blue', alpha = 0.3) +
   expand_limits(y = c(0, 1100))
 ```
 
-## Line Color
+<br>
 
-```{r box15}
+#### Specify Values for Color
+
+<hr>
+
+```{r box15, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                color = c('blue', 'red', 'green')) +
   expand_limits(y = c(0, 1100))
 ```
 
-```{r box16}
+<br>
+
+#### Map Color to Variables
+
+<hr>
+
+```{r box16, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration,
                color = factor(device))) +
   expand_limits(y = c(0, 1100))
 ```
 
+<br>
 
-## Line Width
+#### Specify Values for Line Width
 
-```{r box17}
+<hr>
+
+```{r box17, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                size = 1.5) +
   expand_limits(y = c(0, 1100))
 ```
 
-## Line Type
+<br>
 
-```{r box18}
+#### Specify Values for Line Type
+
+<hr>
+
+```{r box18, fig.align='center'}
 ggplot(ecom) +
   geom_boxplot(aes(x = factor(device), y = duration),
                linetype = 2) +
   expand_limits(y = c(0, 1100))
 ```
 
-## Summary
+<br>
+
+#### Summary
+
+<hr>
 
 In this post, we learnt to:
 
@@ -194,4 +311,12 @@ In this post, we learnt to:
 - modify box color
 - modify box line color, size and line type
 
+<br>
+
+### Up Next..
+
+<hr>
+
 In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-bar-plots/), we will learn to build bar plots.
+
+<br>

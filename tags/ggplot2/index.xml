@@ -148,9 +148,9 @@ Simple Histogramggplot(ecom) +geom_histogram(aes(n_visit))## `stat_bin()` usi
       <pubDate>Thu, 21 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-box-plots/</guid>
-      <description>IntroductionThis is the 9th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to build line charts. In this post, we will focus on boxplots.
-We will continue to use the ecommerce data. You can download it from here or import directly using the readr package.
-Simple Box Plotggplot(ecom) +geom_boxplot(aes(x = factor(1), y = n_visit))Now we need to mention something for X axis and hence we use the number 1.</description>
+      <description>IntroductionThis is the 9th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to build line charts. In this post, we will
+build box plotsmodify boxcolorfillalphaline sizeline typemodify outliercolorshapesizealpha
+Dataecom &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&amp;#39;)ecom## # A tibble: 1,000 x 11## id referrer device bouncers n_visit n_pages duration country## &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;## 1 1 google laptop true 10 1 693 Czech Republic## 2 2 yahoo tablet true 9 1 459 Yemen## 3 3 direct laptop true 0 1 996 Brazil## 4 4 bing tablet false 3 18 468 China## 5 5 yahoo mobile true 9 1 955 Poland## 6 6 yahoo laptop false 5 5 135 South Africa## 7 7 yahoo mobile true 10 1 75 Bangladesh## 8 8 direct mobile true 10 1 908 Indonesia## 9 9 bing mobile false 3 19 209 Netherlands## 10 10 google mobile true 6 1 208 Czech Republic## # .</description>
     </item>
     
     <item>

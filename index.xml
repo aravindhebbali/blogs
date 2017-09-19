@@ -80,7 +80,10 @@ args(data.frame)## function (..., row.names = NULL, check.rows = FALSE, check.n
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/data-wrangling-with-dbplyr/</guid>
-      <description></description>
+      <description>IntroductionThis is the third post in the series R &amp;amp; Databases. You can find the links to the other two posts of this series below:
+Quick Guide: R &amp;amp; SQLiteSQL for Data ScienceIn this post, we will learn to query data from a database using dplyr.
+
+Libraries, Code &amp;amp; DataWe will use the following libraries in this post:</description>
     </item>
     
     <item>

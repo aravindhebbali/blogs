@@ -296,63 +296,167 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the ninth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/">post</a>, we learnt to build line charts. In this post, we will focus on bar plots.</p>
-<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
-<div id="simple-bar-plot" class="section level2">
-<h2>Simple Bar Plot</h2>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<hr>
+<p>This is the ninth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/">post</a>, we learnt to build line charts. In this post, we will learn to:</p>
+<ul>
+<li>build
+<ul>
+<li>simple bar plot</li>
+<li>stacked bar plot</li>
+<li>grouped bar plot</li>
+<li>proportional bar plot</li>
+</ul></li>
+<li>map aesthetics to variables</li>
+<li>specify values for
+<ul>
+<li>bar color</li>
+<li>bar line color</li>
+<li>bar line type</li>
+<li>bar line size</li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+<div id="data" class="section level4">
+<h4>Data</h4>
+<hr>
+<pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
+ecom</code></pre>
+<pre><code>## # A tibble: 1,000 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
+## # ... with 990 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="data-dictionary" class="section level4">
+<h4>Data Dictionary</h4>
+<hr>
+<ul>
+<li>id: row id</li>
+<li>referrer: referrer website/search engine</li>
+<li>os: operating system</li>
+<li>browser: browser</li>
+<li>device: device used to visit the website</li>
+<li>n_pages: number of pages visited</li>
+<li>duration: time spent on the website (in seconds)</li>
+<li>repeat: frequency of visits</li>
+<li>country: country of origin</li>
+<li>purchase: whether visitor purchased</li>
+<li>order_value: order value of visitor (in dollars)</li>
+</ul>
+<p><br></p>
+</div>
+<div id="aesthetics" class="section level4">
+<h4>Aesthetics</h4>
+<hr>
+<ul>
+<li><code>fill</code></li>
+<li><code>color</code></li>
+<li><code>linetype</code></li>
+<li><code>size</code></li>
+<li><code>position</code></li>
+</ul>
+<p><br></p>
+</div>
+<div id="simple-bar-plot" class="section level4">
+<h4>Simple Bar Plot</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom) +
   geom_bar(aes(factor(device)))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="bar-color" class="section level2">
-<h2>Bar Color</h2>
+<div id="bar-color" class="section level4">
+<h4>Bar Color</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom) +
   geom_bar(aes(factor(device)),
            fill = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="bar-line-color" class="section level2">
-<h2>Bar Line Color</h2>
-<pre class="r"><code>ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           color = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png" width="672" /></p>
-</div>
-<div id="bar-line-type" class="section level2">
-<h2>Bar Line Type</h2>
-<pre class="r"><code>ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
-           color = &#39;red&#39;, linetype = 2)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png" width="672" /></p>
-</div>
-<div id="bar-line-size" class="section level2">
-<h2>Bar Line Size</h2>
-<pre class="r"><code>ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
-           color = &#39;red&#39;, linetype = 2, size = 2)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png" width="672" /></p>
-</div>
-<div id="stacked-bar-plot" class="section level2">
-<h2>Stacked Bar Plot</h2>
+<div id="stacked-bar-plot" class="section level4">
+<h4>Stacked Bar Plot</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom) +
   geom_bar(aes(device, fill = factor(referrer)))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="grouped-bar-plot" class="section level2">
-<h2>Grouped Bar Plot</h2>
+<div id="grouped-bar-plot" class="section level4">
+<h4>Grouped Bar Plot</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom) +
   geom_bar(aes(device, fill = factor(referrer)), position = &#39;dodge&#39;)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="horizontal-bar-plot" class="section level2">
-<h2>Horizontal Bar Plot</h2>
+<div id="proportional-bar-plot" class="section level4">
+<h4>Proportional Bar Plot</h4>
+<hr>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)), position = &#39;fill&#39;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="horizontal-bar-plot" class="section level4">
+<h4>Horizontal Bar Plot</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom) +
   geom_bar(aes(factor(device), fill = factor(referrer))) +
   coord_flip()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
+<div id="bar-line-color" class="section level4">
+<h4>Bar Line Color</h4>
+<hr>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &#39;white&#39;,
+           color = c(&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="bar-line-type" class="section level4">
+<h4>Bar Line Type</h4>
+<hr>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
+          color = &#39;black&#39;, linetype = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="bar-line-size" class="section level4">
+<h4>Bar Line Size</h4>
+<hr>
+<pre class="r"><code>ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = &#39;white&#39;, 
+           color = &#39;black&#39;, size = 2)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-bar-plots_files/figure-html/bar6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

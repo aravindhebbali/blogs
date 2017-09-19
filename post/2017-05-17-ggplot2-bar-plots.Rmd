@@ -13,9 +13,23 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+#### Introduction
 
-This is the ninth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/), we learnt to build line charts. In this post, we will focus on bar plots.
+<hr>
+
+This is the ninth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/), we learnt to build line charts. In this post, we will learn to:
+
+- build 
+    - simple bar plot
+    - stacked bar plot
+    - grouped bar plot
+    - proportional bar plot
+- map aesthetics to variables
+- specify values for 
+    - bar color
+    - bar line color
+    - bar line type
+    - bar line size
 
 ```{r bar, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
@@ -23,75 +37,161 @@ library(dplyr)
 library(tidyr)
 ```
 
-```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+<br>
+
+#### Data
+
+<hr>
+
+```{r import2, eval=TRUE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom
 ```
 
-We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+<br>
 
-```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
-```
+#### Data Dictionary
 
-## Simple Bar Plot
+<hr>
 
-```{r bar2}
+- id: row id
+- referrer: referrer website/search engine
+- os: operating system
+- browser: browser
+- device: device used to visit the website
+- n_pages: number of pages visited
+- duration: time spent on the website (in seconds)
+- repeat: frequency of visits
+- country: country of origin
+- purchase: whether visitor purchased
+- order_value: order value of visitor (in dollars)
+
+<br>
+
+#### Aesthetics
+
+<hr>
+
+- `fill`
+- `color`
+- `linetype`
+- `size`
+- `position`
+
+<br>
+
+#### Simple Bar Plot
+
+<hr>
+
+```{r bar2, fig.align='center'}
 ggplot(ecom) +
   geom_bar(aes(factor(device)))
 ```
 
-## Bar Color
+<br>
 
-```{r bar3}
+#### Bar Color
+
+<hr>
+
+```{r bar3, fig.align='center'}
 ggplot(ecom) +
   geom_bar(aes(factor(device)),
            fill = c('red', 'blue', 'green'))
 ```
 
-## Bar Line Color
+<br>
 
-```{r bar4}
-ggplot(ecom) +
-  geom_bar(aes(factor(device)),
-           color = c('red', 'blue', 'green'))
-```
+#### Stacked Bar Plot
 
-## Bar Line Type
+<hr>
 
-```{r bar5}
-ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = 'white', 
-           color = 'red', linetype = 2)
-```
-
-## Bar Line Size
-
-```{r bar6}
-ggplot(ecom) +
-  geom_bar(aes(factor(device)), fill = 'white', 
-           color = 'red', linetype = 2, size = 2)
-```
-
-## Stacked Bar Plot
-
-```{r bar7}
+```{r bar7, fig.align='center'}
 ggplot(ecom) +
   geom_bar(aes(device, fill = factor(referrer)))
 ```
 
-## Grouped Bar Plot
+<br>
 
-```{r bar8}
+#### Grouped Bar Plot
+
+<hr>
+
+```{r bar8, fig.align='center'}
 ggplot(ecom) +
   geom_bar(aes(device, fill = factor(referrer)), position = 'dodge')
 ```
 
-## Horizontal Bar Plot
+<br>
 
-```{r bar9}
+#### Proportional Bar Plot
+
+<hr>
+
+```{r bar10, fig.align='center'}
+ggplot(ecom) +
+  geom_bar(aes(device, fill = factor(referrer)), position = 'fill')
+```
+
+<br>
+
+#### Horizontal Bar Plot
+
+<hr>
+
+```{r bar9, fig.align='center'}
 ggplot(ecom) +
   geom_bar(aes(factor(device), fill = factor(referrer))) +
   coord_flip()
 ```
 
+<br>
 
+#### Bar Line Color
+
+<hr>
+
+```{r bar4, fig.align='center'}
+ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = 'white',
+           color = c('red', 'blue', 'green'))
+```
+
+<br>
+
+#### Bar Line Type
+
+<hr>
+
+```{r bar5, fig.align='center'}
+ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = 'white', 
+          color = 'black', linetype = 2)
+```
+
+<br>
+
+#### Bar Line Size
+
+<hr>
+
+```{r bar6, fig.align='center'}
+ggplot(ecom) +
+  geom_bar(aes(factor(device)), fill = 'white', 
+           color = 'black', size = 2)
+```
+
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

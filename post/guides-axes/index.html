@@ -294,60 +294,188 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the <code>scale_*()</code> family of functions</p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
+<p>Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the <code>scale_*()</code> family of functions.</p>
+<p>Modify X and Y axis</p>
 <ul>
-<li><code>scale_x_continuous()</code>: modify x axis when x is continuous</li>
+<li>title</li>
+<li>labels</li>
+<li>limits</li>
+<li>breaks</li>
+<li>position</li>
 </ul>
-<p>The first function we will explore is <code>scale_x_continuous()</code>. It can be used for:</p>
+<p>In this module, we will learn how to modify the X and Y axis using the following functions:</p>
 <ul>
-<li>axis title</li>
-<li>axis labels</li>
-<li>axis limits</li>
-<li>axis breaks</li>
-<li>and axis position</li>
+<li>Continuous Axis
+<ul>
+<li><code>scale_x_continuous()</code></li>
+<li><code>scale_y_continuous()</code></li>
+</ul></li>
+<li>Discrete Axis
+<ul>
+<li><code>scale_x_discrete()</code></li>
+<li><code>scale_y_discrete()</code></li>
+</ul></li>
 </ul>
-<p>Let us create a simple scatter plot and then use <code>scale_x_continuous()</code> to modify the X axis.</p>
+<p><br></p>
+<p><br></p>
+<div id="continuous-axis" class="section level4">
+<h4>Continuous Axis</h4>
+<hr>
+<p><code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> take the following arguments:</p>
+<ul>
+<li>name</li>
+<li>limits</li>
+<li>breaks</li>
+<li>labels</li>
+<li>position</li>
+</ul>
+<p><br></p>
+</div>
+<div id="x-axis---continuous" class="section level4">
+<h4>X Axis - Continuous</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg))</code></pre>
-<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide2-1.png" width="672" /></p>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-label" class="section level4">
+<h4>Axis Label</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
-  scale_x_continuous(name = &quot;Displacement&quot;,
-                     limits = c(0, 600),
-                     breaks = c(0, 150, 300, 450, 600),
-                     labels = c(&#39;0&#39;, &#39;150&#39;, &#39;300&#39;, &#39;450&#39;, &#39;600&#39;),
-                     position = &#39;top&#39;)</code></pre>
-<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide3-1.png" width="672" /></p>
+  scale_x_continuous(name = &quot;Displacement&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-limits" class="section level4">
+<h4>Axis Limits</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_x_continuous(limits = c(0, 600))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-breaks" class="section level4">
+<h4>Axis Breaks</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_x_continuous(breaks = c(0, 150, 300, 450, 600))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-tick-labels" class="section level4">
+<h4>Axis Tick Labels</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_x_continuous(breaks = c(0, 150, 300, 450, 600),
+    labels = c(&#39;0&#39;, &#39;150&#39;, &#39;300&#39;, &#39;450&#39;, &#39;600&#39;))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-position" class="section level4">
+<h4>Axis Position</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg)) +
+  scale_x_continuous(position = &#39;top&#39;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="x-axis" class="section level4">
+<h4>X Axis</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg)) +
+  scale_x_continuous(name = &quot;Displacement&quot;, limits = c(0, 600),
+                     breaks = c(0, 150, 300, 450, 600), position = &#39;top&#39;,
+                     labels = c(&#39;0&#39;, &#39;150&#39;, &#39;300&#39;, &#39;450&#39;, &#39;600&#39;))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="y-axis---continuous" class="section level4">
+<h4>Y Axis - Continuous</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg)) +
+  scale_y_continuous(name = &quot;Miles Per Gallon&quot;, limits = c(0, 45),
+                     breaks = c(0, 15, 30, 45), position = &#39;right&#39;,
+                     labels = c(&#39;0&#39;, &#39;15&#39;, &#39;30&#39;, &#39;45&#39;))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="discrete-axis" class="section level4">
+<h4>Discrete Axis</h4>
+<hr>
+<p><code>scale_x_discrete()</code> and <code>scale_y_discrete()</code> take the following arguments:</p>
 <ul>
-<li><code>scale_y_continuous()</code>: modify y axis</li>
+<li>name</li>
+<li>labels</li>
+<li>breaks</li>
+<li>position</li>
 </ul>
-<p>Now let us modify the Y axis.</p>
-<pre class="r"><code>ggplot(mtcars) +
-  geom_point(aes(disp, mpg)) +
-  scale_y_continuous(name = &quot;Miles Per Gallon&quot;,
-                     limits = c(0, 45),
-                     breaks = c(0, 15, 30, 45),
-                     labels = c(&#39;0&#39;, &#39;15&#39;, &#39;30&#39;, &#39;45&#39;),
-                     position = &#39;right&#39;)</code></pre>
-<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide4-1.png" width="672" /></p>
-<p>Now let us look at plots with discrete X axis.</p>
-<pre class="r"><code>ggplot(mtcars) +
-  geom_bar(aes(factor(cyl)))</code></pre>
-<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide5-1.png" width="672" /></p>
-<p>Use <code>scael_x_discrete()</code> to modify the X axis.</p>
+<p><br></p>
+</div>
+<div id="axis-label-1" class="section level4">
+<h4>Axis Label</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_bar(aes(factor(cyl))) +
-  scale_x_discrete(name = &quot;Number of Cylinders&quot;,
-                   labels = c(&quot;4&quot; = &quot;Four&quot;, &quot;6&quot; = &quot;Six&quot;, &quot;8&quot; = &quot;Eight&quot;),
-                   breaks = c(&quot;4&quot;, &quot;6&quot;, &quot;8&quot;),
-                   position = &quot;bottom&quot;)</code></pre>
-<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide6-1.png" width="672" /></p>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-<p>In this post, we learnt how to modify the axis whether it represents a continuous variable or a discrete variable. In the next post, we will learn how to modify the legend when aesthetics are mapped to variables.</p>
+  scale_x_discrete(name = &quot;Number of Cylinders&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
+<div id="axis-tick-labels-1" class="section level4">
+<h4>Axis Tick Labels</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_bar(aes(factor(cyl))) +
+  scale_x_discrete(labels = c(&quot;4&quot; = &quot;Four&quot;, &quot;6&quot; = &quot;Six&quot;, &quot;8&quot; = &quot;Eight&quot;))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-breaks-1" class="section level4">
+<h4>Axis Breaks</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_bar(aes(factor(cyl))) +
+  scale_x_discrete(breaks = c(&quot;4&quot;, &quot;6&quot;, &quot;8&quot;))</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-position-1" class="section level4">
+<h4>Axis Position</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_bar(aes(factor(cyl))) +
+  scale_x_discrete(position = &#39;bottom&#39;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="x-axis---discrete" class="section level4">
+<h4>X Axis - Discrete</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) + geom_bar(aes(factor(cyl))) +
+  scale_x_discrete(name = &quot;Number of Cylinders&quot;,
+    labels = c(&quot;4&quot; = &quot;Four&quot;, &quot;6&quot; = &quot;Six&quot;, &quot;8&quot; = &quot;Eight&quot;),
+    breaks = c(&quot;4&quot;, &quot;6&quot;, &quot;8&quot;), position = &quot;bottom&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

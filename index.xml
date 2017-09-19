@@ -634,8 +634,9 @@ Let us start by building a simple scatter plot.</description>
       <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-quick-tour/</guid>
-      <description>IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
-Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)Bar Plotqplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;))qplot(factor(cyl), data = mtcars, geom = c(&amp;#39;bar&amp;#39;), fill = factor(am))Box Plotqplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(1), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;))qplot(factor(cyl), mpg, data = mtcars, geom = c(&amp;#39;boxplot&amp;#39;, &amp;#39;jitter&amp;#39;))Line Chartqplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;))qplot(x = date, y = unemploy, data = economics, geom = c(&amp;#39;line&amp;#39;),color = &amp;#39;red&amp;#39;)Histogramqplot(mpg, data = mtcars, bins = 5)SummaryIn this post, we learnt to quickly create plots using the qplot() function.</description>
+      <description>IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
+
+Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&amp;#39;point&amp;#39;, &amp;#39;line&amp;#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)</description>
     </item>
     
     <item>

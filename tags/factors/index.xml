@@ -18,8 +18,9 @@
       <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/forcats-working-with-factor-data-in-r/</guid>
-      <description>IntroductionThis is the 12th post in the series Data Wrangling with R. In the previous post, we learnt to manipulate strings using the stringr package. In this post, we will learn to work with categorical/qualitative data in R using forcats. Let us begin by installing and loading forcats and a set of other pacakges we will be using.
-We will use a case study to explore the various features of the forcats package.</description>
+      <description>IntroductionThis is the 12th post in the series Data Wrangling with R. In the previous post, we learnt to manipulate strings using the stringr package. In this post, we will learn to work with categorical/qualitative data in R using forcats. Let us begin by installing and loading forcats and a set of other pacakges we will be using.
+
+DataWe will use a case study to explore the various features of the forcats package.</description>
     </item>
     
     <item>

@@ -286,9 +286,15 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the 12th post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/working-with-strings-in-r-using-stringr/">post</a>, we learnt to manipulate strings using the <a href="http://stringr.tidyverse.org">stringr</a> package. In this post, we will learn to work with categorical/qualitative data in R using <a href="http://forcats.tidyverse.org">forcats</a>. Let us begin by installing and loading forcats and a set of other pacakges we will be using.</p>
+<p><br></p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<hr>
 <p>We will use a case study to explore the various features of the forcats package. You can download the data for the case study from <a href="https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv">here</a> or directly import the data using the readr package.</p>
 <pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
 ecom</code></pre>
@@ -307,6 +313,11 @@ ecom</code></pre>
 ## 10    10   google mobile     true       6       1      208 Czech Republic
 ## # ... with 990 more rows, and 3 more variables: purchase &lt;chr&gt;,
 ## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="case-study" class="section level3">
+<h3>Case Study</h3>
+<hr>
 <p>We will do the following in this case study:</p>
 <ul>
 <li>compute the frequency of different referrers</li>
@@ -315,6 +326,10 @@ ecom</code></pre>
 <li>club traffic from social media websites into a new category</li>
 <li>group referrers with traffic below a threshold into a single category</li>
 </ul>
+<p><br></p>
+<div id="tabulate-referrers" class="section level4">
+<h4>Tabulate Referrers</h4>
+<hr>
 <pre class="r"><code>ecom %&gt;%
   count(referrer)</code></pre>
 <pre><code>## # A tibble: 5 x 2
@@ -325,6 +340,11 @@ ecom</code></pre>
 ## 3   google   208
 ## 4   social   200
 ## 5    yahoo   207</code></pre>
+<p><br></p>
+</div>
+<div id="avg.-page-visits-by-referrers" class="section level4">
+<h4>Avg. Page Visits by Referrers</h4>
+<hr>
 <pre class="r"><code>refer_summary &lt;- ecom %&gt;%
   group_by(referrer) %&gt;%
   summarise(
@@ -335,18 +355,30 @@ ecom</code></pre>
 
 ggplot(refer_summary, aes(page, referrer)) + geom_point()</code></pre>
 <p><img src="../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat3-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(refer_summary, aes(page, fct_reorder(referrer, page))) + geom_point()</code></pre>
+<pre class="r"><code>
+ggplot(refer_summary, aes(page, fct_reorder(referrer, page))) + geom_point()</code></pre>
 <p><img src="../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat3-2.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="referrer-frequency" class="section level4">
+<h4>Referrer Frequency</h4>
+<hr>
 <pre class="r"><code>ecom %&gt;%
   mutate(ref = referrer %&gt;% fct_infreq()) %&gt;%
   ggplot(aes(ref)) +
   geom_bar()</code></pre>
 <p><img src="../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat4-1.png" width="672" /></p>
-<pre class="r"><code>ecom %&gt;%
+<pre class="r"><code>
+ecom %&gt;%
   mutate(ref = referrer %&gt;% fct_infreq() %&gt;% fct_rev()) %&gt;%
   ggplot(aes(ref)) +
   geom_bar()</code></pre>
-<p><img src="../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat5-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-forcats-working-with-factor-data-in-r_files/figure-html/cat4-2.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="case-study-1" class="section level4">
+<h4>Case Study</h4>
+<hr>
 <pre class="r"><code>traffic &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web_traffic.csv&#39;)
 traffic</code></pre>
 <pre><code>## # A tibble: 48,232 x 1
@@ -363,6 +395,11 @@ traffic</code></pre>
 ##  9   google
 ## 10   google
 ## # ... with 48,222 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="tabulate-referrer" class="section level4">
+<h4>Tabulate Referrer</h4>
+<hr>
 <pre class="r"><code>traffic$traffics %&gt;% fct_count()</code></pre>
 <pre><code>## # A tibble: 9 x 2
 ##            f     n
@@ -376,13 +413,18 @@ traffic</code></pre>
 ## 7    twitter  4521
 ## 8    unknown  2657
 ## 9      yahoo  4899</code></pre>
+<p><br></p>
+</div>
+<div id="collapse-referrer-categories" class="section level4">
+<h4>Collapse Referrer Categories</h4>
+<hr>
 <pre class="r"><code>traffic2 &lt;- fct_collapse(traffic$traffics,
   social = c(&quot;facebook&quot;, &quot;twitter&quot;, &quot;instagram&quot;),
   search = c(&quot;google&quot;, &quot;bing&quot;, &quot;yahoo&quot;)
 )
 
-traffic2 %&gt;% fct_count() </code></pre>
-<pre><code>## # A tibble: 5 x 2
+traffic2 %&gt;% fct_count() 
+## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
 ## 1 affiliates  7641
@@ -390,35 +432,58 @@ traffic2 %&gt;% fct_count() </code></pre>
 ## 3     direct  1350
 ## 4     social 16563
 ## 5    unknown  2657</code></pre>
+<p><br></p>
+</div>
+<div id="lump-infrequent-referrers" class="section level4">
+<h4>Lump Infrequent Referrers</h4>
+<hr>
 <pre class="r"><code>traffic$traffics %&gt;% fct_lump() %&gt;% table()</code></pre>
 <pre><code>## .
 ## affiliates       bing   facebook     google  instagram    twitter 
 ##       7641       5893       8135       9229       3907       4521 
 ##    unknown      yahoo      Other 
 ##       2657       4899       1350</code></pre>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump(n = 3) %&gt;% table()</code></pre>
-<pre><code>## .
+<pre class="r"><code># retain top 3 referrers
+traffic$traffics %&gt;% fct_lump(n = 3) %&gt;% table()
+## .
 ## affiliates   facebook     google      Other 
-##       7641       8135       9229      23227</code></pre>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump(prop = 0.1) %&gt;% table()</code></pre>
-<pre><code>## .
+##       7641       8135       9229      23227
+
+# lump together referrers with &lt; 10% traffic
+traffic$traffics %&gt;% fct_lump(prop = 0.1) %&gt;% table()
+## .
 ## affiliates       bing   facebook     google      yahoo      Other 
-##       7641       5893       8135       9229       4899      12435</code></pre>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump(prop = 0.15) %&gt;% table()</code></pre>
-<pre><code>## .
+##       7641       5893       8135       9229       4899      12435
+
+# lump together referrers with &lt; 15% traffic
+traffic$traffics %&gt;% fct_lump(prop = 0.15) %&gt;% table()
+## .
 ## affiliates   facebook     google      Other 
-##       7641       8135       9229      23227</code></pre>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump(n = -3) %&gt;% table()</code></pre>
-<pre><code>## .
+##       7641       8135       9229      23227
+
+# retain 3 referrers with lowest traffic
+traffic$traffics %&gt;% fct_lump(n = -3) %&gt;% table()
+## .
 ##    direct instagram   unknown     Other 
-##      1350      3907      2657     40318</code></pre>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump(prop = -0.1) %&gt;% table()</code></pre>
-<pre><code>## .
+##      1350      3907      2657     40318
+
+# retain 3 referrers with &lt; 10% traffic
+traffic$traffics %&gt;% fct_lump(prop = -0.1) %&gt;% table()
+## .
 ##    direct instagram   twitter   unknown     Other 
 ##      1350      3907      4521      2657     35797</code></pre>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<p><br></p>
 </div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

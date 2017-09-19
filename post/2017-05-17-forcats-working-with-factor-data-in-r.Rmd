@@ -13,7 +13,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the 12th post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/working-with-strings-in-r-using-stringr/), we learnt to manipulate strings using the [stringr](http://stringr.tidyverse.org) package. In this post, we will learn to work with categorical/qualitative data in R using [forcats](http://forcats.tidyverse.org). Let us begin by installing and loading forcats and a set of other pacakges we will be using.
 
@@ -27,12 +29,24 @@ library(dplyr)
 library(ggplot2)
 ```
 
+<br>
+
+### Data
+
+<hr>
+
 We will use a case study to explore the various features of the forcats package. You can download the data for the case study from [here](https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv) or directly import the data using the readr package. 
 
 ```{r import, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
 ecom
 ```
+
+<br>
+
+### Case Study
+
+<hr>
 
 We will do the following in this case study:
 
@@ -42,12 +56,24 @@ We will do the following in this case study:
 - club traffic from social media websites into a new category
 - group referrers with traffic below a threshold into a single category
 
+<br>
+
+#### Tabulate Referrers
+
+<hr>
+
 ```{r cat2}
 ecom %>%
   count(referrer)
 ```
 
-```{r cat3}
+<br>
+
+#### Avg. Page Visits by Referrers
+
+<hr>
+
+```{r cat3, collapse=TRUE}
 refer_summary <- ecom %>%
   group_by(referrer) %>%
   summarise(
@@ -61,31 +87,52 @@ ggplot(refer_summary, aes(page, referrer)) + geom_point()
 ggplot(refer_summary, aes(page, fct_reorder(referrer, page))) + geom_point()
 ```
 
-```{r cat4}
+<br>
+
+#### Referrer Frequency
+
+<hr>
+
+```{r cat4, collapse=TRUE}
 ecom %>%
   mutate(ref = referrer %>% fct_infreq()) %>%
   ggplot(aes(ref)) +
   geom_bar()
-```
 
-```{r cat5}
 ecom %>%
   mutate(ref = referrer %>% fct_infreq() %>% fct_rev()) %>%
   ggplot(aes(ref)) +
   geom_bar()
 ```
 
+<br>
+
+#### Case Study
+
+<hr>
+
 ```{r import2, message=FALSE}
 traffic <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web_traffic.csv')
 traffic
 ```
 
+<br>
+
+#### Tabulate Referrer 
+
+<hr>
 
 ```{r cat6}
 traffic$traffics %>% fct_count()
 ```
 
-```{r cat7}
+<br>
+
+#### Collapse Referrer Categories
+
+<hr>
+
+```{r cat7, collapse=TRUE}
 traffic2 <- fct_collapse(traffic$traffics,
   social = c("facebook", "twitter", "instagram"),
   search = c("google", "bing", "yahoo")
@@ -94,16 +141,43 @@ traffic2 <- fct_collapse(traffic$traffics,
 traffic2 %>% fct_count() 
 ```
 
+<br>
+
+#### Lump Infrequent Referrers
+
+<hr>
+
 ```{r cat8}
 traffic$traffics %>% fct_lump() %>% table()
 ```
 
-```{r cat9}
+```{r cat9, collapse=TRUE}
+# retain top 3 referrers
 traffic$traffics %>% fct_lump(n = 3) %>% table()
+
+# lump together referrers with < 10% traffic
 traffic$traffics %>% fct_lump(prop = 0.1) %>% table()
+
+# lump together referrers with < 15% traffic
 traffic$traffics %>% fct_lump(prop = 0.15) %>% table()
+
+# retain 3 referrers with lowest traffic
 traffic$traffics %>% fct_lump(n = -3) %>% table()
+
+# retain 3 referrers with < 10% traffic
 traffic$traffics %>% fct_lump(prop = -0.1) %>% table()
 ```
 
-## Summary
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

@@ -296,24 +296,15 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the eleventh post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/how-to-work-with-dates-in-r/">post</a>, we learnt to manipulate date and time using the <a href="https://CRAN.R-project.org/package=lubridate">lubridate</a> package. In this post, we will learn to work with string data in R using <a href="http://stringr.tidyverse.org">stringr</a>. Let us begin by installing and loading stringr and a set of other pacakges we will be using.</p>
+<p><br></p>
 </div>
-<div id="print" class="section level1">
-<h1>print</h1>
-</div>
-<div id="cat" class="section level1">
-<h1>cat</h1>
-</div>
-<div id="paste" class="section level1">
-<h1>paste</h1>
-</div>
-<div id="paste0" class="section level1">
-<h1>paste0()</h1>
-</div>
-<div id="sprintf" class="section level1">
-<h1>sprintf()</h1>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<hr>
 <p>As we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package. You can download the data for the case study from <a href="https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv">here</a> or directly import the data using the readr package.</p>
 <pre class="r"><code>mockstring &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/mock_strings.csv&#39;)
 mockstring</code></pre>
@@ -334,6 +325,11 @@ mockstring</code></pre>
 ## #   phrase &lt;chr&gt;, domain &lt;chr&gt;, imageurl &lt;chr&gt;, email &lt;chr&gt;,
 ## #   filename &lt;chr&gt;, denominatio &lt;chr&gt;, strings &lt;chr&gt;, phone &lt;chr&gt;,
 ## #   slogans &lt;chr&gt;, address &lt;chr&gt;, url &lt;chr&gt;, useragent &lt;chr&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="case-study" class="section level3">
+<h3>Case Study</h3>
+<hr>
 <p>We will do the following in this case study:</p>
 <ul>
 <li>extract domain name from random email ids</li>
@@ -345,8 +341,10 @@ mockstring</code></pre>
 <li>extract extension from url</li>
 <li>extract file type from url</li>
 </ul>
-<div id="extract-domain-name-from-random-email-ids" class="section level3">
-<h3>extract domain name from random email ids</h3>
+<p><br></p>
+<div id="extract-domain-name-from-random-email-ids" class="section level4">
+<h4>Extract domain name from random email ids</h4>
+<hr>
 <pre class="r"><code>mockstring$email[1:2] %&gt;% 
   str_split(pattern = &#39;@&#39;) %&gt;%
   unlist() %&gt;%
@@ -354,56 +352,67 @@ mockstring</code></pre>
   str_split(pattern = &#39;\\.&#39;) %&gt;%
   purrr::map_chr(extract(1))</code></pre>
 <pre><code>## [1] &quot;fastcompany&quot; &quot;digg&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="from-image-url-extract-image-type-jpg-png-bmp" class="section level3">
-<h3>from image url, extract image type (jpg, png, bmp)</h3>
+<div id="extract-image-type-from-image-url" class="section level4">
+<h4>Extract image type from image url</h4>
+<hr>
 <pre class="r"><code>mockstring$imageurl[1:5] %&gt;%
   str_split(pattern = &#39;\\.&#39;) %&gt;%
   purrr::map_chr(extract(3)) %&gt;%
-  str_sub(start = 1, end = 3)</code></pre>
-<pre><code>## [1] &quot;jpg&quot; &quot;bmp&quot; &quot;bmp&quot; &quot;png&quot; &quot;jpg&quot;</code></pre>
-<pre class="r"><code>mockstring$imageurl[1:5] %&gt;%
+  str_sub(start = 1, end = 3)
+## [1] &quot;jpg&quot; &quot;bmp&quot; &quot;bmp&quot; &quot;png&quot; &quot;jpg&quot;
+
+mockstring$imageurl[1:5] %&gt;%
   str_split(pattern = &#39;\\.&#39;) %&gt;%
   purrr::map_chr(extract(3)) %&gt;%
   str_split(pattern = &#39;/&#39;) %&gt;%
-  purrr::map_chr(extract(1))</code></pre>
-<pre><code>## [1] &quot;jpg&quot; &quot;bmp&quot; &quot;bmp&quot; &quot;png&quot; &quot;jpg&quot;</code></pre>
+  purrr::map_chr(extract(1))
+## [1] &quot;jpg&quot; &quot;bmp&quot; &quot;bmp&quot; &quot;png&quot; &quot;jpg&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="from-image-url-extract-dimension" class="section level3">
-<h3>from image url, extract dimension</h3>
+<div id="extract-dimension-from-image-url" class="section level4">
+<h4>Extract dimension from image url</h4>
+<hr>
 <pre class="r"><code>pattern &lt;- &quot;[:digits:]&quot;
 mockstring$imageurl[1:5] %&gt;%
-  str_locate(pattern = &quot;[0-9]&quot;) </code></pre>
-<pre><code>##      start end
+  str_locate(pattern = &quot;[0-9]&quot;) 
+##      start end
 ## [1,]    23  23
 ## [2,]    23  23
 ## [3,]    23  23
 ## [4,]    23  23
-## [5,]    23  23</code></pre>
-<pre class="r"><code>mockstring$imageurl[1:5] %&gt;%
+## [5,]    23  23
+  
+mockstring$imageurl[1:5] %&gt;%
   str_sub(start = 23) %&gt;%
   str_split(pattern = &#39;\\.&#39;) %&gt;%
-  purrr::map_chr(extract(1))</code></pre>
-<pre><code>## [1] &quot;130x183&quot; &quot;106x217&quot; &quot;146x127&quot; &quot;181x194&quot; &quot;220x123&quot;</code></pre>
+  purrr::map_chr(extract(1))
+## [1] &quot;130x183&quot; &quot;106x217&quot; &quot;146x127&quot; &quot;181x194&quot; &quot;220x123&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="extract-protocol" class="section level3">
-<h3>extract protocol</h3>
+<div id="extract-protocol" class="section level4">
+<h4>Extract protocol</h4>
+<hr>
 <pre class="r"><code>mockstring$url[1:5] %&gt;%
   str_split(pattern = &#39;://&#39;) %&gt;%
-  map_chr(extract(1))</code></pre>
-<pre><code>## [1] &quot;https&quot; &quot;http&quot;  &quot;https&quot; &quot;http&quot;  &quot;https&quot;</code></pre>
-<pre class="r"><code>k &lt;- mockstring$url[1:5] %&gt;%
+  map_chr(extract(1))
+## [1] &quot;https&quot; &quot;http&quot;  &quot;https&quot; &quot;http&quot;  &quot;https&quot;
+  
+k &lt;- mockstring$url[1:5] %&gt;%
   str_locate(pattern = &#39;://&#39;) %&gt;%
   data.frame() %&gt;%
   extract2(&#39;start&#39;) %&gt;%
   subtract(1)
 
 mockstring$url[1:5] %&gt;%
-  str_sub(start = 1, end = k)</code></pre>
-<pre><code>## [1] &quot;https&quot; &quot;http&quot;  &quot;https&quot; &quot;http&quot;  &quot;https&quot;</code></pre>
+  str_sub(start = 1, end = k)
+## [1] &quot;https&quot; &quot;http&quot;  &quot;https&quot; &quot;http&quot;  &quot;https&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="extract-domain-name" class="section level3">
-<h3>extract domain name</h3>
+<div id="extract-domain-name" class="section level4">
+<h4>Extract domain name</h4>
+<hr>
 <pre class="r"><code>n &lt;- mockstring$url[1:5] %&gt;%
   str_locate_all(pattern = &quot;/&quot;) %&gt;%
   map_int(extract(3))
@@ -412,11 +421,13 @@ mockstring$url[1:5] %&gt;%
   str_sub(end = n) %&gt;%
   str_split(pattern = &#39;\\.&#39;) %&gt;%
   map_chr(extract(1)) %&gt;%
-  str_sub(start = k + 4)</code></pre>
-<pre><code>## [1] &quot;engadget&quot;   &quot;delicious&quot;  &quot;w3&quot;         &quot;indiatimes&quot; &quot;tumblr&quot;</code></pre>
+  str_sub(start = k + 4)
+## [1] &quot;engadget&quot;   &quot;delicious&quot;  &quot;w3&quot;         &quot;indiatimes&quot; &quot;tumblr&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="extract-extension" class="section level3">
-<h3>extract extension</h3>
+<div id="extract-extension" class="section level4">
+<h4>Extract extension</h4>
+<hr>
 <pre class="r"><code>mockstring$url[1:5] %&gt;%
   str_sub(end = n) %&gt;%
   str_split(pattern = &#39;\\.&#39;) %&gt;%
@@ -424,24 +435,28 @@ mockstring$url[1:5] %&gt;%
   str_split(pattern = &#39;/&#39;) %&gt;%
   map_chr(extract(1))</code></pre>
 <pre><code>## [1] &quot;com&quot; &quot;com&quot; &quot;org&quot; &quot;com&quot; &quot;com&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="extract-file-type" class="section level3">
-<h3>extract file type</h3>
+<div id="extract-file-type" class="section level4">
+<h4>Extract file type</h4>
+<hr>
 <pre class="r"><code># only 2 dots in the url
 mockstring$url[1:3] %&gt;%
   str_locate_all(pattern = &#39;\\.&#39;) %&gt;%
   map_int(nrow) %&gt;%
   is_greater_than(2) %&gt;%
-  sum()</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code># only 1 question mark in the url
+  sum()
+## [1] 0
+  
+# only 1 question mark in the url
 mockstring$url[1:3] %&gt;%
   str_locate_all(pattern = &quot;[?]&quot;) %&gt;%
   map_int(nrow) %&gt;%
   is_greater_than(1) %&gt;%
-  sum()</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code># location of second dot and 1 question mark
+  sum()
+## [1] 0
+
+# location of second dot and 1 question mark
 d &lt;- mockstring$url[1:3] %&gt;%
   str_locate_all(pattern = &#39;\\.&#39;) %&gt;%
   map_int(extract(2)) %&gt;%
@@ -453,11 +468,19 @@ q &lt;- mockstring$url[1:3] %&gt;%
   subtract(1)
 
 mockstring$url[1:3] %&gt;% 
-  str_sub(start = d, end = q)</code></pre>
-<pre><code>## [1] &quot;jsp&quot;  &quot;json&quot; &quot;json&quot;</code></pre>
+  str_sub(start = d, end = q)
+## [1] &quot;jsp&quot;  &quot;json&quot; &quot;json&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<div id="summary" class="section level4">
+<h4>Summary</h4>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level4">
+<h4>Up Next..</h4>
+<hr>
+<p><br></p>
 </div>
 </div>
 

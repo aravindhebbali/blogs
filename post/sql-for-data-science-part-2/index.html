@@ -273,7 +273,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="../../topics/data-wrangling">data-wrangling</a>
+      <a class="post-taxonomy-topic" href="../../topics/database">database</a>
     
   </div>
   
@@ -295,7 +295,251 @@
 
 </div>
 
-  
+  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>This is the fourth post in the series <strong>R &amp; Databases</strong>. You can find the links to the other two posts of this series below:</p>
+<ul>
+<li><a href="">Quick Guide: R &amp; SQLite</a></li>
+<li><a href="">Data Wrangling with dbplyr</a></li>
+<li><a href="">SQL for Data Science - Part 1</a></li>
+</ul>
+<p>In this post, we will learn to:</p>
+<ul>
+<li>connect to a SQLite database from R</li>
+<li>display database information</li>
+<li>list tables in the database</li>
+<li>query data
+<ul>
+<li>read entire table</li>
+<li>read few rows</li>
+<li>read data in batches</li>
+</ul></li>
+<li>create table in database</li>
+<li>overwrite table in database</li>
+<li>append data to table in database</li>
+<li>remove table from database</li>
+<li>generate SQL query</li>
+<li>close database connection</li>
+</ul>
+<p><br></p>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">DBI</a></li>
+<li><a href="">RSQLite</a></li>
+<li><a href="">dbplyr</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p><br></p>
+<div id="set-up" class="section level4">
+<h4>Set Up</h4>
+<hr>
+<pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
+con &lt;- DBI::dbConnect(RSQLite::SQLite(), &quot;:memory:&quot;)
+copy_to(con, ecom)</code></pre>
+<p><br></p>
+</div>
+<div id="aggregate-functions" class="section level4">
+<h4>Aggregate Functions</h4>
+<hr>
+<p>Often, you will want to perform some calculation on the data in a database. SQL provides a few functions, called aggregate functions, to help you out with this.</p>
+<p>For example,</p>
+<p><code>SELECT AVG(budget) FROM films</code></p>
+<p>gives you the average value from the budget column of the films table. Similarly, the MAX function returns the highest budget:</p>
+<p><code>SELECT MAX(budget) FROM films</code></p>
+<p>The SUM function returns the result of adding up the numeric values in a column:</p>
+<p><code>SELECT SUM(budget) FROM films</code></p>
+<p><br></p>
+</div>
+<div id="aggregate---1" class="section level4">
+<h4>Aggregate - 1</h4>
+<hr>
+<p>You can probably guess what the MIN function does! Now it’s your turn to try out some SQL functions.</p>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT SUM(n_visit) FROM ecom&quot;)</code></pre>
+<pre><code>##   SUM(n_visit)
+## 1         4972</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT AVG(n_visit) FROM ecom&quot;)</code></pre>
+<pre><code>##   AVG(n_visit)
+## 1        4.972</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MAX(n_visit) FROM ecom&quot;)</code></pre>
+<pre><code>##   MAX(n_visit)
+## 1           10</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MIN(n_visit) FROM ecom&quot;)</code></pre>
+<pre><code>##   MIN(n_visit)
+## 1            0</code></pre>
+<p><br></p>
+</div>
+<div id="aggregate---2" class="section level4">
+<h4>Aggregate - 2</h4>
+<hr>
+<p>You can probably guess what the MIN function does! Now it’s your turn to try out some SQL functions.</p>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT SUM(n_visit) FROM ecom WHERE n_visit &gt; 5&quot;)</code></pre>
+<pre><code>##   SUM(n_visit)
+## 1         3574</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT AVG(n_visit) FROM ecom WHERE country LIKE &#39;P%&#39;&quot;)</code></pre>
+<pre><code>##   AVG(n_visit)
+## 1     5.079137</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MAX(n_visit) FROM ecom WHERE device == &#39;tablet&#39;&quot;)</code></pre>
+<pre><code>##   MAX(n_visit)
+## 1           10</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MIN(n_visit) FROM ecom WHERE duration BETWEEN 600 AND 900&quot;)</code></pre>
+<pre><code>##   MIN(n_visit)
+## 1            0</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="alias---part-1" class="section level2">
+<h2>Alias - Part 1</h2>
+<hr>
+<p>You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example,</p>
+<p><code>SELECT MAX(budget) FROM films</code></p>
+<p>gives you a result with one column, named max. But what if you use two functions like this?</p>
+<p><code>SELECT MAX(budget), MAX(duration) FROM films</code></p>
+<p>Well, then you’d have two columns named max, which isn’t very useful!</p>
+<p>To avoid situations like this, SQL allows you to do something called aliasing. Aliasing simply means you assign a temporary name to something. To alias, you use the AS keyword, which you’ve already seen earlier in this course.</p>
+<p>For example, in the above example we could use aliases to make the result clearer:</p>
+<p><code>SELECT MAX(budget) AS max_budget,        MAX(duration) AS max_duration FROM films</code></p>
+<p>Aliases are helpful for making results more readable!</p>
+<p><br></p>
+<div id="alias---part-2" class="section level4">
+<h4>Alias - Part 2</h4>
+<hr>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT AVG(n_visit) AS avg_mobile FROM ecom WHERE device == &#39;mobile&#39;&quot;)</code></pre>
+<pre><code>##   avg_mobile
+## 1   5.479651</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MAX(n_visit) AS max_visit FROM ecom&quot;)</code></pre>
+<pre><code>##   max_visit
+## 1        10</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT MIN(duration) AS min_duration FROM ecom&quot;)</code></pre>
+<pre><code>##   min_duration
+## 1           10</code></pre>
+<p><br></p>
+</div>
+<div id="order-by" class="section level4">
+<h4>Order By</h4>
+<hr>
+<p>In this chapter you’ll learn how to sort and group your results to gain further insight. Let’s go!</p>
+<p>In SQL, the ORDER BY keyword is used to sort results in ascending or descending order according to the values of one or more columns.</p>
+<p>By default ORDER BY will sort in ascending order. If you want to sort the results in descending order, you can use the DESC keyword. For example,</p>
+<p><code>SELECT title FROM films ORDER BY release_year DESC</code></p>
+<p>gives you the titles of films sorted by release year, from newest to oldest.</p>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom ORDER BY country&quot;)</code></pre>
+<pre><code>##        id referrer device bouncers n_visit n_pages duration
+## 1     232   social laptop    false       8       2       60
+## 2     299    yahoo laptop    false      10      18      180
+## 3     570   social laptop     true       2       1      274
+## 4     677   direct tablet     true      10       1      682
+##                               country purchase order_items order_value
+## 1                         Afghanistan    false           0           0
+## 2                         Afghanistan    false           0           0
+## 3                         Afghanistan    false           0           0
+## 4                         Afghanistan    false           0           0
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 996 rows ]</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom ORDER BY duration&quot;)</code></pre>
+<pre><code>##        id referrer device bouncers n_visit n_pages duration
+## 1     236    yahoo tablet     true       5       1       10
+## 2     615   social laptop     true       1       1       10
+## 3     392    yahoo laptop    false       0       1       12
+## 4     688   social mobile     true       2       1       12
+##                               country purchase order_items order_value
+## 1                              Poland    false           0           0
+## 2                             Finland    false           0           0
+## 3                           Indonesia    false           0           0
+## 4                            Botswana    false           0           0
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 996 rows ]</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom ORDER BY n_visit DESC&quot;)</code></pre>
+<pre><code>##        id referrer device bouncers n_visit n_pages duration
+## 1       1   google laptop     true      10       1      693
+## 2       7    yahoo mobile     true      10       1       75
+## 3       8   direct mobile     true      10       1      908
+## 4      29   google mobile     true      10       1      338
+##                               country purchase order_items order_value
+## 1                      Czech Republic    false           0           0
+## 2                          Bangladesh    false           0           0
+## 3                           Indonesia    false           0           0
+## 4                              Russia    false           0           0
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 996 rows ]</code></pre>
+<p><br></p>
+</div>
+<div id="group-by---intro" class="section level4">
+<h4>Group By - Intro</h4>
+<hr>
+<p>Now you know how to sort results! Often you’ll need to aggregate results. For example, you might want to get count the number of male and female employees in your company. Here, what you want is to group all the males together and count them, and group all the females together and count them. In SQL, GROUP BY allows you to group a result by one or more columns, like so:</p>
+<p><code>SELECT sex, count(*) FROM employees GROUP BY sex</code></p>
+<p>This might give, for example:</p>
+<p>sex count male 15 female 19</p>
+<p>Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX(). Note that GROUP BY always goes after the FROM clause!</p>
+<p><br></p>
+</div>
+<div id="group-by---practice" class="section level4">
+<h4>Group By - Practice</h4>
+<hr>
+<p>As you’ve just seen, combining aggregate functions with GROUP BY can yield some powerful results!</p>
+<p>A word of warning: SQL will return an error if you try to SELECT a field that is not in your GROUP BY clause without using it to calculate some kind of value about the entire group.</p>
+<p>Note that you can combine GROUP BY with ORDER BY to group your results, calculate something about them, and then order your results. For example,</p>
+<p><code>SELECT sex, count(*) FROM employees GROUP BY sex ORDER BY count DESC</code></p>
+<p>might return something like</p>
+<p>sex count female 19 male 15</p>
+<p>because there are more females at our company than males. Note also that ORDER BY always goes after GROUP BY. Let’s try some exercises!</p>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT device, count(*) AS visits FROM ecom GROUP BY device ORDER by visits DESC &quot;)</code></pre>
+<pre><code>##   device visits
+## 1 mobile    344
+## 2 tablet    331
+## 3 laptop    325</code></pre>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT device, MAX(duration) AS max_duration FROM ecom GROUP BY device ORDER by max_duration DESC &quot;)</code></pre>
+<pre><code>##   device max_duration
+## 1 tablet          999
+## 2 laptop          997
+## 3 mobile          994</code></pre>
+<p><br></p>
+</div>
+<div id="having" class="section level4">
+<h4>Having</h4>
+<hr>
+<pre class="r"><code>dbGetQuery(con, &quot;SELECT country FROM ecom GROUP BY country HAVING COUNT(*) &gt; 10&quot;)</code></pre>
+<pre><code>##           country
+## 1       Argentina
+## 2          Brazil
+## 3           China
+## 4        Colombia
+## 5  Czech Republic
+## 6          France
+## 7          Greece
+## 8       Indonesia
+## 9           Japan
+## 10           Peru
+## 11    Philippines
+## 12         Poland
+## 13       Portugal
+## 14         Russia
+## 15         Sweden
+## 16       Thailand
+## 17        Ukraine
+## 18  United States</code></pre>
+<p><br></p>
+</div>
+<div id="putting-it-all-together" class="section level4">
+<h4>Putting It All Together</h4>
+<hr>
+<p>Compute AOV by devices</p>
+<p><br></p>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
+</div>
+</div>
+
 
   
 <div class="prev-next-post pure-g">

@@ -26,6 +26,7 @@ This is the third post in the series **R & Databases**. You can find the links t
 
 - [Quick Guide: R & SQLite]()
 - [Data Wrangling with dbplyr]()
+- [SQL for Data Science - Part 2]()
 
 In this post, we will learn to:
 

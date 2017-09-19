@@ -18,7 +18,9 @@
       <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/sql-for-data-science-part-2/</guid>
-      <description></description>
+      <description>IntroductionThis is the fourth post in the series R &amp;amp; Databases. You can find the links to the other two posts of this series below:
+Quick Guide: R &amp;amp; SQLiteData Wrangling with dbplyrSQL for Data Science - Part 1In this post, we will learn to:
+connect to a SQLite database from Rdisplay database informationlist tables in the databasequery dataread entire tableread few rowsread data in batchescreate table in databaseoverwrite table in databaseappend data to table in databaseremove table from databasegenerate SQL queryclose database connection</description>
     </item>
     
     <item>

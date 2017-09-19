@@ -105,8 +105,9 @@ Simple Bar Plotggplot(ecom) +geom_bar(aes(factor(device)))Bar Colorggplot(e
       <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-line-graphs/</guid>
-      <description>IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to build line plots.
-Basic Line PlotWe will use a data set related to GDP growth rate. You can download it from here. It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.</description>
+      <description>IntroductionThis is the 8th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build scatter plots. In this post, we will learn to
+buildsimple line chartgrouped line chartmap aesthetics to variablesmodify linecolortypesize
+Case StudyWe will use a data set related to GDP growth rate.</description>
     </item>
     
     <item>

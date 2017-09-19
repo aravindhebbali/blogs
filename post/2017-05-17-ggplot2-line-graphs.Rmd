@@ -13,9 +13,23 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
 
-This is the 8th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/), we learnt to build scatter plots. In this post, we will learn to build line plots.
+<hr>
+
+This is the 8th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-scatter-plots/), we learnt to build scatter plots. In this post, we will learn to 
+
+- build 
+    - simple line chart
+    - grouped line chart
+- map aesthetics to variables
+- modify line
+    - color
+    - type
+    - size
+
+
+<br>
 
 ```{r line, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
@@ -23,70 +37,161 @@ library(dplyr)
 library(tidyr)
 ```
 
-## Basic Line Plot
+#### Case Study
+
+<hr>
 
 We will use a data set related to GDP growth rate. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/gdp.csv). It contains GDP (Gross Domestic Product) growth data for the BRICS (Brazil, Russia, India, China, South Africa) for the years 2000 to 2005.
 
-```{r import2, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+<br>
+
+#### Data
+
+<hr>
+
+```{r import2, eval=TRUE, message=FALSE}
 gdp <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/gdp.csv')
+gdp
 ```
-```{r line1}
+
+<br>
+
+#### Line Chart
+
+<hr>
+
+```{r line100, fig.align='center'}
+ggplot(gdp, aes(year, india)) +
+  geom_line()
+```
+
+<br>
+
+#### Line Color
+
+<hr>
+
+```{r line1, fig.align='center'}
 ggplot(gdp, aes(year, india)) +
   geom_line(color = 'blue')
 ```
 
-`linetype` can be used to modify the appearance of the line.
+<br>
 
-```{r line2}
+#### Line Type
+
+<hr>
+
+- 0 : blank
+- 1 : solid
+- 2 : dashed
+- 3 : dotted
+- 4 : dotdash
+- 5 : longdash
+- 6 : twodash
+
+<br>
+
+#### Line Type
+
+<hr>
+
+```{r line2, fig.align='center'}
 ggplot(gdp, aes(year, india)) +
   geom_line(linetype = 2)
 ```
 
-```{r line3}
+<br>
+
+#### Line Type (Dashed)
+
+<hr>
+
+```{r line3, fig.align='center'}
 ggplot(gdp, aes(year, india)) +
   geom_line(linetype = 'dashed')
 ```
 
-`size` argument is used to specify the width of the line.
+<br>
 
-```{r line4}
+#### Line Size
+
+<hr>
+
+```{r line4, fig.align='center'}
 ggplot(gdp, aes(year, india)) +
   geom_line(size = 2)
 ```
 
+<br>
+
+#### Modify Data
+
+<hr>
+
 Now let us map the aesthetics to the variables. The data used in the above example cannot be used as we need a variable with country names. We will use `gather()` function from the `tidyr` package to reshape the data.
 
-```{r line5}
+```{r line5, fig.align='center'}
 gdp2 <- gdp %>% 
   select(year, growth, india, china) %>% 
   gather(key = country, value = gdp, -year)
+gdp2
 ```
 
-Now we can map the aethetics to the `country` variable
+<br>
 
-```{r line6}
+#### Grouped Line Chart
+
+<hr>
+
+```{r line6, fig.align='center'}
 ggplot(gdp2, aes(year, gdp, group = country)) +
   geom_line()
 ```
 
-Let us begin with `color`.
+<br>
 
-```{r line7}
+#### Map Color to Country
+
+<hr>
+
+```{r line7, fig.align='center'}
 ggplot(gdp2, aes(year, gdp, group = country)) +
   geom_line(aes(color = country))
 ```
 
-Map `linetype` to `country`.
+<br>
 
-```{r line8}
+#### Map Line Type to Country
+
+<hr>
+
+```{r line8, fig.align='center'}
 ggplot(gdp2, aes(year, gdp, group = country)) +
   geom_line(aes(linetype = country))
 ```
 
-Map `linewidth` to `country`.
+<br>
 
-```{r line9}
+#### Map Line Width to Country
+
+<hr>
+
+```{r line9, fig.align='center'}
 ggplot(gdp2, aes(year, gdp, group = country)) +
   geom_line(aes(size = country))
 ```
-  
+
+<br>
+
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

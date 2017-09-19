@@ -235,9 +235,10 @@ ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()ggplot(d
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/axis-plot-labels/</guid>
-      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will learn to:
-add title and subtitle to the plotmodify axis labelsmodify axis rangeremove axisformat axisBasic PlotLet us start by building a simple scatter plot.
-ggplot(mtcars) +geom_point(aes(disp, mpg))Title &amp;amp; SubtitleYou can add a title and subtitle to the plot using the ggtitle() function.</description>
+      <description>IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will learn to:
+add title and subtitle to the plotmodify axis labelsmodify axis rangeremove axisformat axis
+Basic Plotggplot(mtcars) +geom_point(aes(disp, mpg))
+Title &amp;amp; SubtitleThere are two ways to add title to a plot:</description>
     </item>
     
     <item>

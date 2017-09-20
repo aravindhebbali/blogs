@@ -238,8 +238,8 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-line-graphs/</guid>
-      <description>IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
-create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plotLine GraphTo build a line graph, we will learn a new argument in the plot() function called type.</description>
+      <description>IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
+create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plot</description>
     </item>
     
     <item>

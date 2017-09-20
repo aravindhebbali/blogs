@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>Overlapping &middot; Rsquared Academy Blog</title>
+  <title>Legend - Part 2 &middot; Rsquared Academy Blog</title>
 
   
   
@@ -253,7 +253,7 @@
 
 
 <div class="header">
-  <h1>Overlapping</h1>
+  <h1>Legend - Part 2</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -293,80 +293,161 @@
 
 </div>
 
-  <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the 18th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/guides-legends-part-2/">post</a>, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.</p>
-<div id="dodge" class="section level2">
-<h2>Dodge</h2>
-<p>Preserve the vertical position while adjusting the horizontal position.</p>
-<p>Create grouped bar plots.</p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar()</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos2-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
-  geom_bar(position = position_dodge(width = 1))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos3-1.png" width="672" /></p>
-</div>
-<div id="jitter" class="section level2">
-<h2>Jitter</h2>
-<p>Add some noise to data points for better visualization.</p>
-<pre class="r"><code>ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter()</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos4-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter()</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos5-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos6-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(am), factor(vs))) +
-  geom_jitter(position = position_jitter(width = 0.05, height = 0.3))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos7-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = mtcars, aes(am, vs)) +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos8-1.png" width="672" /></p>
-</div>
-<div id="nudge" class="section level2">
-<h2>Nudge</h2>
-<p>Use with geom_text. Useful for adjusting text around points.</p>
-<pre class="r"><code>df &lt;- data.frame(
-  x = c(1,3,2,5),
-  y = c(&quot;a&quot;,&quot;c&quot;,&quot;d&quot;,&quot;c&quot;)
-)
-
-ggplot(df, aes(x, y)) +
-  geom_point() +
-  geom_text(aes(label = y),
-            position = position_nudge(y = -0.1, x = -0.2))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos9-1.png" width="672" /></p>
-</div>
-<div id="fill" class="section level2">
-<h2>Fill</h2>
-<p>Proportional bar plots.</p>
-<pre class="r"><code>ggplot(data = mtcars, aes(factor(cyl), fill = factor(gear))) +
-  geom_bar(position = &quot;fill&quot;)</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos10-1.png" width="672" /></p>
-</div>
-<div id="stack" class="section level2">
-<h2>Stack</h2>
-<pre class="r"><code>series &lt;- data.frame(
-  time = c(rep(1, 4),rep(2, 4), rep(3, 4), rep(4, 4)),
-  type = rep(c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;), 4),
-  value = rpois(16, 10)
-)
-
-series$type2 &lt;- factor(series$type, levels = c(&#39;c&#39;, &#39;b&#39;, &#39;d&#39;, &#39;a&#39;))
-
-ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type)) +
-  geom_point(aes(colour = type))</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos11-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(series, aes(time, value, group = type)) +
-  geom_line(aes(colour = type), position = &quot;stack&quot;) +
-  geom_point(aes(colour = type), position = &quot;stack&quot;)</code></pre>
-<p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos11-2.png" width="672" /></p>
-</div>
+  <p>This is the 14th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previos <a href="https://rsquaredacademy.github.io/blog/post/guides-legends/">post</a>, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.</p>
+<div id="guides" class="section level2">
+<h2>Guides</h2>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
+                      guide = guide_legend(
+                       title = &quot;Cylinders&quot;,
+                       title.hjust = 0.5,
+                       title.position = &quot;top&quot;,
+                       label.position = &quot;right&quot;,
+                       direction = &quot;horizontal&quot;,
+                       label.hjust = 0.5,
+                       nrow = 2,
+                       reverse = TRUE
+                      )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui2-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = factor(cyl))) +
+  scale_color_discrete(guide = guide_legend(
+                        title = &quot;Cylinders&quot;,
+                        title.hjust = 0.5,
+                        title.position = &quot;top&quot;,
+                        label.position = &quot;right&quot;,
+                        direction = &quot;horizontal&quot;,
+                        label.hjust = 0.5,
+                        nrow = 2,
+                        reverse = TRUE
+                        )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp)) +
+  scale_color_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE
+  ))</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui4-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_continuous(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui5-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient2(guide = guide_colorbar(
+    title = &quot;Horsepower&quot;,
+    title.position = &quot;top&quot;,
+    title.vjust = 1,
+    label.position = &quot;bottom&quot;,
+    label.vjust = 0.8,
+    barwidth = 10,
+    barheight = 3,
+    nbins = 10,
+    raster = FALSE,
+    ticks = TRUE,
+    draw.ulim = TRUE,
+    draw.llim = FALSE,
+    direction = &quot;horizontal&quot;,
+    reverse = TRUE)
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui6-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;, 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui7-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
+  scale_fill_gradientn(colors = terrain.colors(5), 
+    guide = guide_colorbar(
+      title = &quot;Horsepower&quot;,
+      title.position = &quot;top&quot;,
+      title.vjust = 1,
+      label.position = &quot;bottom&quot;,
+      label.vjust = 0.8,
+      barwidth = 10,
+      barheight = 3,
+      nbins = 10,
+      raster = FALSE,
+      ticks = TRUE,
+      draw.ulim = TRUE,
+      draw.llim = FALSE,
+      direction = &quot;horizontal&quot;,
+      reverse = TRUE
+    )
+  ) </code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = qsec, 
+                 shape = factor(gear))) + 
+  guides(color = &quot;colorbar&quot;,
+         shape = &quot;legend&quot;,
+         size = &quot;legend&quot;)</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui9-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, color = hp, 
+                 size = wt, 
+                 shape = factor(gear))) + 
+  guides(
+    color = guide_colorbar(
+      title = &quot;Horsepower&quot;
+    ),
+    shape = guide_legend(
+      title = &quot;Weight&quot;
+    ),
+    size = guide_legend(
+      title = &quot;Gear&quot;
+    )
+  )</code></pre>
+<p><img src="../../post/2017-07-06-guides-legends-part-2_files/figure-html/gui10-1.png" width="672" /></p>
 </div>
 
 
@@ -374,13 +455,13 @@ ggplot(series, aes(time, value, group = type)) +
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="../../post/axis-plot-labels/"><i class="fa fa-chevron-left"></i></a>
+    <a href="../../post/legend-part-1/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="../../post/axis-plot-labels/">Axis &amp; Plot Labels</a>
+      <a href="../../post/legend-part-1/">Legends - Part 1</a>
     </nav>
     
   </div>
@@ -390,13 +471,13 @@ ggplot(series, aes(time, value, group = type)) +
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="../../post/legend-part-1/">Legends - Part 1</a>
+      <a href="../../post/guides-axes/">Guides - Axes</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="../../post/legend-part-1/"><i class="fa fa-chevron-right"></i></a>
+    <a href="../../post/guides-axes/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

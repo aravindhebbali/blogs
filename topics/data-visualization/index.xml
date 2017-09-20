@@ -25,23 +25,22 @@ Modify X and Y axis
     </item>
     
     <item>
-      <title>Guides - Legends</title>
-      <link>/post/guides-legends/</link>
+      <title>Legend - Part 2</title>
+      <link>/post/legend-part-2/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/guides-legends/</guid>
-      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables.
-Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the below functions:</description>
+      <guid>/post/legend-part-2/</guid>
+      <description>This is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
+Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),guide = guide_legend(title = &amp;quot;Cylinders&amp;quot;,title.hjust = 0.</description>
     </item>
     
     <item>
-      <title>Guides: Legends - Part 2</title>
-      <link>/post/guides-legends-part-2/</link>
+      <title>Legends - Part 1</title>
+      <link>/post/legend-part-1/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/guides-legends-part-2/</guid>
-      <description>This is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
-Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),guide = guide_legend(title = &amp;quot;Cylinders&amp;quot;,title.hjust = 0.</description>
+      <guid>/post/legend-part-1/</guid>
+      <description>IntroductionThis is the 13th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the axis of plots. In this post, we will focus on modifying the legends of plots when the aesthetics are mapped to variables. If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. You may want to modify the appearance of legends.</description>
     </item>
     
     <item>

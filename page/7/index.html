@@ -267,6 +267,233 @@
   
     <article>
   <header>
+    <h2><a href="../../post/ggplot2-scatter-plots/">ggplot2: Scatter Plots</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>09 Mar 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the fifth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+build scatter plotsmodify pointcolorfillalphashapesizefit regression line
+Basic Plotggplot(mtcars) +geom_point(aes(disp, mpg))
+Jitterggplot(mtcars) +geom_point(aes(disp, mpg), position = &#39;jitter&#39;)
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-scatter-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/ggplot2-introduction-to-aesthetics/">ggplot2: Introduction to aesthetics</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>20 Feb 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the fourth post in the series Elegant Data Visualization with ggplot2. In the previous post we learnt about geoms and how we can use them to build different plots. In this post, we will focus on the aesthetics i.e. color, shape, size, alpha, line type, line width etc. We can map these to variables or specify values for them. If we want to map the above to variables, we have to specify them within the aes() function.
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-introduction-to-aesthetics/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/ggplot2-quick-tour/">ggplot2: Quick Tour</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>19 Feb 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the second post in the series Elegant Data Visualization with ggplot2. In the previous post, we understood the concept of grammar of graphics and even built a bar plot step by step while exploring the different components of a plot/chart. In this post, we will learn to quickly build a set of plots that are routinely used to explore data.
+
+Scatter Plotqplot(disp, mpg, data = mtcars)qplot(disp, mpg, data = mtcars, geom = c(&#39;point&#39;, &#39;line&#39;))qplot(disp, mpg, data = mtcars, color = factor(cyl))qplot(disp, mpg, data = mtcars, shape = factor(cyl))qplot(disp, mpg, data = mtcars, size = qsec)
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-quick-tour/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="../../post/ggplot2-introduction-to-geoms/">ggplot2: Introduction to geoms</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Feb 2016</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/ggplot2">ggplot2</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ggplot2">ggplot2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  IntroductionThis is the third post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to create plots using the qplot() function. In this post, we will create some of the most routinely used plots to explore data using the geom_* functions.
+
+Dataecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)## # A tibble: 1,000 x 11## id referrer device bouncers n_visit n_pages duration country## &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;## 1 1 google laptop true 10 1 693 Czech Republic## 2 2 yahoo tablet true 9 1 459 Yemen## 3 3 direct laptop true 0 1 996 Brazil## 4 4 bing tablet false 3 18 468 China## 5 5 yahoo mobile true 9 1 955 Poland## 6 6 yahoo laptop false 5 5 135 South Africa## 7 7 yahoo mobile true 10 1 75 Bangladesh## 8 8 direct mobile true 10 1 908 Indonesia## 9 9 bing mobile false 3 19 209 Netherlands## 10 10 google mobile true 6 1 208 Czech Republic## # .
+  </p>
+
+  
+  <footer>
+    <a href="../../post/ggplot2-introduction-to-geoms/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="../../post/introduction-to-ggplot2/">Introduction to ggplot2</a></h2>
 
     <div class="post-meta">
@@ -601,231 +828,6 @@ IntroductionA histogram is a plot that can be used to examine the shape and spr
   
   <footer>
     <a href="../../post/data-visualization-with-r-histogram/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-box-plots/">Data Visualization with R - Box Plots</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>21 Oct 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/box-plot">box plot</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/base">base</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  This is the sixth post in the series Data Visualization With R. In the previous post, we learnt how to build bar plots. In this post, we will learn about box plots.
-IntroductionThe box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-box-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-bar-plots/">Data Visualization With R - Bar Plots</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>05 Oct 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/bar-plot">bar plot</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the fifth post in the series Data Visualization With R. In the previous post we learnt how to build line graphs. In this post, we will visualize categorical data using univariate and bivariate bar plots.
-Bar PlotA bar plot represents data in rectangular bars. The length of the bars are proportional to the values they represent. Bar plots can be either horizontal or vertical.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-bar-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-line-graphs/">Data Visualization With R - Line Graphs</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>23 Sep 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the fourth post in the series Data Visualization With R. In the previous post, we learnt how to build scatter plots. In this post, we will build line graphs. To be more specific we will learn to
-create line plotsadd color to linesmodify line type/stylemodify line widthadd points to the linesmodify axis rangeadd additional lines to the plotLine GraphTo build a line graph, we will learn a new argument in the plot() function called type.
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-line-graphs/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="../../post/data-visualization-with-r-scatter-plots/">Data Visualization With R - Scatter Plots</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>07 Sep 2015</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="../../tags/base">base</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="../../tags/visualization">visualization</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by
-  </p>
-
-  
-  <footer>
-    <a href="../../post/data-visualization-with-r-scatter-plots/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

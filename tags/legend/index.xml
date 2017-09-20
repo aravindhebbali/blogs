@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2014-2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 25 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/legend/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Legend - Part 3</title>
+      <link>/post/legend-part-3/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/legend-part-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Legend - Part 4</title>
+      <link>/post/legend-part-4/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/legend-part-4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Legend - Part 5</title>
+      <link>/post/legend-part-5/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/legend-part-5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Legend - Part 6</title>
+      <link>/post/legend-part-6/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/legend-part-6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Visualization with R - Legends</title>

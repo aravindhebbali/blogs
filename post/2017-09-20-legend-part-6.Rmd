@@ -1,0 +1,12 @@
+---
+title: Legend - Part 6
+author: ''
+date: '2017-09-20'
+slug: legend-part-6
+categories:
+  - data-visualization
+tags:
+  - ggplot2
+  - legend
+---
+

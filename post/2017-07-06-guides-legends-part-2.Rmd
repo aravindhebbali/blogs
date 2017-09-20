@@ -1,7 +1,7 @@
 ---
-title: 'Guides: Legends - Part 2'
+title: 'Legend - Part 2'
 date: '2017-07-06'
-slug: guides-legends-part-2
+slug: legend-part-2
 topics:
   - data-visualization
 tags:

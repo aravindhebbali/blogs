@@ -296,200 +296,327 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the last post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-facets/">post</a>, we learnt to combine multiple plots. In this post, we will learn to</p>
 <ul>
 <li>modify theme components</li>
 <li>use different themes</li>
 </ul>
-<p>Use <code>theme()</code> to modify the appearance of all non data components of the plot.</p>
-<div id="theme" class="section level2">
-<h2>theme</h2>
-</div>
-<div id="modify-components-of-a-plot" class="section level2">
-<h2>modify components of a plot</h2>
+<p>Use <code>theme()</code> to modify the appearance of all non data components of the plot such as</p>
+<ul>
+<li>axis</li>
+<li>legend</li>
+<li>panel</li>
+<li>plot area</li>
+<li>background</li>
+<li>margin</li>
+<li>facets</li>
+</ul>
+<p><br></p>
+<div id="scatter-plot" class="section level4">
+<h4>Scatter Plot</h4>
+<hr>
 <pre class="r"><code>p &lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))</code></pre>
-<pre class="r"><code># modify X axis title
-p + theme(axis.title.x = element_text(
-  color = &quot;red&quot;, size = 10))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme2-1.png" width="672" /></p>
-<pre class="r"><code># modify X axis text
-p + theme(axis.text.x = element_text(
-  color = &quot;red&quot;, size = 10))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme3-1.png" width="672" /></p>
-<pre class="r"><code># modify both axis text
-p + theme(axis.text = element_text(
-  color = &quot;red&quot;, size = 10, face = &quot;italic&quot;))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme4-1.png" width="672" /></p>
-<pre class="r"><code># modify axis ticks
-p + theme(
-  axis.ticks = element_line(
-    color = &#39;blue&#39;,
-    size = 1.25,
-    linetype = 2
-  ),
-  axis.ticks.length = unit(1, &quot;cm&quot;)
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme5-1.png" width="672" /></p>
+  geom_point(aes(disp, mpg))
+p</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="modify-axis-line" class="section level2">
-<h2>modify axis line</h2>
-<pre class="r"><code>p + theme(
-  axis.line = element_line(
-    color = &#39;red&#39;,
-    size = 1.5, 
-    linetype = 3
-  )
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme6-1.png" width="672" /></p>
+<div id="axis-title" class="section level4">
+<h4>Axis Title</h4>
+<hr>
+<pre class="r"><code>p + theme(axis.title.x = element_text(color = &quot;red&quot;, size = 10))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="modify-legend" class="section level2">
-<h2>modify legend</h2>
+<div id="axis-text" class="section level4">
+<h4>Axis Text</h4>
+<hr>
+<pre class="r"><code>p + theme(axis.text.x = element_text(color = &quot;red&quot;, size = 10))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-font" class="section level4">
+<h4>Axis Font</h4>
+<hr>
+<pre class="r"><code>p + theme(axis.text = element_text(color = &quot;red&quot;, size = 10, face = &quot;italic&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-ticks" class="section level4">
+<h4>Axis Ticks</h4>
+<hr>
+<pre class="r"><code>p + theme(axis.ticks = element_line(color = &#39;blue&#39;, size = 1.25, linetype = 2), 
+          axis.ticks.length = unit(1, &quot;cm&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="axis-line" class="section level4">
+<h4>Axis Line</h4>
+<hr>
+<pre class="r"><code>p + theme(axis.line = element_line(color = &#39;red&#39;, size = 1.5, linetype = 3))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="legend" class="section level4">
+<h4>Legend</h4>
+<hr>
 <pre class="r"><code>p &lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl), shape = factor(gear)))</code></pre>
-<pre class="r"><code>p + theme(
-  legend.background = element_rect(
-    fill = &#39;gray&#39;, 
-    linetype = 2, 
-    color = &quot;red&quot;
-  ),
-  legend.margin = margin(4, 8, 4, 8),
-  legend.spacing = unit(1.5, &quot;cm&quot;),
-  legend.key = element_rect(fill = &#39;red&#39;),
-  legend.key.size = unit(0.4, &quot;cm&quot;),
-  legend.text = element_text(color = &#39;green&#39;, face = &#39;italic&#39;),
-  legend.title = element_text(color = &#39;blue&#39;, face = &#39;bold&#39;),
-  legend.title.align = 0.1,
-  legend.position = &quot;top&quot;,
-  legend.direction = &quot;horizontal&quot;,
-  legend.box = &quot;horizontal&quot;,
-  legend.box.background = element_rect(fill = &quot;yellow&quot;),
-  legend.box.spacing = unit(1, &quot;cm&quot;),
-  legend.box.margin = margin(4, 8, 4, 8),
-  legend.box.just = &quot;left&quot;
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme8-1.png" width="672" /></p>
+  geom_point(aes(disp, mpg, color = factor(cyl), shape = factor(gear)))
+p</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="modify-panel" class="section level2">
-<h2>modify panel</h2>
-<pre class="r"><code>p &lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))</code></pre>
-<pre class="r"><code>p + theme(
-  panel.background = element_rect(fill = &#39;gray&#39;),
-  panel.border = element_rect(
-    fill = NA, 
-    color = &#39;red&#39;, 
-    linetype = 1,
-    size = 2
-  ),
-  panel.grid = element_line(
-    color = &#39;blue&#39;,
-    linetype = 2,
-    size = 0.5
-  )
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme10-1.png" width="672" /></p>
-<pre class="r"><code>p &lt;- ggplot(mtcars) +
-  geom_point(aes(disp, mpg))</code></pre>
-<pre class="r"><code>p + theme(
-  panel.grid.major.x = element_line(
-    color = &#39;blue&#39;,
-    linetype = 2,
-    size = 0.5
-  ),
-  panel.grid.minor.y = element_line(
-    color = &#39;red&#39;,
-    linetype = 3, 
-    size = 0.2
-  )
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme12-1.png" width="672" /></p>
+<div id="background" class="section level4">
+<h4>Background</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.background = element_rect(fill = &#39;gray&#39;, linetype = 3,  
+          color = &quot;black&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="modify-plot-area" class="section level2">
-<h2>modify plot area</h2>
+<div id="margin" class="section level4">
+<h4>Margin</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.margin = margin(4, 8, 4, 8))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme31-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="spacing" class="section level4">
+<h4>Spacing</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.spacing = unit(1.5, &quot;cm&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme32-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="key" class="section level4">
+<h4>Key</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.key = element_rect(fill = &#39;red&#39;),
+          legend.key.size = unit(0.4, &quot;cm&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="text" class="section level4">
+<h4>Text</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.text = element_text(color = &#39;green&#39;, face = &#39;italic&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme34-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="title" class="section level4">
+<h4>Title</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.title = element_text(color = &#39;blue&#39;, face = &#39;bold&#39;),
+          legend.title.align = 0.1)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="position" class="section level4">
+<h4>Position</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.position = &quot;top&quot;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme36-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="direction" class="section level4">
+<h4>Direction</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.direction = &quot;horizontal&quot;)</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme37-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="box" class="section level4">
+<h4>Box</h4>
+<hr>
+<pre class="r"><code>p + theme(legend.box = &quot;horizontal&quot;,
+  legend.box.background = element_rect(fill = &quot;gray&quot;),
+  legend.box.spacing = unit(1, &quot;cm&quot;), legend.box.just = &quot;left&quot;,
+  legend.box.margin = margin(4, 8, 4, 8))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme38-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel" class="section level4">
+<h4>Panel</h4>
+<hr>
+<pre class="r"><code>p &lt;- ggplot(mtcars) +
+  geom_point(aes(disp, mpg))
+p</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel-background" class="section level4">
+<h4>Panel Background</h4>
+<hr>
+<pre class="r"><code>p + theme(panel.background = element_rect(fill = &#39;gray&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel-border" class="section level4">
+<h4>Panel Border</h4>
+<hr>
+<pre class="r"><code>p + theme(panel.border = element_rect(fill = NA, color = &#39;blue&#39;, 
+          linetype = 1, size = 2))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel-grid" class="section level4">
+<h4>Panel Grid</h4>
+<hr>
+<pre class="r"><code>p + theme(panel.grid = element_line(color = &#39;blue&#39;, linetype = 2, size = 0.5))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel-grid-major" class="section level4">
+<h4>Panel Grid (Major)</h4>
+<hr>
+<pre class="r"><code>p + theme(panel.grid.major.x = element_line(color = &#39;blue&#39;, 
+          linetype = 2, size = 0.5))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="panel-grid-minor" class="section level4">
+<h4>Panel Grid (Minor)</h4>
+<hr>
+<pre class="r"><code>p + theme(panel.grid.minor.y = element_line(color = &#39;red&#39;, 
+          linetype = 3, size = 0.2))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="plot-area" class="section level4">
+<h4>Plot Area</h4>
+<hr>
 <pre class="r"><code>p &lt;- ggplot(mtcars) +
   geom_point(aes(disp, mpg)) + 
-  ggtitle(&#39;Theme Modification&#39;)</code></pre>
-<pre class="r"><code>p + theme(
-  plot.background = element_rect(
-    color = &#39;blue&#39;,
-    fill = &#39;#4682B4&#39;
-  ),
-  plot.title = element_text(color = &#39;red&#39;),
-  plot.margin = unit(c(1, 1, 1, 1), &quot;cm&quot;)
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme14-1.png" width="672" /></p>
-<div id="modify-facets" class="section level3">
-<h3>modify facets</h3>
+  ggtitle(&#39;Theme Modification&#39;)
+p</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="plot-background" class="section level4">
+<h4>Plot Background</h4>
+<hr>
+<pre class="r"><code>p + theme(plot.background = element_rect(color = &#39;blue&#39;, 
+          fill = &#39;#4682B4&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="plot-title" class="section level4">
+<h4>Plot Title</h4>
+<hr>
+<pre class="r"><code>p + theme(plot.title = element_text(color = &#39;red&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="plot-margin" class="section level4">
+<h4>Plot Margin</h4>
+<hr>
+<pre class="r"><code>p + theme(plot.margin = unit(c(1, 1, 1, 1), &quot;cm&quot;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="facets" class="section level4">
+<h4>Facets</h4>
+<hr>
 <pre class="r"><code>p &lt;- ggplot(mtcars) +
   geom_point(aes(disp, mpg)) + 
-  facet_grid(~cyl)</code></pre>
-<pre class="r"><code>p + theme(
-  strip.background = element_rect(
-    color = &#39;red&#39;,
-    fill = &#39;#4682B4&#39;
-  ),
-  strip.text = element_text(
-    face = &#39;italic&#39;,
-    size = 8, 
-    color = &#39;red&#39;
-  )
-)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme16-1.png" width="672" /></p>
+  facet_grid(~cyl)
+p</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="classic-dark-on-light" class="section level3">
-<h3>Classic Dark on Light</h3>
+<div id="strip-background" class="section level4">
+<h4>Strip Background</h4>
+<hr>
+<pre class="r"><code>p + theme(strip.background = element_rect(color = &#39;red&#39;, 
+          fill = &#39;#4682B4&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="strip-text" class="section level4">
+<h4>Strip Text</h4>
+<hr>
+<pre class="r"><code>p + theme(strip.text = element_text(face = &#39;italic&#39;, size = 8,
+          color = &#39;red&#39;))</code></pre>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="themes" class="section level4">
+<h4>Themes</h4>
+<hr>
+<p><br></p>
+</div>
+<div id="classic-dark-on-light" class="section level4">
+<h4>Classic Dark on Light</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_bw()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme17-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-</div>
-<div id="default-gray" class="section level2">
-<h2>Default Gray</h2>
+<div id="default-gray" class="section level4">
+<h4>Default Gray</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_gray()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme18-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="light" class="section level2">
-<h2>Light</h2>
+<div id="light" class="section level4">
+<h4>Light</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_light()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme19-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="minimal" class="section level2">
-<h2>Minimal</h2>
+<div id="minimal" class="section level4">
+<h4>Minimal</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_minimal()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme20-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="dark" class="section level2">
-<h2>Dark</h2>
+<div id="dark" class="section level4">
+<h4>Dark</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_dark()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme21-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="classic" class="section level2">
-<h2>Classic</h2>
+<div id="classic" class="section level4">
+<h4>Classic</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_classic()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme22-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="void-empty" class="section level2">
-<h2>Void (Empty)</h2>
+<div id="void-empty" class="section level4">
+<h4>Void (Empty)</h4>
+<hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg)) +
   theme_void()</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme23-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-themes_files/figure-html/theme23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
 <p>In this post, we learnt about the different themes available in ggplot2. This brings us to the end of the series <strong>Elegant Data Visualization with ggplot2</strong>.</p>
+<p><br></p>
 </div>
 
 

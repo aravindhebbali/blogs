@@ -268,6 +268,16 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="../../topics/data-visualization">data-visualization</a>
+    
+  </div>
+  
+  
 
   
   
@@ -285,7 +295,157 @@
 
 </div>
 
-  
+  <div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
+<p>If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. You may want to modify the appearance of legends. In this module, we will learn to modify the legends when <code>alpha</code> is mapped to categorical variables.</p>
+<p>Modify legend when <code>alpha</code> is mapped to variables. Specifically</p>
+<ul>
+<li>title</li>
+<li>breaks</li>
+<li>limits</li>
+<li>range</li>
+<li>labels</li>
+<li>values</li>
+<li>symbol type</li>
+</ul>
+<p><br></p>
+<div id="plot" class="section level4">
+<h4>Plot</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="title" class="section level4">
+<h4>Title</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(&quot;Horsepower&quot;)</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="breaks" class="section level4">
+<h4>Breaks</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(breaks = c(0, 100, 200, 300, 400))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="limits" class="section level4">
+<h4>Limits</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(limits = c(0, 400))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="range" class="section level4">
+<h4>Range</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(range = c(0.4, 0.8))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="labels" class="section level4">
+<h4>Labels</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(breaks = c(0, 100, 200, 300, 400),
+    labels = c(&quot;Zero&quot;, &quot;Hundred&quot;, &quot;2 Hundred&quot;, 
+      &quot;3 Hundred&quot;, &quot;4 Hundred&quot;))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="putting-it-all-together" class="section level4">
+<h4>Putting it all together</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = hp), color = &#39;blue&#39;) +
+  scale_alpha_continuous(&quot;Horsepower&quot;, breaks = c(0, 100, 200, 300, 400),
+    limits = c(0, 400), range = c(0.4, 0.8),
+    labels = c(&quot;Zero&quot;, &quot;Hundred&quot;, &quot;2 Hundred&quot;, 
+      &quot;3 Hundred&quot;, &quot;4 Hundred&quot;))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="alpha---discrete" class="section level3">
+<h3>Alpha - Discrete</h3>
+<p><br></p>
+<div id="introduction-1" class="section level4">
+<h4>Introduction</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;)</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="legend-title" class="section level4">
+<h4>Legend Title</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;) +
+  scale_alpha_discrete(name = &quot;Cylinders&quot;)</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="legend-breaks" class="section level4">
+<h4>Legend Breaks</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;) +
+  scale_alpha_discrete(breaks = c(&quot;4&quot;, &quot;6&quot;, &quot;8&quot;))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="legend-range" class="section level4">
+<h4>Legend Range</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;) +
+  scale_alpha_discrete(range = c(0.4, 0.8))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="legend-labels" class="section level4">
+<h4>Legend Labels</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;) +
+  scale_alpha_discrete(labels = c(&quot;Four&quot;, &quot;Six&quot;, &quot;Eight&quot;))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="putting-it-all-together-1" class="section level4">
+<h4>Putting it all together</h4>
+<hr>
+<pre class="r"><code>ggplot(mtcars) +
+  geom_point(aes(disp, mpg, alpha = factor(cyl)), color = &#39;blue&#39;) +
+  scale_alpha_discrete(name = &quot;Cylinders&quot;, range = c(0.4, 0.8),
+    breaks = c(&quot;4&quot;, &quot;6&quot;, &quot;8&quot;), labels = c(&quot;Four&quot;, &quot;Six&quot;, &quot;Eight&quot;))</code></pre>
+<p><img src="../../post/2017-09-20-legend-part-5_files/figure-html/leg14-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
+</div>
+
 
   
 <div class="prev-next-post pure-g">

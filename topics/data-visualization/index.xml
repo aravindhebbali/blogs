@@ -232,10 +232,9 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       <pubDate>Wed, 05 Aug 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-introduction/</guid>
-      <description>IntroductionThis is the first post of the series Data Visualization With R. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using ggplot2 shortly.
-What is data visualization?In simple words, data visualization is the representation of data in graphical format.
-data-viz
-Why visualize data?Explore: Visualization helps in exploring and explaining patterns and trendsDetect: Patterns or anomalies in data can be detected by looking at graphsMake sense: Possible to make sense of large amount of data efficiently and in timeCommunicate: Easy to communicate and share the insights from dataCompare the below output and the boxplot and you will agree that</description>
+      <description>IntroductionThis is the first post of the series Data Visualization With R. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using ggplot2 shortly.
+what is data visualizationwhy visualize dataunderstand R graphics systemgraphicsggplot2latticebuild some simple plots
+What is data visualization?</description>
     </item>
     
   </channel>

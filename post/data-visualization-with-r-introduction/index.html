@@ -296,72 +296,86 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the first post of the series <strong>Data Visualization With R</strong>. The objective of the series is to provide a gentle introduction to working with base graphics in R. We will come up with a similar series using <a href="http://ggplot2.tidyverse.org/index.html">ggplot2</a> shortly.</p>
-<div id="what-is-data-visualization" class="section level3">
-<h3>What is data visualization?</h3>
+<ul>
+<li>what is data visualization</li>
+<li>why visualize data</li>
+<li>understand R graphics system
+<ul>
+<li>graphics</li>
+<li>ggplot2</li>
+<li>lattice</li>
+</ul></li>
+<li>build some simple plots</li>
+</ul>
+<p><br></p>
+<div id="what-is-data-visualization" class="section level4">
+<h4>What is data visualization?</h4>
+<hr>
 <p>In simple words, data visualization is the representation of data in graphical format.</p>
 <div class="figure">
 <img src="data-viz.png" alt="data-viz" />
 <p class="caption">data-viz</p>
 </div>
+<p><br></p>
 </div>
-<div id="why-visualize-data" class="section level3">
-<h3>Why visualize data?</h3>
+<div id="why-visualize-data" class="section level4">
+<h4>Why visualize data?</h4>
+<hr>
 <ul>
 <li>Explore: Visualization helps in exploring and explaining patterns and trends</li>
 <li>Detect: Patterns or anomalies in data can be detected by looking at graphs</li>
 <li>Make sense: Possible to make sense of large amount of data efficiently and in time</li>
 <li>Communicate: Easy to communicate and share the insights from data</li>
 </ul>
-<p>Compare the below output and the boxplot and you will agree that</p>
-<p><strong>A picture is worth a thousand words</strong></p>
-<pre class="r"><code>by(mtcars$mpg, mtcars$cyl, summary)</code></pre>
-<pre><code>## mtcars$cyl: 4
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   21.40   22.80   26.00   26.66   30.40   33.90 
-## -------------------------------------------------------- 
-## mtcars$cyl: 6
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   17.80   18.65   19.70   19.74   21.00   21.40 
-## -------------------------------------------------------- 
-## mtcars$cyl: 8
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   10.40   14.40   15.20   15.10   16.25   19.20</code></pre>
-<div class="figure">
-<img src="pic1000.jpeg" alt="pic1000" />
-<p class="caption">pic1000</p>
+<p><br></p>
 </div>
+<div id="r-graphics-system" class="section level4">
+<h4>R Graphics System</h4>
+<hr>
+<ul>
+<li>graphics</li>
+<li>ggplot2</li>
+<li>lattice</li>
+</ul>
+<p><br></p>
 </div>
-<div id="r-graphics-system" class="section level3">
-<h3>R Graphics System</h3>
-<p>R has 3 main packages for data visualization:</p>
 <div id="graphics" class="section level4">
 <h4>Graphics</h4>
-<p>It is part of base R and is the fundamental package for visualizing data. It has a lot of good features and we can create all the basic plots using it.</p>
+<hr>
+<ul>
+<li>It is part of base R and is the fundamental package for visualizing data.</li>
+<li>It has a lot of good features and we can create all the basic plots using it.</li>
+</ul>
+<p><br></p>
 </div>
 <div id="ggplot2" class="section level4">
 <h4>ggplot2</h4>
+<hr>
 <p><a href="http://ggplot2.tidyverse.org/index.html">ggplot2</a>, created by Hadley Wickham, is based on the Grammar of Graphics written by Leland Wilkinson. It has a structured approach to data visualization and builds upon the features available in the Graphics and Lattice packages.</p>
+<p><br></p>
 </div>
 <div id="lattice" class="section level4">
 <h4>Lattice</h4>
+<hr>
 <p>The <a href="https://CRAN.R-project.org/package=lattice">lattice</a> package is inspired by Trellis Graphics and created by <a href="http://www.isid.ac.in/~deepayan/">Deepayan Sarkar</a>. It is a very powerful data visualization system with an emphasis on multivariate data.</p>
+<p><br></p>
 </div>
-</div>
-</div>
-<div id="plot-basics" class="section level2">
-<h2>Plot Basics</h2>
-<p>The <code>plot()</code> function is the fundamental tool to build plots in the <strong>Graphics</strong> package. It is a generic function and creates appropriate plot based on the input received from the user. In this post, we will explore the <code>plot()</code> function using differnt types of data and observe the corresponding plots created. We will use the <code>mtcars</code> data set throughout this section.</p>
-<p>Use the <code>help()</code> function to learn more about the <code>plot()</code> function and the <code>mtcars</code> data set.</p>
+<div id="getting-help" class="section level4">
+<h4>Getting Help</h4>
+<hr>
+<p>Use the <code>help()</code> to learn more about <code>plot()</code> function and <code>mtcars</code> data set.</p>
 <pre class="r"><code>help(plot)
 help(mtcars)</code></pre>
-<div id="mtcars" class="section level3">
-<h3>mtcars</h3>
-<p>Let us take a quick look at the <code>mtcars</code> data set before we build the plots:</p>
-<pre class="r"><code># overview
-head(mtcars)</code></pre>
+<p><br></p>
+</div>
+<div id="mtcars" class="section level4">
+<h4>mtcars</h4>
+<hr>
+<pre class="r"><code>head(mtcars)</code></pre>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -369,8 +383,12 @@ head(mtcars)</code></pre>
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<pre class="r"><code># variable info
-str(mtcars)</code></pre>
+<p><br></p>
+</div>
+<div id="variable-info" class="section level4">
+<h4>variable info</h4>
+<hr>
+<pre class="r"><code>str(mtcars)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
 ##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 ##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
@@ -383,6 +401,11 @@ str(mtcars)</code></pre>
 ##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
 ##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
 ##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<p><br></p>
+</div>
+<div id="plot" class="section level4">
+<h4>plot()</h4>
+<hr>
 <p>Now that we have some idea about the data set, let us explore the <code>plot()</code> function. We will use the following different data inputs and observe the kind of plots that are generated:</p>
 <ul>
 <li>Case 1: 1 continuous variable</li>
@@ -392,59 +415,66 @@ str(mtcars)</code></pre>
 <li>Case 5: 1 continuous and 1 categorical variable</li>
 <li>Case 6: 1 categorical and 1 continuous variable</li>
 </ul>
-<p><em>Case 5 and 6 might look similar but the difference lies in the variables being assigned to the X and Y axes.</em></p>
+<p><br></p>
 </div>
-<div id="case-1-one-continuous-variable" class="section level3">
-<h3>Case 1: One continuous variable</h3>
-<p>We will us the variable <code>mpg</code> (Miles per Gallon).</p>
+<div id="one-continuous-variable" class="section level4">
+<h4>One continuous variable</h4>
+<hr>
 <pre class="r"><code>plot(mtcars$mpg)</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot1-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>The <code>plot()</code> function creates a <strong>Scatter Plot</strong> when a single continuous variable is used as the input. We cannot infer much from this plot. Let us plot a categorical variable and see what happens.</p>
+<p><br></p>
 </div>
-<div id="case-2-one-categorical-variable" class="section level3">
-<h3>Case 2: One categorical variable</h3>
-<p>Let us use the <code>cyl</code> (number of cylinders) variable for this case but before we create the plot, the variable must be converted to type <code>factor</code> using the <code>as.factor()</code> function:</p>
+<div id="one-categorical-variable" class="section level4">
+<h4>One categorical variable</h4>
+<hr>
 <pre class="r"><code>plot(as.factor(mtcars$cyl))</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot2-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>The <code>plot()</code> function creates a <strong>Bar Plot</strong> when the input is a factor/categorical variable.</p>
+<p><br></p>
 </div>
-<div id="case-3-two-continuous-variables" class="section level3">
-<h3>Case 3: Two continuous variables</h3>
-<p>So far we have used only 1 variable as the input for the <code>plot()</code> function but from now on we will use 2 variables. In this case, let us look at the relationship between <code>disp</code> (displacement) and <code>mpg</code> (mileage) of the cars. <code>disp</code> is represented by the X axis and <code>mpg</code> by the Y axis.</p>
+<div id="two-continuous-variables" class="section level4">
+<h4>Two continuous variables</h4>
+<hr>
 <pre class="r"><code>plot(mtcars$disp, mtcars$mpg)</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot3-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>The <strong>Scatter Plot</strong> created represents the relationship between <code>disp</code> and <code>mpg</code>.</p>
+<p><br></p>
 </div>
-<div id="case-4-two-categorical-variables" class="section level3">
-<h3>Case 4: Two categorical variables</h3>
-<p>In this case, we will use <code>am</code> (transmission type) and <code>cyl</code> (number of cylinders). <code>am</code> will be represented by the X axis and <code>cyl</code> by the Y axis.</p>
+<div id="two-categorical-variables" class="section level4">
+<h4>Two categorical variables</h4>
+<hr>
 <pre class="r"><code>plot(as.factor(mtcars$am), as.factor(mtcars$cyl))</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot4-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>A <strong>stacked bar plot</strong> is created when the inputs to the <code>plot()</code> function are factor/categorical. In the next 2 cases, we will use a combination of both continuous and categorical variables.</p>
+<p><br></p>
 </div>
-<div id="case-5-continuouscategorical-variable" class="section level3">
-<h3>Case 5: Continuous/Categorical variable</h3>
-<p>In this case, we will use 1 continuous and 1 categorical variable. Let us use <code>mpg</code> and <code>cyl</code>. <code>mpg</code> will be represented on the X axis and <code>cyl</code> on the Y axis.</p>
+<div id="continuouscategorical-variable" class="section level4">
+<h4>Continuous/Categorical variable</h4>
+<hr>
 <pre class="r"><code>plot(mtcars$mpg, mtcars$cyl)</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot5-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>A <strong>scatter plot</strong> is created but we cannot infer much from this type of plot.</p>
+<p><br></p>
 </div>
-<div id="case-6-categoricalcontinuous-variable" class="section level3">
-<h3>Case 6: Categorical/Continuous variable</h3>
-<p>In this case, we will use 1 categorical and 1 continuous variable. Let us use <code>cyl</code> and <code>mpg</code>. <code>cyl</code> will be represented on the X axis and <code>mpg</code> on the Y axis.</p>
+<div id="categoricalcontinuous-variable" class="section level4">
+<h4>Categorical/Continuous variable</h4>
+<hr>
 <pre class="r"><code>plot(as.factor(mtcars$cyl), mtcars$mpg)</code></pre>
 <p><img src="../../post/2017-05-15-data-visualization-with-r-introduction_files/figure-html/plot6-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>A <strong>box plot</strong> is generated and we can examine the distribution of <code>mpg</code> for the different levels of <code>cyl</code>.</p>
+<p><br></p>
 </div>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
 <p>In this first post, we have explored the <code>plot()</code> function to understand the different types of plots it can create based on the input types. Before we begin to build different plots such as bar plots, box plots, scatter plots or line plots, we will quickly learn how to add title and labels to a plot. In the next post, we will learn the following:</p>
 <ul>
 <li>Title &amp; subtitle</li>
 <li>Axis labels &amp; range</li>
 <li>Color, font style and size</li>
 </ul>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

@@ -67,8 +67,9 @@ IntroductionA histogram is a plot that can be used to examine the shape and spr
       <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-box-plots/</guid>
-      <description>This is the sixth post in the series Data Visualization With R. In the previous post, we learnt how to build bar plots. In this post, we will learn about box plots.
-IntroductionThe box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions.</description>
+      <description>IntroductionThis is the sixth post in the series Data Visualization With R. In the previous post, we learnt how to build bar plots. In this post, we will learn to
+create univariate/multivariate box plotsinterpret box plotscreate horizontal box plotsdetect outliersmodify box coloruse formula to compare distributions of different variablesuse notches to compare medians
+Box PlotThe box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum.</description>
     </item>
     
     <item>

@@ -13,7 +13,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the 12th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. In this post, we will explore an alternative method to build plots.
 
@@ -23,58 +25,115 @@ library(dplyr)
 library(tidyr)
 ```
 
-```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+So far we have used `geom_*()` functions to build plots. Now we will use a new set of functions `stat_*()`: 
+
+- `stat_count()`
+- `stat_boxplot()`
+- `stat_identity()`
+- `stat_bin()`
+- `stat_unique()`
+
+<br>
+
+#### Data
+
+<hr>
+
+```{r import, eval=TRUE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom
 ```
 
-We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+<br>
 
-```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
-```
+#### Data Dictionary
 
-## Stats
+<hr>
 
-So far we have used `geom_*()` functions to build plot. Now we will use a new set of functions `stat_*()` to build the plots. 
+- id: row id
+- referrer: referrer website/search engine
+- os: operating system
+- browser: browser
+- device: device used to visit the website
+- n_pages: number of pages visited
+- duration: time spent on the website (in seconds)
+- repeat: frequency of visits
+- country: country of origin
+- purchase: whether visitor purchased
+- order_value: order value of visitor (in dollars)
 
-## Bar Plots
+<br>
 
-```{r stat2}
+#### Bar Plots
+
+<hr>
+
+```{r stat2, fig.align='center'}
 ggplot(ecom) +
   stat_count(aes(device))
 ```
 
-## Box Plots
+<br>
 
-```{r stat3}
+#### Box Plots
+
+<hr>
+
+```{r stat3, fig.align='center'}
 ggplot(ecom) +
   stat_boxplot(aes(factor(1), n_visit))
 ```
 
-## Scatter Plots
+<br>
 
-```{r stat4}
+#### Scatter Plots
+
+<hr>
+
+```{r stat4, fig.align='center'}
 ggplot(ecom) +
   stat_identity(aes(n_pages, duration), position = 'jitter')
 ```
 
-## Histogram
+<br>
 
-```{r stat5}
+#### Histogram
+
+<hr>
+
+```{r stat5, fig.align='center'}
 ggplot(ecom) +
   stat_bin(aes(n_visit), bins = 7, fill = 'blue', alpha = 0.3,
            color = 'black')
 ```
 
-## Plot Unique Values
+<br>
 
-```{r stat6}
+#### Unique Values
+
+<hr>
+
+```{r stat6, fig.align='center'}
 ggplot(ecom) +
   stat_unique(aes(n_pages, duration), 
               position = 'jitter')
 ```
 
-## Summary
+<br>
 
-In this post, we learnt about the functions underlying the `geom_*()` family of functions. In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we will learn about faceting i.e. combining plots.
+### Summary
+
+<hr>
+
+In this post, we learnt about the functions underlying the `geom_*()` family of functions. 
+
+<br>
+
+### Up Next..
+
+<hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we will learn about faceting i.e. combining plots.
+
+<br>
 

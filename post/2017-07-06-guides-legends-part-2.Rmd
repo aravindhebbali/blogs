@@ -9,6 +9,10 @@ tags:
 draft: yes
 ---
 
+### Introduction
+
+<hr>
+
 This is the 14th post in the series **Elegant Data Visualization with ggplot2**. In the previos [post](https://rsquaredacademy.github.io/blog/post/guides-legends/), we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
 
 
@@ -18,177 +22,118 @@ library(dplyr)
 library(tidyr)
 ```
 
+If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. 
+You may want to modify the appearance of legends. In this module, we will learn to modify the legends when
+`fill` is mapped to categorical variables.
 
-## Guides
+Modify legend when `fill` is mapped to variables. Specifically
 
-```{r gui2}
+- title
+- breaks
+- limits
+- labels
+- values
+
+<br>
+
+#### Plot
+
+<hr>
+
+```{r leg22}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_manual(values = c("red", "blue", "green"),
-                      guide = guide_legend(
-                       title = "Cylinders",
-                       title.hjust = 0.5,
-                       title.position = "top",
-                       label.position = "right",
-                       direction = "horizontal",
-                       label.hjust = 0.5,
-                       nrow = 2,
-                       reverse = TRUE
-                      )
-  )
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22)
 ```
 
-```{r gui3}
+<br>
+
+#### Title
+
+<hr>
+
+```{r leg23}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = factor(cyl))) +
-  scale_color_discrete(guide = guide_legend(
-                        title = "Cylinders",
-                        title.hjust = 0.5,
-                        title.position = "top",
-                        label.position = "right",
-                        direction = "horizontal",
-                        label.hjust = 0.5,
-                        nrow = 2,
-                        reverse = TRUE
-                        )
-  )
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(name = "Cylinders", 
+    values = c("red", "blue", "green"))
 ```
 
+<br>
 
-```{r gui4}
+#### Values
+
+<hr>
+
+```{r leg24}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp)) +
-  scale_color_continuous(guide = guide_colorbar(
-    title = "Horsepower",
-    title.position = "top",
-    title.vjust = 1,
-    label.position = "bottom",
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = "horizontal",
-    reverse = TRUE
-  ))
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(values = c("red", "blue", "green"))
 ```
 
-```{r gui5}
+<br>
+
+#### Labels
+
+<hr>
+
+```{r leg25}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_continuous(guide = guide_colorbar(
-    title = "Horsepower",
-    title.position = "top",
-    title.vjust = 1,
-    label.position = "bottom",
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = "horizontal",
-    reverse = TRUE)
-  )
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(values = c("red", "blue", "green"),
+    labels = c('Four', 'Six', 'Eight'))
 ```
 
-```{r gui6}
+<br>
+
+#### Limits
+
+<hr>
+
+```{r leg26}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient2(guide = guide_colorbar(
-    title = "Horsepower",
-    title.position = "top",
-    title.vjust = 1,
-    label.position = "bottom",
-    label.vjust = 0.8,
-    barwidth = 10,
-    barheight = 3,
-    nbins = 10,
-    raster = FALSE,
-    ticks = TRUE,
-    draw.ulim = TRUE,
-    draw.llim = FALSE,
-    direction = "horizontal",
-    reverse = TRUE)
-  ) 
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(values = c("red", "blue", "green"),
+    limits = c(4, 6, 8))
 ```
 
-```{r gui7}
+<br>
+
+#### Breaks
+
+<hr>
+
+```{r leg27}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradient(low = "white", high = "black", 
-    guide = guide_colorbar(
-      title = "Horsepower",
-      title.position = "top",
-      title.vjust = 1,
-      label.position = "bottom",
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = "horizontal",
-      reverse = TRUE
-    )
-  ) 
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(values = c("red", "blue", "green"),
+    breaks = c(4, 6, 8))
 ```
 
-```{r gui8}
+<br>
+
+#### Summary
+
+<hr>
+
+```{r leg28}
 ggplot(mtcars) +
-  geom_point(aes(disp, mpg, fill = hp), shape = 22) +
-  scale_fill_gradientn(colors = terrain.colors(5), 
-    guide = guide_colorbar(
-      title = "Horsepower",
-      title.position = "top",
-      title.vjust = 1,
-      label.position = "bottom",
-      label.vjust = 0.8,
-      barwidth = 10,
-      barheight = 3,
-      nbins = 10,
-      raster = FALSE,
-      ticks = TRUE,
-      draw.ulim = TRUE,
-      draw.llim = FALSE,
-      direction = "horizontal",
-      reverse = TRUE
-    )
-  ) 
+  geom_point(aes(disp, mpg, fill = factor(cyl)), shape = 22) +
+  scale_fill_manual(name = "Cylinders", values = c("red", "blue", "green"),
+    labels = c('Four', 'Six', 'Eight'), limits = c(4, 6, 8), breaks = c(4, 6, 8))
 ```
 
+<br>
 
-```{r gui9}
-ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = qsec, 
-                 shape = factor(gear))) + 
-  guides(color = "colorbar",
-         shape = "legend",
-         size = "legend")
-```
+### Summary
 
-```{r gui10}
-ggplot(mtcars) +
-  geom_point(aes(disp, mpg, color = hp, 
-                 size = wt, 
-                 shape = factor(gear))) + 
-  guides(
-    color = guide_colorbar(
-      title = "Horsepower"
-    ),
-    shape = guide_legend(
-      title = "Weight"
-    ),
-    size = guide_legend(
-      title = "Gear"
-    )
-  )
-```
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>
+
+

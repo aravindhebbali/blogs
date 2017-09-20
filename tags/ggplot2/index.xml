@@ -66,8 +66,8 @@ Modify X and Y axis
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/legend-part-2/</guid>
-      <description>This is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
-Guidesggplot(mtcars) +geom_point(aes(disp, mpg, color = factor(cyl))) +scale_color_manual(values = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;),guide = guide_legend(title = &amp;quot;Cylinders&amp;quot;,title.hjust = 0.</description>
+      <description>IntroductionThis is the 14th post in the series Elegant Data Visualization with ggplot2. In the previos post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will continue to explore different ways to modify/customize the legend of plots.
+If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. You may want to modify the appearance of legends.</description>
     </item>
     
     <item>

@@ -18,8 +18,8 @@
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-histogram/</guid>
-      <description>This is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn about histograms.
-IntroductionA histogram is a plot that can be used to examine the shape and spread of continuous data. It looks very similar to a bar graph and can be used to detect outliers and skewness in data.</description>
+      <description>IntroductionThis is the seventh post in the series Data Visualization With R. In the previous post, we learnt about box and whisker plots. In this post, we will learn to:
+create a bare bones histogramspecify the number of bins/intervalsrepresent frequency density on the Y axisadd colors to the bars and the borderadd labels to the barsA histogram is a plot that can be used to examine the shape and spread of continuous data.</description>
     </item>
     
   </channel>

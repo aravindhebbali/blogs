@@ -13,7 +13,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the 13th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we learnt the `stat_*()` family of functions. In this post, we will learn about faceting i.e. combining plots.
 
@@ -23,86 +25,200 @@ library(dplyr)
 library(tidyr)
 ```
 
-```{r import, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+<br>
+
+#### Data
+
+<hr>
+
+```{r import, eval=TRUE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom
 ```
 
-We will continue to use the ecommerce data. You can download it from [here](https://github.com/rsquaredacademy/datasets/blob/master/web.csv) or import directly using the readr package.
+<br>
 
-```{r import2, echo=FALSE, eval=FALSE, results='hide', message=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
-```
+#### Data Dictionary
 
-```{r facet1}
+<hr>
+
+- id: row id
+- referrer: referrer website/search engine
+- os: operating system
+- browser: browser
+- device: device used to visit the website
+- n_pages: number of pages visited
+- duration: time spent on the website (in seconds)
+- repeat: frequency of visits
+- country: country of origin
+- purchase: whether visitor purchased
+- order_value: order value of visitor (in dollars)
+
+<br>
+
+#### Facet - Intro
+
+<hr>
+
+Generate subplots that each display one subset of the data using
+
+- `facet_grid()`
+- `facet_wrap()`
+
+<br>
+
+#### Columns
+
+<hr>
+
+```{r facet1, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(. ~ device)
 ```
 
-```{r facet2}
+<br>
+
+#### Rows
+
+<hr>
+
+```{r facet2, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(device ~ .)
 ```
 
-```{r facet3}
+<br>
+
+#### Rows & Columns
+
+<hr>
+
+```{r facet3, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(purchase ~ device)
 ```
 
-```{r facet4}
+<br>
+
+#### Rows & Columns
+
+```{r facet4, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(device ~ purchase)
 ```
 
-```{r facet5}
+<br>
+
+#### Scales
+
+<hr>
+
+Different range instead of fixed range.
+
+```{r facet5, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration, color = factor(device))) +
   geom_point() + 
   facet_grid(. ~ device, scales = "free")
 ```
 
-```{r facet6}
+<br>
+
+#### Switch Axis
+
+<hr>
+
+```{r facet6, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() + 
   facet_grid(device ~ purchase, switch = "both") 
 ```
 
-```{r facet7}
+<br>
+
+#### Wrap
+
+<hr>
+
+```{r facet7, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device)
 ```
 
-```{r facet8}
+<br>
+
+#### Specify Rows
+
+<hr>
+
+```{r facet8, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, nrow = 2)
 ```
 
-```{r facet9}
+<br>
+
+#### Specify Rows
+
+<hr>
+
+```{r facet9, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, nrow = 3)
 ```
 
-```{r facet10}
+<br>
+
+#### Rows & Columns
+
+<hr>
+
+```{r facet10, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device + purchase)
 ```
 
-```{r facet11}
+<br>
+
+#### Rows & Columns
+
+<hr>
+
+```{r facet11, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(c("device", "purchase"))
 ```
 
-```{r facet12}
+<br>
+
+#### Scales
+
+<hr>
+
+```{r facet12, fig.align='center'}
 ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, scales = "free")
 ```
 
+<br>
 
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

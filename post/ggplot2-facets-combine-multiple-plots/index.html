@@ -296,58 +296,179 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the 13th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-facets/">post</a>, we learnt the <code>stat_*()</code> family of functions. In this post, we will learn about faceting i.e. combining plots.</p>
-<p>We will continue to use the ecommerce data. You can download it from <a href="https://github.com/rsquaredacademy/datasets/blob/master/web.csv">here</a> or import directly using the readr package.</p>
+<p><br></p>
+<div id="data" class="section level4">
+<h4>Data</h4>
+<hr>
+<pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
+ecom</code></pre>
+<pre><code>## # A tibble: 1,000 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
+## # ... with 990 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p><br></p>
+</div>
+<div id="data-dictionary" class="section level4">
+<h4>Data Dictionary</h4>
+<hr>
+<ul>
+<li>id: row id</li>
+<li>referrer: referrer website/search engine</li>
+<li>os: operating system</li>
+<li>browser: browser</li>
+<li>device: device used to visit the website</li>
+<li>n_pages: number of pages visited</li>
+<li>duration: time spent on the website (in seconds)</li>
+<li>repeat: frequency of visits</li>
+<li>country: country of origin</li>
+<li>purchase: whether visitor purchased</li>
+<li>order_value: order value of visitor (in dollars)</li>
+</ul>
+<p><br></p>
+</div>
+<div id="facet---intro" class="section level4">
+<h4>Facet - Intro</h4>
+<hr>
+<p>Generate subplots that each display one subset of the data using</p>
+<ul>
+<li><code>facet_grid()</code></li>
+<li><code>facet_wrap()</code></li>
+</ul>
+<p><br></p>
+</div>
+<div id="columns" class="section level4">
+<h4>Columns</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(. ~ device)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet1-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="rows" class="section level4">
+<h4>Rows</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(device ~ .)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet2-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="rows-columns" class="section level4">
+<h4>Rows &amp; Columns</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(purchase ~ device)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet3-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="rows-columns-1" class="section level4">
+<h4>Rows &amp; Columns</h4>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() +
   facet_grid(device ~ purchase)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet4-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="scales" class="section level4">
+<h4>Scales</h4>
+<hr>
+<p>Different range instead of fixed range.</p>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration, color = factor(device))) +
   geom_point() + 
   facet_grid(. ~ device, scales = &quot;free&quot;)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet5-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="switch-axis" class="section level4">
+<h4>Switch Axis</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) + 
   geom_point() + 
   facet_grid(device ~ purchase, switch = &quot;both&quot;) </code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet6-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="wrap" class="section level4">
+<h4>Wrap</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet7-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="specify-rows" class="section level4">
+<h4>Specify Rows</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, nrow = 2)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet8-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="specify-rows-1" class="section level4">
+<h4>Specify Rows</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, nrow = 3)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet9-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="rows-columns-2" class="section level4">
+<h4>Rows &amp; Columns</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device + purchase)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet10-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="rows-columns-3" class="section level4">
+<h4>Rows &amp; Columns</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(c(&quot;device&quot;, &quot;purchase&quot;))</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet11-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="scales-1" class="section level4">
+<h4>Scales</h4>
+<hr>
 <pre class="r"><code>ggplot(ecom, aes(n_pages, duration)) +
   geom_point() +
   facet_wrap(~device, scales = &quot;free&quot;)</code></pre>
-<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet12-1.png" width="672" /></p>
+<p><img src="../../post/2017-05-17-ggplot2-facets-combine-multiple-plots_files/figure-html/facet12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

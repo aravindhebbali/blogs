@@ -67,8 +67,8 @@ Titlepositiontopbottomleftrightalignment0 (left)1 (right)
       <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-legends/</guid>
-      <description>This is the eighth post in the series Data Visualisation With R. In the previous post, we learnt to build histograms. In this post, we will learn how to add a legend to a plot in R.
-IntroductionLegends are used to convey information about the data being represented by a plot. To understand the importance of legends, let us look at the two plots below. In the first plot, would you be able to understand what the lines represent in the absence of a legend?</description>
+      <description>IntroductionThis is the eighth post in the series Data Visualisation With R. In the previous post, we learnt to build histograms. In this post, we will learn how to:
+position the legend within the plotmodify the layout using ncol and horiz argumentsadd title using the title. set of argumentsmodify the appearance and position of the legend boxmodify the appearance of the text in the legend boxLegends are used to convey information about the data being represented by a plot.</description>
     </item>
     
   </channel>

@@ -27,8 +27,7 @@
       <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-combining-plots/</guid>
-      <description>This is the tenth post in the series Data Visualization With R. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots.
-IntroductionOften, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. Listed below are two methods to combine plots:</description>
+      <description>IntroductionThis is the tenth post in the series Data Visualization With R. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots. Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots.</description>
     </item>
     
     <item>

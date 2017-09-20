@@ -87,7 +87,7 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-scatter-plots/</guid>
-      <description>IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by</description>
+      <description>IntroductionThis is the third post in the series Data Visualization With R. In the previous post, we learned how to add title, subtitle and axis labels. We also learned how to modify the range of the axis. In this post, we will learn how to create scatter plots. If you remember, we had created a scatter plot in this post, using the plot() function. We will continue with the same plot and learn how to enhance a scatter plot by</description>
     </item>
     
     <item>

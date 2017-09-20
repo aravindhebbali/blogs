@@ -96,7 +96,7 @@ IntroductionThe box plot is a standardized way of displaying the distribution o
       <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
       
       <guid>/post/data-visualization-with-r-title-and-axis-labels/</guid>
-      <description>IntroductionThis is the second post of the series Data Visualization With R. In the previous post, we explored the plot() function and observed the different types of plots it generated. In this post, we will learn how to add:
+      <description>IntroductionThis is the second post of the series Data Visualization With R. In the previous post, we explored the plot() function and observed the different types of plots it generated. In this post, we will learn how to add:
 TitleSubtitleAxis Labelsto a plot and how to modify:
 Axis rangeIn the previous post, we created plots which did not have any title or labels.</description>
     </item>

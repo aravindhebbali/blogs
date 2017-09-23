@@ -16,7 +16,7 @@ draft: yes
 
 <hr>
 
-This is the fifth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/), we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
+This is the fifth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/import-data-into-r-part-2/), we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
 
 - JSON
 - XML
@@ -30,11 +30,11 @@ This is the fifth post in the series **Data Wrangling with R**. In the previous 
 We will use the following libraries in this post:
 
 - [jsonlite](http://readr.tidyverse.org/)
-- [xml2]()
-- [XML]()
-- [purrr]
+- [xml2](https://cran.r-project.org/package=xml2)
+- [XML](https://cran.r-project.org/package=XML)
+- [purrr](http://purrr.tidyverse.org/)
 
-All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/e1ed0986be4527c82fdf35026d329fcf).
 
 ```{r imp1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(jsonlite)
@@ -130,5 +130,8 @@ xml2::read_html("http://had.co.nz")
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/readable-code-with-pipes/), we will learn about
+pipes.
 
 <br>

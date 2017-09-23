@@ -41,7 +41,7 @@
       <description>IntroductionThis is the fifth post in the series Data Wrangling with R. In the previous post, we learnt to import data from flat files, excel spreadsheets and statistical softwares. In this post, we will learn to import data from:
 JSONXML
 Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:
-jsonlitexml2XML[purrr]All the data sets used in this post can be found here and code can be downloaded from here.</description>
+jsonlitexml2XMLpurrrAll the data sets used in this post can be found here and code can be downloaded from here.</description>
     </item>
     
     <item>

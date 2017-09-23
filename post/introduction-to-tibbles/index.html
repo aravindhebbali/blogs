@@ -306,6 +306,15 @@
 </ul>
 <p><br></p>
 </div>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<hr>
+<p>We will use the following library in this post:</p>
+<ul>
+<li><a href="http://tibble.tidyverse.org/">tibble</a></li>
+</ul>
+<p>All the code used in this post can be downloaded from <a href="https://gist.github.com/rsquaredacademy/9a3814b9b4bb5c271d030b15ce4ecdf1">here</a>.</p>
+</div>
 <div id="creating-tibbles" class="section level3">
 <h3>Creating tibbles</h3>
 <hr>
@@ -322,16 +331,16 @@
 <pre><code>## # A tibble: 26 x 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-##  1     a     1    63
-##  2     b     2    67
-##  3     c     3    69
-##  4     d     4    64
-##  5     e     5     6
-##  6     f     6    96
-##  7     g     7     1
-##  8     h     8    61
-##  9     i     9    15
-## 10     j    10    98
+##  1     a     1    32
+##  2     b     2    33
+##  3     c     3    81
+##  4     d     4    39
+##  5     e     5    20
+##  6     f     6    37
+##  7     g     7    94
+##  8     h     8    95
+##  9     i     9    10
+## 10     j    10    41
 ## # ... with 16 more rows</code></pre>
 <p><br></p>
 </div>
@@ -543,16 +552,16 @@ as_tibble(l)
 ## # A tibble: 32 x 3
 ##        x     y          z
 ##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
-##  1     1    54 &lt;chr [26]&gt;
-##  2     2    98 &lt;chr [26]&gt;
-##  3     3    93 &lt;chr [26]&gt;
-##  4     4    51 &lt;chr [26]&gt;
-##  5     5    70 &lt;chr [26]&gt;
-##  6     6    27 &lt;chr [26]&gt;
-##  7     7    73 &lt;chr [26]&gt;
-##  8     8    49 &lt;chr [26]&gt;
-##  9     9    15 &lt;chr [26]&gt;
-## 10    10    71 &lt;chr [26]&gt;
+##  1     1    49 &lt;chr [26]&gt;
+##  2     2    26 &lt;chr [26]&gt;
+##  3     3    97 &lt;chr [26]&gt;
+##  4     4    92 &lt;chr [26]&gt;
+##  5     5    18 &lt;chr [26]&gt;
+##  6     6    80 &lt;chr [26]&gt;
+##  7     7    84 &lt;chr [26]&gt;
+##  8     8     3 &lt;chr [26]&gt;
+##  9     9    67 &lt;chr [26]&gt;
+## 10    10    60 &lt;chr [26]&gt;
 ## # ... with 22 more rows
 
 
@@ -563,16 +572,16 @@ as_tibble(m)
 ## # A tibble: 100 x 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1   902   338   338   362   353   443   190   619   102   214   782   490
-##  2   794   295   364   240   473   935   505   483   190   542   756   261
-##  3   667   456   213   165   814   728   739   778    67    48   658   484
-##  4   162    47   102   986   996   419   262   733   680   351   830   295
-##  5   266   885   931   469   488   440   997   850   705   138   236   346
-##  6   846   303   691   558   907   286   224    81   412   885   183   335
-##  7    46   503   863   465    16   525   567   501   382   997   734   943
-##  8   145   597   713   861   965    14   693   183   417   604   979    73
-##  9   325   172   132   237    98   138   608   161   739   424   573   476
-## 10   770   873   376   202    62   449   763   255   550   256    96   388
+##  1   433   169    77   453   149    74   773   354   560   872   287   386
+##  2   417   529   986   393   627   105    82   843    11   533   864   393
+##  3   164   786   244   260   831    23   280   187   255   516   273   267
+##  4   758   440   396   911   526   254   341   591   103   847   103   430
+##  5   965   514   525   365   204     9   893   215   505   183   819   699
+##  6   701   129   788   882   796   608   952    77   214   593   190   634
+##  7   919    99   936   227   346   229   980    75   561   818   784    61
+##  8   790   457   927   412     6   314   232   334   809   833   826   314
+##  9   497   670   438   767   183   486   159   739   619   869   517   536
+## 10   975     7   850   903    72   568   169   405   403   941   488   368
 ## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
 ## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
 ## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;
@@ -616,10 +625,22 @@ is_tibble(as_tibble(mtcars))
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
+<p>In this post, we learnt:</p>
+<ul>
+<li>to create tibble using:
+<ul>
+<li><code>tibble()</code></li>
+<li><code>tribble()</code></li>
+<li><code>enframe()</code></li>
+<li><code>as_tibble()</code></li>
+</ul></li>
+<li>how <code>tibble</code> is different from <code>data.frame</code></li>
+</ul>
 <p><br></p>
 </div>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/">post</a>, we will learn to import data from delimited/flat files.</p>
 <hr>
 <p><br></p>
 </div>

@@ -25,6 +25,20 @@ This is the second post in the series **Data Wrangling with R**. In the previous
 
 <br>
 
+### Libraries, Data & Code
+
+<hr>
+
+We will use the following library in this post:
+
+- [tibble](http://tibble.tidyverse.org/)
+
+All the code used in this post can be downloaded from [here](https://gist.github.com/rsquaredacademy/9a3814b9b4bb5c271d030b15ce4ecdf1).
+
+```{r imp1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(tibble)
+```
+
 ### Creating tibbles
 
 <hr>
@@ -249,9 +263,20 @@ is_tibble(as_tibble(mtcars))
 
 <hr>
 
+In this post, we learnt:
+
+- to create tibble using:
+    - `tibble()`
+    - `tribble()`
+    - `enframe()`
+    - `as_tibble()`
+- how `tibble` is different from `data.frame`
+
 <br>
 
 ### Up Next..
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r/), we will learn to import data from delimited/flat files.
 
 <hr>
 

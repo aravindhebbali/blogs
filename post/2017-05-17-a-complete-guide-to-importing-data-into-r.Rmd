@@ -45,7 +45,7 @@ We will use the following libraries in this post:
 - [readr](http://readr.tidyverse.org/)
 - [haven](http://haven.tidyverse.org/)
 
-All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/ade2338fd725438f57345e6bd0bccfac).
 
 ```{r imp1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(readr)
@@ -221,6 +221,6 @@ In this post, we learnt how to:
 
 <hr>
 
-In the next post, we will learn to read data from excel spreadsheets.
+In the next [post](https://rsquaredacademy.github.io/blog/post/import-data-into-r-part-2/), we will learn to read data from excel spreadsheets.
 
 <br>

@@ -296,9 +296,10 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the sixth post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/exporting-data-from-r/">post</a>, we learnt to export data/code from R. In this post, we will learn about pipes.</p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
+<p>This is the sixth post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r-part-3/">post</a>, we learnt to read data from JSON and XML files. In this post, we will learn about pipes.</p>
 <p>When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The <a href="https://CRAN.R-project.org/package=magrittr">magrittr</a> package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.</p>
 <ul>
 <li>especially useful when you have nested functions</li>
@@ -316,7 +317,37 @@
 <li>arithmetic operations: <code>add</code>, <code>subtract</code>, <code>multiply_by</code>, <code>divide_by</code>, <code>raise_to_power</code></li>
 <li>logical operators: <code>and</code>, <code>or</code>, <code>equals</code></li>
 </ul>
-<p>Let us look at a few examples:</p>
+</div>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://magrittr.tidyverse.org/">magrittr</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/26d85ab4a4dadd2fe7c1f58d854cc950">here</a>.</p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<hr>
+<pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
+ecom</code></pre>
+<pre><code>## # A tibble: 1,000 x 11
+##       id referrer device bouncers n_visit n_pages duration        country
+##    &lt;int&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;chr&gt;
+##  1     1   google laptop     true      10       1      693 Czech Republic
+##  2     2    yahoo tablet     true       9       1      459          Yemen
+##  3     3   direct laptop     true       0       1      996         Brazil
+##  4     4     bing tablet    false       3      18      468          China
+##  5     5    yahoo mobile     true       9       1      955         Poland
+##  6     6    yahoo laptop    false       5       5      135   South Africa
+##  7     7    yahoo mobile     true      10       1       75     Bangladesh
+##  8     8   direct mobile     true      10       1      908      Indonesia
+##  9     9     bing mobile    false       3      19      209    Netherlands
+## 10    10   google mobile     true       6       1      208 Czech Republic
+## # ... with 990 more rows, and 3 more variables: purchase &lt;chr&gt;,
+## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
+<p><br></p>
 <div id="view-data" class="section level4">
 <h4>View Data</h4>
 <hr>
@@ -680,6 +711,7 @@ mt %&gt;%
 <div id="up-next.." class="section level4">
 <h4>Up Next..</h4>
 <hr>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-1/">post</a>, we will learn about dplyr.</p>
 <p><br></p>
 </div>
 </div>

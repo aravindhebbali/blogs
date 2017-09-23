@@ -18,7 +18,7 @@
       <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/readable-code-with-pipes/</guid>
-      <description>IntroductionThis is the sixth post in the series Data Wrangling with R. In the previous post, we learnt to export data/code from R. In this post, we will learn about pipes.
+      <description>IntroductionThis is the sixth post in the series Data Wrangling with R. In the previous post, we learnt to read data from JSON and XML files. In this post, we will learn about pipes.
 When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so easy on the eyes. The magrittr package by Stefan Milton Bache provides pipes enabling us to write R code that is readable.</description>
     </item>
     

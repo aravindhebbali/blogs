@@ -13,9 +13,11 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
 
-This is the sixth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/exporting-data-from-r/), we learnt to export data/code from R. In this post, we will learn about pipes.
+<hr>
+
+This is the sixth post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/a-complete-guide-to-importing-data-into-r-part-3/), we learnt to read data from JSON and XML files. In this post, we will learn about pipes.
 
 When you are dealing with a sequence of multiple operations, R code can get a bit cramped and not so
 easy on the eyes. The [magrittr](https://CRAN.R-project.org/package=magrittr) package by Stefan Milton Bache 
@@ -39,15 +41,30 @@ pipes:
 - arithmetic operations: `add`, `subtract`, `multiply_by`, `divide_by`, `raise_to_power`
 - logical operators: `and`, `or`, `equals`
 
-Let us look at a few examples:
-
 ```{r install, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(magrittr)
 ```
 
-```{r import, echo=FALSE, message=FALSE}
+### Libraries, Data & Code
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [magrittr](http://magrittr.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/26d85ab4a4dadd2fe7c1f58d854cc950).
+
+### Data
+
+<hr>
+
+```{r import, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
+ecom
 ```
+
+<br>
 
 #### View Data
 
@@ -358,5 +375,7 @@ mt %>%
 #### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-manipulation-in-r-with-dplyr-part-1/), we will learn about dplyr.
 
 <br>

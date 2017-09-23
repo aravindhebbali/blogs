@@ -12,7 +12,9 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-# Introduction
+### Introduction
+
+<hr>
 
 This is the second post in the series **Data Wrangling with R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/getting-started-with-tidyverse/), we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the [tidyverse](http://tidyverse.org/). In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn
 
@@ -23,7 +25,9 @@ This is the second post in the series **Data Wrangling with R**. In the previous
 
 <br>
 
-## Creating tibbles
+### Creating tibbles
+
+<hr>
 
 The first step in using tibbles is to learn how to create them. There are several ways of creating tibbles:
 
@@ -47,7 +51,9 @@ tibble(x = letters,
 
 <br>
 
-## tibble Features
+### tibble Features
+
+<hr>
 
 Awesome! You just created a tibble. Before we continue learning the different ways to create tibbles, let us explore the key features of tibbles that differentiates it from data frames. 
 
@@ -58,7 +64,11 @@ A tibble will:
 - never prints all rows
 - never recycles vector of length greater than 1
 
+<br>
+
 #### Never change input's types
+
+<hr>
 
 A tibble will never change the input's types. To understand this, let us create a data frame and a tibble with the same
 underlying data. 
@@ -81,6 +91,8 @@ learn how to import data into R.
 
 #### Never adjusts variable names
 
+<hr>
+
 tibble will never adjust the names of variables. In the below example, we create a tibble and a data frame with the 
 same variable name `order value`. In the case of data frame, it is modified to `order.value` where as tibble
 retains the original name without modifying it. 
@@ -93,7 +105,11 @@ names(data.frame(`order value` = 10))
 names(tibble(`order value` = 10))
 ```
 
+<br>
+
 #### Never print all rows
+
+<hr>
 
 tibble will never print all the rows or columns unlike a data frame. It will print only 10 rows and only those columns that fit the output area. It will show the total number of rows and columns after printing the data. 
 
@@ -103,7 +119,11 @@ y <- letters[1]
 tibble(x, y)
 ```
 
+<br>
+
 #### Never recycle vector of length greater than 1
+
+<hr>
 
 tibble will never recycle any vector of length greater than 1 to avoid any bugs or errors in the data.
 
@@ -114,7 +134,9 @@ tibble(x, y)
 Error: Column `y` must be length 1 or 20, not 3
 ```
 
-## Column Names
+<br>
+
+### Column Names
 
 <hr>
 
@@ -128,7 +150,11 @@ tibble(
 )
 ```
 
-## Creating tibbles II
+<br>
+
+### Creating tibbles II
+
+<hr>
 
 Use `enframe()` to create tibbles from atomic vectors. If the elements of the vectors are named, `enframe()` will
 return a two column tibble i.e. one column for the element names and another for the values. In other cases, it will
@@ -148,7 +174,11 @@ browser2 <- c(chrome = 40, firefox = 20, edge = 30, safari = 10)
 enframe(browser2)
 ```
 
-## tribble
+<br>
+
+### tribble
+
+<hr>
 
 Another way to create tibbles is using `tribble()`: 
 
@@ -166,7 +196,11 @@ tribble(
 )
 ```
 
-## Creating tibbles III
+<br>
+
+### Creating tibbles III
+
+<hr>
 
 In the previous section, we created tibbles using the `tibble()` function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the `as_tibble()` function:
 
@@ -209,6 +243,16 @@ is_tibble(mtcars)
 is_tibble(as_tibble(mtcars))
 ```
 
-## Summary
+<br>
 
-## Up Next..
+### Summary
+
+<hr>
+
+<br>
+
+### Up Next..
+
+<hr>
+
+<br>

@@ -294,8 +294,9 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<hr>
 <p>This is the second post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/getting-started-with-tidyverse/">post</a>, we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the <a href="http://tidyverse.org/">tidyverse</a>. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames. Specifically, we will learn</p>
 <ul>
 <li>what are tibbles?</li>
@@ -304,8 +305,10 @@
 <li>how to manipulate tibbles?</li>
 </ul>
 <p><br></p>
-<div id="creating-tibbles" class="section level2">
-<h2>Creating tibbles</h2>
+</div>
+<div id="creating-tibbles" class="section level3">
+<h3>Creating tibbles</h3>
+<hr>
 <p>The first step in using tibbles is to learn how to create them. There are several ways of creating tibbles:</p>
 <ul>
 <li>use <code>tibble()</code> which is very similar to <code>data.frame()</code></li>
@@ -319,21 +322,22 @@
 <pre><code>## # A tibble: 26 x 3
 ##        x     y     z
 ##    &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-##  1     a     1    93
-##  2     b     2    24
-##  3     c     3    19
-##  4     d     4    80
-##  5     e     5    88
-##  6     f     6    56
-##  7     g     7    89
-##  8     h     8     1
-##  9     i     9    48
-## 10     j    10    36
+##  1     a     1    63
+##  2     b     2    67
+##  3     c     3    69
+##  4     d     4    64
+##  5     e     5     6
+##  6     f     6    96
+##  7     g     7     1
+##  8     h     8    61
+##  9     i     9    15
+## 10     j    10    98
 ## # ... with 16 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="tibble-features" class="section level2">
-<h2>tibble Features</h2>
+<div id="tibble-features" class="section level3">
+<h3>tibble Features</h3>
+<hr>
 <p>Awesome! You just created a tibble. Before we continue learning the different ways to create tibbles, let us explore the key features of tibbles that differentiates it from data frames.</p>
 <p>A tibble will:</p>
 <ul>
@@ -342,8 +346,10 @@
 <li>never prints all rows</li>
 <li>never recycles vector of length greater than 1</li>
 </ul>
+<p><br></p>
 <div id="never-change-inputs-types" class="section level4">
 <h4>Never change input’s types</h4>
+<hr>
 <p>A tibble will never change the input’s types. To understand this, let us create a data frame and a tibble with the same underlying data.</p>
 <pre class="r"><code># tibble
 (t &lt;- tibble(x = letters, y = 1:26))
@@ -388,6 +394,7 @@ str(d)
 </div>
 <div id="never-adjusts-variable-names" class="section level4">
 <h4>Never adjusts variable names</h4>
+<hr>
 <p>tibble will never adjust the names of variables. In the below example, we create a tibble and a data frame with the same variable name <code>order value</code>. In the case of data frame, it is modified to <code>order.value</code> where as tibble retains the original name without modifying it.</p>
 <pre class="r"><code># data frame
 names(data.frame(`order value` = 10))
@@ -396,9 +403,11 @@ names(data.frame(`order value` = 10))
 # tibble
 names(tibble(`order value` = 10))
 ## [1] &quot;order value&quot;</code></pre>
+<p><br></p>
 </div>
 <div id="never-print-all-rows" class="section level4">
 <h4>Never print all rows</h4>
+<hr>
 <p>tibble will never print all the rows or columns unlike a data frame. It will print only 10 rows and only those columns that fit the output area. It will show the total number of rows and columns after printing the data.</p>
 <pre class="r"><code>x &lt;- 1:100
 y &lt;- letters[1]
@@ -417,18 +426,21 @@ tibble(x, y)
 ##  9     9     a
 ## 10    10     a
 ## # ... with 90 more rows</code></pre>
+<p><br></p>
 </div>
 <div id="never-recycle-vector-of-length-greater-than-1" class="section level4">
 <h4>Never recycle vector of length greater than 1</h4>
+<hr>
 <p>tibble will never recycle any vector of length greater than 1 to avoid any bugs or errors in the data.</p>
 <pre class="r"><code>x &lt;- 1:20
 y &lt;- c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
 tibble(x, y)
 Error: Column `y` must be length 1 or 20, not 3</code></pre>
+<p><br></p>
 </div>
 </div>
-<div id="column-names" class="section level2">
-<h2>Column Names</h2>
+<div id="column-names" class="section level3">
+<h3>Column Names</h3>
 <hr>
 <p>Names of the columns in tibbles need not be valid R variable names. They can contain unusual characters like a space or a smiley but must be enclosed in ticks.</p>
 <pre class="r"><code>tibble(
@@ -440,9 +452,11 @@ Error: Column `y` must be length 1 or 20, not 3</code></pre>
 ##     ` `     `2`   `:)`
 ##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;
 ## 1 space integer smiley</code></pre>
+<p><br></p>
 </div>
-<div id="creating-tibbles-ii" class="section level2">
-<h2>Creating tibbles II</h2>
+<div id="creating-tibbles-ii" class="section level3">
+<h3>Creating tibbles II</h3>
+<hr>
 <p>Use <code>enframe()</code> to create tibbles from atomic vectors. If the elements of the vectors are named, <code>enframe()</code> will return a two column tibble i.e. one column for the element names and another for the values. In other cases, it will return a one column tibble.</p>
 <pre class="r"><code># vector of browser names
 browser1 &lt;- c(&#39;chrome&#39;, &#39;safari&#39;, &#39;firefox&#39;, &#39;edge&#39;)
@@ -469,9 +483,11 @@ enframe(browser2)
 ## 2 firefox    20
 ## 3    edge    30
 ## 4  safari    10</code></pre>
+<p><br></p>
 </div>
-<div id="tribble" class="section level2">
-<h2>tribble</h2>
+<div id="tribble" class="section level3">
+<h3>tribble</h3>
+<hr>
 <p>Another way to create tibbles is using <code>tribble()</code>:</p>
 <ul>
 <li>it is short for transposed tibbles</li>
@@ -490,9 +506,11 @@ enframe(browser2)
 ##   &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;
 ## 1     1  TRUE     a
 ## 2     2 FALSE     b</code></pre>
+<p><br></p>
 </div>
-<div id="creating-tibbles-iii" class="section level2">
-<h2>Creating tibbles III</h2>
+<div id="creating-tibbles-iii" class="section level3">
+<h3>Creating tibbles III</h3>
+<hr>
 <p>In the previous section, we created tibbles using the <code>tibble()</code> function by directly inputting data as arguments. In this section, we will convert the following objects to tibble using the <code>as_tibble()</code> function:</p>
 <ul>
 <li>data.frame</li>
@@ -526,15 +544,15 @@ as_tibble(l)
 ##        x     y          z
 ##    &lt;int&gt; &lt;int&gt;     &lt;list&gt;
 ##  1     1    54 &lt;chr [26]&gt;
-##  2     2    56 &lt;chr [26]&gt;
-##  3     3    80 &lt;chr [26]&gt;
-##  4     4    32 &lt;chr [26]&gt;
-##  5     5    47 &lt;chr [26]&gt;
-##  6     6    33 &lt;chr [26]&gt;
-##  7     7    75 &lt;chr [26]&gt;
-##  8     8    81 &lt;chr [26]&gt;
-##  9     9    68 &lt;chr [26]&gt;
-## 10    10    84 &lt;chr [26]&gt;
+##  2     2    98 &lt;chr [26]&gt;
+##  3     3    93 &lt;chr [26]&gt;
+##  4     4    51 &lt;chr [26]&gt;
+##  5     5    70 &lt;chr [26]&gt;
+##  6     6    27 &lt;chr [26]&gt;
+##  7     7    73 &lt;chr [26]&gt;
+##  8     8    49 &lt;chr [26]&gt;
+##  9     9    15 &lt;chr [26]&gt;
+## 10    10    71 &lt;chr [26]&gt;
 ## # ... with 22 more rows
 
 
@@ -545,16 +563,16 @@ as_tibble(m)
 ## # A tibble: 100 x 26
 ##        a     b     c     d     e     f     g     h     i     j     k     l
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1   653   669   177   282   128   794   947   805   206   767   116   863
-##  2   177   304   617   788    88   145   498   995   998    55   871   158
-##  3   629   968   619   118     8    53   832   436    91   337   201   864
-##  4   263   107   518   645     9   923   195   638   500   993   421   543
-##  5   301   748     3   759    64   177   775     3   534   721   754   616
-##  6   203    58   362   563   608   792   633   795   882   549   797    31
-##  7   844   953    13   277   585   107   108   959   684   726   673   200
-##  8   930    47   514   352   902   180   850   350   161   846   469    68
-##  9   427   596   621   943   461   639    81   550   561   757   499   570
-## 10   912   367   216   565   180   113   676   324   550   227   189   430
+##  1   902   338   338   362   353   443   190   619   102   214   782   490
+##  2   794   295   364   240   473   935   505   483   190   542   756   261
+##  3   667   456   213   165   814   728   739   778    67    48   658   484
+##  4   162    47   102   986   996   419   262   733   680   351   830   295
+##  5   266   885   931   469   488   440   997   850   705   138   236   346
+##  6   846   303   691   558   907   286   224    81   412   885   183   335
+##  7    46   503   863   465    16   525   567   501   382   997   734   943
+##  8   145   597   713   861   965    14   693   183   417   604   979    73
+##  9   325   172   132   237    98   138   608   161   739   424   573   476
+## 10   770   873   376   202    62   449   763   255   550   256    96   388
 ## # ... with 90 more rows, and 14 more variables: m &lt;int&gt;, n &lt;int&gt;, o &lt;int&gt;,
 ## #   p &lt;int&gt;, q &lt;int&gt;, r &lt;int&gt;, s &lt;int&gt;, t &lt;int&gt;, u &lt;int&gt;, v &lt;int&gt;,
 ## #   w &lt;int&gt;, x &lt;int&gt;, y &lt;int&gt;, z &lt;int&gt;
@@ -593,13 +611,17 @@ as_tibble(k)
 ## [1] FALSE
 is_tibble(as_tibble(mtcars))
 ## [1] TRUE</code></pre>
+<p><br></p>
 </div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
 </div>
-<div id="up-next.." class="section level2">
-<h2>Up Next..</h2>
-</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p><br></p>
 </div>
 
 

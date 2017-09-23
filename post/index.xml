@@ -366,7 +366,7 @@ In this post, we will explore a set of helper functions in order to:
       <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-tibbles/</guid>
-      <description>IntroductionThis is the second post in the series Data Wrangling with R. In the previous post, we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the tidyverse. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames.</description>
+      <description>IntroductionThis is the second post in the series Data Wrangling with R. In the previous post, we introduced tidyverse. In this post, we will learn about tibbles, a modern version of data frames that retain the good aspects (of data frames) while getting rid of the frustrating and annoying parts. tibbles are part of the tidyverse. In this post, we will learn how tibbles makes certain parts of the data analysis workflow easier by being different from data frames.</description>
     </item>
     
     <item>

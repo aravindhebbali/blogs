@@ -31,6 +31,21 @@ library(ggplot2)
 
 <br>
 
+### Libraries, Data & Code
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [forcats](http://stringr.tidyverse.org/)
+- [readr](http://readr.tidyverse.org/)
+- [dplyr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/85fac536f563ae3fd8e2605fd56a7086).
+
+<br>
+
 ### Data
 
 <hr>
@@ -148,24 +163,36 @@ traffic2 %>% fct_count()
 <hr>
 
 ```{r cat8}
-traffic$traffics %>% fct_lump() %>% table()
+traffic$traffics %>% 
+  fct_lump() %>% 
+  table()
 ```
 
 ```{r cat9, collapse=TRUE}
 # retain top 3 referrers
-traffic$traffics %>% fct_lump(n = 3) %>% table()
+traffic$traffics %>% 
+  fct_lump(n = 3) %>% 
+  table()
 
 # lump together referrers with < 10% traffic
-traffic$traffics %>% fct_lump(prop = 0.1) %>% table()
+traffic$traffics %>% 
+  fct_lump(prop = 0.1) %>% 
+  table()
 
 # lump together referrers with < 15% traffic
-traffic$traffics %>% fct_lump(prop = 0.15) %>% table()
+traffic$traffics %>% 
+  fct_lump(prop = 0.15) %>% 
+  table()
 
 # retain 3 referrers with lowest traffic
-traffic$traffics %>% fct_lump(n = -3) %>% table()
+traffic$traffics %>% 
+  fct_lump(n = -3) %>% 
+  table()
 
 # retain 3 referrers with < 10% traffic
-traffic$traffics %>% fct_lump(prop = -0.1) %>% table()
+traffic$traffics %>% 
+  fct_lump(prop = -0.1) %>% 
+  table()
 ```
 
 <br>

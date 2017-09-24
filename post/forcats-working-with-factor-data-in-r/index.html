@@ -292,6 +292,19 @@
 <p>This is the 12th post in the series <strong>Data Wrangling with R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/working-with-strings-in-r-using-stringr/">post</a>, we learnt to manipulate strings using the <a href="http://stringr.tidyverse.org">stringr</a> package. In this post, we will learn to work with categorical/qualitative data in R using <a href="http://forcats.tidyverse.org">forcats</a>. Let us begin by installing and loading forcats and a set of other pacakges we will be using.</p>
 <p><br></p>
 </div>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://stringr.tidyverse.org/">forcats</a></li>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://readr.tidyverse.org/">dplyr</a></li>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/85fac536f563ae3fd8e2605fd56a7086">here</a>.</p>
+<p><br></p>
+</div>
 <div id="data" class="section level3">
 <h3>Data</h3>
 <hr>
@@ -437,38 +450,50 @@ traffic2 %&gt;% fct_count()
 <div id="lump-infrequent-referrers" class="section level4">
 <h4>Lump Infrequent Referrers</h4>
 <hr>
-<pre class="r"><code>traffic$traffics %&gt;% fct_lump() %&gt;% table()</code></pre>
+<pre class="r"><code>traffic$traffics %&gt;% 
+  fct_lump() %&gt;% 
+  table()</code></pre>
 <pre><code>## .
 ## affiliates       bing   facebook     google  instagram    twitter 
 ##       7641       5893       8135       9229       3907       4521 
 ##    unknown      yahoo      Other 
 ##       2657       4899       1350</code></pre>
 <pre class="r"><code># retain top 3 referrers
-traffic$traffics %&gt;% fct_lump(n = 3) %&gt;% table()
+traffic$traffics %&gt;% 
+  fct_lump(n = 3) %&gt;% 
+  table()
 ## .
 ## affiliates   facebook     google      Other 
 ##       7641       8135       9229      23227
 
 # lump together referrers with &lt; 10% traffic
-traffic$traffics %&gt;% fct_lump(prop = 0.1) %&gt;% table()
+traffic$traffics %&gt;% 
+  fct_lump(prop = 0.1) %&gt;% 
+  table()
 ## .
 ## affiliates       bing   facebook     google      yahoo      Other 
 ##       7641       5893       8135       9229       4899      12435
 
 # lump together referrers with &lt; 15% traffic
-traffic$traffics %&gt;% fct_lump(prop = 0.15) %&gt;% table()
+traffic$traffics %&gt;% 
+  fct_lump(prop = 0.15) %&gt;% 
+  table()
 ## .
 ## affiliates   facebook     google      Other 
 ##       7641       8135       9229      23227
 
 # retain 3 referrers with lowest traffic
-traffic$traffics %&gt;% fct_lump(n = -3) %&gt;% table()
+traffic$traffics %&gt;% 
+  fct_lump(n = -3) %&gt;% 
+  table()
 ## .
 ##    direct instagram   unknown     Other 
 ##      1350      3907      2657     40318
 
 # retain 3 referrers with &lt; 10% traffic
-traffic$traffics %&gt;% fct_lump(prop = -0.1) %&gt;% table()
+traffic$traffics %&gt;% 
+  fct_lump(prop = -0.1) %&gt;% 
+  table()
 ## .
 ##    direct instagram   twitter   unknown     Other 
 ##      1350      3907      4521      2657     35797</code></pre>

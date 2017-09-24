@@ -153,7 +153,7 @@ Quick OverviewThere are functions to check origin, current date, time, timezon
       <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/data-manipulation-in-r-with-dplyr-part-1/</guid>
-      <description>IntroductionThis is the seventh post in the series Data Wrangling with R. In the previous [post], we learnt about using pipes to make our code readable. In this post, we will learn about dplyr.
+      <description>IntroductionThis is the seventh post in the series Data Wrangling with R. In the previous post, we learnt about using pipes to make our code readable. In this post, we will learn about dplyr.
 According to a survey by CrowdFlower, data scientists spend most of their time cleaning and manipulating data rather than mining or modeling them for insights. As such, it becomes important to have tools that make data manipulation faster and easier.</description>
     </item>
     

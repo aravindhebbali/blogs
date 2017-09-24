@@ -34,6 +34,8 @@ In this post, we will explore a set of helper functions in order to:
 
 ### Libraries, Data & Code
 
+<hr>
+
 We will use the following libraries in this post:
 
 - [dplyr](http://dplyr.tidyverse.org/)

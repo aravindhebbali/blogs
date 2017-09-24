@@ -26,6 +26,24 @@ library(magrittr)
 
 <br>
 
+### Libraries, Data & Code
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [lubridate](http://lubridate.tidyverse.org/)
+- [readr](http://readr.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/2b580575c59162c78c1ef30c1de55971).
+
+```{r libs, echo=FALSE, message=FALSE}
+library(lubridate)
+library(readr)
+```
+
+<br>
+
 #### Quick Overview
 
 <hr>
@@ -49,8 +67,9 @@ pm(now())
 We will use a case study to explore the lubridate package. The data set can be downloaded from here or directly 
 imported using the readr package.
 
-```{r import, echo=FALSE, message=FALSE}
+```{r import, message=FALSE}
 transact <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/transact.csv')
+transact
 ```
 
 <br>
@@ -268,6 +287,8 @@ transact %>%
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/working-with-strings-in-r-using-stringr/), we will learn to work with strings.
 
 <br>
 

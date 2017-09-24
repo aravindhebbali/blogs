@@ -20,7 +20,7 @@
       <guid>/post/working-with-strings-in-r-using-stringr/</guid>
       <description>IntroductionThis is the eleventh post in the series Data Wrangling with R. In the previous post, we learnt to manipulate date and time using the lubridate package. In this post, we will learn to work with string data in R using stringr. Let us begin by installing and loading stringr and a set of other pacakges we will be using.
 
-DataAs we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.</description>
+Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:</description>
     </item>
     
   </channel>

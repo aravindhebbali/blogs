@@ -133,7 +133,7 @@ IntroductionThe tidyverse is a collection of R packages that share a common und
       <guid>/post/working-with-strings-in-r-using-stringr/</guid>
       <description>IntroductionThis is the eleventh post in the series Data Wrangling with R. In the previous post, we learnt to manipulate date and time using the lubridate package. In this post, we will learn to work with string data in R using stringr. Let us begin by installing and loading stringr and a set of other pacakges we will be using.
 
-DataAs we did in the earlier posts in this series, we will use a case study to explore the various features of the stringr package.</description>
+Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:</description>
     </item>
     
     <item>
@@ -144,7 +144,7 @@ IntroductionThe tidyverse is a collection of R packages that share a common und
       <guid>/post/how-to-work-with-dates-in-r/</guid>
       <description>IntroductionThis is the tenth post in the series Data Wrangling with R. In the previous post, we learnt to manipulate dataframes using the dplyr package. In this post, we will learn to work with date/time data in R using lubridate, an R package that makes it easy to work with dates and time. Let us begin by installing and loading the lubridate pacakge.
 
-Quick OverviewThere are functions to check origin, current date, time, timezone and AM/PM.</description>
+Libraries, Data &amp;amp; CodeWe will use the following libraries in this post:</description>
     </item>
     
     <item>

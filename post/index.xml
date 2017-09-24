@@ -321,7 +321,7 @@ As we did in the earlier posts in this series, we will use a case study to explo
     </item>
     
     <item>
-      <title>Data Manipulation in R with dplyr - Part 3</title>
+      <title>Data Wrangling with dplyr - Part 3</title>
       <link>/post/data-manipulation-in-r-with-dplyr-part-3/</link>
       <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
       
@@ -332,7 +332,7 @@ In this post, we will explore a set of helper functions in order to:
     </item>
     
     <item>
-      <title>Data Manipulation in R with dplyr - Part 2</title>
+      <title>Data Wrangling with dplyr - Part 2</title>
       <link>/post/data-manipulation-in-r-with-dplyr-part-2/</link>
       <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
       

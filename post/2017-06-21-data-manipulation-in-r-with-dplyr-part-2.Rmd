@@ -1,5 +1,5 @@
 ---
-title: Data Manipulation in R with dplyr - Part 2
+title: Data Wrangling with dplyr - Part 2
 date: '2017-05-22'
 slug: data-manipulation-in-r-with-dplyr-part-2
 topics:
@@ -167,7 +167,7 @@ In this post, we learnt the following types of join:
 
 <hr>
 
-In the next [post](),  we will explore a set of helper functions in order to:
+In the next [post](http://www.rsquaredacademy.com/blog/post/data-manipulation-in-r-with-dplyr-part-3/),  we will explore a set of helper functions in order to:
 
 - extract unique rows 
 - rename columns

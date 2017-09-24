@@ -33,12 +33,25 @@ This is the eighth post in the series **Data Wrangling with R**. In a previous [
 
 <br>
 
-#### Case Study
+### Libraries, Data & Code
+
+We will use the following libraries in this post:
+
+- [dplyr](http://dplyr.tidyverse.org/)
+- [readr](http://readr.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/3e31f13a4194a8f1003034aa7d70d5ee).
+
+```{r libs, echo=FALSE, message=FALSE}
+library(dplyr)
+library(readr)
+```
+
+### Case Study
 
 <hr>
 
 We have two data sets with details of customers and their orders. We will use the above functions to combine the data sets in different ways to glean information about customer orders. Let us import the data from our github repository:
-
 
 ```{r dplyr1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(dplyr)
@@ -69,7 +82,7 @@ customer
 
 <br>
 
-#### inner join
+### inner join
 
 <hr>
 
@@ -80,7 +93,7 @@ customer %>%
 
 <br>
 
-#### left join
+### left join
 
 <hr>
 
@@ -91,7 +104,7 @@ customer %>%
 
 <br>
 
-#### right join
+### right join
 
 <hr>
 
@@ -102,7 +115,7 @@ customer %>%
 
 <br>
 
-#### semi join
+### semi join
 
 <hr>
 
@@ -113,7 +126,7 @@ customer %>%
 
 <br>
 
-#### anti join
+### anti join
 
 <hr>
 
@@ -124,7 +137,7 @@ customer %>%
 
 <br>
 
-#### full join
+### full join
 
 <hr>
 
@@ -139,10 +152,31 @@ customer %>%
 
 <hr>
 
+In this post, we learnt the following types of join:
+
+- inner_join
+- left_join
+- right_join
+- semi_join
+- anti_join
+- full_join
+
 <br>
 
 ### Up Next..
 
 <hr>
+
+In the next [post](),  we will explore a set of helper functions in order to:
+
+- extract unique rows 
+- rename columns
+- sample data
+- extract columns
+- slice rows
+- arrange rows
+- compare tables
+- extract/mutate data using predicate functions
+- count observations for different levels of a variable
 
 <br>

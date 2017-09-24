@@ -307,12 +307,21 @@
 <li><p><code>full_join()</code>: return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.</p></li>
 </ul>
 <p><br></p>
-<div id="case-study" class="section level4">
-<h4>Case Study</h4>
+</div>
+<div id="libraries-data-code" class="section level3">
+<h3>Libraries, Data &amp; Code</h3>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://dplyr.tidyverse.org/">dplyr</a></li>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/3e31f13a4194a8f1003034aa7d70d5ee">here</a>.</p>
+</div>
+<div id="case-study" class="section level3">
+<h3>Case Study</h3>
 <hr>
 <p>We have two data sets with details of customers and their orders. We will use the above functions to combine the data sets in different ways to glean information about customer orders. Let us import the data from our github repository:</p>
 <p><br></p>
-</div>
 <div id="order" class="section level4">
 <h4>Order</h4>
 <hr>
@@ -351,8 +360,9 @@
 ## # ... with 81 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="inner-join" class="section level4">
-<h4>inner join</h4>
+</div>
+<div id="inner-join" class="section level3">
+<h3>inner join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   inner_join(order)</code></pre>
@@ -373,8 +383,8 @@
 ## # ... with 45 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="left-join" class="section level4">
-<h4>left join</h4>
+<div id="left-join" class="section level3">
+<h3>left join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   left_join(order)</code></pre>
@@ -395,8 +405,8 @@
 ## # ... with 94 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="right-join" class="section level4">
-<h4>right join</h4>
+<div id="right-join" class="section level3">
+<h3>right join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   right_join(order)</code></pre>
@@ -417,8 +427,8 @@
 ## # ... with 290 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="semi-join" class="section level4">
-<h4>semi join</h4>
+<div id="semi-join" class="section level3">
+<h3>semi join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   semi_join(order)</code></pre>
@@ -439,8 +449,8 @@
 ## # ... with 32 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="anti-join" class="section level4">
-<h4>anti join</h4>
+<div id="anti-join" class="section level3">
+<h3>anti join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   anti_join(order)</code></pre>
@@ -461,8 +471,8 @@
 ## # ... with 39 more rows</code></pre>
 <p><br></p>
 </div>
-<div id="full-join" class="section level4">
-<h4>full join</h4>
+<div id="full-join" class="section level3">
+<h3>full join</h3>
 <hr>
 <pre class="r"><code>customer %&gt;%
   full_join(order)</code></pre>
@@ -483,15 +493,35 @@
 ## # ... with 339 more rows</code></pre>
 <p><br></p>
 </div>
-</div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
+<p>In this post, we learnt the following types of join:</p>
+<ul>
+<li>inner_join</li>
+<li>left_join</li>
+<li>right_join</li>
+<li>semi_join</li>
+<li>anti_join</li>
+<li>full_join</li>
+</ul>
 <p><br></p>
 </div>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next <a href="">post</a>, we will explore a set of helper functions in order to:</p>
+<ul>
+<li>extract unique rows</li>
+<li>rename columns</li>
+<li>sample data</li>
+<li>extract columns</li>
+<li>slice rows</li>
+<li>arrange rows</li>
+<li>compare tables</li>
+<li>extract/mutate data using predicate functions</li>
+<li>count observations for different levels of a variable</li>
+</ul>
 <p><br></p>
 </div>
 

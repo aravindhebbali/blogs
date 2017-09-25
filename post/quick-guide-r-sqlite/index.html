@@ -305,8 +305,9 @@
 <hr>
 <p>This is the first post in the series <strong>R &amp; Databases</strong>. You can find the links to the other two posts of this series below:</p>
 <ul>
-<li><a href="">SQL for Data Science</a></li>
-<li><a href="">Data Wrangling with dbplyr</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/data-wrangling-with-dbplyr">Data Wrangling with dbplyr</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/sql-for-data-science-part-1">SQL for Data Science - Part 1</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/sql-for-data-science-part-2">SQL for Data Science - Part 2</a></li>
 </ul>
 <p>In this post, we will learn to:</p>
 <ul>
@@ -333,10 +334,10 @@
 <hr>
 <p>We will use the following libraries in this post:</p>
 <ul>
-<li><a href="http://readr.tidyverse.org/">DBI</a></li>
-<li><a href="">RSQLite</a></li>
+<li><a href="http://rstats-db.github.io/DBI/">DBI</a></li>
+<li><a href="https://rstats-db.github.io/RSQLite/">RSQLite</a></li>
 </ul>
-<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/7d99eb52a0e44cd1f87c8689cf1a307d">here</a>.</p>
 <p><br></p>
 <div id="connection" class="section level4">
 <h4>Connection</h4>
@@ -561,11 +562,11 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial2, overwrite = TRUE)</code></pre>
 <hr>
 <pre class="r"><code>DBI::dbGetQuery(con, &quot;select * from trial limit 5&quot;)</code></pre>
 <pre><code>##    x y
-## 1 71 k
-## 2 83 l
-## 3 20 m
-## 4  9 n
-## 5  5 o</code></pre>
+## 1 84 k
+## 2 91 l
+## 3 31 m
+## 4 70 n
+## 5 68 o</code></pre>
 <p><br></p>
 </div>
 <div id="append-data-to-the-table-in-the-database" class="section level4">
@@ -581,27 +582,27 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial3, append = TRUE)</code></pre>
 <h4>query sample data from table to see if new data is appended</h4>
 <hr>
 <pre class="r"><code>DBI::dbReadTable(con, &quot;trial&quot;)</code></pre>
-<pre><code>##      x y
-## 1   71 k
-## 2   83 l
-## 3   20 m
-## 4    9 n
-## 5    5 o
-## 6   40 p
-## 7  100 q
-## 8   93 r
-## 9   57 s
-## 10  32 t
-## 11  55 e
-## 12  66 f
-## 13  89 g
-## 14  76 h
-## 15  27 i
-## 16   7 j
-## 17  95 k
-## 18  87 l
-## 19  54 m
-## 20   4 n</code></pre>
+<pre><code>##     x y
+## 1  84 k
+## 2  91 l
+## 3  31 m
+## 4  70 n
+## 5  68 o
+## 6  38 p
+## 7  25 q
+## 8  50 r
+## 9  11 s
+## 10 58 t
+## 11 93 e
+## 12 26 f
+## 13 29 g
+## 14 98 h
+## 15 55 i
+## 16 59 j
+## 17 97 k
+## 18 25 l
+## 19 82 m
+## 20 57 n</code></pre>
 <p><br></p>
 </div>
 </div>
@@ -699,6 +700,7 @@ DBI::dbWriteTable(con, &quot;trial&quot;, trial3, append = TRUE)</code></pre>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/data-wrangling-with-dbplyr">post</a>, we will learn about data wrangling using <a href="http://dbplyr.tidyverse.org/">dbplyr</a>.</p>
 <p><br></p>
 </div>
 

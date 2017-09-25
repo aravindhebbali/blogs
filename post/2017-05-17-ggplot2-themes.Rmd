@@ -34,13 +34,25 @@ Use `theme()` to modify the appearance of all non data components of the plot su
 
 <br>
 
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/a6722c54610578ddcadaeeaf1df7cbf3).
+
+<br>
+
 ```{r load, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
-#### Scatter Plot
+### Scatter Plot
 
 <hr>
 
@@ -52,7 +64,7 @@ p
 
 <br>
 
-#### Axis Title
+### Axis Title
 
 <hr>
 
@@ -62,7 +74,7 @@ p + theme(axis.title.x = element_text(color = "red", size = 10))
 
 <br>
 
-#### Axis Text
+### Axis Text
 
 <hr>
 
@@ -72,7 +84,7 @@ p + theme(axis.text.x = element_text(color = "red", size = 10))
 
 <br>
 
-#### Axis Font
+### Axis Font
 
 <hr>
 
@@ -83,7 +95,7 @@ p + theme(axis.text = element_text(color = "red", size = 10, face = "italic"))
 
 <br>
 
-#### Axis Ticks
+### Axis Ticks
 
 <hr>
 
@@ -94,7 +106,7 @@ p + theme(axis.ticks = element_line(color = 'blue', size = 1.25, linetype = 2),
 
 <br>
 
-#### Axis Line
+### Axis Line
 
 <hr>
 
@@ -104,7 +116,7 @@ p + theme(axis.line = element_line(color = 'red', size = 1.5, linetype = 3))
 
 <br>
 
-#### Legend
+### Legend
 
 <hr>
 
@@ -116,7 +128,7 @@ p
 
 <br>
 
-#### Background 
+### Background 
 
 <hr>
 
@@ -127,7 +139,7 @@ p + theme(legend.background = element_rect(fill = 'gray', linetype = 3,
 
 <br>
 
-#### Margin 
+### Margin 
 
 <hr>
 
@@ -137,7 +149,7 @@ p + theme(legend.margin = margin(4, 8, 4, 8))
 
 <br>
 
-#### Spacing 
+### Spacing 
 
 <hr>
 
@@ -147,7 +159,7 @@ p + theme(legend.spacing = unit(1.5, "cm"))
 
 <br>
 
-#### Key 
+### Key 
 
 <hr>
 
@@ -158,7 +170,7 @@ p + theme(legend.key = element_rect(fill = 'red'),
 
 <br>
 
-#### Text 
+### Text 
 
 <hr>
 
@@ -168,7 +180,7 @@ p + theme(legend.text = element_text(color = 'green', face = 'italic'))
 
 <br>
 
-#### Title 
+### Title 
 
 <hr>
 
@@ -179,7 +191,7 @@ p + theme(legend.title = element_text(color = 'blue', face = 'bold'),
 
 <br>
 
-#### Position 
+### Position 
 
 <hr>
 
@@ -189,7 +201,7 @@ p + theme(legend.position = "top")
 
 <br>
 
-#### Direction 
+### Direction 
 
 <hr>
 
@@ -199,7 +211,7 @@ p + theme(legend.direction = "horizontal")
 
 <br>
 
-#### Box 
+### Box 
 
 <hr>
 
@@ -212,7 +224,7 @@ p + theme(legend.box = "horizontal",
 
 <br>
 
-#### Panel
+### Panel
 
 <hr>
 
@@ -224,7 +236,7 @@ p
 
 <br>
 
-#### Panel Background
+### Panel Background
 
 <hr>
 
@@ -234,7 +246,7 @@ p + theme(panel.background = element_rect(fill = 'gray'))
 
 <br>
 
-#### Panel Border
+### Panel Border
 
 <hr>
 
@@ -245,7 +257,7 @@ p + theme(panel.border = element_rect(fill = NA, color = 'blue',
 
 <br>
 
-#### Panel Grid
+### Panel Grid
 
 <hr>
 
@@ -255,7 +267,7 @@ p + theme(panel.grid = element_line(color = 'blue', linetype = 2, size = 0.5))
 
 <br>
 
-#### Panel Grid (Major)
+### Panel Grid (Major)
 
 <hr>
 
@@ -266,7 +278,7 @@ p + theme(panel.grid.major.x = element_line(color = 'blue',
 
 <br>
 
-#### Panel Grid (Minor)
+### Panel Grid (Minor)
 
 <hr>
 
@@ -277,7 +289,7 @@ p + theme(panel.grid.minor.y = element_line(color = 'red',
 
 <br>
 
-#### Plot Area
+### Plot Area
 
 <hr>
 
@@ -290,7 +302,7 @@ p
 
 <br>
 
-#### Plot Background
+### Plot Background
 
 <hr>
 
@@ -301,7 +313,7 @@ p + theme(plot.background = element_rect(color = 'blue',
 
 <br>
 
-#### Plot Title
+### Plot Title
 
 <hr>
 
@@ -311,7 +323,7 @@ p + theme(plot.title = element_text(color = 'red'))
 
 <br>
 
-#### Plot Margin
+### Plot Margin
 
 <hr>
 
@@ -321,7 +333,7 @@ p + theme(plot.margin = unit(c(1, 1, 1, 1), "cm"))
 
 <br>
 
-#### Facets
+### Facets
 
 <hr>
 
@@ -334,7 +346,7 @@ p
 
 <br>
 
-#### Strip Background
+### Strip Background
 
 <hr>
 
@@ -345,7 +357,7 @@ p + theme(strip.background = element_rect(color = 'red',
 
 <br>
 
-#### Strip Text
+### Strip Text
 
 <hr>
 
@@ -356,13 +368,13 @@ p + theme(strip.text = element_text(face = 'italic', size = 8,
 
 <br>
 
-#### Themes
+### Themes
 
 <hr>
 
 <br>
 
-#### Classic Dark on Light
+### Classic Dark on Light
 
 <hr>
 
@@ -374,7 +386,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Default Gray
+### Default Gray
 
 <hr>
 
@@ -386,7 +398,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Light
+### Light
 
 <hr>
 
@@ -398,7 +410,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Minimal
+### Minimal
 
 <hr>
 
@@ -410,7 +422,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Dark
+### Dark
 
 <hr>
 
@@ -422,7 +434,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Classic
+### Classic
 
 <hr>
 
@@ -434,7 +446,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Void (Empty)
+### Void (Empty)
 
 <hr>
 

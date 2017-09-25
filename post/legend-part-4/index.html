@@ -298,7 +298,7 @@
   <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <hr>
-<p>If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. You may want to modify the appearance of legends. In this module, we will learn to modify the legends when <code>size</code> is mapped to categorical variables.</p>
+<p>This is the 16th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/legend-part-3/">post</a>, we learnt how to modify the legend of plot when <code>shape</code> is mapped to categorical variables..If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. You may want to modify the appearance of legends. In this module, we will learn to modify the legends when <code>size</code> is mapped to categorical variables.</p>
 <p>Modify legend when <code>size</code> is mapped to variables. Specifically</p>
 <ul>
 <li>title</li>
@@ -310,16 +310,28 @@
 <li>symbol type</li>
 </ul>
 <p><br></p>
-<div id="plot" class="section level4">
-<h4>Plot</h4>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/9c1e4475fe554377bb3b20acf0b71231">here</a>.</p>
+<p><br></p>
+</div>
+<div id="plot" class="section level3">
+<h3>Plot</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp))</code></pre>
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg36-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="title" class="section level4">
-<h4>Title</h4>
+<div id="title" class="section level3">
+<h3>Title</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -327,8 +339,8 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg37-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="range" class="section level4">
-<h4>Range</h4>
+<div id="range" class="section level3">
+<h3>Range</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -336,8 +348,8 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg38-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="limits" class="section level4">
-<h4>Limits</h4>
+<div id="limits" class="section level3">
+<h3>Limits</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -345,8 +357,8 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg39-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="breaks" class="section level4">
-<h4>Breaks</h4>
+<div id="breaks" class="section level3">
+<h3>Breaks</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -354,8 +366,8 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg40-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="labels" class="section level4">
-<h4>Labels</h4>
+<div id="labels" class="section level3">
+<h3>Labels</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -364,8 +376,8 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg41-1.png" width="672" /></p>
 <p><br></p>
 </div>
-<div id="putting-it-all-together" class="section level4">
-<h4>Putting it all together</h4>
+<div id="putting-it-all-together" class="section level3">
+<h3>Putting it all together</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, size = hp)) +
@@ -375,7 +387,6 @@
 <p><img src="../../post/2017-09-20-legend-part-4_files/figure-html/leg42-1.png" width="672" /></p>
 <p><br></p>
 </div>
-</div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
@@ -384,6 +395,7 @@
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/legend-part-5/">post</a>, we will learn to modify the legend when <code>alpha</code> is mapped to categorical variables.</p>
 <p><br></p>
 </div>
 

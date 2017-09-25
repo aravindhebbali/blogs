@@ -12,7 +12,7 @@ tags:
 
 ### Introduction
 
-If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. 
+This is the 15th post in the series **Elegant Data Visualization with ggplot2**. In the previos [post](https://rsquaredacademy.github.io/blog/post/legend-part-2/), we learnt how to modify the legend of plots when aesthetics are mapped to variables.If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. 
 You may want to modify the appearance of legends. In this module, we will learn to modify the legends when
 `shape` is mapped to categorical variables. If you have mapped shape/size to a discrete variable which has 
 less than six categories, you can use `scale_shape()`
@@ -29,11 +29,25 @@ Modify legend when `shape` is mapped to variables. Specifically
 
 ```{r gui1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
-#### Plot
+<br>
+
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/446c78bd5cb4a6cb546bd440bc357140).
+
+<br>
+
+### Plot
 
 <hr>
 
@@ -52,7 +66,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Title
+### Title
 
 <hr>
 
@@ -74,7 +88,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Values
+### Values
 
 <hr>
 
@@ -86,7 +100,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Labels
+### Labels
 
 <hr>
 
@@ -108,7 +122,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Limits
+### Limits
 
 <hr>
 
@@ -130,7 +144,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Breaks
+### Breaks
 
 <hr>
 
@@ -152,7 +166,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Symbol
+### Symbol
 
 <hr>
 
@@ -164,7 +178,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Putting it all together
+### Putting it all together
 
 <hr>
 
@@ -196,5 +210,7 @@ ggplot(mtcars) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/legend-part-4/), we will learn how to modify the legend when `size` is mapped to categorical variables.
 
 <br>

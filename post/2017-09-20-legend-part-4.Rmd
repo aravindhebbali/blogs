@@ -14,7 +14,7 @@ tags:
 
 <hr>
 
-This is the 16th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/legend-part-3/), we learnt how to modify the legend of plot when `shape` is mapped to categorical variables..If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. 
+This is the 16th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/legend-part-3/), we learnt how to modify the legend of plot when `shape` is mapped to categorical variables.If the aesthetics are mapped to variables, ggplot2 automatically creates legends wherever applicable. 
 You may want to modify the appearance of legends. In this module, we will learn to modify the legends when
 `size` is mapped to categorical variables.
 

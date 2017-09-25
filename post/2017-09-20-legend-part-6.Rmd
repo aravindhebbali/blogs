@@ -14,23 +14,35 @@ tags:
 
 <hr>
 
-Learn to modify legend
+This is the 18th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/legend-part-5/), we learnt how to modify the legend of plot when `alpha` is mapped to a categorical variable. In this post, we will learn to modify legend
 
 - title
 - label
-- bar
+-  and bar
 
 <br>
 
 ```{r load, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
 <br>
 
-#### Title
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/a77a836e7e06c61c28ba7db3a69e1510).
+
+<br>
+
+### Title
 
 <hr>
 
@@ -46,7 +58,7 @@ library(tidyr)
 
 <br>
 
-#### Legend Title
+### Legend Title
 
 <hr>
 
@@ -58,7 +70,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Title Alignment
+### Title Alignment
 
 <hr>
 
@@ -70,7 +82,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Title Position
+### Title Position
 
 <hr>
 
@@ -83,7 +95,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Label
+### Label
 
 <hr>
 
@@ -105,7 +117,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Label Position
+### Label Position
 
 <hr>
 
@@ -117,7 +129,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Label Alignment
+### Label Alignment
 
 <hr>
 
@@ -129,7 +141,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Direction
+### Direction
 
 <hr>
 
@@ -141,7 +153,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Rows
+### Rows
 
 <hr>
 
@@ -153,7 +165,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Reverse
+### Reverse
 
 <hr>
 
@@ -165,7 +177,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Guides
+### Guides
 
 <hr>
 
@@ -180,7 +192,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
 
 <br>
 
-#### Title Alignment (Vertical)
+### Title Alignment (Vertical)
 
 <hr>
 
@@ -192,7 +204,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg, color = hp)) +
 
 <br>
 
-#### Labels Alignment (Vertical)
+### Labels Alignment (Vertical)
 
 <hr>
 
@@ -205,7 +217,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar 
+### Legend Bar 
 
 <hr>
 
@@ -217,7 +229,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar Width
+### Legend Bar Width
 
 <hr>
 
@@ -230,7 +242,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar Height
+### Legend Bar Height
 
 <hr>
 
@@ -243,7 +255,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar Bins
+### Legend Bar Bins
 
 <hr>
 
@@ -256,7 +268,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar Ticks
+### Legend Bar Ticks
 
 <hr>
 
@@ -269,7 +281,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Legend Bar Upper/Lower Limits
+### Legend Bar Upper/Lower Limits
 
 <hr>
 
@@ -282,7 +294,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Guides
+### Guides
 
 <hr>
 
@@ -295,7 +307,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Guides: Color, Shape & Size
+### Guides: Color, Shape & Size
 
 <hr>
 
@@ -318,5 +330,7 @@ ggplot(mtcars) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/overlapping/), we will learn how to position the geoms to avoid overlapping. 
 
 <br>

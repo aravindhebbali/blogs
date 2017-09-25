@@ -17,7 +17,7 @@ draft: yes
 
 <hr>
 
-This is the fifth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/), we learnt about aesthetics. In this post, we will build scatter plots by applying everything we have learnt so far.
+This is the fifth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-text-annotations/), we learnt about text annotations. In this post, we will build scatter plots by applying everything we have learnt so far.
 
 - build scatter plots
 - modify point
@@ -32,9 +32,21 @@ This is the fifth post in the series **Elegant Data Visualization with ggplot2**
 
 ```{r scat1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
+
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here]().
+
+<br>
 
 #### Basic Plot
 

@@ -31,6 +31,19 @@ This is the first post in the series **Elegant Data Visualization with ggplot2**
 
 <br>
 
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/4bc7327c8e921657f90c5101e14a35a7).
+
+<br>
+
 ### Grammar of Graphics
 
 <hr>

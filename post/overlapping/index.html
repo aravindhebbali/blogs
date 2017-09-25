@@ -297,10 +297,22 @@
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <hr>
-<p>This is the 18th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/guides-legends-part-2/">post</a>, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.</p>
+<p>This is the 18th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/legend-part-6/">post</a>, we learnt how to modify the legend title, label and bar. In this post, we will learn to position the geoms to avoid overlapping.</p>
 <p><br></p>
-<div id="dodge" class="section level4">
-<h4>Dodge</h4>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/ee7f58a871679f9655a1222ccc5db72d">here</a>.</p>
+<p><br></p>
+</div>
+<div id="dodge" class="section level3">
+<h3>Dodge</h3>
 <hr>
 <p>Preserve the vertical position while adjusting the horizontal position.</p>
 <pre class="r"><code>ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
@@ -312,8 +324,8 @@
 <p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="jitter" class="section level4">
-<h4>Jitter</h4>
+<div id="jitter" class="section level3">
+<h3>Jitter</h3>
 <hr>
 <p>Add some noise to data points for better visualization.</p>
 <pre class="r"><code>ggplot(data = mtcars, aes(am, vs)) +
@@ -337,8 +349,8 @@
 <p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="nudge" class="section level4">
-<h4>Nudge</h4>
+<div id="nudge" class="section level3">
+<h3>Nudge</h3>
 <hr>
 <p>Use with geom_text. Useful for adjusting text around points.</p>
 <pre class="r"><code>df &lt;- data.frame(
@@ -353,8 +365,8 @@
 <p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="fill" class="section level4">
-<h4>Fill</h4>
+<div id="fill" class="section level3">
+<h3>Fill</h3>
 <hr>
 <p>Proportional bar plots.</p>
 <pre class="r"><code>ggplot(data = mtcars, aes(factor(cyl), fill = factor(gear))) +
@@ -362,8 +374,8 @@
 <p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="stack" class="section level4">
-<h4>Stack</h4>
+<div id="stack" class="section level3">
+<h3>Stack</h3>
 <hr>
 <pre class="r"><code>series &lt;- data.frame(
   time = c(rep(1, 4),rep(2, 4), rep(3, 4), rep(4, 4)),
@@ -383,7 +395,6 @@ series$type2 &lt;- factor(series$type, levels = c(&#39;c&#39;, &#39;b&#39;, &#39
   geom_point(aes(colour = type), position = &quot;stack&quot;)</code></pre>
 <p><img src="../../post/2017-07-06-overlapping_files/figure-html/pos14-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-</div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
@@ -392,6 +403,7 @@ series$type2 &lt;- factor(series$type, levels = c(&#39;c&#39;, &#39;b&#39;, &#39
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-statistical-plots/">post</a>, we will learn an alternative method to build plots.</p>
 <p><br></p>
 </div>
 

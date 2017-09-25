@@ -88,10 +88,10 @@ If the aesthetics are mapped to variables, ggplot2 automatically creates legends
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/overlapping/</guid>
-      <description>IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+      <description>IntroductionThis is the 18th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt how to modify the legend title, label and bar. In this post, we will learn to position the geoms to avoid overlapping.
 
-DodgePreserve the vertical position while adjusting the horizontal position.
-ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +geom_bar()</description>
+Libraries, Code &amp;amp; DataWe will use the following libraries in this post:
+readrggplot2All the data sets used in this post can be found here and code can be downloaded from here.</description>
     </item>
     
     <item>

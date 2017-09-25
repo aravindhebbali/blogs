@@ -315,10 +315,11 @@
 <li><a href="http://readr.tidyverse.org/">readr</a></li>
 <li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
 </ul>
-<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/a77a836e7e06c61c28ba7db3a69e1510">here</a>.</p>
 <p><br></p>
-<div id="title" class="section level4">
-<h4>Title</h4>
+</div>
+<div id="title" class="section level3">
+<h3>Title</h3>
 <hr>
 <ul>
 <li>position
@@ -336,8 +337,8 @@
 </ul>
 <p><br></p>
 </div>
-<div id="legend-title" class="section level4">
-<h4>Legend Title</h4>
+<div id="legend-title" class="section level3">
+<h3>Legend Title</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -345,8 +346,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="title-alignment" class="section level4">
-<h4>Title Alignment</h4>
+<div id="title-alignment" class="section level3">
+<h3>Title Alignment</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -354,8 +355,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="title-position" class="section level4">
-<h4>Title Position</h4>
+<div id="title-position" class="section level3">
+<h3>Title Position</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -364,8 +365,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="label" class="section level4">
-<h4>Label</h4>
+<div id="label" class="section level3">
+<h3>Label</h3>
 <hr>
 <ul>
 <li>position
@@ -394,8 +395,8 @@
 </ul>
 <p><br></p>
 </div>
-<div id="label-position" class="section level4">
-<h4>Label Position</h4>
+<div id="label-position" class="section level3">
+<h3>Label Position</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -403,8 +404,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="label-alignment" class="section level4">
-<h4>Label Alignment</h4>
+<div id="label-alignment" class="section level3">
+<h3>Label Alignment</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -412,8 +413,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="direction" class="section level4">
-<h4>Direction</h4>
+<div id="direction" class="section level3">
+<h3>Direction</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -421,8 +422,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="rows" class="section level4">
-<h4>Rows</h4>
+<div id="rows" class="section level3">
+<h3>Rows</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -430,8 +431,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="reverse" class="section level4">
-<h4>Reverse</h4>
+<div id="reverse" class="section level3">
+<h3>Reverse</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -439,8 +440,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="guides" class="section level4">
-<h4>Guides</h4>
+<div id="guides" class="section level3">
+<h3>Guides</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = factor(cyl))) +
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;),
@@ -451,8 +452,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="title-alignment-vertical" class="section level4">
-<h4>Title Alignment (Vertical)</h4>
+<div id="title-alignment-vertical" class="section level3">
+<h3>Title Alignment (Vertical)</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg, color = hp)) +
   scale_color_continuous(guide = guide_colorbar(
@@ -460,8 +461,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg22-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="labels-alignment-vertical" class="section level4">
-<h4>Labels Alignment (Vertical)</h4>
+<div id="labels-alignment-vertical" class="section level3">
+<h3>Labels Alignment (Vertical)</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -470,8 +471,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg23-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="legend-bar" class="section level4">
-<h4>Legend Bar</h4>
+<div id="legend-bar" class="section level3">
+<h3>Legend Bar</h3>
 <hr>
 <ul>
 <li>width</li>
@@ -482,8 +483,8 @@
 </ul>
 <p><br></p>
 </div>
-<div id="legend-bar-width" class="section level4">
-<h4>Legend Bar Width</h4>
+<div id="legend-bar-width" class="section level3">
+<h3>Legend Bar Width</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -492,8 +493,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg24-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="legend-bar-height" class="section level4">
-<h4>Legend Bar Height</h4>
+<div id="legend-bar-height" class="section level3">
+<h3>Legend Bar Height</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -502,8 +503,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="legend-bar-bins" class="section level4">
-<h4>Legend Bar Bins</h4>
+<div id="legend-bar-bins" class="section level3">
+<h3>Legend Bar Bins</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -512,8 +513,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg26-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="legend-bar-ticks" class="section level4">
-<h4>Legend Bar Ticks</h4>
+<div id="legend-bar-ticks" class="section level3">
+<h3>Legend Bar Ticks</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -522,8 +523,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="legend-bar-upperlower-limits" class="section level4">
-<h4>Legend Bar Upper/Lower Limits</h4>
+<div id="legend-bar-upperlower-limits" class="section level3">
+<h3>Legend Bar Upper/Lower Limits</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp)) +
@@ -532,8 +533,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg29-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="guides-1" class="section level4">
-<h4>Guides</h4>
+<div id="guides-1" class="section level3">
+<h3>Guides</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp, 
@@ -542,8 +543,8 @@
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg34-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="guides-color-shape-size" class="section level4">
-<h4>Guides: Color, Shape &amp; Size</h4>
+<div id="guides-color-shape-size" class="section level3">
+<h3>Guides: Color, Shape &amp; Size</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) +
   geom_point(aes(disp, mpg, color = hp, size = wt, shape = factor(gear))) + 
@@ -552,7 +553,6 @@
   )</code></pre>
 <p><img src="../../post/2017-09-20-legend-part-6_files/figure-html/leg35-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
-</div>
 </div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>

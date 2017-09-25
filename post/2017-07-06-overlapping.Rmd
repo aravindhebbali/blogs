@@ -16,17 +16,29 @@ draft: yes
 
 <hr>
 
-This is the 18th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/guides-legends-part-2/), we learnt how to modify the legend of plots when aesthetics are mapped to variables. In this post, we will learn to position the geoms to avoid overlapping.
+This is the 18th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/legend-part-6/), we learnt how to modify the legend title, label and bar. In this post, we will learn to position the geoms to avoid overlapping.
 
 ```{r pos1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
 <br>
 
-#### Dodge
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/ee7f58a871679f9655a1222ccc5db72d).
+
+<br>
+
+### Dodge
 
 <hr>
 
@@ -46,7 +58,7 @@ ggplot(data = mtcars, aes(factor(cyl), fill = factor(vs))) +
 
 <br>
 
-#### Jitter
+### Jitter
 
 <hr>
 
@@ -87,7 +99,7 @@ ggplot(data = mtcars, aes(am, vs)) +
 
 <br>
 
-#### Nudge
+### Nudge
 
 <hr>
 
@@ -111,7 +123,7 @@ ggplot(df, aes(x, y)) +
 
 <br>
 
-#### Fill
+### Fill
 
 <hr>
 
@@ -124,7 +136,7 @@ ggplot(data = mtcars, aes(factor(cyl), fill = factor(gear))) +
 
 <br>
 
-#### Stack
+### Stack
 
 <hr>
 
@@ -163,5 +175,7 @@ ggplot(series, aes(time, value, group = type)) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-statistical-plots/),  we will learn an alternative method to build plots. 
 
 <br>

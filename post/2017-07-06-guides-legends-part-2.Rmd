@@ -36,7 +36,20 @@ Modify legend when `fill` is mapped to variables. Specifically
 
 <br>
 
-#### Plot
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/ef2b665173cf7cfe17093f3dcb052035).
+
+<br>
+
+### Plot
 
 <hr>
 
@@ -47,7 +60,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Title
+### Title
 
 <hr>
 
@@ -60,7 +73,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Values
+### Values
 
 <hr>
 
@@ -72,7 +85,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Labels
+### Labels
 
 <hr>
 
@@ -85,7 +98,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Limits
+### Limits
 
 <hr>
 
@@ -98,7 +111,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Breaks
+### Breaks
 
 <hr>
 
@@ -111,7 +124,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### Summary
+### Putting it all together...
 
 <hr>
 
@@ -133,6 +146,9 @@ ggplot(mtcars) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/legend-part-3/), we will learn to modify the legend when 
+`shape` is mapped to categorical variables.
 
 <br>
 

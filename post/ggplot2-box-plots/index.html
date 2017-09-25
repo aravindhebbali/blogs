@@ -299,7 +299,7 @@
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <hr>
-<p>This is the 9th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-line-graphs/">post</a>, we learnt how to build line charts. In this post, we will</p>
+<p>This is the 9th post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-bar-plots/">post</a>, we learnt how to build bar charts. In this post, we will</p>
 <ul>
 <li>build box plots</li>
 <li>modify box
@@ -319,8 +319,20 @@
 </ul></li>
 </ul>
 <p><br></p>
-<div id="data" class="section level4">
-<h4>Data</h4>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/246091b512a6c006e68374e2d24caf7c">here</a>.</p>
+<p><br></p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
 <hr>
 <pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
 ecom</code></pre>
@@ -341,8 +353,8 @@ ecom</code></pre>
 ## #   order_items &lt;dbl&gt;, order_value &lt;dbl&gt;</code></pre>
 <p><br></p>
 </div>
-<div id="data-dictionary" class="section level4">
-<h4>Data Dictionary</h4>
+<div id="data-dictionary" class="section level3">
+<h3>Data Dictionary</h3>
 <hr>
 <ul>
 <li>id: row id</li>
@@ -358,7 +370,6 @@ ecom</code></pre>
 <li>order_value: order value of visitor (in dollars)</li>
 </ul>
 <p><br></p>
-</div>
 <div id="univariate-box-plot" class="section level4">
 <h4>Univariate Box Plot</h4>
 <hr>
@@ -540,8 +551,9 @@ ecom</code></pre>
 <p><img src="../../post/2017-05-17-ggplot2-box-plots_files/figure-html/box18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="summary" class="section level4">
-<h4>Summary</h4>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
 <hr>
 <p>In this post, we learnt to:</p>
 <ul>
@@ -552,11 +564,10 @@ ecom</code></pre>
 </ul>
 <p><br></p>
 </div>
-</div>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
-<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-bar-plots/">post</a>, we will learn to build bar plots.</p>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/">post</a>, we will learn to build histograms.</p>
 <p><br></p>
 </div>
 

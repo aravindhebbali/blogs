@@ -22,19 +22,32 @@ This is the third post in the series **Elegant Data Visualization with ggplot2**
 ```{r geoms1, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
 library(dplyr)
+library(readr)
+library(tibble)
 ```
 
 <br>
 
-#### Data
+### Libraries, Code & Data
 
 <hr>
 
-```{r import, eval=FALSE}
-ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
-```
+We will use the following libraries in this post:
 
-```{r use, echo=FALSE, eval=TRUE, message=FALSE}
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+- [tibble](http://tibble.tidyverse.org/)
+- [dplyr](http://dplyr.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/2d0d5d5b60d0ef0f4d1b227c8fb0335d).
+
+<br>
+
+### Data
+
+<hr>
+
+```{r use, eval=TRUE, message=FALSE}
 ecom <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv')
 ecom
 ```
@@ -310,11 +323,7 @@ Line charts are used to examine trends over time.
 
 <hr>
 
-```{r imports2, eval=FALSE}
-gdp <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/gdp.csv')
-```
-
-```{r import2, echo=FALSE, eval=TRUE, message=FALSE}
+```{r import2, eval=TRUE, message=FALSE}
 gdp <- readr::read_csv('https://raw.githubusercontent.com/rsquaredacademy/datasets/master/gdp.csv')
 gdp
 ```
@@ -409,5 +418,7 @@ ggplot(mtcars, aes(x = disp, y = mpg, label = rownames(mtcars))) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-introduction-to-aesthetics/), we will learn about aesthetics.
 
 <br>

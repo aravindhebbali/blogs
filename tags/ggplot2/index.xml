@@ -190,7 +190,7 @@ Dataecom &amp;lt;- readr::read_csv(&amp;#39;https://raw.</description>
       <guid>/post/ggplot2-histogram/</guid>
       <description>IntroductionThis is the eleventh post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build box plots. In this post, we will learn to
 build histogramspecify binsmodifycolorfillalphabin widthline typeline sizemap aesthetics to variables
-Dataecom &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&amp;#39;)ecom## # A tibble: 1,000 x 11## id referrer device bouncers n_visit n_pages duration country## &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;## 1 1 google laptop true 10 1 693 Czech Republic## 2 2 yahoo tablet true 9 1 459 Yemen## 3 3 direct laptop true 0 1 996 Brazil## 4 4 bing tablet false 3 18 468 China## 5 5 yahoo mobile true 9 1 955 Poland## 6 6 yahoo laptop false 5 5 135 South Africa## 7 7 yahoo mobile true 10 1 75 Bangladesh## 8 8 direct mobile true 10 1 908 Indonesia## 9 9 bing mobile false 3 19 209 Netherlands## 10 10 google mobile true 6 1 208 Czech Republic## # .</description>
+Libraries, Code &amp;amp; DataWe will use the following libraries in this post:</description>
     </item>
     
     <item>

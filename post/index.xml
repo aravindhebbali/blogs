@@ -572,7 +572,7 @@ Scatter Plotp &amp;lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))p</descrip
       <guid>/post/ggplot2-text-annotations/</guid>
       <description>IntroductionThis is the sixth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to modify the axis and plot labels. In this post, we will learn to add text to the plots.
 add custom textmodify colormodify sizemodify fontfacemodify angle
-AnnotateWe will use the annotate() function to add custom text to the plots.</description>
+Libraries, Code &amp;amp; DataWe will use the following libraries in this post:</description>
     </item>
     
     <item>

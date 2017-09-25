@@ -343,18 +343,6 @@ con &lt;- DBI::dbConnect(RSQLite::SQLite(), &quot;:memory:&quot;)
 copy_to(con, ecom)</code></pre>
 <p><br></p>
 </div>
-<div id="aggregate-functions" class="section level4">
-<h4>Aggregate Functions</h4>
-<hr>
-<p>Often, you will want to perform some calculation on the data in a database. SQL provides a few functions, called aggregate functions, to help you out with this.</p>
-<p>For example,</p>
-<p><code>SELECT AVG(budget) FROM films</code></p>
-<p>gives you the average value from the budget column of the films table. Similarly, the MAX function returns the highest budget:</p>
-<p><code>SELECT MAX(budget) FROM films</code></p>
-<p>The SUM function returns the result of adding up the numeric values in a column:</p>
-<p><code>SELECT SUM(budget) FROM films</code></p>
-<p><br></p>
-</div>
 <div id="aggregate---1" class="section level4">
 <h4>Aggregate - 1</h4>
 <hr>
@@ -376,7 +364,6 @@ copy_to(con, ecom)</code></pre>
 <div id="aggregate---2" class="section level4">
 <h4>Aggregate - 2</h4>
 <hr>
-<p>You can probably guess what the MIN function does! Now it’s your turn to try out some SQL functions.</p>
 <pre class="r"><code>dbGetQuery(con, &quot;SELECT SUM(n_visit) FROM ecom WHERE n_visit &gt; 5&quot;)</code></pre>
 <pre><code>##   SUM(n_visit)
 ## 1         3574</code></pre>
@@ -391,20 +378,6 @@ copy_to(con, ecom)</code></pre>
 ## 1            0</code></pre>
 <p><br></p>
 </div>
-</div>
-<div id="alias---part-1" class="section level2">
-<h2>Alias - Part 1</h2>
-<hr>
-<p>You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example,</p>
-<p><code>SELECT MAX(budget) FROM films</code></p>
-<p>gives you a result with one column, named max. But what if you use two functions like this?</p>
-<p><code>SELECT MAX(budget), MAX(duration) FROM films</code></p>
-<p>Well, then you’d have two columns named max, which isn’t very useful!</p>
-<p>To avoid situations like this, SQL allows you to do something called aliasing. Aliasing simply means you assign a temporary name to something. To alias, you use the AS keyword, which you’ve already seen earlier in this course.</p>
-<p>For example, in the above example we could use aliases to make the result clearer:</p>
-<p><code>SELECT MAX(budget) AS max_budget,        MAX(duration) AS max_duration FROM films</code></p>
-<p>Aliases are helpful for making results more readable!</p>
-<p><br></p>
 <div id="alias---part-2" class="section level4">
 <h4>Alias - Part 2</h4>
 <hr>
@@ -422,11 +395,6 @@ copy_to(con, ecom)</code></pre>
 <div id="order-by" class="section level4">
 <h4>Order By</h4>
 <hr>
-<p>In this chapter you’ll learn how to sort and group your results to gain further insight. Let’s go!</p>
-<p>In SQL, the ORDER BY keyword is used to sort results in ascending or descending order according to the values of one or more columns.</p>
-<p>By default ORDER BY will sort in ascending order. If you want to sort the results in descending order, you can use the DESC keyword. For example,</p>
-<p><code>SELECT title FROM films ORDER BY release_year DESC</code></p>
-<p>gives you the titles of films sorted by release year, from newest to oldest.</p>
 <pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom ORDER BY country&quot;)</code></pre>
 <pre><code>##        id referrer device bouncers n_visit n_pages duration
 ## 1     232   social laptop    false       8       2       60
@@ -465,26 +433,9 @@ copy_to(con, ecom)</code></pre>
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 996 rows ]</code></pre>
 <p><br></p>
 </div>
-<div id="group-by---intro" class="section level4">
-<h4>Group By - Intro</h4>
-<hr>
-<p>Now you know how to sort results! Often you’ll need to aggregate results. For example, you might want to get count the number of male and female employees in your company. Here, what you want is to group all the males together and count them, and group all the females together and count them. In SQL, GROUP BY allows you to group a result by one or more columns, like so:</p>
-<p><code>SELECT sex, count(*) FROM employees GROUP BY sex</code></p>
-<p>This might give, for example:</p>
-<p>sex count male 15 female 19</p>
-<p>Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX(). Note that GROUP BY always goes after the FROM clause!</p>
-<p><br></p>
-</div>
 <div id="group-by---practice" class="section level4">
 <h4>Group By - Practice</h4>
 <hr>
-<p>As you’ve just seen, combining aggregate functions with GROUP BY can yield some powerful results!</p>
-<p>A word of warning: SQL will return an error if you try to SELECT a field that is not in your GROUP BY clause without using it to calculate some kind of value about the entire group.</p>
-<p>Note that you can combine GROUP BY with ORDER BY to group your results, calculate something about them, and then order your results. For example,</p>
-<p><code>SELECT sex, count(*) FROM employees GROUP BY sex ORDER BY count DESC</code></p>
-<p>might return something like</p>
-<p>sex count female 19 male 15</p>
-<p>because there are more females at our company than males. Note also that ORDER BY always goes after GROUP BY. Let’s try some exercises!</p>
 <pre class="r"><code>dbGetQuery(con, &quot;SELECT device, count(*) AS visits FROM ecom GROUP BY device ORDER by visits DESC &quot;)</code></pre>
 <pre><code>##   device visits
 ## 1 mobile    344
@@ -528,11 +479,11 @@ copy_to(con, ecom)</code></pre>
 <p>Compute AOV by devices</p>
 <p><br></p>
 </div>
+</div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <hr>
 <p><br></p>
-</div>
 </div>
 
 

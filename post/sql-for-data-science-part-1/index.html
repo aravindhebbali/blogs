@@ -491,11 +491,6 @@ copy_to(con, ecom)</code></pre>
 <li><code>&lt;=</code> less than or equal to</li>
 <li><code>&gt;=</code> greater than or equal to</li>
 </ul>
-<p>For example, you can filter text records such as title. The following code returns all films with the title ‘Metropolis’:</p>
-<pre class="r"><code>SELECT title
-FROM films
-WHERE title = &#39;Metropolis&#39;;</code></pre>
-<p>Notice that the WHERE clause always comes after the FROM statement!</p>
 <p><br></p>
 <div id="filter-1" class="section level4">
 <h4>Filter</h4>
@@ -551,14 +546,6 @@ WHERE title = &#39;Metropolis&#39;;</code></pre>
 <div id="where-and-or---part-1" class="section level4">
 <h4>Where And Or - Part 1</h4>
 <hr>
-<p>What if you want to select rows based on multiple conditions where some but not all of the conditions need to be met? For this, SQL has the OR operator.</p>
-<p>For example, the following returns all films released in either 1994 or 2000:</p>
-<p><code>SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000</code></p>
-<p>Note that you need to specify the column for every OR condition, so the following is invalid:</p>
-<p><code>SELECT title FROM films WHERE release_year = 1994 OR 2000</code></p>
-<p>When combining AND and OR, be sure to enclose the individual clauses in parentheses, like so:</p>
-<p><code>SELECT title FROM films WHERE (release_year = 1994 OR release_year = 1995) AND (certification = 'PG' OR certification = 'R')</code></p>
-<p>Otherwise, due to SQL’s precedence rules, you may not get the results you’re expecting!</p>
 </div>
 <div id="where-and-or---part-2" class="section level4">
 <h4>Where And Or - Part 2</h4>
@@ -576,16 +563,6 @@ WHERE title = &#39;Metropolis&#39;;</code></pre>
 ## 3             Philippines    false           2         362
 ## 4                    Peru     true           6        1049
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 130 rows ]</code></pre>
-<p><br></p>
-</div>
-<div id="between---part-1" class="section level4">
-<h4>Between - Part 1</h4>
-<hr>
-<p>As you’ve learned, you can use the following query to get titles of all films released in and between 1994 and 2000:</p>
-<p><code>SELECT title FROM films WHERE release_year &gt;= 1994 AND release_year &lt;= 2000</code></p>
-<p>Checking for ranges like this is very common, so in SQL the BETWEEN keyword provides a useful shorthand for filtering values within a specified range. This query is equivalent to the one above:</p>
-<p><code>SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000</code></p>
-<p>It’s important to remember that BETWEEN is inclusive, meaning the beginning and end values are included in the results!</p>
 <p><br></p>
 </div>
 <div id="between---part-2" class="section level4">
@@ -625,18 +602,6 @@ WHERE title = &#39;Metropolis&#39;;</code></pre>
 </div>
 <div id="introduction-to-null-and-is-null" class="section level4">
 <h4>Introduction to NULL and IS NULL</h4>
-<hr>
-<p>In SQL, NULL represents a missing or unknown value. You can check for NULL values using the expression IS NULL. For example, to count the number of missing birth dates in the people table:</p>
-<p><code>SELECT COUNT(*) FROM people WHERE birthdate IS NULL</code></p>
-<p>As you can see, IS NULL is useful when combined with WHERE to figure out what data you’re missing.</p>
-<p>Sometimes, you’ll want to filter out missing values so you only get results which are not NULL. To do this, you can use the IS NOT NULL operator.</p>
-<p>For example, this query gives the names of all people whose birth dates are not missing in the people table.</p>
-<p><code>SELECT name FROM people WHERE birthdate IS NOT NULL</code></p>
-<p><br></p>
-</div>
-<div id="null-and-is-null" class="section level4">
-<h4>NULL and IS NULL</h4>
-<hr>
 <pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom WHERE device IS NULL&quot;)</code></pre>
 <pre><code>##  [1] id          referrer    device      bouncers    n_visit    
 ##  [6] n_pages     duration    country     purchase    order_items
@@ -646,20 +611,6 @@ WHERE title = &#39;Metropolis&#39;;</code></pre>
 </div>
 <div id="like-and-not-like---part-1" class="section level4">
 <h4>LIKE and NOT LIKE - Part 1</h4>
-<hr>
-<p>As you’ve seen, the WHERE clause can be used to filter text data. However, so far you’ve only been able to filter by specifying the exact text you’re interested in. In the real world, often you’ll want to search for a pattern rather than a specific text string.</p>
-<p>In SQL, the LIKE operator can be used in a WHERE clause to search for a pattern in a column. To accomplish this, you use something called a wildcard as a placeholder for some other values. There are two wildcards you can use with LIKE:</p>
-<p>The % wildcard will match zero, one, or many characters in text. For example, the following query matches companies like ‘Data’, ‘DataC’ ‘DataCamp’, ‘DataMind’, and so on:</p>
-<p><code>SELECT name FROM companies WHERE name LIKE 'Data%'</code></p>
-<p>The _ wildcard will match a single character. For example, the following query matches companies like ‘DataCamp’, ‘DataComp’, and so on:</p>
-<p><code>SELECT name FROM companies WHERE name LIKE 'DataC_mp'</code></p>
-<p>You can also use the NOT LIKE operator to find records that don’t match the pattern you specify.</p>
-<p>Got it? Let’s practice!</p>
-<p><br></p>
-</div>
-<div id="like-and-not-like---part-2" class="section level4">
-<h4>LIKE and NOT LIKE - Part 2</h4>
-<hr>
 <pre class="r"><code>dbGetQuery(con, &quot;SELECT * FROM ecom WHERE country LIKE &#39;P%&#39;&quot;)</code></pre>
 <pre><code>##      id referrer device bouncers n_visit n_pages duration
 ## 1     5    yahoo mobile     true       9       1      955

@@ -146,15 +146,6 @@ In SQL, the WHERE keyword allows you to filter based on both text and numeric va
 - `<=` less than or equal to
 - `>=` greater than or equal to
 
-For example, you can filter text records such as title. The following code returns all films with the title 'Metropolis':
-
-```{r sql, eval=FALSE}
-SELECT title
-FROM films
-WHERE title = 'Metropolis';
-```
-Notice that the WHERE clause always comes after the FROM statement!
-
 <br>
 
 #### Filter
@@ -191,36 +182,6 @@ dbGetQuery(con, "SELECT * FROM ecom WHERE n_visit > 3 AND duration > 100")
 
 <hr>
 
-What if you want to select rows based on multiple conditions where some but not all of the conditions need to be met? For this, SQL has the OR operator.
-
-For example, the following returns all films released in either 1994 or 2000:
-
-`
-SELECT title
-FROM films
-WHERE release_year = 1994
-OR release_year = 2000
-`
-
-Note that you need to specify the column for every OR condition, so the following is invalid:
-
-`
-SELECT title
-FROM films
-WHERE release_year = 1994 OR 2000
-`
-
-When combining AND and OR, be sure to enclose the individual clauses in parentheses, like so:
-
-`
-SELECT title
-FROM films
-WHERE (release_year = 1994 OR release_year = 1995)
-AND (certification = 'PG' OR certification = 'R')
-`
-
-Otherwise, due to SQL's precedence rules, you may not get the results you're expecting!
-
 #### Where And Or - Part 2
 
 <hr>
@@ -229,30 +190,6 @@ Otherwise, due to SQL's precedence rules, you may not get the results you're exp
 dbGetQuery(con, "SELECT * FROM ecom WHERE (n_visit == 5 OR n_visit == 3) 
   AND (device = 'mobile' OR device = 'tablet')")
 ```
-
-<br>
-
-#### Between - Part 1
-
-<hr>
-
-As you've learned, you can use the following query to get titles of all films released in and between 1994 and 2000:
-
-`
-SELECT title
-FROM films
-WHERE release_year >= 1994
-AND release_year <= 2000`
-
-Checking for ranges like this is very common, so in SQL the BETWEEN keyword provides a useful shorthand for filtering values within a specified range. This query is equivalent to the one above:
-
-`
-SELECT title
-FROM films
-WHERE release_year
-BETWEEN 1994 AND 2000`
-
-It's important to remember that BETWEEN is inclusive, meaning the beginning and end values are included in the results!
 
 <br>
 
@@ -279,31 +216,6 @@ dbGetQuery(con, "SELECT * FROM ecom WHERE n_visit IN (2, 4, 6, 8, 10)")
 
 #### Introduction to NULL and IS NULL
 
-<hr>
-
-In SQL, NULL represents a missing or unknown value. You can check for NULL values using the expression IS NULL. For example, to count the number of missing birth dates in the people table:
-
-`
-SELECT COUNT(*)
-FROM people
-WHERE birthdate IS NULL`
-
-As you can see, IS NULL is useful when combined with WHERE to figure out what data you're missing.
-
-Sometimes, you'll want to filter out missing values so you only get results which are not NULL. To do this, you can use the IS NOT NULL operator.
-
-For example, this query gives the names of all people whose birth dates are not missing in the people table.
-
-`
-SELECT name
-FROM people
-WHERE birthdate IS NOT NULL`
-
-<br>
-
-#### NULL and IS NULL
-
-<hr>
 
 ```{r sql12}
 dbGetQuery(con, "SELECT * FROM ecom WHERE device IS NULL")
@@ -313,35 +225,6 @@ dbGetQuery(con, "SELECT * FROM ecom WHERE device IS NULL")
 
 #### LIKE and NOT LIKE - Part 1
 
-<hr>
-
-As you've seen, the WHERE clause can be used to filter text data. However, so far you've only been able to filter by specifying the exact text you're interested in. In the real world, often you'll want to search for a pattern rather than a specific text string.
-
-In SQL, the LIKE operator can be used in a WHERE clause to search for a pattern in a column. To accomplish this, you use something called a wildcard as a placeholder for some other values. There are two wildcards you can use with LIKE:
-
-The % wildcard will match zero, one, or many characters in text. For example, the following query matches companies like 'Data', 'DataC' 'DataCamp', 'DataMind', and so on:
-
-`
-SELECT name
-FROM companies
-WHERE name LIKE 'Data%'`
-
-The _ wildcard will match a single character. For example, the following query matches companies like 'DataCamp', 'DataComp', and so on:
-
-`
-SELECT name
-FROM companies
-WHERE name LIKE 'DataC_mp'`
-
-You can also use the NOT LIKE operator to find records that don't match the pattern you specify.
-
-Got it? Let's practice!
-
-<br>
-
-#### LIKE and NOT LIKE - Part 2
-
-<hr>
 
 ```{r sql13}
 dbGetQuery(con, "SELECT * FROM ecom WHERE country LIKE 'P%'")

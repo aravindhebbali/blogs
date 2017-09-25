@@ -166,10 +166,10 @@ Scatter Plotp &amp;lt;- ggplot(mtcars) +geom_point(aes(disp, mpg))p</descrip
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/ggplot2-statistical-plots/</guid>
-      <description>IntroductionThis is the 12th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build histograms. In this post, we will explore an alternative method to build plots.
+      <description>IntroductionThis is the 19th post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to position geoms to avoid overlapping. In this post, we will explore an alternative method to build plots.
 So far we have used geom_*() functions to build plots. Now we will use a new set of functions stat_*():
 stat_count()stat_boxplot()stat_identity()stat_bin()stat_unique()
-Dataecom &amp;lt;- readr::read_csv(&amp;#39;https://raw.</description>
+Libraries, Code &amp;amp; DataWe will use the following libraries in this post:</description>
     </item>
     
     <item>

@@ -17,7 +17,7 @@ draft: yes
 
 <hr>
 
-This is the 13th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we learnt the `stat_*()` family of functions. In this post, we will learn about faceting i.e. combining plots.
+This is the 20th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we learnt the `stat_*()` family of functions. In this post, we will learn about faceting i.e. combining plots.
 
 ```{r facet, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)

@@ -17,12 +17,11 @@ draft: yes
 
 <hr>
 
-This is the 12th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. In this post, we will explore an alternative method to build plots.
+This is the 19th post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/overlapping/), we learnt to position geoms to avoid overlapping. In this post, we will explore an alternative method to build plots.
 
 ```{r stat, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
 So far we have used `geom_*()` functions to build plots. Now we will use a new set of functions `stat_*()`: 
@@ -35,7 +34,20 @@ So far we have used `geom_*()` functions to build plots. Now we will use a new s
 
 <br>
 
-#### Data
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/427ca668cbb5f0dfe70138b618775da9).
+
+<br>
+
+### Data
 
 <hr>
 
@@ -46,7 +58,7 @@ ecom
 
 <br>
 
-#### Data Dictionary
+### Data Dictionary
 
 <hr>
 
@@ -64,7 +76,7 @@ ecom
 
 <br>
 
-#### Bar Plots
+### Bar Plots
 
 <hr>
 
@@ -75,7 +87,7 @@ ggplot(ecom) +
 
 <br>
 
-#### Box Plots
+### Box Plots
 
 <hr>
 
@@ -86,7 +98,7 @@ ggplot(ecom) +
 
 <br>
 
-#### Scatter Plots
+### Scatter Plots
 
 <hr>
 
@@ -97,7 +109,7 @@ ggplot(ecom) +
 
 <br>
 
-#### Histogram
+### Histogram
 
 <hr>
 
@@ -109,7 +121,7 @@ ggplot(ecom) +
 
 <br>
 
-#### Unique Values
+### Unique Values
 
 <hr>
 
@@ -133,7 +145,7 @@ In this post, we learnt about the functions underlying the `geom_*()` family of 
 
 <hr>
 
-In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets/), we will learn about faceting i.e. combining plots.
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-facets-combine-multiple-plots/), we will learn about faceting i.e. combining plots.
 
 <br>
 

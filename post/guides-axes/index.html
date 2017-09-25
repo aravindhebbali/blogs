@@ -297,7 +297,7 @@
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <hr>
-<p>Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the <code>scale_*()</code> family of functions.</p>
+<p>This is the twelfth post in the series <strong>Elegant Data Visualization with ggplot2</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/">post</a>, we learnt to build histograms. Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the <code>scale_*()</code> family of functions.</p>
 <p>Modify X and Y axis</p>
 <ul>
 <li>title</li>
@@ -320,9 +320,20 @@
 </ul></li>
 </ul>
 <p><br></p>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>We will use the following libraries in this post:</p>
+<ul>
+<li><a href="http://readr.tidyverse.org/">readr</a></li>
+<li><a href="http://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/096bc745c18a9ba47b99260978189920">here</a>.</p>
 <p><br></p>
-<div id="continuous-axis" class="section level4">
-<h4>Continuous Axis</h4>
+</div>
+<div id="continuous-axis" class="section level3">
+<h3>Continuous Axis</h3>
 <hr>
 <p><code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> take the following arguments:</p>
 <ul>
@@ -333,7 +344,6 @@
 <li>position</li>
 </ul>
 <p><br></p>
-</div>
 <div id="x-axis---continuous" class="section level4">
 <h4>X Axis - Continuous</h4>
 <hr>
@@ -388,8 +398,9 @@
 <p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="x-axis" class="section level4">
-<h4>X Axis</h4>
+</div>
+<div id="x-axis" class="section level3">
+<h3>X Axis</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg)) +
   scale_x_continuous(name = &quot;Displacement&quot;, limits = c(0, 600),
@@ -398,8 +409,8 @@
 <p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="y-axis---continuous" class="section level4">
-<h4>Y Axis - Continuous</h4>
+<div id="y-axis---continuous" class="section level3">
+<h3>Y Axis - Continuous</h3>
 <hr>
 <pre class="r"><code>ggplot(mtcars) + geom_point(aes(disp, mpg)) +
   scale_y_continuous(name = &quot;Miles Per Gallon&quot;, limits = c(0, 45),
@@ -408,8 +419,8 @@
 <p><img src="../../post/2017-07-06-guides-axes_files/figure-html/guide9-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="discrete-axis" class="section level4">
-<h4>Discrete Axis</h4>
+<div id="discrete-axis" class="section level3">
+<h3>Discrete Axis</h3>
 <hr>
 <p><code>scale_x_discrete()</code> and <code>scale_y_discrete()</code> take the following arguments:</p>
 <ul>
@@ -419,7 +430,6 @@
 <li>position</li>
 </ul>
 <p><br></p>
-</div>
 <div id="axis-label-1" class="section level4">
 <h4>Axis Label</h4>
 <hr>
@@ -475,6 +485,7 @@
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
+<p>In the next <a href="http://www.rsquaredacademy.com/blog/post/legend-part-1/">post</a>, we will learn to modify the legend when <code>color</code> is mapped to a variable.</p>
 <p><br></p>
 </div>
 

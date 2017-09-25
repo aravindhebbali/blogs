@@ -241,10 +241,9 @@ Files# readr::read_file()Lines# readr::read_lines()SummaryUp Next..</
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/guides-axes/</guid>
-      <description>IntroductionNow that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the scale_*() family of functions.
+      <description>IntroductionThis is the twelfth post in the series Elegant Data Visualization with ggplot2. In the previous post, we learnt to build histograms. Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the scale_*() family of functions.
 Modify X and Y axis
-titlelabelslimitsbreakspositionIn this module, we will learn how to modify the X and Y axis using the following functions:
-Continuous Axisscale_x_continuous()scale_y_continuous()Discrete Axisscale_x_discrete()scale_y_discrete()</description>
+titlelabelslimitsbreakspositionIn this module, we will learn how to modify the X and Y axis using the following functions:</description>
     </item>
     
     <item>

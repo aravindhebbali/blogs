@@ -16,7 +16,7 @@ draft: yes
 
 <hr>
 
-Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the `scale_*()` family of functions.
+This is the twelfth post in the series **Elegant Data Visualization with ggplot2**. In the previous [post](https://rsquaredacademy.github.io/blog/post/ggplot2-histogram/), we learnt to build histograms. Now that we have learnt to build different plots, let us look at different ways to modify the axis. Along the way, we will also explore the `scale_*()` family of functions.
 
 Modify X and Y axis
 
@@ -38,15 +38,25 @@ In this module, we will learn how to modify the X and Y axis using the following
 
 <br>
 
-```{r load, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-```
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/096bc745c18a9ba47b99260978189920).
 
 <br>
 
-#### Continuous Axis
+```{r load, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
+library(ggplot2)
+library(readr)
+```
+
+### Continuous Axis
 
 <hr>
 
@@ -132,7 +142,7 @@ ggplot(mtcars) +
 
 <br>
 
-#### X Axis 
+### X Axis 
 
 <hr>
 
@@ -145,7 +155,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg)) +
 
 <br>
 
-#### Y Axis - Continuous
+### Y Axis - Continuous
 
 <hr>
 
@@ -158,7 +168,7 @@ ggplot(mtcars) + geom_point(aes(disp, mpg)) +
 
 <br>
 
-#### Discrete Axis
+### Discrete Axis
 
 <hr>
 
@@ -241,5 +251,7 @@ ggplot(mtcars) + geom_bar(aes(factor(cyl))) +
 ### Up Next..
 
 <hr>
+
+In the next [post](http://www.rsquaredacademy.com/blog/post/legend-part-1/), we will learn to modify the legend when `color` is mapped to a variable.
 
 <br>

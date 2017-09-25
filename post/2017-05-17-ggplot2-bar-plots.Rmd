@@ -13,7 +13,7 @@ draft: yes
 [![Twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus)
 [![Facebook](http://i.imgur.com/P3YfQoD.png)](https://www.facebook.com/sharer/sharer.php?u=)
 
-#### Introduction
+### Introduction
 
 <hr>
 
@@ -33,13 +33,25 @@ This is the ninth post in the series **Elegant Data Visualization with ggplot2**
 
 ```{r bar, echo=FALSE, eval=TRUE, results='hide', message=FALSE}
 library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(readr)
 ```
 
 <br>
 
-#### Data
+### Libraries, Code & Data
+
+<hr>
+
+We will use the following libraries in this post:
+
+- [readr](http://readr.tidyverse.org/)
+- [ggplot2](http://ggplot2.tidyverse.org/)
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/096329693fa1f9313771d4e259cce1ec).
+
+<br>
+
+### Data
 
 <hr>
 
@@ -50,7 +62,7 @@ ecom
 
 <br>
 
-#### Data Dictionary
+### Data Dictionary
 
 <hr>
 
@@ -68,7 +80,7 @@ ecom
 
 <br>
 
-#### Aesthetics
+### Aesthetics
 
 <hr>
 
@@ -193,5 +205,7 @@ ggplot(ecom) +
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/ggplot2-box-plots/), we will learn to build box plots.
 
 <br>

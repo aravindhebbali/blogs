@@ -306,8 +306,3 @@ Compute AOV by devices
 
 <br>
 
-### Up Next..
-
-<hr>
-
-<br>

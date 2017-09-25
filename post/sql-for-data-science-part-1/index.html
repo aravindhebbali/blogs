@@ -294,13 +294,13 @@
 </div>
 
   <p><a href="https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus"><img src="http://i.imgur.com/tXSoThF.png" alt="Twitter" /></a> <a href="https://www.facebook.com/sharer/sharer.php?u="><img src="http://i.imgur.com/P3YfQoD.png" alt="Facebook" /></a></p>
-<div id="introduction" class="section level4">
-<h4>Introduction</h4>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
 <p>This is the third post in the series <strong>R &amp; Databases</strong>. You can find the links to the other two posts of this series below:</p>
 <ul>
-<li><a href="">Quick Guide: R &amp; SQLite</a></li>
-<li><a href="">Data Wrangling with dbplyr</a></li>
-<li><a href="">SQL for Data Science - Part 2</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/quick-guide-r-sqlite/">Quick Guide: R &amp; SQLite</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/data-wrangling-with-dbplyr">Data Wrangling with dbplyr</a></li>
+<li><a href="https://rsquaredacademy.github.io/blog/post/sql-for-data-science-part-2">SQL for Data Science - Part 2</a></li>
 </ul>
 <p>In this post, we will learn to:</p>
 <ul>
@@ -328,19 +328,19 @@
 <p>We will use the following libraries in this post:</p>
 <ul>
 <li><a href="http://readr.tidyverse.org/">DBI</a></li>
-<li><a href="">RSQLite</a></li>
-<li><a href="">dbplyr</a></li>
+<li><a href="https://rstats-db.github.io/RSQLite/">RSQLite</a></li>
+<li><a href="http://dbplyr.tidyverse.org/">dbplyr</a></li>
 </ul>
-<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="">here</a>.</p>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/f44774d9c6e115c08d5e2e693380a00f">here</a>.</p>
 <p><br></p>
-<div id="set-up" class="section level4">
-<h4>Set Up</h4>
+</div>
+<div id="set-up" class="section level3">
+<h3>Set Up</h3>
 <hr>
 <pre class="r"><code>ecom &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rsquaredacademy/datasets/master/web.csv&#39;)
 con &lt;- DBI::dbConnect(RSQLite::SQLite(), &quot;:memory:&quot;)
 copy_to(con, ecom)</code></pre>
 <p><br></p>
-</div>
 <div id="select-single-column" class="section level4">
 <h4>Select Single Column</h4>
 <hr>
@@ -691,6 +691,17 @@ WHERE title = &#39;Metropolis&#39;;</code></pre>
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 117 rows ]</code></pre>
 <p><br></p>
 </div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<hr>
+<p><br></p>
+</div>
+<div id="up-next.." class="section level3">
+<h3>Up Next..</h3>
+<hr>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/sql-for-data-science-part-2">post</a>, we will learn advanced SQL commands.</p>
+<p><br></p>
 </div>
 
 

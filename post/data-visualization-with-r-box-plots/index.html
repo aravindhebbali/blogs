@@ -301,7 +301,7 @@
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <hr>
-<p>This is the sixth post in the series <strong>Data Visualization With R</strong>. In the previous <a href="">post</a>, we learnt how to build bar plots. In this post, we will learn to</p>
+<p>This is the sixth post in the series <strong>Data Visualization With R</strong>. In the previous <a href="https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-bar-plots/">post</a>, we learnt how to build bar plots. In this post, we will learn to</p>
 <ul>
 <li>create univariate/multivariate box plots</li>
 <li>interpret box plots</li>
@@ -311,6 +311,12 @@
 <li>use formula to compare distributions of different variables</li>
 <li>use notches to compare medians</li>
 </ul>
+<p><br></p>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/d5e49b7903a54bd02d77ae2057f05d4a">here</a>.</p>
 <p><br></p>
 </div>
 <div id="box-plot" class="section level3">
@@ -336,32 +342,33 @@
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box1-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="horizontal-box-plot" class="section level4">
-<h4>Horizontal Box Plot</h4>
+</div>
+<div id="horizontal-box-plot" class="section level3">
+<h3>Horizontal Box Plot</h3>
 <hr>
 <p>Use the <code>horizontal</code> argument in the <code>boxplot()</code> function to create a horizontal box plot.</p>
 <pre class="r"><code>boxplot(mtcars$mpg, horizontal = TRUE)</code></pre>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box2-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="color" class="section level4">
-<h4>Color</h4>
+<div id="color" class="section level3">
+<h3>Color</h3>
 <hr>
 <p>Let us add some color to the boxplot. Use the <code>col</code> argument to specify a color for the plot.</p>
 <pre class="r"><code>boxplot(mtcars$mpg, col = &#39;blue&#39;)</code></pre>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box3-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="border-color" class="section level4">
-<h4>Border Color</h4>
+<div id="border-color" class="section level3">
+<h3>Border Color</h3>
 <hr>
 <p>We can specify a separate color for the border of the box in the boxplot. To modify the border color, use the <code>border</code> argument.</p>
 <pre class="r"><code>boxplot(mtcars$mpg, border = &#39;red&#39;)</code></pre>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="range" class="section level4">
-<h4>Range</h4>
+<div id="range" class="section level3">
+<h3>Range</h3>
 <hr>
 <p>The <code>range</code> argument determines how far the plot whiskers extend out from the box. If range is positive, the whiskers extend to the most extreme data point which is no more than range times the interquartile range from the box. A value of zero causes the whiskers to extend to the data extremes.</p>
 <p>Let us set the value of <code>range</code> to 0 and observe the plot.</p>
@@ -375,8 +382,8 @@
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box7-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="outline" class="section level4">
-<h4>Outline</h4>
+<div id="outline" class="section level3">
+<h3>Outline</h3>
 <hr>
 <p>The outliers in the plot are not drawn if the <code>outline</code> argument is set to <code>FALSE</code>. The default value is <code>TRUE</code>.</p>
 <pre class="r"><code>boxplot(mtcars$mpg, range = 1, outline = FALSE)</code></pre>
@@ -386,13 +393,12 @@
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box9-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="varwidth" class="section level4">
-<h4>Varwidth</h4>
+<div id="varwidth" class="section level3">
+<h3>Varwidth</h3>
 <hr>
 <p>If the <code>varwidth</code> argument is set to <code>TRUE</code>, the boxes are drawn with widths proportional to the square-roots of the number of observations in the groups.</p>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box10-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><br></p>
-</div>
 </div>
 <div id="bivariatemultivariate-box-plot" class="section level3">
 <h3>Bivariate/Multivariate Box Plot</h3>
@@ -456,8 +462,9 @@ boxplot(hsb$read ~ hsb$female, notch = TRUE,
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box16-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Since the notches overlap, there is no strong evidence that the medians differ.</p>
 <p><br></p>
-<div id="putting-it-all-together" class="section level4">
-<h4>Putting it all together</h4>
+</div>
+<div id="putting-it-all-together" class="section level3">
+<h3>Putting it all together</h3>
 <hr>
 <p>We will end this post by adding a title and axis labels to the box plot. If you do not know how to add title and axis labels to a plot, please refer to this <a href="https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-title-and-axis-labels/">post</a>.</p>
 <pre class="r"><code>boxplot(mtcars$mpg ~ mtcars$cyl, range = 1, outline = TRUE, 
@@ -467,7 +474,6 @@ boxplot(hsb$read ~ hsb$female, notch = TRUE,
         names = c(&#39;Four&#39;, &#39;Six&#39;, &#39;Eight&#39;))</code></pre>
 <p><img src="../../post/2017-05-17-data-visualization-with-r-box-plots_files/figure-html/box17-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
-</div>
 </div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
@@ -487,7 +493,7 @@ boxplot(hsb$read ~ hsb$female, notch = TRUE,
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
-<p>In the next post, we will learn about histograms.</p>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-histogram/">post</a>, we will learn about histograms.</p>
 <p><br></p>
 </div>
 

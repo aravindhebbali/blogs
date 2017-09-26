@@ -18,7 +18,7 @@ draft: yes
 
 <hr>
 
-This is the sixth post in the series **Data Visualization With R**. In the previous [post](), we learnt how to build bar plots. In this post, we will learn to
+This is the sixth post in the series **Data Visualization With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-bar-plots/), we learnt how to build bar plots. In this post, we will learn to
 
 - create univariate/multivariate box plots
 - interpret box plots
@@ -27,6 +27,14 @@ This is the sixth post in the series **Data Visualization With R**. In the previ
 - modify box color
 - use formula to compare distributions of different variables
 - use notches to compare medians
+
+<br>
+
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/d5e49b7903a54bd02d77ae2057f05d4a).
 
 <br>
 
@@ -62,7 +70,7 @@ boxplot(mtcars$mpg)
 
 <br>
 
-#### Horizontal Box Plot
+### Horizontal Box Plot
 
 <hr>
 
@@ -74,7 +82,7 @@ boxplot(mtcars$mpg, horizontal = TRUE)
 
 <br>
 
-#### Color
+### Color
 
 <hr>
 
@@ -86,7 +94,7 @@ boxplot(mtcars$mpg, col = 'blue')
 
 <br>
 
-#### Border Color
+### Border Color
 
 <hr>
  
@@ -98,7 +106,7 @@ boxplot(mtcars$mpg, border = 'red')
 
 <br>
 
-#### Range
+### Range
 
 <hr>
 
@@ -132,7 +140,7 @@ for (i in values) {
 
 <br>
 
-#### Outline
+### Outline
 
 <hr>
 
@@ -158,7 +166,7 @@ for (i in values) {
 
 <br>
 
-#### Varwidth
+### Varwidth
 
 <hr>
 
@@ -255,7 +263,7 @@ Since the notches overlap, there is no strong evidence that the medians differ.
 
 <br>
 
-#### Putting it all together
+### Putting it all together
 
 <hr>
 
@@ -291,6 +299,6 @@ In this post, we learnt how to create box plots. Specifically, we learnt to:
 
 <hr>
 
-In the next post, we will learn about histograms.
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-histogram/), we will learn about histograms.
 
 <br>

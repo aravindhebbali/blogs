@@ -25,7 +25,15 @@ This is the third post in the series **Data Visualization With R**. In the previ
 
 <br>
 
-#### Basic Plot
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/f5cd1315826bd44466a15444456ea61d).
+
+<br>
+
+### Basic Plot
 
 <hr>
 
@@ -47,7 +55,7 @@ Now the plot clearly communicates that it represents the relationship between th
 
 <br>
 
-#### Shape
+### Shape
 
 <hr>
 
@@ -86,7 +94,7 @@ plot(mtcars$disp, mtcars$mpg, pch = nlevels(factor(mtcars$cyl)))
 plot(mtcars$disp, mtcars$mpg, pch = unclass(mtcars$cyl))
 ```
 
-#### Size
+### Size
 
 <hr>
 
@@ -114,7 +122,7 @@ for (i in values) {
 
 <br>
 
-#### Color
+### Color
 
 <hr>
 
@@ -130,7 +138,7 @@ plot(mtcars$disp, mtcars$mpg, pch = 5, col = 'blue', bg = 'red')
 You can observe that although we have specified a background color using the `bg` argument, we do not see the red background color as the value specified for the `pch` (shape) argument is not between 21 and 25. In the next example, we will use a value between 21 and 25 so that the `pch` argument is effective.
 
 ```{r col2, fig.align='center', fig.width=5, fig.height=5}
-# shape between 0 and 21
+# shape between 22 and 25
 plot(mtcars$disp, mtcars$mpg, pch = 24, col = 'red', bg = 'blue')
 ```
 
@@ -164,6 +172,6 @@ In this post, we learned how to
 
 <hr>
 
-In certain cases we might want to fit a regression line or add horizontal/vertical lines to the scatter plots. We will learn to do that in the next post, where we build line plots.
+In certain cases we might want to fit a regression line or add horizontal/vertical lines to the scatter plots. We will learn to do that in the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-line-graphs/), where we build line plots.
 
 <br>

@@ -29,7 +29,15 @@ This is the fourth post in the series **Data Visualization With R**. In the prev
 
 <br>
 
-#### Line Graph
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/ea80f20e798e25b3adfc9ff1e87ed311).
+
+<br>
+
+### Line Graph
 
 <hr>
 
@@ -74,7 +82,7 @@ plot(data, type = 'c')
 
 <br>
 
-#### Color
+### Color
 
 <hr>
 
@@ -94,7 +102,7 @@ plot(data, type = 'b', col = 'blue')
 
 <br>
 
-#### Line Type
+### Line Type
 
 <hr>
 
@@ -143,7 +151,7 @@ for (i in values) {
 
 <br>
 
-#### Line Width
+### Line Width
 
 <hr>
 
@@ -169,7 +177,7 @@ for (i in values) {
 
 <br>
 
-#### Enhance Points
+### Enhance Points
 
 <hr>
 
@@ -195,7 +203,7 @@ points(data, pch = 23, col = 'blue', bg = 'green', cex = 1.5)
 
 <br>
 
-#### Additional Lines
+### Additional Lines
 
 <hr>
 
@@ -222,6 +230,10 @@ lines(data2, type = "b", col = "red")
 ```
 
 <br>
+
+### Putting it all together...
+
+<hr>
 
 Finally let us enhance the plot by adding a title and modifying the axis labels which we learnt in this first [post](https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/) of the series.
 
@@ -251,6 +263,6 @@ In this post, we learnt how to
 
 <hr>
 
-In the next post, we will learn how to build bar plots which are used to visualize a single categorical data or the relationship between two categorical variables.
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-bar-plots/), we will learn how to build bar plots which are used to visualize a single categorical data or the relationship between two categorical variables.
 
 <br>

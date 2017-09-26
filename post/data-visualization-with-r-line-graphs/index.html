@@ -310,8 +310,15 @@
 <li>add additional lines to the plot</li>
 </ul>
 <p><br></p>
-<div id="line-graph" class="section level4">
-<h4>Line Graph</h4>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/ea80f20e798e25b3adfc9ff1e87ed311">here</a>.</p>
+<p><br></p>
+</div>
+<div id="line-graph" class="section level3">
+<h3>Line Graph</h3>
 <hr>
 <p>To build a line graph, we will learn a new argument in the <code>plot()</code> function called <code>type</code>. It allows us to specify the symbol that must be used to represent the data. Let us begin by building a simple line graph. We will use the <code>AirPassengers</code> data set in this post. Before we begin to build the plot, let us take a quick look at the data in order to understand what we are plotting.</p>
 <pre class="r"><code>head(AirPassengers)</code></pre>
@@ -335,8 +342,8 @@ plot(data, type = &#39;l&#39;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="color" class="section level4">
-<h4>Color</h4>
+<div id="color" class="section level3">
+<h3>Color</h3>
 <hr>
 <p>So now we know how to build a simple line graph. Let us now make this plot more elegant by modifying its appearance. Let us begin by adding some color to the line using the <code>col</code> argument in the <code>plot()</code> function.</p>
 <pre class="r"><code>plot(data, type = &#39;l&#39;, col = &#39;blue&#39;)</code></pre>
@@ -347,8 +354,8 @@ plot(data, type = &#39;l&#39;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="line-type" class="section level4">
-<h4>Line Type</h4>
+<div id="line-type" class="section level3">
+<h3>Line Type</h3>
 <hr>
 <p>The line type can be modified using the <code>lty</code> argument. It takes values from 1 to 6 and the default value is 1. Below is an example:</p>
 <ul>
@@ -370,8 +377,8 @@ plot(data, type = &#39;l&#39;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/lin8-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="line-width" class="section level4">
-<h4>Line Width</h4>
+<div id="line-width" class="section level3">
+<h3>Line Width</h3>
 <hr>
 <p>The width of the lines can be modified using the <code>lwd</code> argument in the <code>plot()</code> function. The default value for width is 1.</p>
 <pre class="r"><code>plot(data, type = &#39;l&#39;, lwd = 2.5)</code></pre>
@@ -381,8 +388,8 @@ plot(data, type = &#39;l&#39;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/lin11-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="enhance-points" class="section level4">
-<h4>Enhance Points</h4>
+<div id="enhance-points" class="section level3">
+<h3>Enhance Points</h3>
 <hr>
 <p>We can enhance the points in the line plot in the same way as we enhanced the points in the scatter plot in this previous <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-scatter-plots/">post</a>. Let us look at an example:</p>
 <pre class="r"><code>plot(data, type = &#39;b&#39;, pch = 23, col = &#39;red&#39;, cex = 1.5)</code></pre>
@@ -399,8 +406,8 @@ points(data, pch = 23, col = &#39;blue&#39;, bg = &#39;green&#39;, cex = 1.5)</c
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line13-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="additional-lines" class="section level4">
-<h4>Additional Lines</h4>
+<div id="additional-lines" class="section level3">
+<h3>Additional Lines</h3>
 <hr>
 <p>If you want to compare variables, you would want to add additional lines to the line graph. In R, this can be achieved using the <code>lines()</code> function. First we create the line plot using the base variable and then we can add as many lines as we want using the <code>lines()</code> function.</p>
 <p><strong>Before you add additional lines, it is important to ensure that the range of both the axis are modified to accommodate the data of the additional lines. If we do not modify the axis range, some of the lines will be outside the plot.</strong></p>
@@ -416,6 +423,10 @@ lines(data2, type = &quot;b&quot;, col = &quot;red&quot;)</code></pre>
 lines(data2, type = &quot;b&quot;, col = &quot;red&quot;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line15-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
+</div>
+<div id="putting-it-all-together" class="section level3">
+<h3>Putting it all together…</h3>
+<hr>
 <p>Finally let us enhance the plot by adding a title and modifying the axis labels which we learnt in this first <a href="https://rsquaredacademy.github.io/post/data-visualization-with-r-title-and-axis-labels/">post</a> of the series.</p>
 <pre class="r"><code>plot(data1, type = &quot;b&quot;, col = &quot;blue&quot;, 
      ylim = c(5, 9), main = &#39;Line Graph&#39;,
@@ -423,7 +434,6 @@ lines(data2, type = &quot;b&quot;, col = &quot;red&quot;)</code></pre>
 lines(data2, type = &quot;b&quot;, col = &quot;red&quot;)</code></pre>
 <p><img src="../../post/2017-05-16-data-visualization-with-r-line-graphs_files/figure-html/line16-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
-</div>
 </div>
 <div id="summary" class="section level3">
 <h3>Summary</h3>
@@ -440,7 +450,7 @@ lines(data2, type = &quot;b&quot;, col = &quot;red&quot;)</code></pre>
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
-<p>In the next post, we will learn how to build bar plots which are used to visualize a single categorical data or the relationship between two categorical variables.</p>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-bar-plots/">post</a>, we will learn how to build bar plots which are used to visualize a single categorical data or the relationship between two categorical variables.</p>
 <p><br></p>
 </div>
 

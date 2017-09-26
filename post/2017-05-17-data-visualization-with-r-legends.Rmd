@@ -18,7 +18,7 @@ slug: data-visualization-with-r-legends
 
 <hr>
 
-This is the eighth post in the series **Data Visualisation With R**. In the previous post, we learnt to build histograms. In this post, we will learn how to:
+This is the eighth post in the series **Data Visualisation With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-histogram/), we learnt to build histograms. In this post, we will learn how to:
 
 - position the legend within the plot
 - modify the layout using `ncol` and `horiz` arguments
@@ -32,7 +32,15 @@ Since we have looked at a line graph in the above example, we will learn how to 
 
 <br>
 
-#### Data
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/0036a9cc1ca779965f45c38af260dcdc).
+
+<br>
+
+### Data
 
 <hr>
 
@@ -51,7 +59,7 @@ gdp
 
 <br>
 
-#### Line Graph
+### Line Graph
 
 <hr>
 
@@ -72,7 +80,7 @@ Without a legend, it will be very difficult to map the lines to the BRICS nation
 
 <br>
 
-#### Legend Location
+### Legend Location
 
 <hr>
 
@@ -128,7 +136,7 @@ You can either use the keywords or the axis coordinates to position the legend i
 
 <br>
 
-#### Lines
+### Lines
 
 <hr>
 
@@ -148,7 +156,7 @@ Now we can map the lines to the respective countries using the legend. But our l
 
 <br>
 
-#### Points
+### Points
 
 <hr>
 
@@ -168,7 +176,7 @@ legend(x = 2012, y = 14, legend = c('india', 'china'),
 
 <br>
 
-#### Text Placement
+### Text Placement
 
 <hr>
 
@@ -306,7 +314,7 @@ for (i in values) {
 
 <br>
 
-#### Box Appearance
+### Box Appearance
 
 <hr>
 
@@ -328,7 +336,7 @@ knitr::kable(legend, format = "markdown", caption = "Legend Box Options")
 
 <br>
 
-##### Box Type
+#### Box Type
 
 <hr>
 
@@ -353,26 +361,19 @@ for (i in values) {
 
 <br>
 
-#### Background Color
+### Background Color
 
 <hr>
 
 A background color can be added to the legend box using the `bg` argument. Below is an example:
 
 ```{r leg13, fig.align='center', fig.height=5, fig.width=5}
-{plot(gdp$year, gdp$india, type = 'l',
-      ylim = c(-5, 15), xlab = 'Year',
-      ylab = 'Growth Rate', col = 'blue',
-      main = 'BRICS: Growth Rate')
-lines(gdp$year, gdp$china, col = 'red')
-legend(x = 2012, y = 0, legend = c('india', 'china'),
-       lty = 1, col = c('blue', 'red'), bg = '#ffff66',
-       title = 'Nations')}
+{c}
 ```
 
 <br>
 
-#### Border
+### Border
 
 <hr>
 
@@ -456,7 +457,7 @@ for (i in values) {
 
 <br>
 
-#### Text Appearance
+### Text Appearance
 
 <hr>
 
@@ -493,8 +494,7 @@ In this post, we learnt to add legend to a plot using the `legend()` function. S
 
 <hr>
 
-In the next post, we will learn how to add text annotations to a plot
-using the `text()` and `mtext()` functions.
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-text-annotations/), we will learn how to add text annotations to a plot using the `text()` and `mtext()` functions.
 
 <br>
 

@@ -29,7 +29,15 @@ This is the first post of the series **Data Visualization With R**. The objectiv
 
 <br>
 
-#### What is data visualization?
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/3690e9217c72644a9e9bada0df709426).
+
+<br>
+
+### What is data visualization?
 
 <hr>
 
@@ -39,7 +47,7 @@ In simple words, data visualization is the representation of data in graphical f
 
 <br>
 
-#### Why visualize data?
+### Why visualize data?
 
 <hr>
 
@@ -51,7 +59,7 @@ In simple words, data visualization is the representation of data in graphical f
 
 <br>
 
-#### R Graphics System
+### R Graphics System
 
 <hr>
 
@@ -74,7 +82,7 @@ In simple words, data visualization is the representation of data in graphical f
 
 <hr>
 
-[ggplot2](http://ggplot2.tidyverse.org/index.html), created by Hadley Wickham, is based on the Grammar of Graphics written by Leland Wilkinson. It has a structured approach to data visualization and builds upon the features available in the Graphics and Lattice packages.
+[ggplot2](http://ggplot2.tidyverse.org/index.html), created by [Hadley Wickham](http://hadley.nz/), is based on the Grammar of Graphics written by Leland Wilkinson. It has a structured approach to data visualization and builds upon the features available in the Graphics and Lattice packages.
 
 <br>
 
@@ -87,7 +95,7 @@ The [lattice](https://CRAN.R-project.org/package=lattice) package is inspired by
 
 <br>
 
-#### Getting Help
+### Getting Help
 
 <hr>
 
@@ -100,7 +108,7 @@ help(mtcars)
 
 <br>
 
-#### mtcars 
+### mtcars 
 
 <hr>
 
@@ -110,7 +118,7 @@ head(mtcars)
 
 <br>
 
-#### variable info
+### variable info
 
 <hr>
 
@@ -120,7 +128,7 @@ str(mtcars)
 
 <br>
 
-#### plot()
+### plot()
 
 <hr>
 
@@ -135,7 +143,7 @@ Now that we have some idea about the data set, let us explore the `plot()` funct
 
 <br>
 
-#### One continuous variable
+### One continuous variable
 
 <hr>
 
@@ -145,7 +153,7 @@ plot(mtcars$mpg)
 
 <br>
 
-#### One categorical variable
+### One categorical variable
 
 <hr>
 
@@ -155,7 +163,7 @@ plot(as.factor(mtcars$cyl))
 
 <br>
 
-#### Two continuous variables
+### Two continuous variables
 
 <hr>
 
@@ -165,7 +173,7 @@ plot(mtcars$disp, mtcars$mpg)
 
 <br>
 
-#### Two categorical variables
+### Two categorical variables
 
 <hr>
 
@@ -175,7 +183,7 @@ plot(as.factor(mtcars$am), as.factor(mtcars$cyl))
 
 <br>
 
-#### Continuous/Categorical variable
+### Continuous/Categorical variable
 
 <hr>
 
@@ -185,7 +193,7 @@ plot(mtcars$mpg, mtcars$cyl)
 
 <br>
 
-#### Categorical/Continuous variable
+### Categorical/Continuous variable
 
 <hr>
 
@@ -199,16 +207,18 @@ plot(as.factor(mtcars$cyl), mtcars$mpg)
 
 <hr>
 
-In this first post, we have explored the `plot()` function to understand the different types of plots it can create based on the input types. Before we begin to build different plots such as bar plots, box plots, scatter plots or line plots, we will quickly learn how to add title and labels to a plot. In the next post, we will learn the following:
-
-- Title & subtitle
-- Axis labels & range
-- Color, font style and size
+In this first post, we have explored the `plot()` function to understand the different types of plots it can create based on the input types. Before we begin to build different plots such as bar plots, box plots, scatter plots or line plots, we will quickly learn how to add title and labels to a plot. 
 
 <br>
 
 ### Up Next..
 
 <hr>
+
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-title-and-axis-labels/), we will learn to modify:
+
+- Title & subtitle
+- Axis labels & range
+- Color, font style and size
 
 <br>

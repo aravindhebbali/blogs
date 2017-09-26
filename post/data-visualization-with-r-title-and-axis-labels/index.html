@@ -316,8 +316,15 @@
 </ul>
 <p>We will explore both the above methods one by one, and you can choose the method most convenient to you. Let us begin with the <code>plot()</code> function:</p>
 <p><br></p>
-<div id="syntax" class="section level4">
-<h4>Syntax</h4>
+</div>
+<div id="libraries-code-data" class="section level3">
+<h3>Libraries, Code &amp; Data</h3>
+<hr>
+<p>All the data sets used in this post can be found <a href="https://github.com/rsquaredacademy/datasets">here</a> and code can be downloaded from <a href="https://gist.github.com/rsquaredacademy/7c0968878e8cf989b669ae80ac32d15a">here</a>.</p>
+<p><br></p>
+</div>
+<div id="syntax" class="section level3">
+<h3>Syntax</h3>
 <hr>
 <table>
 <thead>
@@ -357,8 +364,8 @@
 </table>
 <p><br></p>
 </div>
-<div id="title" class="section level4">
-<h4>Title</h4>
+<div id="title" class="section level3">
+<h3>Title</h3>
 <hr>
 <p>You can add a title to the plot using the <code>main</code> argument in the <code>plot()</code> function. Ensure that the title is enclosed in single/double quotes as it is a string. Let us create a scatter plot of <code>disp</code> and <code>mpg</code> from <code>mtcars</code> data set, and add a title to it.</p>
 <pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
@@ -366,8 +373,8 @@
 <p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/title-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="subtitle" class="section level4">
-<h4>Subtitle</h4>
+<div id="subtitle" class="section level3">
+<h3>Subtitle</h3>
 <hr>
 <p>You can add a subtitle to the plot using the <code>sub</code> argument in the <code>plot()</code> function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. Let us add a subtitle to the plot we created in the previous example:</p>
 <pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
@@ -376,8 +383,8 @@
 <p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/subtitle-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="axis-labels" class="section level4">
-<h4>Axis Labels</h4>
+<div id="axis-labels" class="section level3">
+<h3>Axis Labels</h3>
 <hr>
 <p>In the plots created in the previous examples, the axis labels appear as <code>mtcars$mpg</code> and <code>mtcars$disp</code>. It is not the best way to name the axis and it will make more sense to use names that describe the data. Let us modify the axis labels using the <code>xlab</code> and <code>ylab</code> arguments in the <code>plot()</code> function:</p>
 <pre class="r"><code>plot(mtcars$disp, mtcars$mpg, 
@@ -387,8 +394,8 @@
 <p><img src="../../post/2017-05-15-data-visualization-with-r-title-and-axis-labels_files/figure-html/axis-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="title-1" class="section level4">
-<h4>title()</h4>
+<div id="title-1" class="section level3">
+<h3>title()</h3>
 <hr>
 <p>We can add title, subtitle and axis labels using the <code>title()</code> function as well. Let us recreate the plots from the previous examples but this time we will use the <code>title()</code> instead of the <code>plot()</code> function. We will continue to use the <code>plot()</code> function to create the plot.</p>
 <pre class="r"><code># create scatter plot
@@ -413,7 +420,6 @@ title(main = &#39;Displacement vs Miles Per Gallon&#39;,
 <p>The axis labels are legible and not overwritten. You can use either the <code>plot()</code> function or the <code>title()</code> function to add title, subtitle and axis labels but ensure that in case you use the <code>title()</code> function, set <code>ann</code> argument to <code>FALSE</code> in the <code>plot()</code> function.</p>
 <p><br></p>
 </div>
-</div>
 <div id="axis-range" class="section level3">
 <h3>Axis Range</h3>
 <hr>
@@ -433,7 +439,7 @@ title(main = &#39;Displacement vs Miles Per Gallon&#39;,
 <div id="up-next.." class="section level3">
 <h3>Up Next..</h3>
 <hr>
-<p>In the next post, we will learn to create the <strong>scatter plot</strong>.</p>
+<p>In the next <a href="https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-scatter-plots/">post</a>, we will learn to create the <strong>scatter plot</strong>.</p>
 <p><br></p>
 </div>
 

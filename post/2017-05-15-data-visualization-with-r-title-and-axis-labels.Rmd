@@ -36,7 +36,15 @@ We will explore both the above methods one by one, and you can choose the method
 
 <br>
 
-#### Syntax
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/7c0968878e8cf989b669ae80ac32d15a).
+
+<br>
+
+### Syntax
 
 <hr>
 
@@ -49,7 +57,7 @@ We will explore both the above methods one by one, and you can choose the method
 
 <br>
 
-#### Title
+### Title
 
 <hr>
 
@@ -62,7 +70,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 <br>
 
-#### Subtitle
+### Subtitle
 
 <hr>
 
@@ -76,7 +84,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 <br>
 
-#### Axis Labels
+### Axis Labels
 
 <hr>
 
@@ -91,7 +99,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 <br>
 
-#### title()
+### title()
 
 <hr>
 
@@ -155,6 +163,6 @@ In this post, we learned how to add title, subtitle and axis labels to a plot us
 
 <hr>
 
-In the next post, we will learn to create the **scatter plot**.
+In the next [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-scatter-plots/), we will learn to create the **scatter plot**.
 
 <br>

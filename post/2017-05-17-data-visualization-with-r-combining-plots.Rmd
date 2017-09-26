@@ -18,7 +18,7 @@ draft: yes
 
 <hr>
 
-This is the tenth post in the series **Data Visualization With R**. In the previous post, we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots. Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots. `par()` can be used to set graphical parameters regarding plot layout using the mfcol and mfrow arguments. `layout()` serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns.
+This is the tenth post in the series **Data Visualization With R**. In the previous [post](https://rsquaredacademy.github.io/blog/post/data-visualization-with-r-text-annotations/), we learnt how to add text annotations to plots. In this post, we will learn how to combine multiple plots. Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots. `par()` can be used to set graphical parameters regarding plot layout using the mfcol and mfrow arguments. `layout()` serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns.
 
 `par()` allows us to customize the graphical parameters(title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol. These two parameters create a matrix of plots filled by rows and columns respectively. Let us combine plots using both the above parameters.
 
@@ -39,7 +39,15 @@ Let us begin by combining 4 plots in 2 rows and 2 columns:
 
 <br>
 
-#### Case Study 1
+### Libraries, Code & Data
+
+<hr>
+
+All the data sets used in this post can be found [here](https://github.com/rsquaredacademy/datasets) and code can be downloaded from [here](https://gist.github.com/rsquaredacademy/8fc6a6d21c5ab8a0a68f11df51074a9d).
+
+<br>
+
+### Case Study 1
 
 <hr>
 
@@ -64,7 +72,7 @@ par(init)
 
 <br>
 
-#### Case Study 2
+### Case Study 2
 
 <hr>
 
@@ -87,7 +95,7 @@ par(init)
 
 <br>
 
-#### Case Study 3
+### Case Study 3
 
 <hr>
 
@@ -110,7 +118,7 @@ par(init)
 
 <br>
 
-#### Case Study 4
+### Case Study 4
 
 <hr>
 
@@ -134,7 +142,7 @@ par(init)
 
 <br>
 
-#### Case Study 5
+### Case Study 5
 
 <hr>
 
@@ -198,7 +206,7 @@ par(init)
 
 <br>
 
-#### Special Cases
+### Special Cases
 
 <hr>
 
@@ -212,7 +220,7 @@ We will specify that 4 plots need to be combined in 2 rows and 2 columns but spe
 
 <br>
 
-#### Case Study 7
+### Case Study 7
 
 <hr>
 
@@ -234,7 +242,7 @@ par(init)
 
 <br>
 
-#### Case Study 8
+### Case Study 8
 
 <hr>
 
@@ -275,7 +283,7 @@ Let us begin by combining 4 plots in a 2 row/2 column structure. We do this by c
 
 <br>
 
-#### Case Study 1
+### Case Study 1
 
 <hr>
 
@@ -295,7 +303,7 @@ plot(mtcars$mpg)
 
 <br>
 
-#### Case Study 2
+### Case Study 2
 
 <hr>
 
@@ -317,7 +325,7 @@ plot(mtcars$mpg)
 
 <br>
 
-#### Case Study 3
+### Case Study 3
 
 <hr>
 
@@ -341,7 +349,7 @@ boxplot(mtcars$mpg)
 
 <br>
 
-#### Case Study 4
+### Case Study 4
 
 <hr>
 
@@ -364,7 +372,7 @@ plot(mtcars$disp, mtcars$mpg)
 
 <br>
 
-#### Case Study 5
+### Case Study 5
 
 <hr>
 
@@ -388,7 +396,7 @@ boxplot(mtcars$mpg)
 
 <br>
 
-#### Case Study 6
+### Case Study 6
 
 <hr>
 
@@ -420,7 +428,7 @@ In all the layouts created so far, we have kept the size of the rows and columns
 
 <br>
 
-#### Case Study 7
+### Case Study 7
 
 <hr>
 
@@ -442,7 +450,7 @@ plot(mtcars$mpg)
 
 <br>
 
-#### Case Study 8
+### Case Study 8
 
 <hr>
 
@@ -474,7 +482,7 @@ The heights arguments is used to modify the height of the rows and based on the 
 
 <br>
 
-#### Case Study 9
+### Case Study 9
 
 <hr>
 
@@ -493,7 +501,7 @@ plot(mtcars$mpg)
 
 <br>
 
-#### Putting it all together...
+### Putting it all together...
 
 <hr>
 
